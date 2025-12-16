@@ -10,7 +10,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button"
 
 export default function HomePage() {
   const showcaseCta = {
-    imageSrc: "/红色树脂书籍冰箱贴 (1).png",
+    imageSrc: "/red-resin-book-magnet.png",
     alt: "Fridge Channel magnet in action on a fridge door",
     title: "See how the fridge magnet turns into a channel",
     body: "Place the one-tap magnet on your reader’s fridge and drive them straight into your content with every glance.",
