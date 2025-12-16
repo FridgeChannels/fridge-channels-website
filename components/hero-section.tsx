@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import Image from "next/image";
+import { Volume2, VolumeX } from "lucide-react";
 
 interface HeroSectionProps {
   videoSrc?: string | null;
@@ -14,6 +15,8 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
   const videoRef = useRef<HTMLVideoElement>(null);
   const overlayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [showOverlay, setShowOverlay] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const isMutedRef = useRef(true);
   const resolvedVideo = videoSrc ?? "/hero1215.mp4";
   const resolvedOverlayImage = overlayImageSrc ?? "/red-resin-book-magnet.png";
 
@@ -22,6 +25,8 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
     if (!video) return;
     setShowOverlay(false);
     video.currentTime = 0;
+    video.muted = isMutedRef.current;
+    video.defaultMuted = isMutedRef.current;
     video.play().catch(() => {});
   }, []);
 
@@ -36,6 +41,8 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
 
     const handleEnded = () => {
       scheduleNextLoop();
@@ -54,7 +61,23 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
   useEffect(() => {
     // When video source changes, reset overlay state to ensure 2s display before playing
     setShowOverlay(true);
-    scheduleNextLoop();
+    const video = videoRef.current;
+
+    const initPlayback = () => {
+      scheduleNextLoop();
+    };
+
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      if (video.readyState >= 2) {
+        initPlayback();
+      } else {
+        video.addEventListener("loadeddata", initPlayback, { once: true });
+      }
+    } else {
+      scheduleNextLoop();
+    }
 
     return () => {
       if (overlayTimerRef.current) {
@@ -62,6 +85,24 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
       }
     };
   }, [resolvedVideo, scheduleNextLoop]);
+
+  const handleToggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const nextMuted = !isMuted;
+    setIsMuted(nextMuted);
+    isMutedRef.current = nextMuted;
+
+    if (!nextMuted) {
+      video.muted = false;
+      video.defaultMuted = false;
+      video.play().catch(() => {});
+    } else {
+      video.muted = true;
+      video.defaultMuted = true;
+    }
+  };
 
   return (
     <section id="home" className="relative pt-16 min-h-[700px] overflow-hidden bg-white pb-0">
@@ -89,6 +130,25 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
           />
         </div>
         <div className="absolute inset-0 bg-white/40 pointer-events-none" />
+      </div>
+
+      <div className="absolute bottom-6 right-6 z-20">
+        <button
+          onClick={handleToggleMute}
+          className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-foreground shadow-xl backdrop-blur transition hover:bg-white"
+        >
+          {isMuted ? (
+            <>
+              <VolumeX className="h-4 w-4" />
+              {/* <span>Enable sound</span> */}
+            </>
+          ) : (
+            <>
+              <Volume2 className="h-4 w-4" />
+              {/* <span>Sound on</span> */}
+            </>
+          )}
+        </button>
       </div>
 
       <div className="flex flex-col items-center justify-center px-6 text-center relative z-10 min-h-[700px] mt-6">
