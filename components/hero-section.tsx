@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import Link from "next/link";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  videoSrc?: string | null;
+}
+
+export const HeroSection = ({ videoSrc }: HeroSectionProps) => {
   const contentTypes = [
     "Podcasts",
     "Newsletters",
@@ -24,7 +25,7 @@ export const HeroSection = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             className="h-full w-full object-cover"
-            src="/hero1215.mp4"
+            src={videoSrc ?? "/hero1215.mp4"}
             autoPlay
             loop
             muted
@@ -59,4 +60,3 @@ export const HeroSection = () => {
       </section>
   );
 };
-
