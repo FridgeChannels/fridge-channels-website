@@ -3,17 +3,15 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.SUPABASE_URL
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
-if (!supabaseUrl) {
-  throw new Error('Missing SUPABASE_URL environment variable')
-}
+export const supabaseServerClient = () => {
+  if (!supabaseUrl || !serviceRoleKey) {
+    console.warn('Supabase credentials not configured. Creator media features will be disabled.')
+    return null
+  }
 
-if (!serviceRoleKey) {
-  throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY environment variable')
-}
-
-export const supabaseServerClient = () =>
-  createClient(supabaseUrl, serviceRoleKey, {
+  return createClient(supabaseUrl, serviceRoleKey, {
     auth: {
       persistSession: false,
     },
   })
+}

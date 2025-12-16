@@ -4,7 +4,6 @@ import { CoreMetricsSection } from "@/components/core-metrics-section"
 import { HeroSection } from "@/components/hero-section"
 import { HowItWorksTimeline } from "@/components/how-it-works-timeline"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { DebugPing } from "@/components/debug-ping"
 import { ShimmerButton } from "@/components/ui/shimmer-button"
 
 interface LandingPageContentProps {
@@ -33,14 +32,13 @@ export const LandingPageContent = ({
 
   return (
     <div className="min-h-screen bg-[#F7F7F4]">
-      <DebugPing runId="run1" hasWhatIsSection={false} note="page.tsx current layout" />
       {/* Hero Section */}
       <HeroSection videoSrc={heroVideoUrl} overlayImageSrc={showcaseCtaImage} />
 
       {/* How Fridge Channel strengthens your C.O.R.E Section - styled like untillabs Assaying Organ Health */}
       <section id="why-creators-love-it" className="relative overflow-hidden py-16" style={{ backgroundColor: '#C8320B' }}>
         {/* Smooth gradient transitions at boundaries with curved blend */}
-        <div 
+        <div
           className="absolute inset-x-0 top-0 z-0"
           style={{
             height: '280px',
@@ -59,7 +57,7 @@ export const LandingPageContent = ({
             )`
           }}
         ></div>
-        <div 
+        <div
           className="absolute inset-x-0 bottom-0 z-0"
           style={{
             height: '280px',
@@ -78,7 +76,7 @@ export const LandingPageContent = ({
             )`
           }}
         ></div>
-        
+
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 flex flex-col justify-center py-12">
           <div className="max-w-4xl mx-auto space-y-6">
@@ -108,7 +106,7 @@ export const LandingPageContent = ({
       {/* Pricing Section - styled like C.O.R.E Section */}
       <section id="pricing" className="relative overflow-hidden py-16" style={{ backgroundColor: '#C42E0B' }}>
         {/* Smooth gradient transitions at boundaries with curved blend */}
-        <div 
+        <div
           className="absolute inset-x-0 top-0 z-0"
           style={{
             height: '320px',
@@ -127,7 +125,7 @@ export const LandingPageContent = ({
             )`
           }}
         ></div>
-        <div 
+        <div
           className="absolute inset-x-0 bottom-0 z-0"
           style={{
             height: '320px',
@@ -146,7 +144,7 @@ export const LandingPageContent = ({
             )`
           }}
         ></div>
-        
+
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 flex flex-col justify-center" style={{ paddingTop: '64px', paddingBottom: '64px' }}>
           <div className="max-w-4xl mx-auto space-y-8 bg-white/5 rounded-2xl border border-white/20 p-6 md:p-10 shadow-2xl backdrop-blur-md">
@@ -306,7 +304,7 @@ export const LandingPageContent = ({
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-5xl mx-auto space-y-6">
             <p className="text-center text-muted-foreground">
-              © Fridge Channel 
+              © Fridge Channel
             </p>
           </div>
         </div>

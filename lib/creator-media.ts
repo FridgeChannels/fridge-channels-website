@@ -19,6 +19,11 @@ export interface CreatorMediaResult {
 export async function getCreatorMedia(creatorName: string): Promise<CreatorMediaResult | null> {
   const supabase = supabaseServerClient()
 
+  // If Supabase is not configured, return null to use default content
+  if (!supabase) {
+    return null
+  }
+
   const { data: creator, error: creatorError } = await supabase
     .from('creator')
     .select('creator_id')
