@@ -162,10 +162,10 @@ export const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="container mx-auto px-4 pt-16 md:pt-24 pb-8 md:pb-12">
+    <section id="problem" className="container mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-6">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Section Title - styled like untillabs Our Approach */}
-        <div className="text-center space-y-6 py-8 md:py-12">
+        <div className="text-center space-y-6 py-4 md:py-6">
           <h2 className="text-4xl md:text-[52.8px] font-medium text-foreground mb-6">
             The problems paid newsletters are stuck with
 
@@ -180,7 +180,7 @@ export const ProblemSection = () => {
       </div>
 
       {/* Pain Points Cards - Grid 2 columns with staggered animation */}
-      <div className="pt-8">
+      <div className="pt-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {painPoints.map((pain, index) => (
             <PainCard

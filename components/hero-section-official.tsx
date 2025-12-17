@@ -19,7 +19,7 @@ export const HeroSection = () => {
 
 
   return (
-    <section id="home" className="relative pt-16 min-h-[700px] overflow-hidden bg-transparent pb-0">
+    <section id="home" className="relative pt-8 min-h-[700px] overflow-hidden bg-transparent pb-0">
         {/* Background image with blur effect similar to untillabs.com */}
         <div 
           className="absolute inset-0 z-0"
@@ -39,21 +39,12 @@ export const HeroSection = () => {
           <div className="mx-auto max-w-5xl" style={{ marginTop: '80px' }}>
             <div className="relative mx-auto h-full pt-24 pb-12 p-6">
               <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
-                Boost your newsletter's C.O.R.E in the heart of your readers' homes
+                Household touchpoints are a gold asset
               </h1>
             </div>
 
             <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">
-              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
-                <strong className="font-normal">C.O.R.E：</strong>
-                <strong className="font-normal">Channel Owned</strong>
-                <span className="text-white/60">·</span>
-                <strong className="font-normal">Open Rate</strong>
-                <span className="text-white/60">·</span>
-                <strong className="font-normal">Retention</strong>
-                <span className="text-white/60">·</span>
-                <strong className="font-normal">Earnings per subscriber</strong>
-              </div>
+              Fridge Channel builds your newsletter into a daily routine by AI-powered magnet: a tap on the fridge that drives habit, revisits, and new paid subscribers
             </div>
             <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
               <Link href="#join-pilot">

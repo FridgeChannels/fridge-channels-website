@@ -91,7 +91,47 @@ function TextGradientScroll({
     };
   }, []);
 
-  const words = text.split(" ");
+  // Parse text for bold markers (**text**)
+  const parseText = (text: string) => {
+    const parts: Array<{ text: string; bold: boolean }> = [];
+    let currentIndex = 0;
+    const regex = /\*\*(.*?)\*\*/g;
+    let match;
+    let lastIndex = 0;
+
+    while ((match = regex.exec(text)) !== null) {
+      // Add text before the bold marker
+      if (match.index > lastIndex) {
+        parts.push({ text: text.substring(lastIndex, match.index), bold: false });
+      }
+      // Add the bold text
+      parts.push({ text: match[1], bold: true });
+      lastIndex = regex.lastIndex;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push({ text: text.substring(lastIndex), bold: false });
+    }
+
+    // If no bold markers found, return the whole text as non-bold
+    if (parts.length === 0) {
+      parts.push({ text, bold: false });
+    }
+
+    return parts;
+  };
+
+  const textParts = parseText(text);
+  const words: Array<{ word: string; bold: boolean }> = [];
+  textParts.forEach((part) => {
+    const partWords = part.text.split(" ");
+    partWords.forEach((word) => {
+      if (word.trim()) {
+        words.push({ word, bold: part.bold });
+      }
+    });
+  });
 
   return (
     <TextGradientScrollContext.Provider value={{ textOpacity, type, isHovered, isScrollStopped }}>
@@ -101,18 +141,19 @@ function TextGradientScroll({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {words.map((word, i) => {
+        {words.map(({ word, bold }, i) => {
           const start = i / words.length;
           const end = start + 1 / words.length;
-          return type === "word" ? (
-            <Word key={i} progress={scrollYProgress} range={[start, end]} isHovered={isHovered} isScrollStopped={isScrollStopped}>
+          const content = type === "word" ? (
+            <Word progress={scrollYProgress} range={[start, end]} isHovered={isHovered} isScrollStopped={isScrollStopped}>
               {word}
             </Word>
           ) : (
-            <Letter key={i} progress={scrollYProgress} range={[start, end]} isHovered={isHovered} isScrollStopped={isScrollStopped}>
+            <Letter progress={scrollYProgress} range={[start, end]} isHovered={isHovered} isScrollStopped={isScrollStopped}>
               {word}
             </Letter>
           );
+          return bold ? <strong key={i}>{content}</strong> : <React.Fragment key={i}>{content}</React.Fragment>;
         })}
       </p>
     </TextGradientScrollContext.Provider>

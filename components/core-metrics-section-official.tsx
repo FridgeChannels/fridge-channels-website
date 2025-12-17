@@ -48,49 +48,31 @@ export function CoreMetricsSection() {
     {
       letter: "C",
       title: "Channel Owned",
-      description: "Turn the fridge door into an offline channel you actually control. Your NFC magnet becomes the default, data-driven entry point into your world at the fridge — no feeds, no algorithms.",
+      description: "A persistent offline touchpoint your audience sees every day — not buried in one person's inbox.",
       delay: 0,
     },
     {
       letter: "O",
       title: "Open Rate",
-      description: "AI-crafted, 30–120 second fridge-time teasers explain \"why this issue matters now\" and lead naturally to **Open** full issue, creating more chances For creator your work to be read.",
+      description: "More reading occasions because consumption starts at real life moments (coffee, cooking, water, family chat and more)",
       delay: 1,
     },
     {
       letter: "R",
       title: "Retention",
-      description: "Light, context-aware nudges at real fridge moments keep your newsletter visibly \"in use\" during daily life, reducing the quiet \"I never open this… why am I still paying?\" churn.",
+      description: "When subscribers use the subscription weekly, churn drops.",
       delay: 2,
     },
     {
       letter: "E",
-      title: "Earnings per subscriber",
-      description: "Only existing paying readers can subscribe to the FC magnet as an add-on. These \"I believe in this, just give me faster access and reminders\" fans pay extra for Fridge Channel Magnet, becoming your highest-signal, higher-ARPU tier on top of the base subscription.",
+      title: "Eearings",
+      description: "FC creates a higher-signal household segment and drives new paid subscribers you can attribute.",
       delay: 3,
     },
   ];
 
   return (
     <div className="space-y-12">
-      {/* Introduction - styled like untillabs */}
-      <div className="max-w-4xl mx-auto space-y-6">
-        <h3 className="text-2xl md:text-3xl font-medium text-white mb-4">
-          Building metrics that matter.
-        </h3>
-        <div className="space-y-4 text-base text-white leading-relaxed [&_strong]:font-semibold">
-          <p>
-            Fridge Channel is building the most detailed dataset in the world about <strong>how people behave around their fridge</strong>.
-          </p>
-          <p>
-            Using this fridge-time data, our AI turns each paid issue into <strong>scenario-aware, guided teasers</strong> — short prompts at the right moments that pull readers back into your full newsletter.
-          </p>
-          <p>
-            We focus on the four metrics that matter most for paid newsletters:
-          </p>
-        </div>
-      </div>
-
       {/* Core Metrics Cards */}
       <div className="grid md:grid-cols-2 gap-8 pt-8">
         {coreMetrics.map((metric, index) => (

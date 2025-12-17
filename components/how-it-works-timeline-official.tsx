@@ -1,69 +1,46 @@
 "use client";
 
+import Link from "next/link";
 import { Timeline } from "@/components/ui/timeline";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 export function HowItWorksTimeline() {
   const data = [
     {
-      title: "1. Prepare Content",
+      title: "1) Connect your content",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            You simply  <strong className="font-semibold text-foreground">add Fridge Channel's email address to your paid mailing list</strong>.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Every time you send a paid issue, we receive it too and our AI prepares fridge-time, guided teasers.
+            Add Fridge Channel's email to your list (or forward issues), or add your RSS into Fridge Channel AI-Powered Tools.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            👉 No extra buttons to click. No new editor to learn.
+            Every paid issue becomes <strong className="font-semibold text-foreground">fridge-time formats</strong> automatically.
           </p>
         </div>
       ),
     },
     {
-      title: "2. Design Magnet ",
+      title: "2) Choose scenes + design the magnet",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            We turn your idea into a fridge-ready magnet
+            Pick the family moments you want to show up (coffee, cooking, after work…).
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Fridge Channel provides <strong className="font-semibold text-foreground">professional design tools and a dedicated team</strong>:
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            We generate formats (10s / 2min / bullets), and ship a magnet that fits your brand.
           </p>
-          <ul className="list-disc list-inside space-y-2 text-lg text-muted-foreground ml-4 mb-8">
-            <li>you share your ideas, brand, and constraints,</li>
-            <li>we send you <strong className="font-semibold text-foreground">ready-to-review Fridge Channel Magnet mockups and demos</strong>,</li>
-            <li>you approve, we handle the rest.</li>
-          </ul>
         </div>
       ),
     },
     {
-      title: "3. Sell it",
+      title: "3) Launch + measure lift",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            <strong className="font-semibold text-foreground">You sell, we do everything else.</strong>
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Your job: <strong className="font-semibold text-foreground">tell your paying subscribers Fridge Channel Magnet exists and why it's valuable</strong>.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Our job: everything after they click "buy".
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-lg text-muted-foreground ml-4 mb-4">
-            <li>production & quality control</li>
-            <li>customs & global shipping</li>
-            <li>tracking, replacement, and customer support</li>
-          </ul>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-4 pt-4">
-            You focus on the newsletter and the relationship.
+            Households activate with <strong className="font-semibold text-foreground">FC Pass</strong>.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Fridge Channel handles the fridge, the magnet, and the boring logistics.
+            You see usage, returns, and (on higher tiers) <strong className="font-semibold text-foreground">subscription attribution + lift</strong>.
           </p>
         </div>
       ),
@@ -72,10 +49,25 @@ export function HowItWorksTimeline() {
 
   return (
     <div className="w-full bg-muted/30 dark:bg-neutral-950">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pt-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pt-10">
         <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-12">How it works</h2>
       </div>
       <Timeline data={data} />
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pb-10 pt-6">
+        <div className="flex items-center justify-center">
+          <Link href="#join-pilot">
+            <ShimmerButton 
+              className="shadow-2xl transition-transform duration-300 hover:scale-110"
+              background="linear-gradient(120deg, #9f1026, #f25f6c)"
+              shimmerColor="#ffe5e9"
+            >
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                Start your Fridge Channel pilot
+              </span>
+            </ShimmerButton>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
