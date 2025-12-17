@@ -8,7 +8,7 @@ import { Volume2, VolumeX } from "lucide-react";
 
 interface HeroSectionProps {
   videoSrc?: string | null;
-  overlayImageSrc?: string;
+  overlayImageSrc?: string | null;
 }
 
 export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => {
@@ -18,25 +18,31 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
   const [isMuted, setIsMuted] = useState(true);
   const isMutedRef = useRef(true);
   const resolvedVideo = videoSrc ?? "/hero1215.mp4";
-  const resolvedOverlayImage = overlayImageSrc ?? "/red-resin-book-magnet.png";
+  const hasOverlayImage = Boolean(overlayImageSrc);
 
   const startPlayback = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
-    setShowOverlay(false);
+    if (hasOverlayImage) {
+      setShowOverlay(false);
+    }
     video.currentTime = 0;
     video.muted = isMutedRef.current;
     video.defaultMuted = isMutedRef.current;
     video.play().catch(() => {});
-  }, []);
+  }, [hasOverlayImage]);
 
   const scheduleNextLoop = useCallback(() => {
+    if (!hasOverlayImage) {
+      startPlayback();
+      return;
+    }
     if (overlayTimerRef.current) {
       clearTimeout(overlayTimerRef.current);
     }
     setShowOverlay(true);
     overlayTimerRef.current = setTimeout(startPlayback, 2000);
-  }, [startPlayback]);
+  }, [hasOverlayImage, startPlayback]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -60,7 +66,7 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
 
   useEffect(() => {
     // When video source changes, reset overlay state to ensure 2s display before playing
-    setShowOverlay(true);
+    setShowOverlay(hasOverlayImage);
     const video = videoRef.current;
 
     const initPlayback = () => {
@@ -84,7 +90,7 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
         clearTimeout(overlayTimerRef.current);
       }
     };
-  }, [resolvedVideo, scheduleNextLoop]);
+  }, [resolvedVideo, scheduleNextLoop, hasOverlayImage]);
 
   const handleToggleMute = () => {
     const video = videoRef.current;
@@ -116,19 +122,21 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
           playsInline
           preload="auto"
         />
-        <div
-          className="absolute inset-0 transition-opacity duration-500 ease-in-out"
-          style={{ opacity: showOverlay ? 1 : 0 }}
-        >
-          <Image
-            src={resolvedOverlayImage}
-            alt="Hero overlay"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        </div>
+        {hasOverlayImage && overlayImageSrc && (
+          <div
+            className="absolute inset-0 transition-opacity duration-500 ease-in-out"
+            style={{ opacity: showOverlay ? 1 : 0 }}
+          >
+            <Image
+              src={overlayImageSrc}
+              alt="Hero overlay"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+          </div>
+        )}
         <div className="absolute inset-0 bg-white/40 pointer-events-none" />
       </div>
 

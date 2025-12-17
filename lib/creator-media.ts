@@ -1,8 +1,11 @@
 import { supabaseServerClient } from './supabase-client'
 
+export type CreatorImageType = 'normal' | 'cover' | null
+
 export interface CreatorImage {
   image_id: string
   front_image_url: string
+  type: CreatorImageType
 }
 
 export interface CreatorVideo {
@@ -12,7 +15,8 @@ export interface CreatorVideo {
 
 export interface CreatorMediaResult {
   creatorId: string
-  images: CreatorImage[]
+  coverImage: CreatorImage | null
+  normalImages: CreatorImage[]
   video: CreatorVideo | null
 }
 
@@ -27,7 +31,7 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
   const { data: creator, error: creatorError } = await supabase
     .from('creator')
     .select('creator_id')
-    .eq('creator_name', creatorName)
+    .ilike('creator_name', creatorName)
     .maybeSingle()
 
   if (creatorError) {
@@ -41,7 +45,7 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
 
   const { data: images, error: imagesError } = await supabase
     .from('magnet_image')
-    .select('image_id, front_image_url')
+    .select('image_id, front_image_url, type')
     .eq('creator_id', creator.creator_id)
     .order('created_at', { ascending: false })
 
@@ -61,9 +65,14 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
     throw new Error('Failed to load creator video')
   }
 
+  const coverImage = images?.find((image) => image.type === 'cover') ?? null
+  const normalImages =
+    images?.filter((image) => image.type === 'normal').slice(0, 3) ?? []
+
   return {
     creatorId: creator.creator_id,
-    images: images ?? [],
+    coverImage,
+    normalImages,
     video: video ?? null,
   }
 }

@@ -19,12 +19,16 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
   }
 
   const heroVideoUrl = media.video?.demo_video_url ?? null
-  const imageUrls = media.images?.map((image) => image.front_image_url).filter(Boolean) ?? []
+  const coverImageUrl = media.coverImage?.front_image_url ?? null
+  const normalImageUrls = media.normalImages
+    ?.map((image) => image.front_image_url)
+    .filter(Boolean) ?? []
 
   return (
     <LandingPageContent
       heroVideoUrl={heroVideoUrl}
-      imageUrls={imageUrls}
+      coverImageUrl={coverImageUrl}
+      normalImageUrls={normalImageUrls}
       creatorName={creatorName}
     />
   )

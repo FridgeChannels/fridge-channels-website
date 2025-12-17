@@ -8,7 +8,8 @@ import { ShimmerButton } from "@/components/ui/shimmer-button"
 
 interface LandingPageContentProps {
   heroVideoUrl?: string | null
-  imageUrls?: string[]
+  coverImageUrl?: string | null
+  normalImageUrls?: string[]
   creatorName?: string
 }
 
@@ -16,10 +17,12 @@ const FALLBACK_IMAGE = "/red-resin-book-magnet.png"
 
 export const LandingPageContent = ({
   heroVideoUrl,
-  imageUrls = [],
+  coverImageUrl = null,
+  normalImageUrls = [],
   creatorName,
 }: LandingPageContentProps) => {
-  const showcaseCtaImage = imageUrls[0] ?? FALLBACK_IMAGE
+  const heroOverlayImage = coverImageUrl ?? null
+  const showcaseCtaImage = coverImageUrl ?? FALLBACK_IMAGE
 
   const showcaseCta = {
     imageSrc: showcaseCtaImage,
@@ -33,7 +36,7 @@ export const LandingPageContent = ({
   return (
     <div className="min-h-screen bg-[#F7F7F4]">
       {/* Hero Section */}
-      <HeroSection videoSrc={heroVideoUrl} overlayImageSrc={showcaseCtaImage} />
+      <HeroSection videoSrc={heroVideoUrl} overlayImageSrc={heroOverlayImage} />
 
       {/* How Fridge Channel strengthens your C.O.R.E Section - styled like untillabs Assaying Organ Health */}
       <section id="why-creators-love-it" className="relative overflow-hidden py-16" style={{ backgroundColor: '#C8320B' }}>
@@ -224,7 +227,7 @@ export const LandingPageContent = ({
         </div>
       </section>
 
-      {imageUrls.length > 0 && false && (
+      {normalImageUrls.length > 0 && (
         <section className="bg-[#F7F7F4] border-t border-border/40">
           <div className="container mx-auto px-4 py-12 space-y-6">
             <div className="space-y-2">
@@ -234,7 +237,7 @@ export const LandingPageContent = ({
               </h3>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {imageUrls.map((url, index) => (
+              {normalImageUrls.map((url, index) => (
                 <div key={`${url}-${index}`} className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow border border-black/5 bg-white">
                   <Image
                     src={url}
