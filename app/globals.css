@@ -181,3 +181,16 @@
     transform: translateZ(0) rotate(360deg);
   }
 }
+
+@keyframes hero-overlay-pan {
+  0% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+.hero-overlay-pan {
+  animation: hero-overlay-pan 3s ease-in-out forwards;
+}

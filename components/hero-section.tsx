@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import Image from "next/image";
@@ -14,83 +14,95 @@ interface HeroSectionProps {
 export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const overlayTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const [showOverlay, setShowOverlay] = useState(true);
+  const [isOverlayPhase, setIsOverlayPhase] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const isMutedRef = useRef(true);
   const resolvedVideo = videoSrc ?? "/hero1215.mp4";
   const hasOverlayImage = Boolean(overlayImageSrc);
+  const [currentVideo, setCurrentVideo] = useState<"videoA" | "videoB">("videoA");
+  const videoSources = useMemo(
+    () => ({
+      videoA: "/video2.mp4",
+      videoB: resolvedVideo,
+    }),
+    [resolvedVideo]
+  );
+  const currentVideoSrc = currentVideo === "videoA" ? videoSources.videoA : videoSources.videoB;
 
-  const startPlayback = useCallback(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (hasOverlayImage) {
-      setShowOverlay(false);
-    }
-    video.currentTime = 0;
-    video.muted = isMutedRef.current;
-    video.defaultMuted = isMutedRef.current;
-    video.play().catch(() => {});
-  }, [hasOverlayImage]);
-
-  const scheduleNextLoop = useCallback(() => {
-    if (!hasOverlayImage) {
-      startPlayback();
-      return;
-    }
+  const clearOverlayTimer = useCallback(() => {
     if (overlayTimerRef.current) {
       clearTimeout(overlayTimerRef.current);
+      overlayTimerRef.current = null;
     }
-    setShowOverlay(true);
-    overlayTimerRef.current = setTimeout(startPlayback, 2000);
-  }, [hasOverlayImage, startPlayback]);
+  }, []);
+
+  const advanceVideo = useCallback(() => {
+    setCurrentVideo((prev) => (prev === "videoA" ? "videoB" : "videoA"));
+  }, []);
+
+  const triggerOverlayPhase = useCallback(() => {
+    clearOverlayTimer();
+    if (!hasOverlayImage) {
+      advanceVideo();
+      return;
+    }
+    setIsOverlayPhase(true);
+    overlayTimerRef.current = setTimeout(() => {
+      setIsOverlayPhase(false);
+      advanceVideo();
+    }, 3000);
+  }, [advanceVideo, clearOverlayTimer, hasOverlayImage]);
+
+  useEffect(() => {
+    return () => {
+      clearOverlayTimer();
+    };
+  }, [clearOverlayTimer]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !currentVideoSrc) return;
+
+    const handleCanPlay = () => {
+      video.currentTime = 0;
+      video.muted = isMutedRef.current;
+      video.defaultMuted = isMutedRef.current;
+      video.play().catch(() => {});
+    };
+
+    video.pause();
+    video.load();
+
+    if (video.readyState >= 2) {
+      handleCanPlay();
+    } else {
+      video.addEventListener("loadeddata", handleCanPlay, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("loadeddata", handleCanPlay);
+    };
+  }, [currentVideoSrc]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = true;
-    video.defaultMuted = true;
 
     const handleEnded = () => {
-      scheduleNextLoop();
+      triggerOverlayPhase();
     };
 
     video.addEventListener("ended", handleEnded);
-
     return () => {
       video.removeEventListener("ended", handleEnded);
-      if (overlayTimerRef.current) {
-        clearTimeout(overlayTimerRef.current);
-      }
     };
-  }, [scheduleNextLoop, resolvedVideo]);
+  }, [triggerOverlayPhase]);
 
   useEffect(() => {
-    // When video source changes, reset overlay state to ensure 2s display before playing
-    setShowOverlay(hasOverlayImage);
-    const video = videoRef.current;
-
-    const initPlayback = () => {
-      scheduleNextLoop();
-    };
-
-    if (video) {
-      video.muted = true;
-      video.defaultMuted = true;
-      if (video.readyState >= 2) {
-        initPlayback();
-      } else {
-        video.addEventListener("loadeddata", initPlayback, { once: true });
-      }
-    } else {
-      scheduleNextLoop();
-    }
-
-    return () => {
-      if (overlayTimerRef.current) {
-        clearTimeout(overlayTimerRef.current);
-      }
-    };
-  }, [resolvedVideo, scheduleNextLoop, hasOverlayImage]);
+    clearOverlayTimer();
+    setIsOverlayPhase(false);
+    setCurrentVideo("videoA");
+  }, [resolvedVideo, clearOverlayTimer]);
 
   const handleToggleMute = () => {
     const video = videoRef.current;
@@ -110,6 +122,8 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
     }
   };
 
+  const overlayVisible = hasOverlayImage && overlayImageSrc;
+
   return (
     <section id="home" className="relative pt-16 min-h-[700px] overflow-hidden bg-white pb-0">
       {/* Background video */}
@@ -117,24 +131,33 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
-          src={resolvedVideo}
-          muted
+          src={currentVideoSrc}
+          muted={isMuted}
           playsInline
           preload="auto"
+          autoPlay
         />
-        {hasOverlayImage && overlayImageSrc && (
+        {overlayVisible && (
           <div
             className="absolute inset-0 transition-opacity duration-500 ease-in-out"
-            style={{ opacity: showOverlay ? 1 : 0 }}
+            style={{ opacity: isOverlayPhase ? 1 : 0 }}
           >
-            <Image
-              src={overlayImageSrc}
-              alt="Hero overlay"
-              fill
-              className="object-cover"
-              priority
-              sizes="100vw"
-            />
+            <div className="absolute inset-0 overflow-hidden">
+              <div className={`absolute inset-0 ${isOverlayPhase ? "hero-overlay-pan" : ""}`}>
+                <Image
+                  src={overlayImageSrc}
+                  alt="Hero overlay"
+                  fill
+                  className="object-cover scale-105"
+                  priority
+                  sizes="100vw"
+                />
+              </div>
+              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white font-semibold tracking-[0.3em] uppercase text-sm md:text-base drop-shadow-lg md:left-auto md:right-12 md:translate-x-0">
+                Channel Owned
+              </div>
+            </div>
           </div>
         )}
         <div className="absolute inset-0 bg-white/40 pointer-events-none" />
