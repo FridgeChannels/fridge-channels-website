@@ -196,6 +196,21 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
           </div>
         )}
       <div className="absolute inset-0 bg-white/40 pointer-events-none" />
+      {/* Gradient overlay at bottom of video for smooth transition */}
+      <div 
+        className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
+        style={{
+          background: `linear-gradient(to bottom, 
+            transparent 0%,
+            rgba(247, 247, 244, 0.2) 20%,
+            rgba(247, 247, 244, 0.4) 40%,
+            rgba(247, 247, 244, 0.6) 60%,
+            rgba(247, 247, 244, 0.8) 80%,
+            rgba(247, 247, 244, 0.95) 95%,
+            #F7F7F4 100%
+          )`
+        }}
+      ></div>
       <audio ref={overlayAudioRef} src="/video-part2-1.m4a" preload="auto" className="hidden" />
     </div>
 
@@ -221,11 +236,66 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
       <div className="flex flex-col items-center justify-center px-6 text-center relative z-10 min-h-[700px] mt-6">
         <div className="mx-auto max-w-5xl" style={{ marginTop: '80px' }}>
           <div className="relative mx-auto h-full pt-24 pb-12 p-6">
-            <h1 className="text-center text-2xl md:text-5xl mt-2 text-black">
-              Boost your newsletter's C.O.R.E in the heart of your readers' homes
-            </h1>
           </div>
 
+          <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
+            <Link href="#join-pilot">
+              <ShimmerButton 
+                className="shadow-2xl transition-transform duration-300 hover:scale-110"
+                background="linear-gradient(120deg, #9f1026, #f25f6c)"
+                shimmerColor="#ffe5e9"
+              >
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                  Start your Fridge Channel
+                </span>
+              </ShimmerButton>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Title and content below video */}
+      <div className="relative z-10 px-6 py-8 text-center overflow-hidden flex flex-col justify-end" style={{ minHeight: '648px' }}>
+        {/* Background image with blur effect */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/science-hero-bg.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'blur(20px) brightness(1.05)',
+            transform: 'scale(1.05)',
+          }}
+        />
+        {/* Overlay gradient for natural transition from video to background */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            background: `linear-gradient(to bottom, 
+              #F7F7F4 0%,
+              rgba(247, 247, 244, 0.98) 5%,
+              rgba(247, 247, 244, 0.95) 10%,
+              rgba(247, 247, 244, 0.9) 20%,
+              rgba(247, 247, 244, 0.8) 35%,
+              rgba(247, 247, 244, 0.6) 50%,
+              rgba(247, 247, 244, 0.4) 65%,
+              rgba(247, 247, 244, 0.2) 80%,
+              rgba(247, 247, 244, 0.1) 90%,
+              transparent 100%
+            )`
+          }}
+        ></div>
+        
+        <div className="relative z-10 mx-auto max-w-5xl pb-8">
+          <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
+            Household touchpoints are a gold asset
+          </h1>
+          
+          <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">
+            Fridge Channel builds your newsletter into a daily routine by AI-powered magnet: a tap on the fridge that drives habit, revisits, and new paid subscribers
+          </div>
+          
           <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
             <Link href="#join-pilot">
               <ShimmerButton 

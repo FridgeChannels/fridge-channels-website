@@ -24,26 +24,6 @@ export default function HomePage() {
       {/* Problem Section */}
       <ProblemSection />
 
-      {/* What is a Fridge Channel Section */}
-      <section id="what-is-fridge-channel" className="container mx-auto px-4 pt-40 pb-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-balance">What is Fridge Channel?</h2>
-
-          {/* Core Definition */}
-          <div className="prose prose-lg max-w-none text-foreground space-y-6">
-            <div className="text-lg leading-relaxed min-h-[300px] py-8">
-              <TextGradientScroll
-                text="Fridge Channel is a **household channel** built on the fridge door. Creators deploy **custom AI-powered magnets** (usually your newsletter logo for Fridge Edition). When anyone taps it, they enter the Fridge Channel experience: **short, scenario-aware consumption** that pulls them into your full work — and converts new paid subscribers when they're ready. No feeds. No algorithmic timeline. No later is never"
-                type="letter"
-                textOpacity="soft"
-                className="text-lg leading-relaxed max-w-3xl mx-auto"
-              />
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       {/* How Fridge Channel strengthens your C.O.R.E Section - styled like untillabs Assaying Organ Health */}
       <section id="why-creators-love-it" className="relative overflow-hidden" style={{ backgroundColor: '#C32D0B' }}>
         {/* Smooth gradient transitions at boundaries with curved blend */}

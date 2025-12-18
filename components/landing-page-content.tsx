@@ -1,10 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { CoreMetricsSection } from "@/components/core-metrics-section"
 import { HeroSection } from "@/components/hero-section"
-import { HowItWorksTimeline } from "@/components/how-it-works-timeline"
+import { HowItWorksTimeline } from "@/components/how-it-works-timeline-official"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { ShimmerButton } from "@/components/ui/shimmer-button"
+import { TextGradientScroll } from "@/components/ui/text-gradient-scroll"
 
 interface LandingPageContentProps {
   heroVideoUrl?: string | null
@@ -13,8 +10,6 @@ interface LandingPageContentProps {
   creatorName?: string
 }
 
-const FALLBACK_IMAGE = "/red-resin-book-magnet.png"
-
 export const LandingPageContent = ({
   heroVideoUrl,
   coverImageUrl = null,
@@ -22,82 +17,76 @@ export const LandingPageContent = ({
   creatorName,
 }: LandingPageContentProps) => {
   const heroOverlayImage = coverImageUrl ?? null
-  const showcaseCtaImage = coverImageUrl ?? FALLBACK_IMAGE
-
-  const showcaseCta = {
-    imageSrc: showcaseCtaImage,
-    alt: "Fridge Channel magnet in action on a fridge door",
-    title: "See how the fridge magnet turns into a channel",
-    body: "Place the one-tap magnet on your reader’s fridge and drive them straight into your content with every glance.",
-    ctaLabel: "Start your Fridge Channel",
-    ctaHref: "#join-pilot",
-  }
 
   return (
     <div className="min-h-screen bg-[#F7F7F4]">
       {/* Hero Section */}
       <HeroSection videoSrc={heroVideoUrl} overlayImageSrc={heroOverlayImage} />
 
-      {/* How Fridge Channel strengthens your C.O.R.E Section - styled like untillabs Assaying Organ Health */}
-      <section id="why-creators-love-it" className="relative overflow-hidden py-16" style={{ backgroundColor: '#C8320B' }}>
-        {/* Smooth gradient transitions at boundaries with curved blend */}
-        <div
-          className="absolute inset-x-0 top-0 z-0"
+      {/* What is a Fridge Channel Section */}
+      <section id="what-is-fridge-channel" className="relative container mx-auto px-4 pt-40 pb-20 bg-muted/30">
+        {/* Smooth gradient transition from hero section */}
+        <div 
+          className="absolute inset-x-0 top-0 h-32 z-0"
           style={{
-            height: '280px',
             background: `linear-gradient(to bottom, 
-              #F7F7F4 0%, 
-              rgba(247, 247, 244, 0.95) 15%,
-              rgba(247, 247, 244, 0.85) 25%,
-              rgba(247, 247, 244, 0.7) 35%,
-              rgba(247, 247, 244, 0.55) 45%,
-              rgba(247, 247, 244, 0.4) 55%,
-              rgba(247, 247, 244, 0.25) 65%,
-              rgba(247, 247, 244, 0.15) 75%,
-              rgba(247, 247, 244, 0.08) 85%,
-              rgba(247, 247, 244, 0.03) 92%,
+              #F7F7F4 0%,
+              rgba(247, 247, 244, 0.95) 30%,
+              rgba(247, 247, 244, 0.85) 50%,
+              rgba(247, 247, 244, 0.7) 70%,
+              rgba(247, 247, 244, 0.5) 85%,
               transparent 100%
             )`
           }}
         ></div>
-        <div
-          className="absolute inset-x-0 bottom-0 z-0"
-          style={{
-            height: '280px',
-            background: `linear-gradient(to top, 
-              #F7F7F4 0%, 
-              rgba(247, 247, 244, 0.95) 15%,
-              rgba(247, 247, 244, 0.85) 25%,
-              rgba(247, 247, 244, 0.7) 35%,
-              rgba(247, 247, 244, 0.55) 45%,
-              rgba(247, 247, 244, 0.4) 55%,
-              rgba(247, 247, 244, 0.25) 65%,
-              rgba(247, 247, 244, 0.15) 75%,
-              rgba(247, 247, 244, 0.08) 85%,
-              rgba(247, 247, 244, 0.03) 92%,
-              transparent 100%
-            )`
-          }}
-        ></div>
+        <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-balance">What is Fridge Channel?</h2>
 
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 flex flex-col justify-center py-12">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-4 md:gap-6 text-left">
-              <div className="space-y-4">
-                <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl">
-                  <span className="text-2xl md:text-3xl font-black text-white">Fridge Channel</span> is a high-traffic offline channel built on a paying reader’s fridge door — a one-tap, always-on shortcut that brings fans straight into your content inside the Fridge Channel app.
-                </p>
-                <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl">
-                  Turn the fridge door into an owned channel that lifts{" "}
-                  <span className="text-2xl md:text-3xl font-black text-white drop-shadow-md">C.O.R.E.</span>
-                </p>
-              </div>
-              <span className="text-5xl md:text-7xl font-black text-white/80 leading-none" aria-hidden="true">“”</span>
+          {/* Core Definition */}
+          <div className="prose prose-lg max-w-none text-foreground space-y-6">
+            <div className="text-lg leading-relaxed min-h-[300px] py-8">
+              <TextGradientScroll
+                text="Fridge Channel is a **household channel** built on the fridge door. Creators deploy **custom AI-powered magnets** (usually your newsletter logo for Fridge Edition). When anyone taps it, they enter the Fridge Channel experience: **short, scenario-aware consumption** that pulls them into your full work — and converts new paid subscribers when they're ready. No feeds. No algorithmic timeline. No later is never"
+                type="letter"
+                textOpacity="soft"
+                className="text-lg leading-relaxed max-w-3xl mx-auto"
+              />
             </div>
-
-            <CoreMetricsSection />
           </div>
+
+          {/* Features List */}
+          <div className="max-w-6xl mx-auto pt-4">
+            <ul className="space-y-4 text-lg text-foreground text-pretty leading-relaxed flex flex-col items-center">
+              <li className="flex items-center justify-center gap-2">
+                <span className="text-foreground">•</span>
+                <TextGradientScroll
+                  text="Owned household touchpoint (your Newsletter logo lives on the fridge)"
+                  type="letter"
+                  textOpacity="soft"
+                  className="text-lg leading-relaxed"
+                />
+              </li>
+              <li className="flex items-center justify-center gap-2">
+                <span className="text-foreground">•</span>
+                <TextGradientScroll
+                  text='30–120s "fridge-time" consumption that leads to *Open full issue*'
+                  type="letter"
+                  textOpacity="soft"
+                  className="text-lg leading-relaxed"
+                />
+              </li>
+              <li className="flex items-center justify-center gap-2">
+                <span className="text-foreground">•</span>
+                <TextGradientScroll
+                  text="New subscriber acquisition with attribution + long-term alignment"
+                  type="letter"
+                  textOpacity="soft"
+                  className="text-lg leading-relaxed"
+                />
+              </li>
+            </ul>
+          </div>
+
         </div>
       </section>
 
@@ -106,193 +95,103 @@ export const LandingPageContent = ({
         <HowItWorksTimeline />
       </section>
 
-      {/* Pricing Section - styled like C.O.R.E Section */}
-      <section id="pricing" className="relative overflow-hidden py-16" style={{ backgroundColor: '#C42E0B' }}>
-        {/* Smooth gradient transitions at boundaries with curved blend */}
-        <div
-          className="absolute inset-x-0 top-0 z-0"
-          style={{
-            height: '320px',
-            background: `linear-gradient(to bottom, 
-              #F7F7F4 0%, 
-              rgba(247, 247, 244, 0.95) 15%,
-              rgba(247, 247, 244, 0.85) 25%,
-              rgba(247, 247, 244, 0.7) 35%,
-              rgba(247, 247, 244, 0.55) 45%,
-              rgba(247, 247, 244, 0.4) 55%,
-              rgba(247, 247, 244, 0.25) 65%,
-              rgba(247, 247, 244, 0.15) 75%,
-              rgba(247, 247, 244, 0.08) 85%,
-              rgba(247, 247, 244, 0.03) 92%,
-              transparent 100%
-            )`
-          }}
-        ></div>
-        <div
-          className="absolute inset-x-0 bottom-0 z-0"
-          style={{
-            height: '320px',
-            background: `linear-gradient(to top, 
-              #F7F7F4 0%, 
-              rgba(247, 247, 244, 0.95) 15%,
-              rgba(247, 247, 244, 0.85) 25%,
-              rgba(247, 247, 244, 0.7) 35%,
-              rgba(247, 247, 244, 0.55) 45%,
-              rgba(247, 247, 244, 0.4) 55%,
-              rgba(247, 247, 244, 0.25) 65%,
-              rgba(247, 247, 244, 0.15) 75%,
-              rgba(247, 247, 244, 0.08) 85%,
-              rgba(247, 247, 244, 0.03) 92%,
-              transparent 100%
-            )`
-          }}
-        ></div>
-
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 flex flex-col justify-center" style={{ paddingTop: '64px', paddingBottom: '64px' }}>
-          <div className="max-w-4xl mx-auto space-y-8 bg-white/5 rounded-2xl border border-white/20 p-6 md:p-10 shadow-2xl backdrop-blur-md">
-            <h2 className="text-3xl md:text-5xl font-bold text-center text-white">
-              Biggest concerns
-            </h2>
-            <ul className="space-y-4 text-base md:text-lg leading-relaxed text-white/90">
-              {[
-                {
-                  q: "Does it require an app?",
-                  a: (
-                    <>
-                      Yes — the magnet is a one-tap key that opens your fridge-time content <strong className="text-white">inside the Fridge Channel app.</strong>
-                    </>
-                  ),
-                },
-                {
-                  q: "Will this replace my newsletter?",
-                  a: (
-                    <>
-                      No. FC creates <strong className="text-white">teasers + guided prompts</strong> that drive readers to <strong className="text-white">Open full issue</strong>.
-                    </>
-                  ),
-                },
-                {
-                  q: "Will it hurt my business?",
-                  a: (
-                    <>
-                      It’s an <strong className="text-white">add-on for existing paying readers</strong> — designed for true fans who want faster access + gentle reminders.
-                    </>
-                  ),
-                },
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-white/80" />
-                  <div className="space-y-1">
-                    <p className="font-semibold text-white">{item.q}</p>
-                    <p className="text-white/90">{item.a}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Post-pricing visual showcase with CTA */}
-      <section className="bg-[#F7F7F4]">
-        <div className="container mx-auto px-4 py-14">
-          <div className="grid gap-10 md:grid-cols-2 items-center">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg border border-black/5 bg-white">
-              <Image
-                src={showcaseCta.imageSrc}
-                alt={showcaseCta.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            </div>
-            <div className="flex h-full items-center justify-center">
-              <div>
-                <Link href={showcaseCta.ctaHref}>
-                  <ShimmerButton
-                    className="shadow-2xl transition-transform duration-300 hover:scale-110"
-                    background="linear-gradient(120deg, #9f1026, #f25f6c)"
-                    shimmerColor="#ffe5e9"
-                  >
-                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                      {showcaseCta.ctaLabel}
-                    </span>
-                  </ShimmerButton>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {normalImageUrls.length > 0 && (
-        <section className="bg-[#F7F7F4] border-t border-border/40">
-          <div className="container mx-auto px-4 py-12 space-y-6">
-            <div className="space-y-2">
-              <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Creator magnet preview</p>
-              <h3 className="text-3xl font-semibold text-foreground">
-                {creatorName ? `${creatorName}'s fridge snapshots` : "Featured creator imagery"}
-              </h3>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {normalImageUrls.map((url, index) => (
-                <div key={`${url}-${index}`} className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow border border-black/5 bg-white">
-                  <Image
-                    src={url}
-                    alt={`Creator showcase ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw"
-                    priority={index === 0}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Mini FAQ Section */}
       <section id="faq" className="container mx-auto px-4 pt-10 pb-10 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <div className="grid gap-8 md:grid-cols-5 md:gap-12">
             <div className="md:col-span-2">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">FAQ </h2>
+              <p className="text-muted-foreground mt-4 text-balance text-lg">
+                Quick answers to common questions about Fridge Channel.
+              </p>
             </div>
 
             <div className="md:col-span-3">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What if nobody buys the magnet?
+                    Will this hurt my existing subscription business?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      You lose nothing — it’s an optional add-on for paying readers.
+                      No. FC is designed to increase <em>usage occasions,</em> drive <strong>Open full issue, and convert more paid subscribers.</strong> Existing subscribers still consume your full work; FC reduces "I never open this" churn.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Do I have to change my newsletter setup?
+                    How do you define "FC-originated subscriber"?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No — just add FC’s email to your paid list.
+                      A subscriber who completes the first paid subscription event <strong>inside FC</strong> (tracked and shown in your analytics on REVENUE tier).
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Pricing (for true fans)?
+                    Does 15% apply to my existing subscribers?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      $2.99 one-time per magnet + $1.99/month extra; <strong className="font-semibold text-foreground">50/50 revenue share</strong> between you and Fridge Channel.
+                      No. Only new subscriptions created inside FC.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4">
+                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
+                    What does the household pay for?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-base text-muted-foreground">
+                      FC Pass unlocks the household consumption experience and app layer.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-5">
+                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
+                    What if nobody converts?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-base text-muted-foreground">
+                      You still get usage + retention signals (ENTRY/RETENTION), and you can iterate scenes/formats. FC only earns the 15% when FC creates subscribers.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-6">
+                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
+                    Do I need to change my newsletter setup?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-base text-muted-foreground">
+                      No. Add an email address / forward issues. Everything else is handled.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-7">
+                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
+                    What about privacy?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-base text-muted-foreground">
+                      We track household-level usage signals needed to improve scenes and attribution. We do not sell household data.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-8">
+                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
+                    Who handles production and support?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-base text-muted-foreground">
+                      We do: design, manufacturing, QA, shipping, tracking, replacement, and support.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
