@@ -4,7 +4,7 @@ import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { cn } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
-import { CheckCheck } from "lucide-react";
+import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -290,11 +290,10 @@ export default function PricingCards() {
                   <h3 className="text-3xl font-semibold mb-2">{plan.name}</h3>
                 </div>
                 <p
-                  className={
-                    plan.popular
-                      ? "text-sm text-neutral-200 mb-4"
-                      : "text-sm text-white/80 mb-4"
-                  }
+                  className={cn(
+                    "text-sm mb-4 min-h-24",
+                    plan.popular ? "text-neutral-200" : "text-white/80",
+                  )}
                 >
                   {plan.description}
                 </p>
@@ -309,11 +308,11 @@ export default function PricingCards() {
                         <span
                           className={
                             plan.popular
-                              ? "text-white h-6 w-6 bg-neutral-600 border border-neutral-500 rounded-full grid place-content-center mt-0.5 mr-3"
-                              : "text-black h-6 w-6 bg-white border border-black rounded-full grid place-content-center mt-0.5 mr-3"
+                              ? "text-white h-6 w-6 bg-neutral-600 border border-neutral-500 rounded-full grid place-content-center mt-0.5 mr-3 flex-shrink-0"
+                              : "text-black h-6 w-6 bg-white border border-black rounded-full grid place-content-center mt-0.5 mr-3 flex-shrink-0"
                           }
                         >
-                          <CheckCheck className="h-4 w-4" />
+                          <Check className="h-4 w-4" />
                         </span>
                         <span
                           className={
@@ -332,11 +331,11 @@ export default function PricingCards() {
                           <span
                             className={
                               plan.popular
-                                ? "text-white h-6 w-6 bg-neutral-600 border border-neutral-500 rounded-full grid place-content-center mt-0.5 mr-3"
-                                : "text-black h-6 w-6 bg-white border border-black rounded-full grid place-content-center mt-0.5 mr-3"
+                                ? "text-white h-6 w-6 bg-neutral-600 border border-neutral-500 rounded-full grid place-content-center mt-0.5 mr-3 flex-shrink-0"
+                                : "text-black h-6 w-6 bg-white border border-black rounded-full grid place-content-center mt-0.5 mr-3 flex-shrink-0"
                             }
                           >
-                            <CheckCheck className="h-4 w-4" />
+                            <Check className="h-4 w-4" />
                           </span>
                           <span
                             className={
@@ -373,4 +372,3 @@ export default function PricingCards() {
     </div>
   );
 }
-

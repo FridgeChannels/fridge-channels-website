@@ -47,7 +47,11 @@ export const HeroSection = () => {
               Fridge Channel builds your newsletter into a daily routine by AI-powered magnet: a tap on the fridge that drives habit, revisits, and new paid subscribers
             </div>
             <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
-              <Link href="/booking">
+              <Link
+                href="https://calendly.com/billy-fridgechannels/30min"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <ShimmerButton 
                   className="shadow-2xl transition-transform duration-300 hover:scale-110"
                   background="rgba(0, 0, 0, 1)"
@@ -64,4 +68,3 @@ export const HeroSection = () => {
       </section>
   );
 };
-

@@ -116,7 +116,11 @@ export const LandingPageContent = ({
               />
               <div className="absolute inset-0 bg-black/20" />
               <div className="relative z-10 flex items-end justify-center h-full pb-6">
-                <Link href="/booking">
+                <Link
+                  href="https://calendly.com/billy-fridgechannels/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <ShimmerButton
                     className="shadow-2xl transition-transform duration-300 hover:scale-110"
                     background="linear-gradient(120deg, #9f1026, #f25f6c)"

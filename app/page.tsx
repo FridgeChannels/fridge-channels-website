@@ -194,7 +194,11 @@ export default function HomePage() {
               <div className="max-w-3xl mx-auto">
                 <div className="text-center space-y-6">
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link href="/booking">
+                    <Link
+                      href="https://calendly.com/billy-fridgechannels/30min"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <ShimmerButton
                         className="shadow-2xl transition-transform duration-300 hover:scale-110 w-full sm:w-auto"
                         background="rgba(0, 0, 0, 1)"

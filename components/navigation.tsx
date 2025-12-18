@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -109,21 +110,18 @@ export function Navigation() {
           href={isHomePage ? "#home" : "/#home"}
           className="flex items-center gap-2 shrink-0"
         >
-          {/* Logo icon - three circles */}
-          <div className="flex items-center gap-1">
-            <div className={cn(
-              "w-2 h-2 rounded-full",
-              isGlassMode ? "bg-white" : "bg-black"
-            )}></div>
-            <div className={cn(
-              "w-2 h-2 rounded-full -ml-1",
-              isGlassMode ? "bg-white" : "bg-black"
-            )}></div>
-            <div className={cn(
-              "w-2 h-2 rounded-full ml-1",
-              isGlassMode ? "bg-white" : "bg-black"
-            )}></div>
-          </div>
+          {/* Logo icon */}
+          <Image
+            src="/icon_white.svg"
+            alt="Fridge Channel logo"
+            width={28}
+            height={28}
+            className={cn(
+              "h-7 w-7",
+              isGlassMode ? "brightness-200 contrast-125" : "brightness-100"
+            )}
+            priority={false}
+          />
           <span className={cn(
             "font-semibold text-lg",
             isGlassMode ? "text-white" : "text-black"
@@ -183,4 +181,3 @@ export function Navigation() {
     </nav>
   );
 }
-
