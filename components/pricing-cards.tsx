@@ -325,28 +325,44 @@ export default function PricingCards() {
                         </span>
                       </li>
                     ))}
-                  </ul>
-                  {plan.ctaBehavior && (
-                    <div className="mt-4 pt-4 border-t border-neutral-200">
-                      <h4 className="font-medium text-base mb-3">
-                        {plan.ctaBehavior[0]}
-                      </h4>
-                      <ul className="space-y-2">
-                        {plan.ctaBehavior.slice(1).map((item, idx) => (
-                          <li
-                            key={idx}
+                    {plan.ctaBehavior && (
+                      <>
+                        <li className="flex items-center">
+                          <span
                             className={
                               plan.popular
-                                ? "text-sm text-neutral-200"
+                                ? "text-white h-6 w-6 bg-neutral-600 border border-neutral-500 rounded-full grid place-content-center mt-0.5 mr-3"
+                                : "text-black h-6 w-6 bg-white border border-black rounded-full grid place-content-center mt-0.5 mr-3"
+                            }
+                          >
+                            <CheckCheck className="h-4 w-4" />
+                          </span>
+                          <span
+                            className={
+                              plan.popular
+                                ? "text-sm text-neutral-100"
                                 : "text-sm text-white/90"
                             }
                           >
-                            {item}
+                            {plan.ctaBehavior[0]}
+                          </span>
+                        </li>
+                        {plan.ctaBehavior.slice(1).map((item, idx) => (
+                          <li key={`cta-${idx}`} className="pl-8">
+                            <span
+                              className={
+                                plan.popular
+                                  ? "text-sm text-neutral-100"
+                                  : "text-sm text-white/90"
+                              }
+                            >
+                              • {item}
+                            </span>
                           </li>
                         ))}
-                      </ul>
-                    </div>
-                  )}
+                      </>
+                    )}
+                  </ul>
                 </div>
               </CardContent>
             </Card>
