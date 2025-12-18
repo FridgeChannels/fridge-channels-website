@@ -7,7 +7,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 export function HowItWorksTimeline() {
   const data = [
     {
-      title: "1) Connect your content",
+      title: "1. Connect your content",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -20,7 +20,7 @@ export function HowItWorksTimeline() {
       ),
     },
     {
-      title: "2) Choose scenes + design the magnet",
+      title: "2. Choose scenes + design the magnet",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -33,7 +33,7 @@ export function HowItWorksTimeline() {
       ),
     },
     {
-      title: "3) Launch + measure lift",
+      title: "3. Launch + measure lift",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">

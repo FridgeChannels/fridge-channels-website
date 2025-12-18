@@ -33,7 +33,7 @@ export default function HomePage() {
           <div className="prose prose-lg max-w-none text-foreground space-y-6">
             <div className="text-lg leading-relaxed min-h-[300px] py-8">
               <TextGradientScroll
-                text="Fridge Channel is a **household channel** built on the fridge door. Creators deploy **custom AI-powered magnets** (usually your newsletter logo for Fridge Edition). When anyone taps it, they enter the Fridge Channel experience: **short, scenario-aware consumption** that pulls them into your full work — and converts new paid subscribers when they're ready. No feeds. No algorithmic timeline. No later = never"
+                text="Fridge Channel is a **household channel** built on the fridge door. Creators deploy **custom AI-powered magnets** (usually your newsletter logo for Fridge Edition). When anyone taps it, they enter the Fridge Channel experience: **short, scenario-aware consumption** that pulls them into your full work — and converts new paid subscribers when they're ready. No feeds. No algorithmic timeline. No later is never"
                 type="letter"
                 textOpacity="soft"
                 className="text-lg leading-relaxed max-w-3xl mx-auto"
