@@ -65,7 +65,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
         {/* Highlight */}
         <div
           className={cn(
-            "insert-0 absolute size-full",
+            "absolute right-0 bottom-0 size-full",
 
             "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff1f]",
 

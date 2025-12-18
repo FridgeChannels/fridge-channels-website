@@ -103,6 +103,15 @@ function TextGradientScroll({
     <TextGradientScrollContext.Provider value={{ textOpacity, type }}>
       <p ref={ref} className={cn("relative flex m-0 flex-wrap", className)}>
         {words.map(({ word, bold }, i) => {
+          if (bold) {
+            // Bold text: no animation, just display with bold styling
+            return (
+              <strong key={i} className="relative me-2 mt-2 font-bold">
+                {word}
+              </strong>
+            );
+          }
+          // Regular text: apply scroll animation
           const start = i / words.length;
           const end = start + 1 / words.length;
           const content = type === "word" ? (
@@ -114,7 +123,7 @@ function TextGradientScroll({
               {word}
             </Letter>
           );
-          return bold ? <strong key={i}>{content}</strong> : <React.Fragment key={i}>{content}</React.Fragment>;
+          return <React.Fragment key={i}>{content}</React.Fragment>;
         })}
       </p>
     </TextGradientScrollContext.Provider>

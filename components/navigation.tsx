@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -13,11 +14,20 @@ const navItems = [
 ];
 
 export function Navigation() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOnRedBackground, setIsOnRedBackground] = useState(false);
   const [isOnHeroSection, setIsOnHeroSection] = useState(true);
 
   useEffect(() => {
+    // If not on home page, use light mode by default
+    if (!isHomePage) {
+      setIsOnHeroSection(false);
+      setIsOnRedBackground(false);
+      return;
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
@@ -58,7 +68,7 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   // Determine styles: 
   // - Hero or Red background = glass effect
@@ -96,7 +106,7 @@ export function Navigation() {
       >
         {/* Logo - Left side */}
         <Link
-          href="#home"
+          href={isHomePage ? "#home" : "/#home"}
           className="flex items-center gap-2 shrink-0"
         >
           {/* Logo icon - three circles */}
@@ -122,20 +132,27 @@ export function Navigation() {
 
         {/* Navigation Links - Center */}
         <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-sm font-medium transition-colors whitespace-nowrap",
-                isGlassMode
-                  ? "text-white/90 hover:text-white"
-                  : "text-gray-600 hover:text-black"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            // If not on home page and href is an anchor link, prepend "/" to make it absolute
+            const href = !isHomePage && item.href.startsWith("#") 
+              ? `/${item.href}` 
+              : item.href;
+            
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                className={cn(
+                  "text-sm font-medium transition-colors whitespace-nowrap",
+                  isGlassMode
+                    ? "text-white/90 hover:text-white"
+                    : "text-gray-600 hover:text-black"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Mobile menu button */}

@@ -55,7 +55,7 @@ export function HowItWorksTimeline() {
       <Timeline data={data} />
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pb-10 pt-6">
         <div className="flex items-center justify-center">
-          <Link href="#join-pilot">
+          <Link href="/booking">
             <ShimmerButton 
               className="shadow-2xl transition-transform duration-300 hover:scale-110"
               background="linear-gradient(120deg, #9f1026, #f25f6c)"

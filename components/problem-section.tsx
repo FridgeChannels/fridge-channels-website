@@ -2,6 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
+import { FadeText } from "@/components/ui/fade-text";
+import { motion } from "framer-motion";
 
 interface PainCardProps {
   title: string;
@@ -161,17 +163,137 @@ export const ProblemSection = () => {
     },
   ];
 
+  // Helper function to render formatted text with bold and italic
+  const renderFormattedText = (text: string) => {
+    const parts: Array<{ text: string; isBold: boolean; isItalic: boolean }> = [];
+    const regex = /(\*\*.*?\*\*|\*[^*].*?\*|[^*]+)/g;
+    let match;
+    let lastIndex = 0;
+
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        const beforeText = text.substring(lastIndex, match.index);
+        if (beforeText.trim() || beforeText === " ") {
+          parts.push({ text: beforeText, isBold: false, isItalic: false });
+        }
+      }
+      
+      const matchedText = match[0];
+      if (matchedText.startsWith("**") && matchedText.endsWith("**")) {
+        parts.push({ text: matchedText.slice(2, -2), isBold: true, isItalic: false });
+      } else if (matchedText.startsWith("*") && matchedText.endsWith("*") && matchedText.length > 2) {
+        parts.push({ text: matchedText.slice(1, -1), isBold: false, isItalic: true });
+      } else {
+        parts.push({ text: matchedText, isBold: false, isItalic: false });
+      }
+      
+      lastIndex = regex.lastIndex;
+    }
+
+    if (lastIndex < text.length) {
+      const remainingText = text.substring(lastIndex);
+      if (remainingText.trim() || remainingText === " ") {
+        parts.push({ text: remainingText, isBold: false, isItalic: false });
+      }
+    }
+
+    return (
+      <span className="flex flex-wrap items-start gap-0">
+        {parts.map((part, index) => {
+          const className = cn(
+            "text-2xl font-bold text-foreground leading-relaxed inline",
+            part.isBold && "font-bold",
+            part.isItalic && "italic"
+          );
+
+          return (
+            <span key={index} className={className}>
+              {part.text}
+            </span>
+          );
+        })}
+      </span>
+    );
+  };
+
+  // List items data
+  const listItems = [
+    "**Owned household touchpoint** (your Newsletter logo lives on the fridge)",
+    '**30–120s "fridge-time" consumption** that leads to *Open full issue*',
+    "**New subscriber acquisition** with attribution + long-term alignment",
+  ];
+
   return (
     <section id="problem" className="container mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-6">
       {/* Content List */}
       <div className="max-w-6xl mx-auto pt-4">
-        <ul className="space-y-4 text-base text-foreground text-pretty leading-relaxed [&_strong]:font-semibold [&_b]:font-semibold [&_em]:italic">
-          <li>- <strong>Owned household touchpoint</strong> (your Newsletter logo lives on the fridge)</li>
-          <li>- <strong>30–120s "fridge-time" consumption</strong> that leads to <em>Open full issue</em></li>
-          <li>- <strong>New subscriber acquisition</strong> with attribution + long-term alignment</li>
+        <ul className="space-y-4 text-2xl font-bold text-foreground text-pretty leading-relaxed flex flex-col items-center">
+          {listItems.map((item, index) => (
+            <ScrollRevealListItem key={index} index={index}>
+              <li className="flex items-center justify-center gap-2">
+                <span className="text-foreground">•</span>
+                <span>
+                  {renderFormattedText(item)}
+                </span>
+              </li>
+            </ScrollRevealListItem>
+          ))}
         </ul>
       </div>
     </section>
+  );
+};
+
+// Component for scroll reveal animation on list items
+const ScrollRevealListItem = ({ 
+  children, 
+  index 
+}: { 
+  children: React.ReactNode; 
+  index: number;
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.2,
+        ease: "easeOut",
+      }}
+    >
+      {children}
+    </motion.div>
   );
 };
 

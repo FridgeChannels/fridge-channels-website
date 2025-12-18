@@ -45,12 +45,12 @@ export default function HomePage() {
       </section>
 
       {/* How Fridge Channel strengthens your C.O.R.E Section - styled like untillabs Assaying Organ Health */}
-      <section id="why-creators-love-it" className="relative min-h-[200vh] overflow-hidden" style={{ backgroundColor: '#C32D0B' }}>
+      <section id="why-creators-love-it" className="relative overflow-hidden" style={{ backgroundColor: '#C32D0B' }}>
         {/* Smooth gradient transitions at boundaries with curved blend */}
         <div
           className="absolute inset-x-0 top-0 z-0"
           style={{
-            height: '600px',
+            height: 'clamp(200px, 15vh, 400px)',
             background: `linear-gradient(to bottom, 
               #F7F7F4 0%, 
               rgba(247, 247, 244, 0.95) 15%,
@@ -69,7 +69,7 @@ export default function HomePage() {
         <div
           className="absolute inset-x-0 bottom-0 z-0"
           style={{
-            height: '600px',
+            height: 'clamp(200px, 15vh, 400px)',
             background: `linear-gradient(to top, 
               #F7F7F4 0%, 
               rgba(247, 247, 244, 0.95) 15%,
@@ -87,7 +87,7 @@ export default function HomePage() {
         ></div>
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 flex flex-col justify-center min-h-[200vh]" style={{ paddingTop: '350px', paddingBottom: '350px' }}>
+        <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col justify-center">
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-5xl font-bold text-balance text-white">THE C.O.R.E Your Fridge Channel improves</h2>
@@ -156,9 +156,9 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* 1) FC Pass — Household */}
+            {/* 1. FC Pass — Household */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">1) FC Pass — Household</h3>
+              <h3 className="text-2xl md:text-3xl font-semibold text-white">1. FC Pass — Household</h3>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6">
                 <p className="text-xl md:text-2xl font-semibold text-white mb-4">
                   <strong className="font-semibold text-white">$19.99 / year per household</strong>
@@ -182,9 +182,9 @@ export default function HomePage() {
               <PricingCards />
             </div>
 
-            {/* 3) Subscription revenue share */}
+            {/* 3. Subscription revenue share */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">3) Subscription revenue share — long-term alignment</h3>
+              <h3 className="text-2xl md:text-3xl font-semibold text-white">3. Subscription revenue share — long-term alignment</h3>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 space-y-4">
                 <p className="text-base md:text-lg text-white/90">
                   If a user subscribes to you <strong className="font-semibold text-white">through FC</strong>, we take <strong className="font-semibold text-white">15% of that subscription revenue</strong> <strong className="font-semibold text-white">for as long as that subscriber stays subscribed</strong>.
@@ -214,15 +214,17 @@ export default function HomePage() {
               <div className="max-w-3xl mx-auto">
                 <div className="text-center space-y-6">
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <ShimmerButton
-                      className="shadow-2xl w-full sm:w-auto"
-                      background="rgba(0, 0, 0, 1)"
-                      shimmerColor="#ffffff"
-                    >
-                      <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                        Turn on Fridge Channel Magnet
-                      </span>
-                    </ShimmerButton>
+                    <Link href="/booking">
+                      <ShimmerButton
+                        className="shadow-2xl transition-transform duration-300 hover:scale-110 w-full sm:w-auto"
+                        background="rgba(0, 0, 0, 1)"
+                        shimmerColor="#ffffff"
+                      >
+                        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                          Turn on Fridge Channel Magnet
+                        </span>
+                      </ShimmerButton>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -238,26 +240,37 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-5xl font-bold text-balance">What creators can see their household asset</h2>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-8">
-            {/* ENTRY */}
-            <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                <strong className="font-bold text-foreground">ENTRY:</strong> activation rate, scans, consumption events, completion rate by format
-              </h3>
-            </div>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* ENTRY Card */}
+              <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl p-6 shadow-lg transition-all duration-300 cursor-pointer hover:shadow-2xl hover:bg-white/80 hover:border-gray-300/70 hover:scale-105 hover:-translate-y-2">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <span className="font-bold text-foreground">ENTRY</span>
+                </h3>
+                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+                  activation rate, scans, consumption events, completion rate by format
+                </p>
+              </div>
 
-            {/* RETENTION */}
-            <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                <strong className="font-bold text-foreground">RETENTION:</strong> D7/D30 return, WAU households, streaks, scene comparisons
-              </h3>
-            </div>
+              {/* RETENTION Card */}
+              <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl p-6 shadow-lg transition-all duration-300 cursor-pointer hover:shadow-2xl hover:bg-white/80 hover:border-gray-300/70 hover:scale-105 hover:-translate-y-2">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <span className="font-bold text-foreground">RETENTION</span>
+                </h3>
+                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+                  D7/D30 return, WAU households, streaks, scene comparisons
+                </p>
+              </div>
 
-            {/* REVENUE */}
-            <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                <strong className="font-bold text-foreground">REVENUE:</strong> FC-originated subs, conversion rate by scene/format, lift vs control, incremental revenue per household, LTV from FC-acquired subs
-              </h3>
+              {/* REVENUE Card */}
+              <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl p-6 shadow-lg transition-all duration-300 cursor-pointer hover:shadow-2xl hover:bg-white/80 hover:border-gray-300/70 hover:scale-105 hover:-translate-y-2">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <span className="font-bold text-foreground">REVENUE</span>
+                </h3>
+                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+                  FC-originated subs, conversion rate by scene/format, lift vs control, incremental revenue per household, LTV from FC-acquired subs
+                </p>
+              </div>
             </div>
           </div>
         </div>
