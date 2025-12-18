@@ -31,6 +31,8 @@ export const LandingPageContent = ({
         videoSrc={heroVideoUrl}
         overlayImageSrc={heroOverlayImage}
         showHeroOverlayCta={!isCreatorPage}
+        enableOverlayTransition={!isCreatorPage}
+        scrollAfterFirstLoop={isCreatorPage}
       />
 
       {/* What is a Fridge Channel Section */}
@@ -115,7 +117,7 @@ export const LandingPageContent = ({
                 priority={false}
               />
               <div className="absolute inset-0 bg-black/20" />
-              <div className="relative z-10 flex items-end justify-center h-full pb-6">
+              <div className="relative z-10 flex items-end justify-center h-full pb-35">
                 <Link
                   href="https://calendly.com/billy-fridgechannels/30min"
                   target="_blank"
@@ -127,7 +129,7 @@ export const LandingPageContent = ({
                     shimmerColor="#ffe5e9"
                   >
                     <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                      Start your Fridge Channel pilot
+                      Start your Fridge Channel
                     </span>
                   </ShimmerButton>
                 </Link>

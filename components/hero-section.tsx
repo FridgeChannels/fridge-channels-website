@@ -15,12 +15,16 @@ interface HeroSectionProps {
   videoSrc?: string | null;
   overlayImageSrc?: string | null;
   showHeroOverlayCta?: boolean;
+  enableOverlayTransition?: boolean;
+  scrollAfterFirstLoop?: boolean;
 }
 
 export const HeroSection = ({
   videoSrc,
   overlayImageSrc,
   showHeroOverlayCta = true,
+  enableOverlayTransition = true,
+  scrollAfterFirstLoop = false,
 }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const overlayTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -28,10 +32,12 @@ export const HeroSection = ({
   const [isMuted, setIsMuted] = useState(true);
   const isMutedRef = useRef(true);
   const resolvedVideo = videoSrc ?? HERO_MAIN_VIDEO;
-  const hasOverlayImage = Boolean(overlayImageSrc);
+  const shouldUseOverlayTransition = enableOverlayTransition && Boolean(overlayImageSrc);
   const [currentVideo, setCurrentVideo] = useState<"videoA" | "videoB">("videoA");
   const currentVideoRef = useRef<"videoA" | "videoB">("videoA");
   const overlayAudioRef = useRef<HTMLAudioElement>(null);
+  const afterHeroRef = useRef<HTMLDivElement | null>(null);
+  const hasScrolledAfterFirstLoopRef = useRef(false);
   const videoSources = useMemo(
     () => ({
       videoA: HERO_INTRO_VIDEO,
@@ -40,6 +46,7 @@ export const HeroSection = ({
     [resolvedVideo]
   );
   const currentVideoSrc = currentVideo === "videoA" ? videoSources.videoA : videoSources.videoB;
+  const scrollAfterFirstLoopRef = useRef(scrollAfterFirstLoop);
 
   const clearOverlayTimer = useCallback(() => {
     if (overlayTimerRef.current) {
@@ -70,7 +77,7 @@ export const HeroSection = ({
 
   const startOverlayPhase = useCallback(() => {
     clearOverlayTimer();
-    if (!hasOverlayImage) {
+    if (!shouldUseOverlayTransition) {
       updateVideo("videoB");
       return;
     }
@@ -81,7 +88,7 @@ export const HeroSection = ({
       stopOverlayAudio();
       updateVideo("videoB");
     }, OVERLAY_DURATION);
-  }, [clearOverlayTimer, hasOverlayImage, updateVideo, playOverlayAudio, stopOverlayAudio]);
+  }, [clearOverlayTimer, shouldUseOverlayTransition, updateVideo, playOverlayAudio, stopOverlayAudio]);
 
   useEffect(() => {
     return () => {
@@ -89,6 +96,11 @@ export const HeroSection = ({
       stopOverlayAudio();
     };
   }, [clearOverlayTimer, stopOverlayAudio]);
+
+  useEffect(() => {
+    scrollAfterFirstLoopRef.current = scrollAfterFirstLoop;
+    hasScrolledAfterFirstLoopRef.current = false;
+  }, [scrollAfterFirstLoop, resolvedVideo]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -126,6 +138,15 @@ export const HeroSection = ({
         clearOverlayTimer();
         setIsOverlayPhase(false);
         stopOverlayAudio();
+        if (scrollAfterFirstLoopRef.current && !hasScrolledAfterFirstLoopRef.current) {
+          hasScrolledAfterFirstLoopRef.current = true;
+          const target = afterHeroRef.current;
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else if (typeof window !== "undefined") {
+            window.scrollBy({ top: window.innerHeight * 0.25, behavior: "smooth" });
+          }
+        }
         updateVideo("videoA");
       }
     };
@@ -165,7 +186,7 @@ export const HeroSection = ({
     }
   };
 
-  const overlayVisible = hasOverlayImage && overlayImageSrc;
+  const overlayVisible = shouldUseOverlayTransition && overlayImageSrc;
   useEffect(() => {
     const head = document.head;
     if (!head) return;
@@ -183,10 +204,12 @@ export const HeroSection = ({
       return link;
     };
 
+    const introLink = preloadMedia(HERO_INTRO_VIDEO, "video");
     const videoLink = preloadMedia(videoSources.videoB, "video");
     const audioLink = preloadMedia(HERO_OVERLAY_AUDIO, "audio");
 
     return () => {
+      if (introLink) head.removeChild(introLink);
       if (videoLink) head.removeChild(videoLink);
       if (audioLink) head.removeChild(audioLink);
     };
@@ -194,12 +217,12 @@ export const HeroSection = ({
 
   return (
     <>
-    <section id="home" className="relative pt-16 min-h-screen bg-[#F7F7F4] pb-0">
-      {/* Full-bleed video */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <section id="home" className="relative bg-[#F7F7F4] pb-0">
+      {/* Full-bleed video constrained to 16:9 */}
+      <div className="relative w-full aspect-video overflow-hidden bg-black">
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           src={currentVideoSrc}
           muted={isMuted}
           playsInline
@@ -222,43 +245,36 @@ export const HeroSection = ({
               />
             </div>
             <div className="absolute inset-0 bg-black/30" />
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white font-semibold tracking-[0.3em] uppercase text-sm md:text-base drop-shadow-lg md:left-auto md:right-12 md:translate-x-0">
+            <div className="absolute bottom-6 right-6 text-white font-semibold tracking-[0.3em] uppercase text-sm md:text-base drop-shadow-lg">
               Channel Owned
             </div>
           </div>
         )}
-      </div>
 
-      <audio ref={overlayAudioRef} src={HERO_OVERLAY_AUDIO} preload="auto" className="hidden" />
+        <audio ref={overlayAudioRef} src={HERO_OVERLAY_AUDIO} preload="auto" className="hidden" />
 
-      <div className="absolute bottom-6 right-6 z-20">
-        <button
-          onClick={handleToggleMute}
-          className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-foreground shadow-xl backdrop-blur transition hover:bg-white"
-        >
-          {isMuted ? (
-            <>
-              <VolumeX className="h-4 w-4" />
-              {/* <span>Enable sound</span> */}
-            </>
-          ) : (
-            <>
-              <Volume2 className="h-4 w-4" />
-              {/* <span>Sound on</span> */}
-            </>
-          )}
-        </button>
-      </div>
+        <div className="absolute bottom-6 right-6 z-20">
+          <button
+            onClick={handleToggleMute}
+            className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-foreground shadow-xl backdrop-blur transition hover:bg-white"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX className="h-4 w-4" />
+              </>
+            ) : (
+              <>
+                <Volume2 className="h-4 w-4" />
+              </>
+            )}
+          </button>
+        </div>
 
-      <div className="flex flex-col items-center justify-center px-6 text-center relative z-10 min-h-screen mt-6">
-        <div className="mx-auto max-w-5xl" style={{ marginTop: '80px' }}>
-          <div className="relative mx-auto h-full pt-24 pb-12 p-6">
-          </div>
-
-          {showHeroOverlayCta && (
-            <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
+        {showHeroOverlayCta && (
+          <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-12">
+            <div className="pointer-events-auto">
               <Link href="#join-pilot">
-                <ShimmerButton 
+                <ShimmerButton
                   className="shadow-2xl transition-transform duration-300 hover:scale-110"
                   background="linear-gradient(120deg, #9f1026, #f25f6c)"
                   shimmerColor="#ffe5e9"
@@ -269,15 +285,15 @@ export const HeroSection = ({
                 </ShimmerButton>
               </Link>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-
     </section>
 
     <section
       className="relative z-10 px-6 py-8 text-center overflow-hidden flex flex-col justify-end"
       style={{ minHeight: "648px" }}
+      ref={afterHeroRef}
     >
       {/* Background image with blur effect */}
       <div 
@@ -320,7 +336,11 @@ export const HeroSection = ({
         </div>
         
         <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
-          <Link href="#join-pilot">
+          <Link
+            href="https://calendly.com/billy-fridgechannels/30min"
+            target="_blank"
+            rel="noreferrer"
+          >
             <ShimmerButton 
               className="shadow-2xl transition-transform duration-300 hover:scale-110"
               background="linear-gradient(120deg, #9f1026, #f25f6c)"
