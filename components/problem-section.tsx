@@ -162,39 +162,14 @@ export const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="container mx-auto px-4 pt-16 md:pt-24 pb-8 md:pb-12">
-      <div className="max-w-6xl mx-auto space-y-8">
-        {/* Section Title - styled like untillabs Our Approach */}
-        <div className="text-center space-y-6 py-8 md:py-12">
-          <h2 className="text-4xl md:text-[52.8px] font-medium text-foreground mb-6">
-            The problems paid newsletters are stuck with
-
-          </h2>
-          <p className="text-base text-foreground text-pretty leading-relaxed [&_strong]:font-semibold [&_b]:font-semibold">
-            You already have paying subscribers.
-          </p>
-          <p className="text-base text-foreground text-pretty leading-relaxed [&_strong]:font-semibold [&_b]:font-semibold">
-            But their attention, your relationship with them, and the money you earn per true fan are still limited by a purely online setup.
-          </p>
-        </div>
-      </div>
-
-      {/* Pain Points Cards - Grid 2 columns with staggered animation */}
-      <div className="pt-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {painPoints.map((pain, index) => (
-            <PainCard
-              key={index}
-              title={pain.title}
-              subtitle={pain.subtitle}
-              tag={pain.tag}
-              tagLabel={pain.tagLabel}
-              description={pain.description}
-              delay={index}
-              index={index}
-            />
-          ))}
-        </div>
+    <section id="problem" className="container mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-6">
+      {/* Content List */}
+      <div className="max-w-6xl mx-auto pt-4">
+        <ul className="space-y-4 text-base text-foreground text-pretty leading-relaxed [&_strong]:font-semibold [&_b]:font-semibold [&_em]:italic">
+          <li>- <strong>Owned household touchpoint</strong> (your Newsletter logo lives on the fridge)</li>
+          <li>- <strong>30–120s "fridge-time" consumption</strong> that leads to <em>Open full issue</em></li>
+          <li>- <strong>New subscriber acquisition</strong> with attribution + long-term alignment</li>
+        </ul>
       </div>
     </section>
   );

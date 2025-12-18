@@ -28,14 +28,14 @@ const CoreMetricCard: React.FC<CoreMetricCardProps> = ({ letter, title, descript
     <ScrollRevealCard delay={delay} className="h-full">
       <div className="group h-full flex flex-col space-y-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 transition-all duration-300 hover:bg-white/15 hover:border-white/30">
         <div className="flex items-center gap-3">
-          <div className="text-3xl md:text-4xl font-medium text-white font-mono">
+          <div className="text-3xl md:text-4xl font-bold text-white font-mono">
             {letter}
           </div>
-          <h4 className="text-xl md:text-2xl font-medium text-white">
+          <h4 className="text-2xl md:text-3xl font-black text-white">
             {titleWithoutFirstLetter}
           </h4>
         </div>
-        <p className="text-white/90 leading-relaxed text-base [&_strong]:font-semibold [&_strong]:text-white">
+        <p className="text-base md:text-lg font-medium text-white leading-relaxed [&_strong]:font-semibold [&_strong]:text-white">
           {renderFormattedText(description)}
         </p>
       </div>
@@ -48,49 +48,31 @@ export function CoreMetricsSection() {
     {
       letter: "C",
       title: "Channel Owned",
-      description: "Turn the fridge door into an offline channel you actually control. Your NFC magnet becomes the default, data-driven entry point into your world at the fridge — no feeds, no algorithms.",
+      description: "Your magnet becomes the default entry point at the fridge — offline, always-on, controllable.",
       delay: 0,
     },
     {
       letter: "O",
       title: "Open Rate",
-      description: "AI-crafted, 30–120 second fridge-time teasers explain \"why this issue matters now\" and lead naturally to **Open** full issue, creating more chances For creator your work to be read.",
+      description: "AI-crafted 30–120s fridge-time teasers explain “why this issue matters now” and naturally lead to **Open** full issue.",
       delay: 1,
     },
     {
       letter: "R",
       title: "Retention",
-      description: "Light, context-aware nudges at real fridge moments keep your newsletter visibly \"in use\" during daily life, reducing the quiet \"I never open this… why am I still paying?\" churn.",
+      description: "Light, context-aware nudges keep your newsletter visibly “in use” in daily life, reducing quiet churn.",
       delay: 2,
     },
     {
       letter: "E",
       title: "Earnings per subscriber",
-      description: "Only existing paying readers can subscribe to the FC magnet as an add-on. These \"I believe in this, just give me faster access and reminders\" fans pay extra for Fridge Channel Magnet, becoming your highest-signal, higher-ARPU tier on top of the base subscription.",
+      description: "Offer the FC magnet as a paid add-on to existing subscribers — a higher-signal, higher-ARPU tier.",
       delay: 3,
     },
   ];
 
   return (
     <div className="space-y-12">
-      {/* Introduction - styled like untillabs */}
-      <div className="max-w-4xl mx-auto space-y-6">
-        <h3 className="text-2xl md:text-3xl font-medium text-white mb-4">
-          Building metrics that matter.
-        </h3>
-        <div className="space-y-4 text-base text-white leading-relaxed [&_strong]:font-semibold">
-          <p>
-            Fridge Channel is building the most detailed dataset in the world about <strong>how people behave around their fridge</strong>.
-          </p>
-          <p>
-            Using this fridge-time data, our AI turns each paid issue into <strong>scenario-aware, guided teasers</strong> — short prompts at the right moments that pull readers back into your full newsletter.
-          </p>
-          <p>
-            We focus on the four metrics that matter most for paid newsletters:
-          </p>
-        </div>
-      </div>
-
       {/* Core Metrics Cards */}
       <div className="grid md:grid-cols-2 gap-8 pt-8">
         {coreMetrics.map((metric, index) => (
