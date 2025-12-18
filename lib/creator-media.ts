@@ -31,7 +31,7 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
   const { data: creator, error: creatorError } = await supabase
     .from('creator')
     .select('creator_id')
-    .ilike('creator_name', creatorName)
+    .eq('handle', creatorName)
     .maybeSingle()
 
   if (creatorError) {
