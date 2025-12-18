@@ -56,6 +56,9 @@ export const TaskList: React.FC<TaskListProps> = ({
     )
   }
 
+  // Generate a key based on tasks to force re-animation when tasks change
+  const tasksKey = tasks.map(t => t.id).join(',')
+
   return (
     <div className="w-full max-w-4xl mx-auto rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm">
       <h2 className="text-lg font-semibold mb-4">{title}</h2>
@@ -70,17 +73,17 @@ export const TaskList: React.FC<TaskListProps> = ({
             </tr>
           </thead>
           <motion.tbody
+            key={tasksKey}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <AnimatePresence>
-              {tasks.map((task, index) => (
-                <motion.tr
-                  key={task.id}
-                  variants={itemVariants}
-                  className="border-b border-border last:border-none hover:bg-muted/50"
-                >
+            {tasks.map((task, index) => (
+              <motion.tr
+                key={task.id}
+                variants={itemVariants}
+                className="border-b border-border last:border-none hover:bg-muted/50"
+              >
                   <td className="p-4 align-middle">
                     <div className="flex items-center justify-center">
                       {task.logoImageUrl ? (
@@ -117,7 +120,6 @@ export const TaskList: React.FC<TaskListProps> = ({
                   </td>
                 </motion.tr>
               ))}
-            </AnimatePresence>
           </motion.tbody>
         </table>
       </div>
