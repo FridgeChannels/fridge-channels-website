@@ -6,6 +6,8 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import Image from "next/image";
 import { Volume2, VolumeX } from "lucide-react";
 
+const OVERLAY_DURATION = 2000;
+
 interface HeroSectionProps {
   videoSrc?: string | null;
   overlayImageSrc?: string | null;
@@ -17,12 +19,14 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
   const [isOverlayPhase, setIsOverlayPhase] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const isMutedRef = useRef(true);
-  const resolvedVideo = videoSrc ?? "/hero1215.mp4";
+  const resolvedVideo = videoSrc ?? "/video-part3-1.mp4";
   const hasOverlayImage = Boolean(overlayImageSrc);
   const [currentVideo, setCurrentVideo] = useState<"videoA" | "videoB">("videoA");
+  const currentVideoRef = useRef<"videoA" | "videoB">("videoA");
+  const overlayAudioRef = useRef<HTMLAudioElement>(null);
   const videoSources = useMemo(
     () => ({
-      videoA: "/video2.mp4",
+      videoA: "/video-part1-1.mp4",
       videoB: resolvedVideo,
     }),
     [resolvedVideo]
@@ -36,28 +40,47 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
     }
   }, []);
 
-  const advanceVideo = useCallback(() => {
-    setCurrentVideo((prev) => (prev === "videoA" ? "videoB" : "videoA"));
+  const stopOverlayAudio = useCallback(() => {
+    const audio = overlayAudioRef.current;
+    if (!audio) return;
+    audio.pause();
+    audio.currentTime = 0;
   }, []);
 
-  const triggerOverlayPhase = useCallback(() => {
+  const playOverlayAudio = useCallback(() => {
+    if (isMutedRef.current) return;
+    const audio = overlayAudioRef.current;
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  }, []);
+
+  const updateVideo = useCallback((next: "videoA" | "videoB") => {
+    currentVideoRef.current = next;
+    setCurrentVideo(next);
+  }, []);
+
+  const startOverlayPhase = useCallback(() => {
     clearOverlayTimer();
     if (!hasOverlayImage) {
-      advanceVideo();
+      updateVideo("videoB");
       return;
     }
     setIsOverlayPhase(true);
+    playOverlayAudio();
     overlayTimerRef.current = setTimeout(() => {
       setIsOverlayPhase(false);
-      advanceVideo();
-    }, 3000);
-  }, [advanceVideo, clearOverlayTimer, hasOverlayImage]);
+      stopOverlayAudio();
+      updateVideo("videoB");
+    }, OVERLAY_DURATION);
+  }, [clearOverlayTimer, hasOverlayImage, updateVideo, playOverlayAudio, stopOverlayAudio]);
 
   useEffect(() => {
     return () => {
       clearOverlayTimer();
+      stopOverlayAudio();
     };
-  }, [clearOverlayTimer]);
+  }, [clearOverlayTimer, stopOverlayAudio]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -89,20 +112,28 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
     if (!video) return;
 
     const handleEnded = () => {
-      triggerOverlayPhase();
+      if (currentVideoRef.current === "videoA") {
+        startOverlayPhase();
+      } else {
+        clearOverlayTimer();
+        setIsOverlayPhase(false);
+        stopOverlayAudio();
+        updateVideo("videoA");
+      }
     };
 
     video.addEventListener("ended", handleEnded);
     return () => {
       video.removeEventListener("ended", handleEnded);
     };
-  }, [triggerOverlayPhase]);
+  }, [startOverlayPhase, clearOverlayTimer, stopOverlayAudio, updateVideo]);
 
   useEffect(() => {
     clearOverlayTimer();
     setIsOverlayPhase(false);
-    setCurrentVideo("videoA");
-  }, [resolvedVideo, clearOverlayTimer]);
+    stopOverlayAudio();
+    updateVideo("videoA");
+  }, [resolvedVideo, clearOverlayTimer, updateVideo, stopOverlayAudio]);
 
   const handleToggleMute = () => {
     const video = videoRef.current;
@@ -116,9 +147,13 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
       video.muted = false;
       video.defaultMuted = false;
       video.play().catch(() => {});
+      if (isOverlayPhase) {
+        playOverlayAudio();
+      }
     } else {
       video.muted = true;
       video.defaultMuted = true;
+      stopOverlayAudio();
     }
   };
 
@@ -160,8 +195,9 @@ export const HeroSection = ({ videoSrc, overlayImageSrc }: HeroSectionProps) => 
             </div>
           </div>
         )}
-        <div className="absolute inset-0 bg-white/40 pointer-events-none" />
-      </div>
+      <div className="absolute inset-0 bg-white/40 pointer-events-none" />
+      <audio ref={overlayAudioRef} src="/video-part2-1.m4a" preload="auto" className="hidden" />
+    </div>
 
       <div className="absolute bottom-6 right-6 z-20">
         <button
