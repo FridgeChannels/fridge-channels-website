@@ -354,18 +354,16 @@ export const HeroSection = ({
       
       <div className="relative z-10 mx-auto max-w-5xl pb-8">
         <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
-          Convert more subscribers to paid — and keep them longer
+          Convert more subscribers to paid and keep them longer
         </h1>
         
         <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">
-          Fridge Channel builds your newsletter into a daily routine by AI-powered magnet: a tap on the fridge that drives habit, revisits, and new paid subscribers
+          Fridge Channel keeps you visible every day and turns attention into higher conversion and lower churn
         </div>
         
         <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
           <Link
-            href="https://calendly.com/billy-fridgechannels/30min"
-            target="_blank"
-            rel="noreferrer"
+            href="#roi-engine"
           >
             <ShimmerButton 
               className="shadow-2xl transition-transform duration-300 hover:scale-110"
@@ -373,7 +371,7 @@ export const HeroSection = ({
               shimmerColor="#ffe5e9"
             >
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-              Founder Chat → Launch Channel
+              Start a Pilot
               </span>
             </ShimmerButton>
           </Link>

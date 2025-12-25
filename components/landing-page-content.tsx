@@ -72,7 +72,7 @@ export const LandingPageContent = ({
               <li className="flex items-center justify-center gap-2">
                 <span className="text-foreground">•</span>
                 <TextGradientScroll
-                  text="Owned household touchpoint (your Newsletter logo lives on the fridge)"
+                  text="More New Paid: higher free → paid conversion from FridgeChannel-touched users"
                   type="word"
                   textOpacity="soft"
                   className="text-lg leading-relaxed"
@@ -81,7 +81,7 @@ export const LandingPageContent = ({
               <li className="flex items-center justify-center gap-2">
                 <span className="text-foreground">•</span>
                 <TextGradientScroll
-                  text='30–120s "fridge-time" consumption that leads to *Open full issue*'
+                  text="Longer Lifetime: more retained billing cycles by lifting usage intensity"
                   type="word"
                   textOpacity="soft"
                   className="text-lg leading-relaxed"
@@ -90,7 +90,7 @@ export const LandingPageContent = ({
               <li className="flex items-center justify-center gap-2">
                 <span className="text-foreground">•</span>
                 <TextGradientScroll
-                  text="New subscriber acquisition with attribution + long-term alignment"
+                  text="ROI-ready: pilot → measure → scale with auditable attribution"
                   type="word"
                   textOpacity="soft"
                   className="text-lg leading-relaxed"
@@ -156,88 +156,77 @@ export const LandingPageContent = ({
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Will this hurt my existing subscription business?
+                    1) What exactly is "incremental Growth"?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No. FC is designed to increase <em>usage occasions,</em> drive <strong>Open full issue, and convert more paid subscribers.</strong> Existing subscribers still consume your full work; FC reduces "I never open this" churn.
+                      Users with FC touch evidence who later become paid.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    How do you define "FC-originated subscriber"?
+                    2) If they pay later on desktop, does it count?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      A subscriber who completes the first paid subscription event <strong>inside FC</strong> (tracked and shown in your analytics on REVENUE tier).
+                      Yes. We attribute by touch → later paid, not by CTA click.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Does 15% apply to my existing subscribers?
+                    3) Do you charge Retention if paid users never used FC?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No. Only new subscriptions created inside FC.
+                      No. Retention billing requires touch evidence.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What does the household pay for?
+                    4) Why does Retention start from period 11?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      FC Pass unlocks the household consumption experience and app layer.
+                      To make it fair and debate-proof: we only monetize clearly extended lifetime.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-5">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What if nobody converts?
+                    5) How do you handle annual plans?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      You still get usage + retention signals (ENTRY/RETENTION), and you can iterate scenes/formats. FC only earns the 15% when FC creates subscribers.
+                      Annual plans are converted into 12 equivalent billing periods; Retention applies from equivalent period 11.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-6">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Do I need to change my newsletter setup?
+                    6) Refunds/chargebacks?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No. Add an email address / forward issues. Everything else is handled.
+                      If revenue is reversed, that period fee becomes $0; if after invoice, we issue a credit next invoice.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-7">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What about privacy?
+                    7) How do I verify you didn't overcharge?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      We track household-level usage signals needed to improve scenes and attribution. We do not sell household data.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-8">
-                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Who handles production and support?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-base text-muted-foreground">
-                      We do: design, manufacturing, QA, shipping, tracking, replacement, and support.
+                      Audit any line item: it has a dashboard evidence link. No evidence, no bill.
                     </p>
                   </AccordionContent>
                 </AccordionItem>

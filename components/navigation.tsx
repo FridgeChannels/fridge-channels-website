@@ -7,10 +7,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Problem", href: "#subscription-value-lost" },
-  { label: "Solution", href: "#why-creators-love-it" },
+  { label: "Home", href: "#home" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "ROI Engine", href: "#roi-engine" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
   { label: "Our Story", href: "/about-us" },
