@@ -39,7 +39,7 @@ export const HeroSection = () => {
           <div className="mx-auto max-w-5xl" style={{ marginTop: '80px' }}>
             <div className="relative mx-auto h-full pt-24 pb-12 p-6">
               <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
-                Convert more subscribers to paid — and keep them longer
+                Convert more subscribers to paid and keep them longer
               </h1>
             </div>
 
