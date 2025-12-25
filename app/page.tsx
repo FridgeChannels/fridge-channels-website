@@ -1,18 +1,18 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CoreMetricsSection } from "@/components/core-metrics-section-official"
 import { HeroSection } from "@/components/hero-section-official"
-import PricingCards from "@/components/pricing-cards"
 import { TextGradientScroll } from "@/components/ui/text-gradient-scroll"
 import { ScrollRevealCard } from "@/components/ui/scroll-reveal-card"
 import { PilotFormSection } from "@/components/pilot-form-section"
 import { HowItWorksTimeline } from "@/components/how-it-works-timeline-official"
 import { Navigation } from "@/components/navigation"
 import { ProblemSection } from "@/components/problem-section"
+import { ROIEngineSection } from "@/components/roi-engine-section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { HandWrittenTextButton } from "@/components/ui/hand-written-text-button"
 import { ShimmerButton } from "@/components/ui/shimmer-button"
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 
 export default function HomePage() {
   return (
@@ -22,10 +22,68 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Problem Section */}
-      <ProblemSection />
+      <div className="mt-10">
+        <ProblemSection />
+      </div>
+
+      {/* Subscription Value Lost Section */}
+      <section id="subscription-value-lost" className="container mx-auto px-4 pt-16 pb-16 mt-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-6">
+            Subscription value is lost between sessions
+          </h2>
+          
+          <div className="max-w-4xl mx-auto mb-12">
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              If you are building a subscription business powered by <strong className="font-semibold text-foreground">content-driven growth</strong> and <strong className="font-semibold text-foreground">renewals</strong> you will face this challenge.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1: Always delay */}
+            <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl shadow-lg p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+                Always delay
+              </h3>
+              <ul className="space-y-3 text-base text-foreground/80 leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-foreground mt-1">•</span>
+                  <span>"I'll use it later" becomes "I forgot"</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2: Your touchpoints are not yours */}
+            <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl shadow-lg p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+                Your touchpoints are not yours
+              </h3>
+              <ul className="space-y-3 text-base text-foreground/80 leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-foreground mt-1">•</span>
+                  <span>Algorithms decide when you show up</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 3: Renewal issues */}
+            <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl shadow-lg p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+                Renewals arrive before value does
+              </h3>
+              <ul className="space-y-3 text-base text-foreground/80 leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-foreground mt-1">•</span>
+                  <span>Paid users feel less value before renewal which lead to churn pressure rises</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* How Fridge Channel strengthens your C.O.R.E Section - styled like untillabs Assaying Organ Health */}
-      <section id="why-creators-love-it" className="relative overflow-hidden" style={{ backgroundColor: '#C32D0B' }}>
+      <section id="why-creators-love-it" className="relative overflow-hidden mt-10" style={{ backgroundColor: '#C32D0B' }}>
         {/* Smooth gradient transitions at boundaries with curved blend */}
         <div
           className="absolute inset-x-0 top-0 z-0"
@@ -68,23 +126,38 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col justify-center">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold text-balance text-white">The C.O.R.E Your Fridge Channel improves</h2>
-            </div>
+          {/* Who This Is For Section */}
+          <div className="max-w-6xl mx-auto mt-16 pt-16">
+            {/* Title */}
+            <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-8 text-white">
+              Our solution
+            </h2>
 
-            <CoreMetricsSection />
+            {/* Introduction text */}
+            <div className="mb-8 text-center max-w-4xl mx-auto">
+              <TextGenerateEffect
+                words="FridgeChannel brings your subscription back into daily life through an AI powered magnet based household touchpoint that creates repeated value exposure. With a simple loop of glance scan and preview your audience is reminded of your value every day and can instantly open the full issue upgrade or take action. More daily visibility means stronger conversion momentum and less churn at renewal."
+                className="text-lg md:text-xl text-white/90 leading-relaxed"
+                filter={false}
+                duration={0.5}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* How it Works Section */}
-      <section id="how-it-works">
+      <section id="how-it-works" className="mt-10">
         <HowItWorksTimeline />
       </section>
 
+      {/* ROI Engine Section */}
+      <div className="mt-10">
+        <ROIEngineSection />
+      </div>
+
       {/* Pricing Section - styled like C.O.R.E Section */}
-      <section id="pricing" className="relative overflow-hidden" style={{ backgroundColor: '#8D0104' }}>
+      <section id="pricing" className="relative overflow-hidden mt-10" style={{ backgroundColor: '#8D0104' }}>
         {/* Smooth gradient transitions at boundaries with curved blend */}
         <div
           className="absolute inset-x-0 top-0 z-0"
@@ -130,87 +203,97 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto space-y-16">
             {/* Header */}
             <div className="space-y-6 text-center">
-              <h2 className="text-3xl md:text-5xl font-bold text-balance text-white">Pricing</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-balance text-white">OUTCOME-BASED PRICING</h2>
               <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
                 <strong className="font-semibold text-white">Turn household attention into subscriptions, retention, and durable revenue.</strong>
               </p>
             </div>
 
-            {/* 1. FC Pass — Household */}
+            {/* 1. Pilot Fee */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">1. FC Pass — Household</h3>
+              <h3 className="text-2xl md:text-3xl font-semibold text-white">1. Pilot Fee</h3>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6">
-                <p className="text-xl md:text-2xl font-semibold text-white mb-4">
-                  <strong className="font-semibold text-white">$19.99 / year per household</strong>
-                </p>
-                <p className="text-base md:text-lg text-white/90 mb-3">Unlocks:</p>
                 <ul className="space-y-2 text-base md:text-lg text-white/90 ml-4">
                   <li className="flex items-start gap-2">
                     <span className="text-white mt-1">•</span>
-                    <span>Fridge consumption experience after tap</span>
+                    <span>
+                      <strong className="font-semibold text-white">Cohort:</strong> 1500 ≤ touchpoints &lt; 3000
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-white mt-1">•</span>
-                    <span>App experience (and recommendations where enabled)</span>
+                    <span>
+                      <strong className="font-semibold text-white">$10 / user</strong> (first batch)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>
+                      <strong className="font-semibold text-white">$20 / user</strong> (after pilot expansion)
+                    </span>
                   </li>
                 </ul>
               </div>
-            </div>
-
-            {/* 2) Creator platform fee */}
-            <div className="space-y-6">
-              <PricingCards />
             </div>
 
             {/* 3. Subscription revenue share */}
+            {/* 2. Growth Share (New Paid) */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">3. Subscription revenue share — long-term alignment</h3>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 space-y-4">
-                <p className="text-base md:text-lg text-white/90">
-                  If a user subscribes to you <strong className="font-semibold text-white">through FC</strong>, we take <strong className="font-semibold text-white">15% of that subscription revenue</strong> <strong className="font-semibold text-white">for as long as that subscriber stays subscribed</strong>.
-                </p>
+              <h3 className="text-2xl md:text-3xl font-semibold text-white">2. Growth Share (New Paid)</h3>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6">
                 <ul className="space-y-2 text-base md:text-lg text-white/90 ml-4">
                   <li className="flex items-start gap-2">
                     <span className="text-white mt-1">•</span>
-                    <span>Only applies to <strong className="font-semibold text-white">new subscriptions created inside FC</strong></span>
+                    <span>
+                      <strong className="font-semibold text-white">Fee:</strong> <strong className="font-semibold text-white">10% × subscription revenue / billing period</strong>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-white mt-1">•</span>
-                    <span>Applies <strong className="font-semibold text-white">every billing cycle</strong> (monthly / annual)</span>
+                    <span>
+                      <strong className="font-semibold text-white">Applies to:</strong> users who become <strong className="font-semibold text-white">New Paid</strong> after FC touch
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-white mt-1">•</span>
-                    <span>If no subscription happens → <strong className="font-semibold text-white">we take $0</strong></span>
+                    <span>
+                      <strong className="font-semibold text-white">Duration:</strong> while the user stays paid
+                    </span>
                   </li>
                 </ul>
-                <p className="text-base md:text-lg text-white/90 pt-2">
-                  <strong className="font-semibold text-white">Not affiliate. Permanent participation tied to incremental acquisition.</strong>
-                </p>
               </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="pt-16">
-              <div className="max-w-3xl mx-auto">
-                <div className="text-center space-y-6">
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link
-                      href="https://calendly.com/billy-fridgechannels/30min"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <ShimmerButton
-                        className="shadow-2xl transition-transform duration-300 hover:scale-110 w-full sm:w-auto"
-                        background="rgba(0, 0, 0, 1)"
-                        shimmerColor="#ffffff"
-                      >
-                        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                          Turn on Fridge Channel Magnet
-                        </span>
-                      </ShimmerButton>
-                    </Link>
-                  </div>
-                </div>
+            {/* 3. Retention Share (Month 11+) */}
+            <div className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-semibold text-white">3. Retention Share (Month 11+)</h3>
+              <div className="bg-white/10 backdrop-blur-md border-2 border-white/40 rounded-lg p-6">
+                <ul className="space-y-2 text-base md:text-lg text-white/90 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>
+                      <strong className="font-semibold text-white">Period 1–10:</strong> <strong className="font-semibold text-white">$0</strong>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>
+                      <strong className="font-semibold text-white">From period 11+:</strong> <strong className="font-semibold text-white">10% × subscription revenue / billing period</strong>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>
+                      <strong className="font-semibold text-white">Applies to:</strong> paid users who have FC touch
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>
+                      <strong className="font-semibold text-white">Duration:</strong> while the user stays paid
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -218,50 +301,139 @@ export default function HomePage() {
       </section>
 
       {/* What creators can see their household asset Section */}
-      <section id="who-its-for" className="container mx-auto px-4 pt-20 pb-20">
+      <section id="who-its-for" className="container mx-auto px-4 pt-20 pb-20 mt-10">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-balance">What creators can see their household asset</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-balance">Every month you get</h2>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* ENTRY Card */}
-              <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl p-6 shadow-lg transition-all duration-300 cursor-pointer hover:shadow-2xl hover:bg-white/80 hover:border-gray-300/70 hover:scale-105 hover:-translate-y-2">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
-                  <span className="font-bold text-foreground">ENTRY</span>
-                </h3>
-                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-                  activation rate, scans, consumption events, completion rate by format
-                </p>
-              </div>
-
-              {/* RETENTION Card */}
-              <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl p-6 shadow-lg transition-all duration-300 cursor-pointer hover:shadow-2xl hover:bg-white/80 hover:border-gray-300/70 hover:scale-105 hover:-translate-y-2">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
-                  <span className="font-bold text-foreground">RETENTION</span>
-                </h3>
-                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-                  D7/D30 return, WAU households, streaks, scene comparisons
-                </p>
-              </div>
-
-              {/* REVENUE Card */}
-              <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl p-6 shadow-lg transition-all duration-300 cursor-pointer hover:shadow-2xl hover:bg-white/80 hover:border-gray-300/70 hover:scale-105 hover:-translate-y-2">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
-                  <span className="font-bold text-foreground">REVENUE</span>
-                </h3>
-                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-                  FC-originated subs, conversion rate by scene/format, lift vs control, incremental revenue per household, LTV from FC-acquired subs
-                </p>
+          <div className="max-w-4xl mx-auto space-y-4 text-center ml-20">
+            <ul className="space-y-3 text-lg text-foreground leading-relaxed text-left">
+              <li className="flex items-start gap-2">
+                <span className="text-foreground mt-1">•</span>
+                <span>
+                  Invoice with two columns: <strong className="font-semibold text-foreground">Growth Share / Retention Share (Month 11+)</strong>
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-foreground mt-1">•</span>
+                <span>
+                  A downloadable <strong className="font-semibold text-foreground">CSV</strong> (one row per user), including:
+                </span>
+              </li>
+            </ul>
+            <ul className="space-y-2 text-base text-foreground/80 leading-relaxed text-left ml-8 list-disc">
+              <li>anonymized</li>
+              <li>touch timestamp(s)</li>
+              <li>paid-start timestamp (Growth)</li>
+              <li>billing period index (Retention)</li>
+              <li>subscription revenue + fee</li>
+              <li>dashboard evidence link</li>
+            </ul>
+            
+            {/* Summary Rules */}
+            <div className="mt-12 pt-8 flex justify-center">
+              <div className="bg-white/60 backdrop-blur-xl backdrop-saturate-150 border border-gray-200/50 rounded-lg p-6 w-fit shadow-lg">
+                <ul className="space-y-4 text-lg md:text-xl text-foreground leading-relaxed text-left">
+                  <li className="flex items-start gap-2">
+                    <span className="text-foreground mt-1">•</span>
+                    <span>
+                      <strong className="font-bold text-foreground">No double charge:</strong> one user, one period, <strong className="font-bold text-foreground">10% max</strong>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-foreground mt-1">•</span>
+                    <span>
+                      <strong className="font-bold text-foreground">No evidence, no bill:</strong> every charged user has dashboard proof
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-foreground mt-1">•</span>
+                    <span>
+                      <strong className="font-bold text-foreground">Refunds:</strong> reversed revenue = <strong className="font-bold text-foreground">$0 fee</strong> (credited next invoice if needed)
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Final CTA Section */}
+      <section id="final-cta" className="relative overflow-hidden mt-10" style={{ backgroundColor: '#8D0104' }}>
+        {/* Smooth gradient transitions at boundaries with curved blend */}
+        <div
+          className="absolute inset-x-0 top-0 z-0"
+          style={{
+            height: '280px',
+            background: `linear-gradient(to bottom, 
+              #F7F7F4 0%, 
+              rgba(247, 247, 244, 0.95) 15%,
+              rgba(247, 247, 244, 0.85) 25%,
+              rgba(247, 247, 244, 0.7) 35%,
+              rgba(247, 247, 244, 0.55) 45%,
+              rgba(247, 247, 244, 0.4) 55%,
+              rgba(247, 247, 244, 0.25) 65%,
+              rgba(247, 247, 244, 0.15) 75%,
+              rgba(247, 247, 244, 0.08) 85%,
+              rgba(247, 247, 244, 0.03) 92%,
+              transparent 100%
+            )`
+          }}
+        ></div>
+        <div
+          className="absolute inset-x-0 bottom-0 z-0"
+          style={{
+            height: '280px',
+            background: `linear-gradient(to top, 
+              #F7F7F4 0%, 
+              rgba(247, 247, 244, 0.95) 15%,
+              rgba(247, 247, 244, 0.85) 25%,
+              rgba(247, 247, 244, 0.7) 35%,
+              rgba(247, 247, 244, 0.55) 45%,
+              rgba(247, 247, 244, 0.4) 55%,
+              rgba(247, 247, 244, 0.25) 65%,
+              rgba(247, 247, 244, 0.15) 75%,
+              rgba(247, 247, 244, 0.08) 85%,
+              rgba(247, 247, 244, 0.03) 92%,
+              transparent 100%
+            )`
+          }}
+        ></div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 flex flex-col justify-center py-48">
+          <div className="max-w-5xl mx-auto space-y-8">
+            {/* Header */}
+            <div className="space-y-6 text-center">
+              <h2 className="text-3xl md:text-5xl font-bold text-balance text-white">
+                <strong className="font-bold">Ready to lift conversion and retention with a channel you can audit?</strong>
+              </h2>
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex flex-col items-center gap-4 pt-4">
+              <Link
+                href="#roi-engine"
+              >
+                <ShimmerButton
+                  className="shadow-2xl transition-transform duration-300 hover:scale-110 w-full sm:w-[302px]"
+                  background="rgba(0, 0, 0, 1)"
+                  shimmerColor="#ffffff"
+                >
+                  <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                    Start a Pilot
+                  </span>
+                </ShimmerButton>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mini FAQ Section */}
-      <section id="faq" className="container mx-auto px-4 pt-10 pb-10 border-t border-border">
+      <section id="faq" className="container mx-auto px-4 pt-10 pb-10 border-t border-border mt-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid gap-8 md:grid-cols-5 md:gap-12">
             <div className="md:col-span-2">
@@ -275,88 +447,77 @@ export default function HomePage() {
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Will this hurt my existing subscription business?
+                    1) What exactly is "incremental Growth"?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No. FC is designed to increase <em>usage occasions,</em> drive <strong>Open full issue, and convert more paid subscribers.</strong> Existing subscribers still consume your full work; FC reduces "I never open this" churn.
+                      Users with FC touch evidence who later become paid.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    How do you define "FC-originated subscriber"?
+                    2) If they pay later on desktop, does it count?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      A subscriber who completes the first paid subscription event <strong>inside FC</strong> (tracked and shown in your analytics on REVENUE tier).
+                      Yes. We attribute by touch → later paid, not by CTA click.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Does 15% apply to my existing subscribers?
+                    3) Do you charge Retention if paid users never used FC?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No. Only new subscriptions created inside FC.
+                      No. Retention billing requires touch evidence.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What does the household pay for?
+                    4) Why does Retention start from period 11?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      FC Pass unlocks the household consumption experience and app layer.
+                      To make it fair and debate-proof: we only monetize clearly extended lifetime.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-5">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What if nobody converts?
+                    5) How do you handle annual plans?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      You still get usage + retention signals (ENTRY/RETENTION), and you can iterate scenes/formats. FC only earns the 15% when FC creates subscribers.
+                      Annual plans are converted into 12 equivalent billing periods; Retention applies from equivalent period 11.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-6">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Do I need to change my newsletter setup?
+                    6) Refunds/chargebacks?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      No. Add an email address / forward issues. Everything else is handled.
+                      If revenue is reversed, that period fee becomes $0; if after invoice, we issue a credit next invoice.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-7">
                   <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    What about privacy?
+                    7) How do I verify you didn't overcharge?
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-base text-muted-foreground">
-                      We track household-level usage signals needed to improve scenes and attribution. We do not sell household data.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-8">
-                  <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                    Who handles production and support?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-base text-muted-foreground">
-                      We do: design, manufacturing, QA, shipping, tracking, replacement, and support.
+                      Audit any line item: it has a dashboard evidence link. No evidence, no bill.
                     </p>
                   </AccordionContent>
                 </AccordionItem>

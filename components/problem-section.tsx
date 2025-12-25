@@ -201,7 +201,7 @@ export const ProblemSection = () => {
       <span className="flex flex-wrap items-start gap-0">
         {parts.map((part, index) => {
           const className = cn(
-            "text-2xl font-bold text-foreground leading-relaxed inline whitespace-pre-wrap",
+            "text-2xl text-foreground leading-relaxed inline whitespace-pre-wrap",
             part.isBold && "font-bold",
             part.isItalic && "italic"
           );
@@ -218,27 +218,36 @@ export const ProblemSection = () => {
 
   // List items data
   const listItems = [
-    "**Owned household touchpoint** (your Newsletter logo lives on the fridge)",
-    '**30–120s "fridge-time" consumption** that leads to *Open full issue*',
-    "**New subscriber acquisition** with attribution + long-term alignment",
+    "**More New Paid:** higher \"free → paid\" conversion from FridgeChannel-touched users",
+    "**Longer Lifetime:** more retained billing cycles by lifting usage intensity",
+    "**ROI-ready:** pilot → measure → scale with auditable attribution",
   ];
 
   return (
-    <section id="problem" className="container mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-6">
-      {/* Content List */}
-      <div className="max-w-6xl mx-auto pt-4">
-        <ul className="space-y-4 text-2xl font-bold text-foreground text-pretty leading-relaxed flex flex-col items-center">
-          {listItems.map((item, index) => (
-            <ScrollRevealListItem key={index} index={index}>
-              <li className="flex items-center justify-center gap-2">
-                <span className="text-foreground">•</span>
-                <span>
-                  {renderFormattedText(item)}
-                </span>
-              </li>
-            </ScrollRevealListItem>
-          ))}
-        </ul>
+    <section id="problem" className="container mx-auto px-4 pt-12 md:pt-16 pb-12 md:pb-16">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Title */}
+        <div className="text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-balance mb-4">
+            Fridge Channel will bring you
+          </h2>
+        </div>
+
+        {/* Value proposition section */}
+        <div className="max-w-5xl mx-auto space-y-6 pt-8">
+          <ul className="space-y-4 text-xl md:text-2xl text-foreground text-pretty leading-relaxed flex flex-col items-center">
+            {listItems.map((item, index) => (
+              <ScrollRevealListItem key={index} index={index}>
+                <li className="flex items-center justify-center gap-2">
+                  <span className="text-foreground">•</span>
+                  <span>
+                    {renderFormattedText(item)}
+                  </span>
+                </li>
+              </ScrollRevealListItem>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

@@ -354,7 +354,7 @@ export const HeroSection = ({
       
       <div className="relative z-10 mx-auto max-w-5xl pb-8">
         <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
-          Household touchpoints are a gold asset
+          Convert more subscribers to paid — and keep them longer
         </h1>
         
         <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">

@@ -12,40 +12,55 @@ interface HowItWorksTimelineProps {
 export function HowItWorksTimeline({ coverImageSrc }: HowItWorksTimelineProps = {}) {
   const data = [
     {
-      title: "1. Connect your content",
+      title: "1. Define a pilot cohort",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Add Fridge Channel's email to your list (or forward issues), or add your RSS into Fridge Channel AI-Powered Tools.
+            We ship AI-powered magnets to a defined user cohort.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Every paid issue becomes <strong className="font-semibold text-foreground">fridge-time formats</strong> automatically.
+            Default tracking: <strong className="font-semibold text-foreground">1 magnet = 1 user</strong> in the FC tracking chain.
           </p>
         </div>
       ),
     },
     {
-      title: "2. Choose scenes + design the magnet",
+      title: "2. Users generate \"touch evidence\"",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Pick the family moments you want to show up (coffee, cooking, after work…).
+            Users scan/tap and consume FridgeChannel value proof previews.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            We generate formats (10s / 2min / bullets), and ship a magnet that fits your brand.
+            FC records: <strong className="font-semibold text-foreground">scan / preview events</strong> as touch evidence.
           </p>
         </div>
       ),
     },
     {
-      title: "3. Launch + measure lift",
+      title: "3. We measure incremental outcomes",
+      content: (
+        <div>
+          <ul className="text-lg text-muted-foreground leading-relaxed mb-8 space-y-2 list-disc list-inside">
+            <li>
+              <strong className="font-semibold text-foreground">Growth (New Paid):</strong> touched user → later becomes paid
+            </li>
+            <li>
+              <strong className="font-semibold text-foreground">Retention (Extended Lifetime):</strong> touched paid user → stays beyond expected renewal cycles
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: "4. Monthly invoice with auditable proof",
       content: (
         <div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Households activate with <strong className="font-semibold text-foreground">FC Pass</strong>.
+            Two columns + downloadable CSV.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            You see usage, returns, and (on higher tiers) <strong className="font-semibold text-foreground">subscription attribution + lift</strong>.
+            <strong className="font-semibold text-foreground">Every charged item has user-level evidence.</strong>
           </p>
         </div>
       ),
@@ -55,7 +70,7 @@ export function HowItWorksTimeline({ coverImageSrc }: HowItWorksTimelineProps = 
   return (
     <div className="w-full bg-muted/30 dark:bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pt-10">
-        <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-12">How it works</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-12">HOW IT WORKS</h2>
       </div>
       <Timeline data={data} />
       

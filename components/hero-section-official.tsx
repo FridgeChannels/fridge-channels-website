@@ -39,29 +39,39 @@ export const HeroSection = () => {
           <div className="mx-auto max-w-5xl" style={{ marginTop: '80px' }}>
             <div className="relative mx-auto h-full pt-24 pb-12 p-6">
               <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
-                Household touchpoints are a gold asset
+                Convert more subscribers to paid — and keep them longer
               </h1>
             </div>
 
-            <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">
-              Fridge Channel builds your newsletter into a daily routine by AI-powered magnet: a tap on the fridge that drives habit, revisits, and new paid subscribers
+            <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono max-w-3xl mx-auto">
+              Fridge Channel keeps you visible every day and turns attention into higher conversion and lower churn
             </div>
-            <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
-              <Link
-                href="https://calendly.com/billy-fridgechannels/30min"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ShimmerButton 
-                  className="shadow-2xl transition-transform duration-300 hover:scale-110"
-                  background="rgba(0, 0, 0, 1)"
-                  shimmerColor="#ffffff"
+            <div className="flex flex-col items-center gap-4" style={{ marginTop: '40px' }}>
+              <div className="flex items-center justify-center gap-4">
+                <Link
+                  href="https://calendly.com/billy-fridgechannels/30min"
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                  Start your Fridge Channel
-                  </span>
-                </ShimmerButton>
-              </Link>
+                  <ShimmerButton 
+                    className="shadow-2xl transition-transform duration-300 hover:scale-110"
+                    background="rgba(0, 0, 0, 1)"
+                    shimmerColor="#ffffff"
+                  >
+                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                    Start a Pilot
+                    </span>
+                  </ShimmerButton>
+                </Link>
+                <Link href="#how-it-works">
+                  <Button 
+                    variant="outline"
+                    className="rounded-[25px] border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:text-white transition-all duration-300 shadow-lg"
+                  >
+                    How It Works
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
