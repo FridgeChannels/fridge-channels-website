@@ -34,7 +34,7 @@ export function Navigation() {
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
+
       // Check if we're on the hero section
       const heroSection = document.getElementById('home');
       if (heroSection) {
@@ -45,12 +45,12 @@ export function Navigation() {
       } else {
         setIsOnHeroSection(false);
       }
-      
+
       // Check if we're on the red background sections (#C32D0B or #8D0104)
       const redSection1 = document.getElementById('why-creators-love-it');
       const redSection2 = document.getElementById('pricing');
       let isOnRed = false;
-      
+
       if (redSection1) {
         const rect = redSection1.getBoundingClientRect();
         const navHeight = 80;
@@ -58,7 +58,7 @@ export function Navigation() {
           isOnRed = true;
         }
       }
-      
+
       if (redSection2 && !isOnRed) {
         const rect = redSection2.getBoundingClientRect();
         const navHeight = 80;
@@ -66,7 +66,7 @@ export function Navigation() {
           isOnRed = true;
         }
       }
-      
+
       setIsOnRedBackground(isOnRed);
     };
     window.addEventListener("scroll", handleScroll);
@@ -123,20 +123,20 @@ export function Navigation() {
             // Light background mode (米色背景) - white to gray gradient left to right
             isLightMode
               ? cn(
-                  "bg-white shadow-sm",
-                  "border border-gray-200/50"
-                )
+                "bg-white shadow-sm",
+                "border border-gray-200/50"
+              )
               : cn(
-                  // Glass mode (hero section or red background)
-                  "bg-white/10 backdrop-blur-md border border-white/20",
-                  isScrolled && "bg-white/15 backdrop-blur-lg"
-                )
+                // Glass mode (hero section or red background)
+                "bg-white/10 backdrop-blur-md border border-white/20",
+                isScrolled && "bg-white/15 backdrop-blur-lg"
+              )
           )}
           style={
             isLightMode
               ? {
-                  background: "linear-gradient(to right, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%)",
-                }
+                background: "linear-gradient(to right, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%)",
+              }
               : undefined
           }
         >
@@ -167,10 +167,10 @@ export function Navigation() {
           <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
             {navItems.map((item) => {
               // If not on home page and href is an anchor link, prepend "/" to make it absolute
-              const href = !isHomePage && item.href.startsWith("#") 
-                ? `/${item.href}` 
+              const href = !isHomePage && item.href.startsWith("#")
+                ? `/${item.href}`
                 : item.href;
-              
+
               return (
                 <Link
                   key={item.href}
@@ -268,8 +268,8 @@ export function Navigation() {
             </div>
             <div className="mt-8 flex flex-col space-y-4">
               {navItems.map((item) => {
-                const href = !isHomePage && item.href.startsWith("#") 
-                  ? `/${item.href}` 
+                const href = !isHomePage && item.href.startsWith("#")
+                  ? `/${item.href}`
                   : item.href;
 
                 return (
@@ -286,7 +286,7 @@ export function Navigation() {
             </div>
             <div className="mt-auto pt-6">
               <Link
-                href="https://calendly.com/billy-fridgechannels/30min"
+                href="https://forms.gle/q9FiNraJ6pcXsPBN6"
                 target="_blank"
                 rel="noreferrer"
                 className="block w-full text-center rounded-full bg-black text-white py-3 font-semibold hover:bg-gray-900 transition-colors"

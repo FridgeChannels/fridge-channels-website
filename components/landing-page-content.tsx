@@ -38,7 +38,7 @@ export const LandingPageContent = ({
       {/* What is a Fridge Channel Section */}
       <section id="what-is-fridge-channel" className="relative container mx-auto px-4 pt-40 pb-20 bg-muted/30">
         {/* Smooth gradient transition from hero section */}
-        <div 
+        <div
           className="absolute inset-x-0 top-0 h-32 z-0"
           style={{
             background: `linear-gradient(to bottom, 
@@ -120,7 +120,7 @@ export const LandingPageContent = ({
               <div className="relative z-10 h-full">
                 <div className="absolute left-1/2 top-[83%] -translate-x-1/2 -translate-y-1/2">
                   <Link
-                    href="https://calendly.com/billy-fridgechannels/30min"
+                    href="https://forms.gle/q9FiNraJ6pcXsPBN6"
                     target="_blank"
                     rel="noreferrer"
                   >

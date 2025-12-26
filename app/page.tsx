@@ -32,13 +32,13 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-6">
             Your Problem
           </h2>
-          
+
           <div className="max-w-4xl mx-auto mb-12">
             <p className="text-lg md:text-xl text-foreground leading-relaxed">
               If you are building a subscription business powered by <strong className="font-semibold text-foreground">content-driven growth</strong> and <strong className="font-semibold text-foreground">renewals</strong> you will face this challenge.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1: Always delay */}
             <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-xl shadow-lg p-6">
@@ -330,7 +330,7 @@ export default function HomePage() {
               <li>subscription revenue + fee</li>
               <li>dashboard evidence link</li>
             </ul>
-            
+
             {/* Summary Rules */}
             <div className="mt-12 pt-8 flex justify-center">
               <div className="bg-white/60 backdrop-blur-xl backdrop-saturate-150 border border-gray-200/50 rounded-lg p-6 w-fit shadow-lg">
@@ -415,7 +415,9 @@ export default function HomePage() {
             {/* CTA Button */}
             <div className="flex flex-col items-center gap-4 pt-4">
               <Link
-                href="#roi-engine"
+                href="https://forms.gle/q9FiNraJ6pcXsPBN6"
+                target="_blank"
+                rel="noreferrer"
               >
                 <ShimmerButton
                   className="shadow-2xl transition-transform duration-300 hover:scale-110 w-full sm:w-[302px]"

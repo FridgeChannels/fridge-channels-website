@@ -44,10 +44,11 @@ export const ROIEngineSection = () => {
         {/* CTA Button */}
         <div className="flex flex-col items-center gap-4">
           <Link
-            href="#roi-engine"
-            className="inline-block"
+            href="https://forms.gle/q9FiNraJ6pcXsPBN6"
+            target="_blank"
+            rel="noreferrer"
           >
-            <ShimmerButton 
+            <ShimmerButton
               className="shadow-2xl transition-transform duration-300 hover:scale-110"
               background="rgba(0, 0, 0, 1)"
               shimmerColor="#ffffff"

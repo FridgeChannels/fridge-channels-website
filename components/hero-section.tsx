@@ -59,7 +59,7 @@ export const HeroSection = ({
     const attemptPlay = () => {
       const playPromise = video.play();
       if (playPromise) {
-        playPromise.catch(() => {});
+        playPromise.catch(() => { });
       }
       onReady?.();
     };
@@ -118,7 +118,7 @@ export const HeroSection = ({
     const audio = overlayAudioRef.current;
     if (!audio) return;
     audio.currentTime = 0;
-    audio.play().catch(() => {});
+    audio.play().catch(() => { });
   }, []);
 
   const startOverlayPhase = useCallback(() => {
@@ -196,7 +196,7 @@ export const HeroSection = ({
 
     if (!nextMuted) {
       const activeRef = activeVideo === "videoA" ? introVideoRef : mainVideoRef;
-      activeRef.current?.play().catch(() => {});
+      activeRef.current?.play().catch(() => { });
       if (isOverlayPhase) {
         playOverlayAudio();
       }
@@ -236,108 +236,108 @@ export const HeroSection = ({
 
   return (
     <>
-    <section id="home" className="relative bg-[#F7F7F4] pb-0">
-      {/* Full-bleed video constrained to 16:9 */}
-      <div className="relative w-full aspect-video overflow-hidden bg-black">
-        <video
-          ref={introVideoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${activeVideo === "videoA" ? "opacity-100" : "opacity-0"}`}
-          src={videoSources.videoA}
-          muted={isMuted}
-          playsInline
-          preload="auto"
-        />
-        <video
-          ref={mainVideoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${activeVideo === "videoB" ? "opacity-100" : "opacity-0"}`}
-          src={videoSources.videoB}
-          muted={isMuted}
-          playsInline
-          preload="auto"
-        />
-        {overlayVisible && (
-          <div
-            className="absolute inset-0 transition-opacity duration-500 ease-in-out"
-            style={{ opacity: isOverlayPhase ? 1 : 0 }}
-          >
-            <div className={`absolute inset-0 ${isOverlayPhase ? "hero-overlay-pan" : ""}`}>
-              <Image
-                src={overlayImageSrc}
-                alt="Hero overlay"
-                fill
-                className="object-cover"
-                priority
-                sizes="100vw"
-              />
+      <section id="home" className="relative bg-[#F7F7F4] pb-0">
+        {/* Full-bleed video constrained to 16:9 */}
+        <div className="relative w-full aspect-video overflow-hidden bg-black">
+          <video
+            ref={introVideoRef}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${activeVideo === "videoA" ? "opacity-100" : "opacity-0"}`}
+            src={videoSources.videoA}
+            muted={isMuted}
+            playsInline
+            preload="auto"
+          />
+          <video
+            ref={mainVideoRef}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${activeVideo === "videoB" ? "opacity-100" : "opacity-0"}`}
+            src={videoSources.videoB}
+            muted={isMuted}
+            playsInline
+            preload="auto"
+          />
+          {overlayVisible && (
+            <div
+              className="absolute inset-0 transition-opacity duration-500 ease-in-out"
+              style={{ opacity: isOverlayPhase ? 1 : 0 }}
+            >
+              <div className={`absolute inset-0 ${isOverlayPhase ? "hero-overlay-pan" : ""}`}>
+                <Image
+                  src={overlayImageSrc}
+                  alt="Hero overlay"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="100vw"
+                />
+              </div>
+              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute bottom-6 right-6 text-white font-semibold tracking-[0.3em] uppercase text-sm md:text-base drop-shadow-lg">
+                Channel Owned
+              </div>
             </div>
-            <div className="absolute inset-0 bg-black/30" />
-            <div className="absolute bottom-6 right-6 text-white font-semibold tracking-[0.3em] uppercase text-sm md:text-base drop-shadow-lg">
-              Channel Owned
-            </div>
+          )}
+
+          <audio ref={overlayAudioRef} src={HERO_OVERLAY_AUDIO} preload="auto" className="hidden" />
+
+          <div className="absolute bottom-6 right-6 z-20">
+            <button
+              onClick={handleToggleMute}
+              className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-foreground shadow-xl backdrop-blur transition hover:bg-white"
+            >
+              {isMuted ? (
+                <>
+                  <VolumeX className="h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  <Volume2 className="h-4 w-4" />
+                </>
+              )}
+            </button>
           </div>
-        )}
 
-        <audio ref={overlayAudioRef} src={HERO_OVERLAY_AUDIO} preload="auto" className="hidden" />
-
-        <div className="absolute bottom-6 right-6 z-20">
-          <button
-            onClick={handleToggleMute}
-            className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-foreground shadow-xl backdrop-blur transition hover:bg-white"
-          >
-            {isMuted ? (
-              <>
-                <VolumeX className="h-4 w-4" />
-              </>
-            ) : (
-              <>
-                <Volume2 className="h-4 w-4" />
-              </>
-            )}
-          </button>
+          {showHeroOverlayCta && (
+            <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-12">
+              <div className="pointer-events-auto">
+                <Link href="#join-pilot">
+                  <ShimmerButton
+                    className="shadow-2xl transition-transform duration-300 hover:scale-110"
+                    background="linear-gradient(120deg, #9f1026, #f25f6c)"
+                    shimmerColor="#ffe5e9"
+                  >
+                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                      Founder Chat → Launch Channel
+                    </span>
+                  </ShimmerButton>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
+      </section>
 
-        {showHeroOverlayCta && (
-          <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-12">
-            <div className="pointer-events-auto">
-              <Link href="#join-pilot">
-                <ShimmerButton
-                  className="shadow-2xl transition-transform duration-300 hover:scale-110"
-                  background="linear-gradient(120deg, #9f1026, #f25f6c)"
-                  shimmerColor="#ffe5e9"
-                >
-                  <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                  Founder Chat → Launch Channel
-                  </span>
-                </ShimmerButton>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
-
-    <section
-      className="relative z-10 px-6 py-8 text-center overflow-hidden flex flex-col justify-end"
-      style={{ minHeight: "648px" }}
-      ref={afterHeroRef}
-    >
-      {/* Background image with blur effect */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url(/science-hero-bg.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          filter: 'blur(20px) brightness(1.05)',
-          transform: 'scale(1.05)',
-        }}
-      />
-      {/* Overlay gradient for natural transition from video to background */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          background: `linear-gradient(to bottom, 
+      <section
+        className="relative z-10 px-6 py-8 text-center overflow-hidden flex flex-col justify-end"
+        style={{ minHeight: "648px" }}
+        ref={afterHeroRef}
+      >
+        {/* Background image with blur effect */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/science-hero-bg.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'blur(20px) brightness(1.05)',
+            transform: 'scale(1.05)',
+          }}
+        />
+        {/* Overlay gradient for natural transition from video to background */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background: `linear-gradient(to bottom, 
             #F7F7F4 0%,
             rgba(247, 247, 244, 0.98) 5%,
             rgba(247, 247, 244, 0.95) 10%,
@@ -349,35 +349,37 @@ export const HeroSection = ({
             rgba(247, 247, 244, 0.1) 90%,
             transparent 100%
           )`
-        }}
-      ></div>
-      
-      <div className="relative z-10 mx-auto max-w-5xl pb-8">
-        <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
-          Convert more subscribers to paid and keep them longer
-        </h1>
-        
-        <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">
-          Fridge Channel keeps you visible every day and turns attention into higher conversion and lower churn
-        </div>
-        
-        <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
-          <Link
-            href="#roi-engine"
-          >
-            <ShimmerButton 
-              className="shadow-2xl transition-transform duration-300 hover:scale-110"
-              background="linear-gradient(120deg, #9f1026, #f25f6c)"
-              shimmerColor="#ffe5e9"
+          }}
+        ></div>
+
+        <div className="relative z-10 mx-auto max-w-5xl pb-8">
+          <h1 className="text-center text-2xl md:text-5xl mt-2 text-white">
+            Convert more subscribers to paid and keep them longer
+          </h1>
+
+          <div className="text-white py-4 mt-8 text-lg md:text-xl font-mono">
+            Fridge Channel keeps you visible every day and turns attention into higher conversion and lower churn
+          </div>
+
+          <div className="flex items-center justify-center" style={{ marginTop: '40px' }}>
+            <Link
+              href="https://forms.gle/q9FiNraJ6pcXsPBN6"
+              target="_blank"
+              rel="noreferrer"
             >
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-              Start a Pilot
-              </span>
-            </ShimmerButton>
-          </Link>
+              <ShimmerButton
+                className="shadow-2xl transition-transform duration-300 hover:scale-110"
+                background="linear-gradient(120deg, #9f1026, #f25f6c)"
+                shimmerColor="#ffe5e9"
+              >
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                  Start a Pilot
+                </span>
+              </ShimmerButton>
+            </Link>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };
