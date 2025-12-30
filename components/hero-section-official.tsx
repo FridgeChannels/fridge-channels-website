@@ -49,7 +49,7 @@ export const HeroSection = () => {
           <div className="flex flex-col items-center gap-4" style={{ marginTop: '40px' }}>
             <div className="flex items-center justify-center gap-4">
               <Link
-                href="https://forms.gle/q9FiNraJ6pcXsPBN6"
+                href="https://roiengine.fridgechannels.com"
                 target="_blank"
                 rel="noreferrer"
               >

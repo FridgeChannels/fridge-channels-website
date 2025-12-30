@@ -120,7 +120,7 @@ export const LandingPageContent = ({
               <div className="relative z-10 h-full">
                 <div className="absolute left-1/2 top-[83%] -translate-x-1/2 -translate-y-1/2">
                   <Link
-                    href="https://forms.gle/q9FiNraJ6pcXsPBN6"
+                    href="https://roiengine.fridgechannels.com"
                     target="_blank"
                     rel="noreferrer"
                   >
