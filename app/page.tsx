@@ -14,7 +14,7 @@ export default function HomePage() {
       {/* Hero Section - styled like HeroSection component */}
       <section
         id="hero"
-        className="relative pt-16 min-h-[700px] overflow-hidden bg-transparent pb-0"
+        className="relative pt-12 md:pt-16 min-h-[500px] md:min-h-[700px] overflow-hidden bg-transparent pb-0"
         style={{
           backgroundImage: 'url(/bg-ethics-hero.webp)',
           backgroundSize: 'cover',
@@ -22,23 +22,23 @@ export default function HomePage() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="flex flex-col items-center justify-center px-6 text-center relative z-10 min-h-[700px] mt-6">
-          <div className="mx-auto max-w-5xl" style={{ marginTop: '80px' }}>
-            <div className="relative mx-auto h-full pt-24 pb-12 p-6">
-              <h1 className="text-center text-2xl md:text-5xl mt-2 text-black">
+        <div className="flex flex-col items-center justify-center px-4 sm:px-6 text-center relative z-10 min-h-[500px] md:min-h-[700px] mt-2 md:mt-6">
+          <div className="mx-auto max-w-5xl mt-8 md:mt-20">
+            <div className="relative mx-auto h-full pt-12 md:pt-24 pb-6 md:pb-12 px-4 md:p-6">
+              <h1 className="text-center text-3xl sm:text-4xl md:text-5xl mt-2 text-black leading-tight md:leading-normal">
                 Get people to join, get them to stay.
               </h1>
             </div>
 
-            <div className="text-black py-4 mt-8 text-lg md:text-xl">
-              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+            <div className="text-black py-3 md:py-4 mt-4 md:mt-8 text-base sm:text-lg md:text-xl px-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-3 gap-y-2 leading-relaxed">
                 FC is a <strong className="font-semibold text-black">household-owned channel</strong> with the <strong className="font-semibold text-black">highest daily-life exposure</strong> Algorithm-free reach + one-tap action—built to drive <strong className="font-semibold text-black">conversion and retention</strong>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-4" style={{ marginTop: '40px' }}>
+            <div className="flex items-center justify-center gap-3 md:gap-4 mt-6 md:mt-10 px-4">
               <Link href="https://calendly.com/billy-fridgechannels/30min" target="_blank">
                 <ShimmerButton
-                  className="shadow-2xl transition-transform duration-300 hover:scale-110 min-w-[227px]"
+                  className="shadow-2xl transition-transform duration-300 hover:scale-110"
                   background="rgba(0, 0, 0, 1)"
                   shimmerColor="#ffffff"
                 >
@@ -49,7 +49,7 @@ export default function HomePage() {
               </Link>
               <Link href="#who-we-serve">
                 <ShimmerButton
-                  className="shadow-2xl transition-transform duration-300 hover:scale-110 min-w-[227px]"
+                  className="shadow-2xl transition-transform duration-300 hover:scale-110"
                   background="rgba(255, 255, 255, 1)"
                   shimmerColor="#000000"
                 >
