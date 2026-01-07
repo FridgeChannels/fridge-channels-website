@@ -199,16 +199,37 @@ export function Navigation() {
               Why FC
             </Link>
 
-            {/* Start a Pilot */}
+            {/* Pilot */}
             <Link
-              href="https://calendly.com/billy-fridgechannels/30min"
-              target="_blank"
+              href="/start-a-pilot"
               className={cn(
                 "text-sm font-medium transition-colors whitespace-nowrap",
                 isGlassMode ? "text-white/90 hover:text-white" : "text-gray-700 hover:text-black"
               )}
             >
-              Start a Pilot
+              Pilot
+            </Link>
+
+            {/* Trust */}
+            <Link
+              href="/trust"
+              className={cn(
+                "text-sm font-medium transition-colors whitespace-nowrap",
+                isGlassMode ? "text-white/90 hover:text-white" : "text-gray-700 hover:text-black"
+              )}
+            >
+              Trust
+            </Link>
+
+            {/* Contact */}
+            <Link
+              href="/contact"
+              className={cn(
+                "text-sm font-medium transition-colors whitespace-nowrap",
+                isGlassMode ? "text-white/90 hover:text-white" : "text-gray-700 hover:text-black"
+              )}
+            >
+              Contact
             </Link>
 
           </div>
@@ -321,19 +342,25 @@ export function Navigation() {
                 Why FC
               </Link>
 
-              <Link href="https://calendly.com/billy-fridgechannels/30min" target="_blank" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
-                Start a Pilot
+              <Link href="/start-a-pilot" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
+                Pilot
+              </Link>
+
+              <Link href="/trust" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
+                Trust
+              </Link>
+
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
+                Contact
               </Link>
             </div>
             <div className="mt-auto pt-6">
               <Link
-                href="https://calendly.com/billy-fridgechannels/30min"
-                target="_blank"
-                rel="noreferrer"
+                href={isHomePage ? "#how-it-works" : "/#how-it-works"}
                 className="block w-full text-center rounded-full bg-black text-white py-3 font-semibold hover:bg-gray-900 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Start a Pilot Check
+                How It Works
               </Link>
             </div>
           </div>
