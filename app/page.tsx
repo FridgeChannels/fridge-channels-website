@@ -106,7 +106,9 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 className="text-base sm:text-lg md:text-xl leading-relaxed text-black/70 mt-4 text-left"
               >
-                One tap drives the next step.
+                <strong className="font-semibold text-black">
+                  One tap drives the next step.
+                </strong>
               </motion.p>
             </motion.div>
 
