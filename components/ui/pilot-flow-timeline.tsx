@@ -145,8 +145,8 @@ export function PilotFlowTimeline({
         >
           <defs>
             <linearGradient id="line-gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#A855F7" />
-              <stop offset="100%" stopColor="#6366f1" />
+              <stop offset="0%" stopColor="#469A74" />
+              <stop offset="100%" stopColor="#469A74" />
             </linearGradient>
             <filter id="glow">
               <feGaussianBlur stdDeviation="4" result="blur" />
@@ -197,7 +197,7 @@ export function PilotFlowTimeline({
               {/* Optional: Dot on the line */}
               <div
                 className={clsx(
-                  "absolute top-1/2 w-4 h-4 bg-white border-[3px] border-purple-500 rounded-full",
+                  "absolute top-1/2 w-4 h-4 bg-white border-[3px] border-[#469A74] rounded-full",
                   isLeftAligned ? "-right-[2rem] translate-x-1/2" : "-left-[2rem] -translate-x-1/2"
                 )}
                 style={{ marginTop: "-8px" }}
@@ -222,8 +222,8 @@ export function PilotFlowTimeline({
       {/* Mobile Layout */}
       <div className="md:hidden px-6 pb-16 space-y-12">
         {steps.map((step, index) => (
-          <div key={step.id} className="relative pl-6 border-l-2 border-purple-200">
-            <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-purple-500" />
+          <div key={step.id} className="relative pl-6 border-l-2 border-[#469A74]/30">
+            <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#469A74]" />
             <h3 className="text-[18px] font-semibold text-[#1a1a1a]">
               {step.title}
             </h3>
