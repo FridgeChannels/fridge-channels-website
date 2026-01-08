@@ -1,9 +1,8 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { SectionReveal } from "@/components/ui/section-reveal";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { RippleButton } from "@/components/ui/multi-type-ripple-buttons";
 
 // Using mockData; dev team will replace with real API hook useFetchPlans()
 interface PlanData {
@@ -37,7 +36,7 @@ const mockPlans: PlanData[] = [
     includes: "CTA + destination setup · production + replacement policy · aggregated measurement summary",
     buttonText: "Get a mock for this plan",
     onButtonClick: () => {
-      console.log("Monthly Giving Lift Plan clicked");
+      window.open("https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting", "_blank");
     },
   },
   {
@@ -56,7 +55,7 @@ const mockPlans: PlanData[] = [
     includes: "CTA + destination setup · production + replacement policy · aggregated measurement summary",
     buttonText: "Get a mock for this plan",
     onButtonClick: () => {
-      console.log("Annual Fund Renewal Push Plan clicked");
+      window.open("https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting", "_blank");
     },
   },
   {
@@ -75,7 +74,7 @@ const mockPlans: PlanData[] = [
     includes: "content routing (impact + CTA) · production + replacement policy · aggregated measurement summary",
     buttonText: "Get a mock for this plan",
     onButtonClick: () => {
-      console.log("Donor Stewardship & Retention Plan clicked");
+      window.open("https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting", "_blank");
     },
   },
 ];
@@ -85,69 +84,78 @@ interface PlanCardProps {
 }
 
 function PlanCard({ plan }: PlanCardProps) {
+  const cardClasses = `
+    backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex-1 px-7 py-8 flex flex-col transition-all duration-300
+    from-black/5 to-black/0 border border-black/10
+    dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91]
+    hover:shadow-2xl hover:-translate-y-0.5
+  `;
+  const buttonClasses = `
+    mt-auto w-full py-2.5 rounded-xl font-semibold text-[14px] transition font-sans
+    bg-[#469A74]/85 hover:bg-[#3E8A68]/85 text-white backdrop-blur-md border border-white/20 shadow-sm
+  `;
+
   return (
-    <Card className="h-full flex flex-col bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-foreground mb-4">
+    <div className={cardClasses.trim()}>
+      <div className="mb-4">
+        <h3 className="text-[28px] md:text-[32px] font-extralight tracking-[-0.03em] text-foreground">
           {plan.title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="flex-1 flex flex-col space-y-4">
-        <div className="space-y-3 flex-1">
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Best for:</p>
-            <p className="text-base text-muted-foreground leading-relaxed">{plan.bestFor}</p>
-          </div>
+        </h3>
+      </div>
 
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Cohort:</p>
-            <p className="text-base text-muted-foreground leading-relaxed">{plan.cohort}</p>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Primary CTA:</p>
-            <p className="text-base text-muted-foreground leading-relaxed">{plan.primaryCta}</p>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Pilot size & duration:</p>
-            <p className="text-base text-muted-foreground leading-relaxed">{plan.pilotSizeDuration}</p>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Primary KPI:</p>
-            <p className="text-base text-muted-foreground leading-relaxed">{plan.primaryKpi}</p>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Observability (3-line standard):</p>
-            <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground ml-2">
-              {plan.observability.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-1">Includes:</p>
-            <p className="text-base text-muted-foreground leading-relaxed">{plan.includes}</p>
-          </div>
+      <div className="space-y-4 flex-1">
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Best for:</p>
+          <p className="text-[14px] text-foreground/70 leading-relaxed">{plan.bestFor}</p>
         </div>
 
-        <div className="pt-4 border-t border-gray-200">
-          <ShimmerButton
-            onClick={plan.onButtonClick}
-            className="w-full transition-transform duration-300 hover:scale-105"
-            background="rgba(0, 0, 0, 1)"
-            shimmerColor="#ffffff"
-          >
-            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
-              {plan.buttonText}
-            </span>
-          </ShimmerButton>
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Cohort:</p>
+          <p className="text-[14px] text-foreground/70 leading-relaxed">{plan.cohort}</p>
         </div>
-      </CardContent>
-    </Card>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Primary CTA:</p>
+          <p className="text-[14px] text-foreground/70 leading-relaxed">{plan.primaryCta}</p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Pilot size & duration:</p>
+          <p className="text-[14px] text-foreground/70 leading-relaxed">{plan.pilotSizeDuration}</p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Primary KPI:</p>
+          <p className="text-[14px] text-foreground/70 leading-relaxed">{plan.primaryKpi}</p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Observability (3-line standard):</p>
+          <ul className="flex flex-col gap-2 text-[14px] text-foreground/90">
+            {plan.observability.map((item, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <li key={index} className="flex items-start gap-2">
+                <span className="mt-0.5 text-[#469A74]" aria-hidden="true">
+                  ✓
+                </span>
+                <span className="text-foreground/70 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground mb-1">Includes:</p>
+          <p className="text-[14px] text-foreground/70 leading-relaxed">{plan.includes}</p>
+        </div>
+      </div>
+
+      <div className="pt-6">
+        <RippleButton className={buttonClasses.trim()} onClick={() => plan.onButtonClick()}>
+          {plan.buttonText}
+        </RippleButton>
+      </div>
+    </div>
   );
 }
 

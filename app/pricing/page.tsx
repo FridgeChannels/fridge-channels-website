@@ -2,9 +2,8 @@ import Link from "next/link"
 
 import { Navigation } from "@/components/navigation"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SiteFooter } from "@/components/site-footer"
+import PricingFAQs from "@/components/ui/pricing-faqs"
 
 export default function PricingPage() {
   return (
@@ -12,14 +11,14 @@ export default function PricingPage() {
       <Navigation />
 
       <main className="pt-28 flex-1">
-        <section className="container mx-auto px-4 pt-10 pb-16">
+        <section className="container mx-auto px-6 pt-10 pb-16">
           <div className="max-w-5xl mx-auto space-y-12">
             <header className="space-y-4 text-center">
               <h1 className="text-4xl md:text-6xl font-bold text-balance">Pricing</h1>
             </header>
 
             {/* Pay only when a touchpoint is used */}
-            <section className="space-y-6">
+            <section className="space-y-6 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-balance">Pay only when a touchpoint is used</h2>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 Fridge Channel turns fridge touchpoints into measurable actions.
@@ -27,17 +26,56 @@ export default function PricingPage() {
               <p className="text-base md:text-lg leading-relaxed">
                 <strong>Billing is usage-based:</strong> we charge per <strong>Active Touchpoint-Month</strong>.
               </p>
-              <hr className="border-border/60" />
+
+              {/* What counts as Active - moved here with normal text styling */}
+              <div className="border border-border/60 rounded-lg p-6 bg-muted/10 text-left">
+                <div className="space-y-3 text-sm text-muted-foreground leading-normal">
+                  <p>
+                    A touchpoint is <strong className="font-semibold text-foreground">Active</strong> when it shows real
+                    engagement in a given month. There are two levels:
+                  </p>
+
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>
+                      <strong className="font-semibold text-foreground">Impact Active (Heard)</strong> means the touchpoint reaches{" "}
+                      <strong className="font-semibold text-foreground">≥10 seconds verified listen/engagement</strong> within the
+                      month.
+                    </li>
+
+                    <li>
+                      <strong className="font-semibold text-foreground">Intent Active (Qualified CTA)</strong> means it generates{" "}
+                      <strong className="font-semibold text-foreground">≥1 qualified CTA</strong> within the month.
+                    </li>
+                  </ul>
+
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground">
+                      <strong className="font-semibold text-foreground">What makes a CTA "qualified"</strong> (to avoid mis-click
+                      billing)?
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li>
+                        CTA click + landing page stay <strong className="font-semibold text-foreground">≥3 seconds</strong>,{" "}
+                        <strong className="font-semibold text-foreground">or</strong>
+                      </li>
+                      <li>CTA click + a meaningful event (e.g., add-to-cart, donate form start, checkout start)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
             </section>
 
             {/* Cards */}
-            <section className="grid gap-6 md:grid-cols-3">
-              <Card className="bg-white border border-border/60">
-                <CardHeader className="space-y-2">
-                  <CardTitle className="text-lg">Card 1 — Delivery (One-time)</CardTitle>
-                  <p className="text-2xl font-semibold">$3 / touchpoint</p>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+            <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {/* Glassy pricing card style (match Most Popular Plans grid) */}
+              <div className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8">
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">Delivery (One-time)</h3>
+                  <h4 className="text-lg md:text-xl font-semibold text-foreground">$3 / touchpoint</h4>
+                </div>
+
+                <div className="mt-4 space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                   <p>
                     We ship touchpoints <strong className="font-semibold text-foreground">to your organization</strong>{" "}
                     (HQ / warehouse / stores / designated location).
@@ -46,188 +84,186 @@ export default function PricingPage() {
                     <strong className="font-semibold text-foreground">You distribute to end users.</strong> Last-mile
                     fulfillment to individual households is not included.
                   </p>
-                  <div className="space-y-2">
-                    <p className="font-semibold text-foreground">Includes:</p>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li>Production-ready touchpoints</li>
-                      <li>Basic QC + bulk shipping to your address</li>
-                      <li>Standard packaging for distribution</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
 
-              <Card className="bg-white border border-border/60">
-                <CardHeader className="space-y-2">
-                  <CardTitle className="text-lg">Card 2 — Platform Usage (Monthly)</CardTitle>
-                  <p className="text-2xl font-semibold">Per Active Touchpoint-Month</p>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
-                  <p>
-                    A touchpoint is billed only when it becomes <strong className="font-semibold text-foreground">Active</strong>{" "}
-                    in a given month.
-                  </p>
-                  <div className="space-y-2">
-                    <p className="font-semibold text-foreground">Active has 2 levels (charged once per month):</p>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li>
-                        <strong className="font-semibold text-foreground">Impact Active (Heard)</strong> →{" "}
-                        <strong className="font-semibold text-foreground">1.0× base</strong>
+                <div className="mt-4 space-y-3">
+                  <p className="text-sm font-medium text-foreground">Includes:</p>
+                  <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
+                    {[
+                      "Production-ready touchpoints",
+                      "Basic QC + bulk shipping to your address",
+                      "Standard packaging for distribution",
+                    ].map((t) => (
+                      <li key={t} className="flex items-start gap-2">
+                        <span className="mt-0.5 text-foreground/80" aria-hidden="true">✓</span>
+                        <span>{t}</span>
                       </li>
-                      <li>
-                        <strong className="font-semibold text-foreground">Intent Active (Qualified CTA)</strong> →{" "}
-                        <strong className="font-semibold text-foreground">1.2× base</strong>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="space-y-1">
-                    <p>
-                      <strong className="font-semibold text-foreground">Rule:</strong> per touchpoint per month, we charge{" "}
-                      <strong className="font-semibold text-foreground">once</strong>.
-                    </p>
-                    <p>
-                      If both happen, <strong className="font-semibold text-foreground">Intent overrides</strong> (no double
-                      charge).
-                    </p>
-                  </div>
-                  <div className="pt-2">
-                    <Button asChild className="rounded-full w-full">
-                      <Link href="#usage-pricing">View Usage Pricing</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                    ))}
+                  </ul>
+                </div>
 
-              <Card className="bg-white border border-border/60">
-                <CardHeader className="space-y-2">
-                  <CardTitle className="text-lg">Card 3 — Traffic Model (Choose one)</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
-                  <p>
-                    <strong className="font-semibold text-foreground">Network Mode (default):</strong> mutual discovery
-                    inside the FC app
-                  </p>
-                  <p>
-                    <strong className="font-semibold text-foreground">Private Mode:</strong> no cross-traffic inside the
-                    FC app
-                  </p>
-                  <p>
-                    <strong className="font-semibold text-foreground">Category Exclusion</strong> is a safety layer for
-                    Network Mode (details below).
-                  </p>
-                  <div className="pt-2">
-                    <Button asChild className="rounded-full w-full">
-                      <Link href="/contact">Choose Network or Private</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* What counts as Active */}
-            <section className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance">What counts as Active</h2>
-
-              <div className="space-y-3">
-                <h3 className="text-xl md:text-2xl font-semibold">Level 1 — Impact Active (Heard)</h3>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  A touchpoint is <strong className="font-semibold text-foreground">Impact Active</strong> if it reaches:
-                </p>
-                <p className="text-base md:text-lg leading-relaxed">
-                  <strong>≥10 seconds verified listen/engagement</strong> within the month.
-                </p>
+                {/* Keep bottom CTA row spacing like Cursor cards */}
+                <div className="mt-4 text-sm font-medium text-foreground/80 justify-self-end" aria-hidden="true">
+                  {/* intentionally empty */}
+                </div>
               </div>
 
-              <div className="space-y-3">
-                <h3 className="text-xl md:text-2xl font-semibold">Level 2 — Intent Active (Qualified CTA)</h3>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  A touchpoint is <strong className="font-semibold text-foreground">Intent Active</strong> if it generates:
-                </p>
-                <p className="text-base md:text-lg leading-relaxed">
-                  <strong>≥1 qualified CTA</strong> within the month.
-                </p>
-
+              {/* Card 2 is a CTA: make the whole card clickable (Cursor-style) */}
+              <Link
+                href="#usage-pricing"
+                className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2"
+                aria-label="View Usage Pricing"
+              >
                 <div className="space-y-2">
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                    <strong className="font-semibold text-foreground">What makes a CTA “qualified”</strong> (to avoid mis-click
-                    billing):
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">Platform Usage (Monthly)</h3>
+                  <h4 className="text-lg md:text-xl font-semibold text-foreground">
+                    Per Active Touchpoint-Month
+                  </h4>
+                </div>
+
+                <div className="mt-4 space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p>
+                    A touchpoint is billed only when it becomes{" "}
+                    <strong className="font-semibold text-foreground">Active</strong> in a given month.
                   </p>
-                  <ul className="list-disc pl-5 space-y-1 text-base md:text-lg text-muted-foreground leading-relaxed">
-                    <li>
-                      CTA click + landing page stay <strong className="font-semibold text-foreground">≥3 seconds</strong>,{" "}
-                      <strong className="font-semibold text-foreground">or</strong>
-                    </li>
-                    <li>
-                      CTA click + a meaningful event (e.g., add-to-cart, donate form start, checkout start)
-                    </li>
+                </div>
+
+                <div className="mt-4 space-y-3">
+                  <p className="text-sm font-medium text-foreground">Active has 2 levels (charged once per month):</p>
+                  <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
+                    {[
+                      <>
+                        <strong className="font-semibold text-foreground">Impact Active (Heard)</strong> →{" "}
+                        <strong className="font-semibold text-foreground">1.0× base</strong>
+                      </>,
+                      <>
+                        <strong className="font-semibold text-foreground">Intent Active (Qualified CTA)</strong> →{" "}
+                        <strong className="font-semibold text-foreground">1.2× base</strong>
+                      </>,
+                    ].map((node, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="mt-0.5 text-foreground/80" aria-hidden="true">✓</span>
+                        <span>{node}</span>
+                      </li>
+                    ))}
                   </ul>
+                </div>
+
+                <div className="mt-4 space-y-2 text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p>
+                    <strong className="font-semibold text-foreground">Rule:</strong> per touchpoint per month, we charge{" "}
+                    <strong className="font-semibold text-foreground">once</strong>.
+                  </p>
+                  <p>
+                    If both happen, <strong className="font-semibold text-foreground">Intent overrides</strong> (no double
+                    charge).
+                  </p>
+                </div>
+
+                <div className="mt-4 justify-self-end text-sm font-medium text-foreground/80">
+                  View Usage Pricing →
+                </div>
+              </Link>
+
+              <div className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8">
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">Traffic Model (Choose one)</h3>
+                </div>
+
+                <div className="mt-4 space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p className="flex items-start gap-2">
+                    <span className="mt-0.5 text-foreground/80" aria-hidden="true">✓</span>
+                    <span>
+                      <strong className="font-semibold text-foreground">Network Mode (default):</strong> mutual discovery
+                      inside the FC app
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="mt-0.5 text-foreground/80" aria-hidden="true">✓</span>
+                    <span>
+                      <strong className="font-semibold text-foreground">Private Mode:</strong> no cross-traffic inside the
+                      FC app
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="mt-0.5 text-foreground/80" aria-hidden="true">✓</span>
+                    <span>
+                      <strong className="font-semibold text-foreground">Category Exclusion</strong> is a safety layer for
+                      Network Mode (details below).
+                    </span>
+                  </p>
+                </div>
+
+                <div className="mt-4 text-sm font-medium text-foreground/80 justify-self-end" aria-hidden="true">
+                  {/* intentionally empty */}
                 </div>
               </div>
             </section>
+
 
             {/* Usage pricing */}
             <section id="usage-pricing" className="space-y-6 scroll-mt-28">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance">Usage pricing</h2>
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-balance">Usage pricing</h2>
+              </div>
 
-              <div className="space-y-3">
-                <h3 className="text-2xl font-semibold">Base price per Active Touchpoint-Month</h3>
-                <div className="overflow-x-auto rounded-lg border border-border/60 bg-white">
-                  <table className="w-full text-left">
-                    <thead className="border-b border-border/60">
-                      <tr className="text-sm text-muted-foreground">
-                        <th className="px-4 py-3 font-medium">Monthly Avg Active Touchpoints</th>
-                        <th className="px-4 py-3 font-medium">Base Price</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-sm md:text-base">
-                      <tr className="border-b border-border/50">
-                        <td className="px-4 py-3">0 – 50k</td>
-                        <td className="px-4 py-3 font-semibold">$0.65</td>
-                      </tr>
-                      <tr className="border-b border-border/50">
-                        <td className="px-4 py-3">50k – 250k</td>
-                        <td className="px-4 py-3 font-semibold">$0.55</td>
-                      </tr>
-                      <tr className="border-b border-border/50">
-                        <td className="px-4 py-3">250k – 1M</td>
-                        <td className="px-4 py-3 font-semibold">$0.50</td>
-                      </tr>
-                      <tr className="border-b border-border/50">
-                        <td className="px-4 py-3">1M – 5M</td>
-                        <td className="px-4 py-3 font-semibold">$0.45</td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3">5M+</td>
-                        <td className="px-4 py-3 font-semibold">$0.40</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div className="space-y-3 flex flex-col items-center">
+                <p className="text-base text-muted-foreground">Base price per Active Touchpoint-Month</p>
+                {/* Wispr-style two-column table layout (keep original text) */}
+                <div className="w-full rounded-lg bg-[#F7F7F4] max-w-md">
+                  <div className="flex items-center justify-between border-b border-border/60 py-4">
+                    <div className="text-sm md:text-base font-semibold text-foreground">
+                      Monthly Avg Active Touchpoints
+                    </div>
+                    <div className="text-sm md:text-base font-semibold text-foreground">
+                      Base Price
+                    </div>
+                  </div>
+
+                  {[
+                    { left: "0 – 50k", right: "$0.65" },
+                    { left: "50k – 250k", right: "$0.55" },
+                    { left: "250k – 1M", right: "$0.50" },
+                    { left: "1M – 5M", right: "$0.45" },
+                    { left: "5M+", right: "$0.40" },
+                  ].map((row) => (
+                    <div
+                      key={row.left}
+                      className="flex items-center justify-between border-b border-border/50 py-3 text-sm md:text-base"
+                    >
+                      <div className="text-foreground">{row.left}</div>
+                      <div className="text-foreground">{row.right}</div>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-base md:text-lg text-muted-foreground leading-relaxed">---</h3>
               </div>
             </section>
 
             {/* Add-ons */}
             <section className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance">Add-ons</h2>
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-balance">Add-ons</h2>
+              </div>
 
-              <div className="grid gap-6 md:grid-cols-3">
-                <Card className="bg-white border border-border/60">
-                  <CardHeader className="space-y-2">
-                    <CardTitle className="text-lg">Private Mode (Brand-safe)</CardTitle>
-                    <p className="text-xl font-semibold">+ $0.1 / Active Touchpoint-Month</p>
-                  </CardHeader>
-                  <CardContent className="text-sm md:text-base text-muted-foreground leading-relaxed">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8">
+                  <div className="space-y-2">
+                    <div className="text-lg font-semibold text-foreground">Private Mode (Brand-safe)</div>
+                    <p className="text-xl font-semibold text-foreground">+ $0.1 / Active Touchpoint-Month</p>
+                  </div>
+                  <div className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                     No inbound/outbound cross-traffic inside FC.
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <Card className="bg-white border border-border/60">
-                  <CardHeader className="space-y-2">
-                    <CardTitle className="text-lg">Category Exclusion (ONLY available for Enterprise Clients)</CardTitle>
-                    <p className="text-xl font-semibold">+ $0.25 / Active Touchpoint-Month</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <div className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8">
+                  <div className="space-y-2">
+                    <div className="text-lg font-semibold text-foreground">
+                      Category Exclusion (ONLY available for Enterprise Clients)
+                    </div>
+                    <p className="text-xl font-semibold text-foreground">+ $0.25 / Active Touchpoint-Month</p>
+                  </div>
+                  <div className="mt-4 space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed">
                     <p>
                       Blocks specified competitor <strong className="font-semibold text-foreground">categories</strong>{" "}
                       from appearing as in-app recommendations.
@@ -245,24 +281,26 @@ export default function PricingPage() {
                       <strong className="font-semibold text-foreground"> in-app recommendations</strong>.
                     </p>
                     <p>It does not prevent households from having multiple brands’ touchpoints.</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <Card className="bg-white border border-border/60">
-                  <CardHeader className="space-y-2">
-                    <CardTitle className="text-lg">Context Intelligence</CardTitle>
-                    <p className="text-xl font-semibold">+ $0.15 / Active Touchpoint-Month</p>
-                  </CardHeader>
-                  <CardContent className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                <div className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8">
+                  <div className="space-y-2">
+                    <div className="text-lg font-semibold text-foreground">Context Intelligence</div>
+                    <p className="text-xl font-semibold text-foreground">+ $0.15 / Active Touchpoint-Month</p>
+                  </div>
+                  <div className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                     Serve different content/CTAs based on time and context (breakfast / meal prep / after school).
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </div>
             </section>
 
-            {/* Billing (fair + predictable) */}
-            <section className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance">Billing (fair + predictable)</h2>
+            {/* Billing */}
+            <section className="space-y-4 flex flex-col items-center">
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-balance">Billing</h2>
+              </div>
               <ul className="list-disc pl-5 space-y-2 text-base md:text-lg text-muted-foreground leading-relaxed">
                 <li>
                   <strong className="font-semibold text-foreground">Prepaid credits:</strong> billed monthly/quarterly,
@@ -279,84 +317,7 @@ export default function PricingPage() {
               </ul>
             </section>
 
-            {/* FAQ */}
-            <section className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance">FAQ</h2>
-
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="faq-1">
-                  <AccordionTrigger>What’s the difference between Network and Private?</AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="list-disc pl-5 space-y-2 text-base text-muted-foreground leading-relaxed">
-                      <li>
-                        <strong className="font-semibold text-foreground">Network Mode</strong>: mutual discovery inside FC
-                        (you can receive traffic and also contribute some).
-                      </li>
-                      <li>
-                        <strong className="font-semibold text-foreground">Private Mode</strong>: closed and brand-safe (no
-                        cross-traffic inside FC).
-                      </li>
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="faq-2">
-                  <AccordionTrigger>Where does Category Exclusion fit?</AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      Category Exclusion is a <strong className="font-semibold text-foreground">Network Mode safety layer</strong>:
-                    </p>
-                    <ul className="list-disc pl-5 space-y-2 text-base text-muted-foreground leading-relaxed mt-2">
-                      <li>Stay in Network (still get discovery)</li>
-                      <li>
-                        Block competitor categories from recommendations
-                        <div className="mt-2 pl-4 text-sm md:text-base">
-                          If you want <strong className="font-semibold text-foreground">zero</strong> cross-traffic, choose{" "}
-                          <strong className="font-semibold text-foreground">Private Mode</strong>.
-                        </div>
-                      </li>
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="faq-3">
-                  <AccordionTrigger>Do you ship to individual households?</AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      Not in standard Delivery. We ship in bulk <strong className="font-semibold text-foreground">to your organization</strong>, and you distribute.
-                    </p>
-                    <p className="text-base text-muted-foreground leading-relaxed mt-3">
-                      (Last-mile fulfillment can be arranged via partners as an add-on.)
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="faq-4">
-                  <AccordionTrigger>Is “Active” just a tap?</AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      No. <strong className="font-semibold text-foreground">Impact Active requires ≥10 seconds verified engagement.</strong>
-                    </p>
-                    <p className="text-base text-muted-foreground leading-relaxed mt-2">
-                      <strong className="font-semibold text-foreground">Intent Active requires a qualified CTA</strong> (not accidental clicks).
-                    </p>
-                    <p className="text-base text-muted-foreground leading-relaxed mt-2">
-                      One touchpoint/month is charged once; Intent overrides Impact.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="faq-5">
-                  <AccordionTrigger>Can a fridge have touchpoints from multiple brands?</AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      Yes. Multi-brand fridges are normal. Your traffic model controls only what happens{" "}
-                      <strong className="font-semibold text-foreground">inside FC after a user interacts</strong>.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </section>
+            <PricingFAQs />
           </div>
         </section>
       </main>

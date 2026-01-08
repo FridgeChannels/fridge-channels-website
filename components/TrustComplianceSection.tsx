@@ -1,8 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  MotionAccordion,
+  MotionAccordionContent,
+  MotionAccordionItem,
+  MotionAccordionTrigger,
+} from "@/components/ui/motion-accordion";
+import { ChevronDown } from "lucide-react";
 
 // Using mockData; dev team will replace with real API hook useFetchTrustCompliance()
 interface TrustSummaryItem {
@@ -74,7 +80,7 @@ const mockSummaryItems: TrustSummaryItem[] = [
 
 const mockTrustCenterDirectory: string[] = [
   "Privacy & data boundaries",
-  "Measurement methodology + attribution limits",
+  "Measurement methodology & attribution limits",
   "Logistics & timelines",
   "QC & replacement policy",
   "Brand safety & approvals",
@@ -85,46 +91,50 @@ const mockTrustCenterDirectory: string[] = [
 
 export function TrustComplianceSection() {
   return (
-    <section id="trust-compliance" className="container mx-auto px-4 py-20">
-      <div className="max-w-7xl mx-auto space-y-10">
-        <div className="text-center space-y-3">
+    <section id="trust-compliance" className="container mx-auto px-4 pt-20 pb-0">
+      <div className="max-w-4xl mx-auto space-y-20">
+        <div className="text-center space-y-3 mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-balance">Trust &amp; Compliance</h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Page-visible summary (8 items)
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Accordion-style summary (keep all original text, mimic interaction) */}
+        {/* STRICT: match provided AccordionIcons demo styles/interaction; keep all existing text */}
+        <MotionAccordion
+          className="flex w-full flex-col divide-y divide-zinc-200 dark:divide-zinc-700"
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
           {mockSummaryItems.map((item) => (
-            <Card key={item.id} className="h-full">
-              <CardHeader className="space-y-2">
-                <CardTitle className="text-xl md:text-2xl">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  {item.body}
-                </p>
-                <Link
-                  href={item.trustHref}
-                  className="inline-flex text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
-                  aria-label={item.trustCtaText}
-                >
-                  {item.trustCtaText}
-                </Link>
-              </CardContent>
-            </Card>
+            <MotionAccordionItem key={item.id} value={item.id} className="py-4">
+              <MotionAccordionTrigger className="w-full text-left text-zinc-950 dark:text-zinc-50">
+                <div className="flex items-center justify-between">
+                  <div>{item.title}</div>
+                  <ChevronDown className="h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:rotate-180 dark:text-zinc-50" />
+                </div>
+              </MotionAccordionTrigger>
+              <MotionAccordionContent>
+                <div className="pt-3">
+                  <p className="text-zinc-500 dark:text-zinc-400">{item.body}</p>
+                  <div className="pt-3">
+                    <Link
+                      href={item.trustHref}
+                      className="text-zinc-500 underline underline-offset-4 hover:underline dark:text-zinc-400"
+                      aria-label={item.trustCtaText}
+                    >
+                      {item.trustCtaText}
+                    </Link>
+                  </div>
+                </div>
+              </MotionAccordionContent>
+            </MotionAccordionItem>
           ))}
-        </div>
+        </MotionAccordion>
 
         <div className="rounded-xl border bg-muted/20 p-6 md:p-8 space-y-5">
           <div className="space-y-2">
             <h3 className="text-xl md:text-2xl font-semibold">More Info in Trust Center</h3>
-            <p className="text-muted-foreground">
-              Trust Center 目录（列出来，增强可信度）：
-            </p>
           </div>
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-muted-foreground">
+          <ul className="grid grid-cols-1 sm:grid-cols-[0.9fr_1.1fr] gap-x-8 gap-y-2 text-muted-foreground">
             {mockTrustCenterDirectory.map((label) => (
               <li key={label} className="flex items-start gap-2">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary/70 shrink-0" aria-hidden="true" />
@@ -135,9 +145,24 @@ export function TrustComplianceSection() {
 
           <div className="pt-2">
             <Button asChild variant="outline" className="w-full sm:w-auto">
-              <Link href="/trust">Go to Trust Center →</Link>
+              <Link href="/trust">
+                Go to Trust Center →
+              </Link>
             </Button>
           </div>
+        </div>
+
+        {/* Request a mock CTA */}
+        <div className="text-center pt-8">
+          <Button asChild className="w-full sm:w-auto">
+            <a
+              href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Request a mock
+            </a>
+          </Button>
         </div>
       </div>
     </section>
