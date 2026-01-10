@@ -155,7 +155,7 @@ export default function UniversitiesPage() {
                                         content: (
                                             <div>
                                                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                                    Alumni <strong className="font-semibold text-foreground">tap/scan</strong> → <strong className="font-semibold text-foreground">your university-branded page</strong>: alumni stories, campus updates, campaign pages, event RSVP, giving page.
+                                                    Alumni <strong className="font-semibold text-foreground">tap</strong> → <strong className="font-semibold text-foreground">your university-branded page</strong>: alumni stories, campus updates, campaign pages, event RSVP, giving page.
                                                 </p>
                                                 <blockquote className="border-l-4 border-primary pl-4 my-4 italic text-lg text-muted-foreground">
                                                     <strong className="font-semibold text-foreground">You control the destination + CTA.</strong>

@@ -367,7 +367,7 @@ export default function NonprofitsPage() {
                                 content: (
                                     <div>
                                         <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                            Households tap/scan and consume FC previews.
+                                            Households tap and consume FC previews.
                                         </p>
                                         <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                                             FC records <strong className="font-semibold text-foreground">touch events</strong> (tap/preview) as household-level evidence.

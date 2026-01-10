@@ -11,7 +11,7 @@ export default function TrustPage() {
       items: [
         "What does Fridge Channel deliver, in one sentence?",
         "What is hosted by FC vs. what remains on the customer’s systems?",
-        "What happens after a tap/scan (end-to-end flow)?",
+        "What happens after a tap (end-to-end flow)?",
         "What is the “tap-to-play” experience (preview/listen/landing/CTA routing)?",
         "Is “one primary CTA” a hard rule? When can it vary by cohort?",
         "What is explicitly out of scope (ads, acquisition, payment processing, retargeting, person-level tracking, etc.)?",
@@ -264,7 +264,7 @@ export default function TrustPage() {
       items: [
         "What does Fridge Channel deliver, in one sentence?",
         "What is hosted by FC vs. what remains on the customer’s systems?",
-        "What happens after a tap/scan (end-to-end flow)?",
+        "What happens after a tap (end-to-end flow)?",
         "What is the “tap-to-play” experience (preview/listen/landing/CTA routing)?",
         "Is “one primary CTA” a hard rule? When can it vary by cohort?",
         "What is explicitly out of scope (ads, acquisition, payment processing, retargeting, person-level tracking, etc.)?",

@@ -149,7 +149,7 @@ export default function ChainsFranchisesPage() {
                                         content: (
                                             <div>
                                                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                                    Customers <strong className="font-semibold text-foreground">tap/scan</strong> →{" "}
+                                                    Customers <strong className="font-semibold text-foreground">tap</strong> →{" "}
                                                     <strong className="font-semibold text-foreground">your brand-approved retail destination</strong>:
                                                 </p>
                                                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -160,7 +160,7 @@ export default function ChainsFranchisesPage() {
                                                 </blockquote>
                                                 <div className="mt-6 w-full sm:w-1/2">
                                                     <Image
-                                                        src="/c2.png"
+                                                        src="/c2-2.png"
                                                         alt="How it works step 2 illustration"
                                                         width={1200}
                                                         height={800}
@@ -190,7 +190,7 @@ export default function ChainsFranchisesPage() {
                                                 </p>
                                                 <div className="mt-6 w-full sm:w-1/2">
                                                     <Image
-                                                        src="/c3.png"
+                                                        src="/c2-3.png"
                                                         alt="How it works step 3 illustration"
                                                         width={1200}
                                                         height={800}
@@ -315,7 +315,7 @@ export default function ChainsFranchisesPage() {
                                 id: "data-boundaries",
                                 question: "What are the data boundaries? Does this involve PII?",
                                 answer:
-                                    "No PII is required. FC captures aggregated events (e.g., tap/scan, landing-page visits, CTA clicks) and reports them at store/region/campaign levels. We do not collect names, emails, phone numbers, or build identity graphs. If your CTA routes into your own loyalty/checkout system, that downstream action happens within your systems and policies; FC remains at the aggregated engagement layer.",
+                                    "No PII is required. FC captures aggregated events (e.g., tap, landing-page visits, CTA clicks) and reports them at store/region/campaign levels. We do not collect names, emails, phone numbers, or build identity graphs. If your CTA routes into your own loyalty/checkout system, that downstream action happens within your systems and policies; FC remains at the aggregated engagement layer.",
                             },
                             {
                                 id: "delivery-replacements",

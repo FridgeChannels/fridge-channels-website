@@ -45,7 +45,7 @@ const mockSummaryItems: TrustSummaryItem[] = [
   {
     id: "user-choice",
     title: "User choice: user-initiated (opt-in)",
-    body: "Engagement is initiated by the user (tap/scan) at their own discretion—there is no forced exposure, no interruption, and no “push” behavior. This keeps the interaction aligned with alumni expectations and reduces risk of perceived intrusion.",
+    body: "Engagement is initiated by the user (tap) at their own discretion—there is no forced exposure, no interruption, and no “push” behavior. This keeps the interaction aligned with alumni expectations and reduces risk of perceived intrusion.",
     trustCtaText: "See Trust Center → Brand Safety & Approvals",
     trustHref: "/trust",
   },

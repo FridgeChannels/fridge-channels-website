@@ -150,7 +150,7 @@ export default function RetailersPage() {
                                         content: (
                                             <div>
                                                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                                    Shoppers <strong className="font-semibold text-foreground">tap/scan</strong> →{" "}
+                                                    Shoppers <strong className="font-semibold text-foreground">tap</strong> →{" "}
                                                     <strong className="font-semibold text-foreground">your retailer-governed destination</strong>:
                                                 </p>
                                                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
