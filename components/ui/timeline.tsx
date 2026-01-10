@@ -36,20 +36,30 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setVisibleSteps((prev) => {
-      const next = new Set(prev);
       const stepCount = data.length;
       const maxIndex = Math.max(stepCount - 1, 1);
       const revealSpan = 0.6;
       const revealOffset = 0.15;
 
+      let hasNew = false;
+      const next = new Set(prev);
+
       data.forEach((_, index) => {
+        // Optimization: Skip if already visible
+        if (prev.has(index)) return;
+
         const threshold = (index / maxIndex) * revealSpan;
         if (latest >= Math.max(threshold - revealOffset, 0)) {
           next.add(index);
+          hasNew = true;
         }
       });
 
-      return next;
+      // Only return a new set if there are changes to trigger a re-render
+      if (hasNew) {
+        return next;
+      }
+      return prev;
     });
   });
 
@@ -70,7 +80,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => {
           // 第一个步骤（index 0）始终可见，其他步骤默认隐藏
           const isVisible = index === 0 ? true : visibleSteps.has(index);
-          
+
           return (
             <motion.div
               key={index}
@@ -78,7 +88,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               initial={index === 0 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              style={{ 
+              style={{
                 pointerEvents: isVisible ? 'auto' : 'none',
                 visibility: isVisible ? 'visible' : 'hidden'
               }}

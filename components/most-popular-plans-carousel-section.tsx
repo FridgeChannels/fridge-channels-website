@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { AnimatedTitle } from "@/components/ui/animated-title";
@@ -29,19 +29,30 @@ export type MostPopularPlan = {
 const ACTIVE_CARD_WIDTH = "w-[450px] sm:w-[510px] lg:w-[630px]";
 const INACTIVE_CARD_WIDTH = "w-[520px] sm:w-[600px] lg:w-[680px]";
 
-function PlanCard({ plan, isActive }: { plan: MostPopularPlan; isActive: boolean }) {
+function PlanCard({
+  plan,
+  isActive,
+  activeCardColor = "#83B79F",
+}: {
+  plan: MostPopularPlan;
+  isActive: boolean;
+  activeCardColor?: string;
+}) {
   const cardClasses = cn(
     "rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.35)] text-black overflow-hidden flex flex-col",
-    isActive ? "bg-[#83B79F]" : "bg-[#F7F2EA]",
     "transition-[filter,opacity,transform] duration-500",
-    isActive && "rounded-t-2xl rounded-b-none shadow-none min-h-[500px] sm:min-h-[540px] lg:min-h-[580px]",
-    !isActive && "opacity-60 saturate-0 contrast-90 max-h-[460px] sm:max-h-[500px] lg:max-h-[540px]"
+    isActive
+      ? "rounded-t-2xl rounded-b-none shadow-none min-h-[500px] sm:min-h-[540px] lg:min-h-[580px]"
+      : "bg-[#F7F2EA] opacity-60 saturate-0 contrast-90 max-h-[460px] sm:max-h-[500px] lg:max-h-[540px]"
   );
 
   const observabilityLabel = plan.observabilityLabel ?? "Observability (3-line standard):";
 
   return (
-    <div className={cardClasses}>
+    <div
+      className={cardClasses}
+      style={isActive ? { backgroundColor: activeCardColor } : undefined}
+    >
       <div className="px-6 pt-6">
         <div className="text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em] font-light border-b border-black/15 pb-4">
           {plan.title}
@@ -140,21 +151,46 @@ function PlanCard({ plan, isActive }: { plan: MostPopularPlan; isActive: boolean
   );
 }
 
-export function MostPopularPlansCarouselSection({ plans }: { plans: MostPopularPlan[] }) {
+export function MostPopularPlansCarouselSection({
+  plans,
+  activeCardColor = "#83B79F",
+}: {
+  plans: MostPopularPlan[];
+  activeCardColor?: string;
+}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center", loop: true });
+
+  // Duplicate slides if less than 4 plans to ensure proper loop centering
+  const slides = useMemo(() => {
+    if (plans.length < 4) {
+      // Duplicate the array to create enough slides for proper centering
+      return [...plans, ...plans];
+    }
+    return plans;
+  }, [plans]);
+
+  // Map selectedIndex back to original plan index
+  const realPlanIndex = selectedIndex % plans.length;
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: true,
+  });
 
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     onSelect();
     emblaApi.on("select", onSelect);
-    return () => emblaApi.off("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
   const scrollTo = useCallback(
     (index: number) => {
-      emblaApi?.scrollTo(index);
+      if (!emblaApi) return;
+      emblaApi.scrollTo(index);
     },
     [emblaApi]
   );
@@ -206,17 +242,17 @@ export function MostPopularPlansCarouselSection({ plans }: { plans: MostPopularP
                     aria-label="Most popular plans carousel"
                   >
                     <div className="flex items-start px-0 -mx-5 sm:-mx-7">
-                      {plans.map((plan, index) => {
-                        const isActive = index === selectedIndex;
+                      {slides.map((plan, slideIndex) => {
+                        const isActive = slideIndex === selectedIndex;
                         return (
                           <motion.button
-                            key={plan.id}
+                            key={`${plan.id}-${slideIndex}`}
                             type="button"
                             className={cn(
                               "relative flex-[0_0_auto] text-left focus:outline-none cursor-grab active:cursor-grabbing",
                               "px-5 sm:px-7"
                             )}
-                            onClick={() => scrollTo(index)}
+                            onClick={() => scrollTo(slideIndex)}
                             aria-label={`Select ${plan.title}`}
                             animate={{
                               scale: isActive ? 1 : 0.95,
@@ -226,7 +262,11 @@ export function MostPopularPlansCarouselSection({ plans }: { plans: MostPopularP
                             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                           >
                             <div className={cn(isActive ? ACTIVE_CARD_WIDTH : INACTIVE_CARD_WIDTH)}>
-                              <PlanCard plan={plan} isActive={isActive} />
+                              <PlanCard
+                                plan={plan}
+                                isActive={isActive}
+                                activeCardColor={activeCardColor}
+                              />
                             </div>
                           </motion.button>
                         );
@@ -238,17 +278,18 @@ export function MostPopularPlansCarouselSection({ plans }: { plans: MostPopularP
                     <div
                       className={cn(
                         ACTIVE_CARD_WIDTH,
-                        "bg-[#83B79F] rounded-b-2xl shadow-[0_-18px_50px_rgba(0,0,0,0.22)] px-6 py-5"
+                        "rounded-b-2xl shadow-[0_-18px_50px_rgba(0,0,0,0.22)] px-6 py-5"
                       )}
+                      style={{ backgroundColor: activeCardColor }}
                     >
                       <div className="flex items-center justify-center">
                         <GlowButton
-                          aria-label={plans[selectedIndex]?.buttonText ?? "Book a Pilot Meeting"}
-                          onClick={() => plans[selectedIndex]?.onButtonClick()}
+                          aria-label={plans[realPlanIndex]?.buttonText ?? "Book a Pilot Meeting"}
+                          onClick={() => plans[realPlanIndex]?.onButtonClick()}
                           className="mx-0"
                           width={240}
                         >
-                          {plans[selectedIndex]?.buttonText ?? "Book a Pilot Meeting"}
+                          {plans[realPlanIndex]?.buttonText ?? "Book a Pilot Meeting"}
                         </GlowButton>
                       </div>
                     </div>

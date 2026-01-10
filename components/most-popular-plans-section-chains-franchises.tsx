@@ -152,6 +152,6 @@ export function MostPopularPlansSectionChainsFranchises() {
     ],
   }));
 
-  return <MostPopularPlansCarouselSection plans={plans} />;
+  return <MostPopularPlansCarouselSection plans={plans} activeCardColor="#D9AD8E" />;
 }
 

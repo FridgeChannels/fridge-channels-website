@@ -92,5 +92,5 @@ export function MostPopularPlansSection() {
     onButtonClick: p.onButtonClick,
   }));
 
-  return <MostPopularPlansCarouselSection plans={plans} />;
+  return <MostPopularPlansCarouselSection plans={plans} activeCardColor="#5E718F" />;
 }

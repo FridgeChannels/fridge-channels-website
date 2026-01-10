@@ -11,7 +11,7 @@ import { TextGradientScroll } from "@/components/ui/text-gradient-scroll"
 import { Timeline } from "@/components/ui/timeline"
 import { SectionTransition } from "@/components/ui/section-transition"
 import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader"
-import { MostPopularPlansSection } from "@/components/most-popular-plans-section"
+import { MostPopularPlansSectionUniversities } from "@/components/most-popular-plans-section-universities"
 import { TrustComplianceSection } from "@/components/TrustComplianceSection"
 import { SiteFooter } from "@/components/site-footer"
 import { PilotFlowTimeline } from "@/components/ui/pilot-flow-timeline"
@@ -224,7 +224,7 @@ export default function UniversitiesPage() {
 
                 {/* Most Popular Plans Section */}
                 <section id="most-popular-plans" className="scroll-mt-28">
-                    <MostPopularPlansSection />
+                    <MostPopularPlansSectionUniversities />
                 </section>
 
                 {/* How a Pilot Works Section - Flow Style */}
