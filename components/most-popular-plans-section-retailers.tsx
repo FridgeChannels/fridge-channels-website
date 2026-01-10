@@ -1,14 +1,20 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React from "react";
 import { SectionReveal } from "@/components/ui/section-reveal";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { AnimatedTitle } from "@/components/ui/animated-title";
-import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { GlowButton } from "@/components/ui/shiny-button-1";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import {
+    HoverSlider,
+    HoverSliderImageWrap,
+    TextStaggerHover,
+    useHoverSliderContext,
+} from "@/components/ui/animated-slideshow";
+import { motion } from "motion/react";
+import { useRef, useState } from "react";
 
 interface PlanData {
   id: string;
@@ -33,7 +39,7 @@ const retailerPlans: PlanData[] = [
     cohort: "Active shoppers · nearby households · lapsed recent",
     primaryCta: (
       <strong className="font-semibold text-foreground">
-        Get this week’s deal / See weekly picks / Map to store
+        Get this week's deal / See weekly picks / Map to store
       </strong>
     ),
     pilotSizeDuration: "10k–50k households · 4–6 weeks",
@@ -140,308 +146,248 @@ const retailerPlans: PlanData[] = [
   },
 ];
 
-interface PlanCardProps {
-  plan: PlanData;
-  isActive: boolean;
+// White background
+const CARD_BACKGROUND = "#FFFFFF";
+
+const clipPathVariants = {
+    visible: {
+        clipPath: "inset(0% 0% 0% 0% round 20px)",
+    },
+    hidden: {
+        clipPath: "inset(100% 0% 0% 0% round 20px)",
+    },
+};
+
+interface PlanCardContentProps {
+    plan: PlanData;
+    index: number;
 }
 
-const ACTIVE_CARD_WIDTH = "w-[450px] sm:w-[510px] lg:w-[630px]";
-const INACTIVE_CARD_WIDTH = "w-[520px] sm:w-[600px] lg:w-[680px]";
+function PlanCardContent({ plan, index }: PlanCardContentProps) {
+    const { activeSlide } = useHoverSliderContext();
+    const isActive = activeSlide === index;
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
+    const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
-// Retailers gradient
-const RETAILERS_GRADIENT = "linear-gradient(135deg, #9BC7AD 0%, #83B79F 40%, #5E9A7E 100%)";
+    // Handle mouse movement for 3D effect
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (cardRef.current && isActive) {
+            const rect = cardRef.current.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const rotateX = -(y / rect.height) * 5;
+            const rotateY = (x / rect.width) * 5;
+            setRotation({ x: rotateX, y: rotateY });
+        }
+    };
 
-function PlanCard({ plan, isActive }: PlanCardProps) {
-  const cardClasses = cn(
-    // Base (Trawelt-like) card
-    "rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.35)] text-black overflow-hidden flex flex-col relative",
-    // Smooth state transitions
-    "transition-[filter,opacity,transform] duration-500",
-    // When we attach the fixed bottom CTA tray, remove bottom rounding so it visually stacks.
-    isActive && "rounded-t-2xl rounded-b-none shadow-none min-h-[500px] sm:min-h-[540px] lg:min-h-[580px]",
-    // Inactive visual collapse
-    !isActive && "bg-[#F7F2EA] opacity-60 saturate-0 contrast-90 max-h-[460px] sm:max-h-[500px] lg:max-h-[540px]"
-  );
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        setRotation({ x: 0, y: 0 });
+    };
 
-  return (
-    <div
-      className={cardClasses}
-      style={isActive ? { background: RETAILERS_GRADIENT } : undefined}
-    >
-      {/* Glassmorphism overlay for active cards */}
-      {isActive && (
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 30%, transparent 60%)",
-            borderRadius: "inherit",
-          }}
-          aria-hidden="true"
-        />
-      )}
-      <div className="px-6 pt-6">
-        <div className="text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em] font-light border-b border-black/15 pb-4">
-          {plan.title}
-        </div>
-      </div>
+    return (
+        <motion.div
+            ref={cardRef}
+            className={cn(
+                "rounded-[20px] overflow-hidden flex flex-col relative",
+                "min-h-[500px] sm:min-h-[540px] lg:min-h-[580px]",
+                "w-full"
+            )}
+            style={{
+                transformStyle: "preserve-3d",
+                backgroundColor: CARD_BACKGROUND,
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.05)",
+            }}
+            transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}
+            variants={clipPathVariants}
+            animate={isActive ? "visible" : "hidden"}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
+        >
+            {/* Card content */}
+            <motion.div
+                className="relative flex flex-col h-full p-6 sm:p-8 z-40"
+                animate={{
+                    rotateX: isHovered && isActive ? -rotation.x * 0.3 : 0,
+                    rotateY: isHovered && isActive ? -rotation.y * 0.3 : 0,
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+                {/* Title */}
+                <motion.h3
+                    className="text-2xl sm:text-[26px] md:text-[30px] font-medium text-gray-900 mb-4 sm:mb-6"
+                    style={{
+                        letterSpacing: "-0.01em",
+                        lineHeight: 1.2,
+                    }}
+                    animate={{
+                        textShadow: isHovered && isActive ? "0 2px 4px rgba(0,0,0,0.1)" : "none",
+                    }}
+                >
+                    {plan.title}
+                </motion.h3>
 
-      <div className="px-6 pt-5 pb-6 flex-1">
-        {isActive ? (
-          <div className="flex flex-col h-full">
-            {/* Full plan content (your original 4-plan cards) */}
-            <div className="mt-5 space-y-4 text-[14px] leading-relaxed text-black/75 flex-1">
-              <div>
-                <div className="text-[14px] text-black/75">
-                  <span className="text-sm font-semibold text-black">Best for:</span> <span>{plan.bestFor}</span>
+                {/* Content */}
+                <div className="flex-1 space-y-0 text-sm sm:text-[14px] leading-relaxed text-gray-700">
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <span className="font-semibold text-gray-900">Best for:</span> <span>{plan.bestFor}</span>
+                    </motion.div>
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <span className="font-semibold text-gray-900">Cohort:</span> <span>{plan.cohort}</span>
+                    </motion.div>
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <span className="font-semibold text-gray-900">Primary CTA:</span>{" "}
+                        <span className="text-gray-800">{plan.primaryCta}</span>
+                    </motion.div>
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <span className="font-semibold text-gray-900">Pilot size & duration:</span>{" "}
+                        <span>{plan.pilotSizeDuration}</span>
+                    </motion.div>
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <span className="font-semibold text-gray-900">Primary KPI:</span>{" "}
+                        <span>{plan.primaryKpi}</span>
+                    </motion.div>
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <div className="text-sm font-semibold text-gray-900 mb-2">{plan.observabilityLabel}</div>
+                        <ul className="flex flex-col gap-2 text-gray-700">
+                            {plan.observability.map((item, idx) => (
+                                // eslint-disable-next-line react/no-array-index-key
+                                <motion.li
+                                    key={idx}
+                                    className="flex items-start gap-2 rounded-md px-2 py-1 -mx-2"
+                                    whileHover={{
+                                        x: 4,
+                                    }}
+                                    transition={{ duration: 0.15, ease: "easeOut" }}
+                                >
+                                    <span className="mt-0.5 text-gray-900" aria-hidden="true">
+                                        ✓
+                                    </span>
+                                    <span>{item}</span>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                    <motion.div
+                        className="rounded-lg px-3 py-2 -mx-3 transition-all duration-300 cursor-default"
+                        whileHover={{
+                            scale: 1.05,
+                            x: 4,
+                        }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        <div className="text-sm font-semibold text-gray-900 mb-1">Includes:</div>
+                        <div className="text-gray-700">{plan.includes}</div>
+                    </motion.div>
                 </div>
-              </div>
-              <div>
-                <div className="text-[14px] text-black/75">
-                  <span className="text-sm font-semibold text-black">Cohort:</span> <span>{plan.cohort}</span>
-                </div>
-              </div>
-              <div>
-                <div className="text-[14px] text-black/75">
-                  <span className="text-sm font-semibold text-black">Primary CTA:</span>{" "}
-                  <span className="text-black/80">{plan.primaryCta}</span>
-                </div>
-              </div>
-              <div>
-                <div className="text-[14px] text-black/75">
-                  <span className="text-sm font-semibold text-black">Pilot size & duration:</span>{" "}
-                  <span>{plan.pilotSizeDuration}</span>
-                </div>
-              </div>
-              <div>
-                <div className="text-[14px] text-black/75">
-                  <span className="text-sm font-semibold text-black">Primary KPI:</span>{" "}
-                  <span>{plan.primaryKpi}</span>
-                </div>
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-black mb-2">{plan.observabilityLabel}</div>
-                <ul className="flex flex-col gap-2 text-black/75">
-                  {plan.observability.map((item, idx) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-[#469A74]" aria-hidden="true">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-black mb-1">Includes:</div>
-                <div>{plan.includes}</div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="border-t border-black/15 pt-4 h-full flex flex-col">
-            <div className="space-y-4 flex-1 text-[14px] leading-relaxed text-black/75">
-              <div className="text-[14px] text-black/70">
-                <span className="font-semibold text-black">Best for:</span> {plan.bestFor}
-              </div>
-              <div className="text-[14px] text-black/70">
-                <span className="font-semibold text-black">Cohort:</span> {plan.cohort}
-              </div>
-              <div className="text-[14px] text-black/70">
-                <span className="font-semibold text-black">Primary CTA:</span>{" "}
-                <span className="text-black/75">{plan.primaryCta}</span>
-              </div>
-              <div className="text-[14px] text-black/70">
-                <span className="font-semibold text-black">Pilot size & duration:</span> {plan.pilotSizeDuration}
-              </div>
-              <div className="text-[14px] text-black/70">
-                <span className="font-semibold text-black">Primary KPI:</span> {plan.primaryKpi}
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-black mb-2">{plan.observabilityLabel}</div>
-                <ul className="flex flex-col gap-2 text-black/75">
-                  {plan.observability.map((item, idx) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-[#469A74]" aria-hidden="true">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="text-[14px] text-black/70">
-                <span className="font-semibold text-black">Includes:</span> {plan.includes}
-              </div>
-            </div>
 
-            <div className="mt-auto pt-8 text-[13px] text-black/55">Drag to explore</div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+                {/* Bottom CTA */}
+                <div className="mt-6 sm:mt-8 relative z-10">
+                    <div className="flex items-center justify-center">
+                        <ShimmerButton
+                            aria-label={plan.buttonText}
+                            onClick={plan.onButtonClick}
+                            className="mx-0 shadow-2xl"
+                            background="rgba(0, 0, 0, 1)"
+                            shimmerColor="#ffffff"
+                        >
+                            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                                {plan.buttonText}
+                            </span>
+                        </ShimmerButton>
+                    </div>
+                </div>
+            </motion.div>
+        </motion.div>
+    );
 }
 
 export function MostPopularPlansSectionRetailers() {
-  const plans = retailerPlans;
-  const [selectedIndex, setSelectedIndex] = useState(0);
+    const plans = retailerPlans;
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "center",
-    loop: true,
-  });
+    return (
+        <SectionWrapper enableFadeTransition={true} className="container mx-auto px-4 py-20">
+            <SectionReveal delay={0.1} direction="up" distance={60}>
+                <div className="max-w-7xl mx-auto space-y-12">
+                    <SectionReveal delay={0} direction="up" distance={40}>
+                        <div className="text-center space-y-4">
+                            <AnimatedTitle className="text-3xl md:text-5xl font-bold text-balance">
+                                Most Popular Plans
+                            </AnimatedTitle>
+                        </div>
+                    </SectionReveal>
 
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
-    onSelect();
-    emblaApi.on("select", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      emblaApi?.scrollTo(index);
-    },
-    [emblaApi]
-  );
-
-  // Trackpad / mouse wheel horizontal swipe support (without breaking normal vertical scroll)
-  const wheelAccum = useRef(0);
-  const onWheel = useCallback(
-    (e: React.WheelEvent) => {
-      if (!emblaApi) return;
-      const absX = Math.abs(e.deltaX);
-      const absY = Math.abs(e.deltaY);
-      const isMostlyHorizontal = absX > absY;
-
-      if (!isMostlyHorizontal) return;
-      e.preventDefault();
-
-      wheelAccum.current += e.deltaX;
-      if (Math.abs(wheelAccum.current) < 24) return;
-
-      if (wheelAccum.current > 0) emblaApi.scrollNext();
-      else emblaApi.scrollPrev();
-      wheelAccum.current = 0;
-    },
-    [emblaApi]
-  );
-
-  return (
-    <SectionWrapper enableFadeTransition={true} className="container mx-auto px-4 py-20">
-      <SectionReveal delay={0.1} direction="up" distance={60}>
-        <div className="max-w-7xl mx-auto space-y-12">
-          <SectionReveal delay={0} direction="up" distance={40}>
-            <div className="text-center space-y-4">
-              <AnimatedTitle className="text-3xl md:text-5xl font-bold text-balance">
-                Most Popular Plans
-              </AnimatedTitle>
-            </div>
-          </SectionReveal>
-
-          <SectionReveal delay={0.2} direction="up" distance={50}>
-            {/* Full-bleed stage (breaks out of container) */}
-            <div className="relative w-screen mx-[calc(50%-50vw)]">
-              {/* Dark stage like Trawelt */}
-              <div className="rounded-[28px] bg-[#F7F7F4] px-0 py-0 overflow-hidden">
-                <div className="relative">
-                  {/* Subtle spotlight / vignette */}
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 opacity-80"
-                    style={{
-                      background:
-                        "radial-gradient(700px 320px at 50% 40%, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0) 60%), radial-gradient(1100px 520px at 50% 60%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 65%)",
-                    }}
-                  />
-
-                  <div
-                    className="overflow-hidden select-none pt-0 pb-0"
-                    ref={emblaRef}
-                    onWheel={onWheel}
-                    aria-label="Most popular plans carousel"
-                  >
-                    {/* Use per-slide padding instead of flex gap so loop boundary (D↔A) keeps spacing */}
-                    <div className="flex items-start px-0 -mx-5 sm:-mx-7">
-                      {plans.map((plan, index) => {
-                        const isActive = index === selectedIndex;
-                        return (
-                          <motion.button
-                            key={plan.id}
-                            type="button"
-                            className={cn(
-                              "relative flex-[0_0_auto] text-left focus:outline-none",
-                              "cursor-grab active:cursor-grabbing",
-                              "px-5 sm:px-7"
-                            )}
-                            onClick={() => scrollTo(index)}
-                            aria-label={`Select ${plan.title}`}
-                            animate={{
-                              scale: isActive ? 1 : 0.95,
-                              opacity: isActive ? 1 : 0.62,
-                              y: isActive ? 0 : 10,
-                            }}
-                            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                          >
-                            {/* Make non-selected slides visually larger (≈2x of the old inactive size) */}
-                            <div
-                              className={cn(
-                                isActive ? ACTIVE_CARD_WIDTH : INACTIVE_CARD_WIDTH
-                              )}
-                            >
-                              <PlanCard plan={plan} isActive={isActive} />
+                    <SectionReveal delay={0.2} direction="up" distance={50}>
+                        <HoverSlider className="min-h-[600px] place-content-center p-6 md:px-12 bg-[#F7F7F4] text-[#3d3929]">
+                            <h3 className="mb-6 text-[rgb(201, 100, 66)] text-xs font-medium capitalize tracking-wide text-[#c96442]">
+                                / our plans
+                            </h3>
+                            <div className="flex flex-col md:flex-row items-start md:items-center justify-evenly gap-6 md:gap-12">
+                                <div className="flex flex-col space-y-2 md:space-y-4 w-full md:w-auto">
+                                    {plans.map((plan, index) => (
+                                        <TextStaggerHover
+                                            key={plan.id}
+                                            index={index}
+                                            className="cursor-pointer text-3xl md:text-4xl font-bold uppercase tracking-tighter"
+                                            text={plan.title}
+                                        />
+                                    ))}
+                                </div>
+                                <HoverSliderImageWrap className="w-full max-w-2xl min-h-[580px]">
+                                    {plans.map((plan, index) => (
+                                        <PlanCardContent key={plan.id} plan={plan} index={index} />
+                                    ))}
+                                </HoverSliderImageWrap>
                             </div>
-                          </motion.button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Bottom CTA tray (touches the active card bottom border) */}
-                  <div className="relative z-20 flex justify-center -mt-px pb-0">
-                    <div
-                      className={cn(
-                        ACTIVE_CARD_WIDTH,
-                        // Shadow moved to the TOP edge (upwards)
-                        "rounded-b-2xl shadow-[0_-18px_50px_rgba(0,0,0,0.22)] px-6 py-5 relative overflow-hidden"
-                      )}
-                      style={{ background: RETAILERS_GRADIENT }}
-                    >
-                      {/* Bottom tray glassmorphism overlay */}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          background: "linear-gradient(0deg, rgba(255,255,255,0.12) 0%, transparent 100%)",
-                        }}
-                        aria-hidden="true"
-                      />
-                      <div className="flex items-center justify-center">
-                        <GlowButton
-                          aria-label={plans[selectedIndex]?.buttonText ?? "Book a Pilot Meeting"}
-                          onClick={() => plans[selectedIndex]?.onButtonClick()}
-                          className="mx-0"
-                          width={240}
-                        >
-                          {plans[selectedIndex]?.buttonText ?? "Book a Pilot Meeting"}
-                        </GlowButton>
-                      </div>
-                    </div>
-                  </div>
+                        </HoverSlider>
+                    </SectionReveal>
                 </div>
-              </div>
-            </div>
-          </SectionReveal>
-        </div>
-      </SectionReveal>
-    </SectionWrapper>
-  );
+            </SectionReveal>
+        </SectionWrapper>
+    );
 }
-

@@ -257,7 +257,7 @@ export default function ChainsFranchisesPage() {
                 </SectionTransition>
 
                 {/* Final CTA Section */}
-                <section className="w-full bg-[#FF6C02] relative z-10">
+                <section className="w-full bg-[#D9722A] relative z-10">
                     <div className="container mx-auto px-4 py-20">
                         <div className="flex justify-center items-center">
                             <Link href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer">
