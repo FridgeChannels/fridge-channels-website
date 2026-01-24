@@ -73,14 +73,14 @@ export function GradientCard({
 
   // Borders and dividers
   const borderMuted = isWhiteBg
-    ? "border-gray-200"
+    ? "border-transparent"
     : isLight ? "border-white/5" : "border-white/10";
 
   const divideMuted = isWhiteBg
-    ? "divide-gray-100"
+    ? "divide-transparent"
     : isLight ? "divide-white/5" : "divide-white/10";
 
-  const descBorderCls = isWhiteBg ? "border-gray-300" : "border-white/30";
+  const descBorderCls = isWhiteBg ? "border-transparent" : "border-white/30";
 
   // Icon container styles
   const iconContainerCls = isWhiteBg
