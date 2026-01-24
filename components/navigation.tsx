@@ -27,6 +27,7 @@ export function Navigation() {
 
   // Determine current "Who We Serve" page for label display
   const getCurrentWhoWeServe = () => {
+    if (pathname?.includes('/who-we-serve/real-estate')) return 'Real Estate';
     if (pathname?.includes('/who-we-serve/universities')) return 'Universities';
     if (pathname?.includes('/who-we-serve/retailers')) return 'Retailers';
     if (pathname?.includes('/who-we-serve/nonprofits')) return 'Nonprofits';
@@ -183,6 +184,7 @@ export function Navigation() {
                   "min-w-[200px] flex flex-col p-1 rounded-lg shadow-lg border",
                   "bg-white border-gray-200"
                 )}>
+                  <Link href="/who-we-serve/real-estate" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Real Estate' && "bg-black/5 font-semibold")}>Real Estate</Link>
                   <Link href="/who-we-serve/universities" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Universities' && "bg-black/5 font-semibold")}>Universities</Link>
                   <Link href="/who-we-serve/retailers" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Retailers' && "bg-black/5 font-semibold")}>Retailers</Link>
                   {/*
@@ -345,6 +347,7 @@ export function Navigation() {
                 </button>
                 {isWhoWeServeOpen && (
                   <div className="mt-3 ml-4 flex flex-col space-y-3 border-l-2 border-gray-100 pl-4">
+                    <Link href="/who-we-serve/real-estate" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Real Estate</Link>
                     <Link href="/who-we-serve/universities" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Universities</Link>
                     <Link href="/who-we-serve/retailers" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Retailers</Link>
                     {/*
