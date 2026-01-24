@@ -56,7 +56,7 @@ export default function RealEstatePage() {
                             </HeroTextReveal>
 
                             <div className="flex items-center justify-center gap-4 mt-4">
-                                <Link href="#cta">
+                                <Link href="https://studio.fridgechannels.com">
                                     <ShimmerButton
                                         className="shadow-2xl transition-transform duration-300 hover:scale-110 w-auto px-8 py-3"
                                         background="rgba(0, 0, 0, 1)"
@@ -245,7 +245,7 @@ export default function RealEstatePage() {
                                 Bring one current deal. We’ll show you where the at‑home concierge fits between your meetings—and how it can help your team stay one step ahead of other top performers.
                             </p>
                             <div className="flex justify-center items-center gap-4 pt-8">
-                                <Link href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer">
+                                <Link href="https://studio.fridgechannels.com">
                                     <ShimmerButton
                                         className="shadow-2xl transition-transform duration-300 hover:scale-110 w-auto px-8 py-3"
                                         background="rgba(0, 0, 0, 1)"
