@@ -1,268 +1,453 @@
 "use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Navigation } from "@/components/navigation"
-import { ShimmerButton } from "@/components/ui/shimmer-button"
-import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader"
-import { SiteFooter } from "@/components/site-footer"
-import { HeroTextReveal } from "@/components/ui/hero-text-reveal"
-import { AnimatedTitle } from "@/components/ui/animated-title"
-import { Timeline } from "@/components/ui/timeline"
-import { SectionTransition } from "@/components/ui/section-transition"
-import { GradientCard } from "@/components/ui/gradient-card"
-import { Check } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import { Navigation } from "@/components/navigation";
+import { SiteFooter } from "@/components/site-footer";
+import { SectionTransition } from "@/components/ui/section-transition";
+import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { Shield, Zap, MessageSquare, Monitor, Hand, Smartphone, BarChart3 } from "lucide-react";
+import { AllInOneSection } from "@/components/ui/all-in-one-section";
+import { Marquee } from "@/components/ui/3d-testimonials";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+
+const solutionCards = [
+    { title: "Before they commit", text: "Keep momentum alive after the showing when decisions aren't final.", icon: Shield },
+    { title: "During uncertainty", text: "Answer questions when hesitation quietly builds at home.", icon: MessageSquare },
+    { title: "After closing", text: "Stay present for referrals — without awkward follow-ups.", icon: Zap },
+];
+
+const testimonials = [
+    {
+        name: 'Sarah Chen',
+        username: '@sarahsells',
+        body: 'Close Concierge helped us close 3 deals this month that would have gone cold.',
+        img: 'https://randomuser.me/api/portraits/women/32.jpg',
+        country: '🇺🇸 Los Angeles',
+    },
+    {
+        name: 'Marcus Johnson',
+        username: '@marcusrealty',
+        body: 'Our clients love having Leo on their fridge. It keeps us top of mind.',
+        img: 'https://randomuser.me/api/portraits/men/51.jpg',
+        country: '🇺🇸 Miami',
+    },
+    {
+        name: 'Emily Rodriguez',
+        username: '@emilyproperties',
+        body: 'The engagement data is gold. I know exactly when to follow up.',
+        img: 'https://randomuser.me/api/portraits/women/68.jpg',
+        country: '🇺🇸 Austin',
+    },
+    {
+        name: 'David Park',
+        username: '@davidhomes',
+        body: 'Game changer for luxury listings. Buyers appreciate the premium touch.',
+        img: 'https://randomuser.me/api/portraits/men/33.jpg',
+        country: '🇺🇸 San Francisco',
+    },
+    {
+        name: 'Jessica Williams',
+        username: '@jessicarealestate',
+        body: 'My conversion rate doubled since using Close Concierge.',
+        img: 'https://randomuser.me/api/portraits/women/53.jpg',
+        country: '🇺🇸 Seattle',
+    },
+    {
+        name: 'Michael Torres',
+        username: '@miketorres',
+        body: 'Clients actually use it! The questions they ask through Leo are so valuable.',
+        img: 'https://randomuser.me/api/portraits/men/22.jpg',
+        country: '🇺🇸 Denver',
+    },
+    {
+        name: 'Amanda Lee',
+        username: '@amandalee',
+        body: 'Perfect for our high-end clientele. Professional and elegant.',
+        img: 'https://randomuser.me/api/portraits/women/45.jpg',
+        country: '🇺🇸 New York',
+    },
+    {
+        name: 'Robert Martinez',
+        username: '@robertsells',
+        body: 'The magnet stays on the fridge for months. Best marketing investment.',
+        img: 'https://randomuser.me/api/portraits/men/61.jpg',
+        country: '🇺🇸 Chicago',
+    },
+    {
+        name: 'Lisa Anderson',
+        username: '@lisahomes',
+        body: 'Our team productivity increased 40% with automated engagement.',
+        img: 'https://randomuser.me/api/portraits/women/85.jpg',
+        country: '🇺🇸 Boston',
+    },
+];
 
 export default function RealEstatePage() {
     return (
-        <div className="min-h-screen bg-[#F7F7F4] flex flex-col">
+        <div className="min-h-screen bg-white flex flex-col font-sans selection:bg-ds-primary selection:text-white">
             <Navigation />
 
             <main className="flex-1">
-                {/* Hero Section */}
                 <HeroSection
-                    colors={["#c2a36be6", "#ffffff", "#c2a36be6", "#ffffff", "#c2a36be6", "#ffffff"]}
+                    colors={["#c2a36b", "#c2a36be6", "#e8dcc8", "#fff7e0", "#FFFFFF"]}
                     distortion={0.8}
                     swirl={0.6}
                     speed={0.42}
                     offsetX={0.08}
-                    veilOpacity="bg-transparent"
-                    bottomFadeColor="#F7F7F4"
+                    veilOpacity="bg-white/10"
+                    bottomFadeColor="#FFFFFF"
+                    bottomFadeHeight="h-28 sm:h-36"
                     maxWidth="max-w-7xl"
-                    className="pt-16 min-h-[800px]"
+                    className="pt-16 min-h-[700px]"
                 >
                     <div className="flex flex-col items-center justify-center text-center min-h-[700px] -translate-y-10">
-                        <div className="mx-auto w-full mt-20 px-4">
-                            <HeroTextReveal
-                                translateY={40}
-                                duration={0.7}
-                                className="text-center text-6xl sm:text-7xl md:text-8xl font-display font-bold tracking-tight text-white mb-6"
-                            >
-                                Close Concierge
-                            </HeroTextReveal>
-
-                            <HeroTextReveal
-                                delay={0.2}
-                                translateY={30}
-                                duration={0.7}
-                                className="w-full max-w-4xl mx-auto"
-                            >
-                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white/90 mb-8">
-                                    An at-home assistant for top real estate teams
-                                </h2>
-                                <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-white/80 max-w-3xl mx-auto mb-10">
-                                    Your assistant on the fridge—the most visible place in the home—keeps serious buyers moving to the next step after they leave the showing, and quietly gives your team an edge over other top performers.
-                                </p>
-                            </HeroTextReveal>
-
-                            <div className="flex items-center justify-center gap-4 mt-4">
+                        <div className="mx-auto w-full mt-20">
+                            <div className="relative mx-auto h-full pt-24 pb-12">
+                                <h1 className="text-[32px] md:text-[44px] lg:text-[56px] xl:text-[64px] font-bold text-white text-center max-w-[800px] mx-auto leading-[1.08] tracking-[-0.02em] mb-6">
+                                    Close Concierge —<br />
+                                    An at-home assistant for<br />
+                                    top real estate teams
+                                </h1>
+                            </div>
+                            <p className="text-base md:text-lg text-center text-white/80 max-w-[680px] mx-auto leading-[1.65] mb-10">
+                                Your assistant on the fridge—the most visible place in the home—keeps serious buyers moving to the next step after they leave the showing.
+                            </p>
+                            <div className="flex items-center justify-center gap-4 mb-16 md:mb-24">
                                 <Link href="https://studio.fridgechannels.com">
                                     <ShimmerButton
-                                        className="shadow-2xl transition-transform duration-300 hover:scale-110 w-auto px-8 py-3"
+                                        className="shadow-2xl transition-transform duration-300 hover:scale-110 h-12 px-7"
                                         background="rgba(0, 0, 0, 1)"
                                         shimmerColor="#ffffff"
                                     >
-                                        <span className="whitespace-nowrap text-center text-base font-medium leading-none tracking-tight text-white lg:text-lg">
+                                        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
                                             Outfit my team with Close Concierge
                                         </span>
                                     </ShimmerButton>
                                 </Link>
+                            </div>
+                            <div className="w-full max-w-6xl mx-auto relative">
+                                <div className="relative z-10 p-2 rounded-2xl bg-white/10 backdrop-blur-sm shadow-[0_4px_6px_-2px_rgba(0,0,0,0.05),0_12px_24px_-4px_rgba(0,0,0,0.08)] overflow-hidden w-full aspect-[4/3] sm:aspect-[16/9]">
+                                    <Image
+                                        src="/FC_FAR.jpeg"
+                                        alt="Close Concierge Studio Interface"
+                                        fill
+                                        className="object-contain object-center rounded-xl"
+                                        sizes="(max-width: 1024px) 100vw, 1024px"
+                                        priority
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </HeroSection>
 
-                {/* The Gap It Solves */}
+                {/* Engagement System - Dark panels (ref: Atlas-style) */}
                 <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
-                    <section className="py-24 px-4 bg-white">
-                        <div className="max-w-4xl mx-auto text-center space-y-8">
-                            <AnimatedTitle className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                                The Gap It Solves
-                            </AnimatedTitle>
-
-                            <div className="space-y-6 text-xl md:text-2xl leading-relaxed text-gray-600">
-                                <p>
-                                    After strong meetings, the real questions show up <strong className="text-gray-900 font-semibold">at home</strong>.
+                    <section className="py-24 md:py-28 lg:py-32 bg-white">
+                        <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
+                            <div className="text-center max-w-[800px] mx-auto mb-16 md:mb-20 space-y-3">
+                                <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-ds-text leading-[1.2] tracking-tight max-w-[800px] mx-auto">
+                                    Close Concierge is an at-home engagement system designed for high-intent moments
+                                </h2>
+                                <p className="text-base md:text-lg text-ds-body leading-[1.65]">
+                                    What you really buy is a simple two-part system:
                                 </p>
-                                <p>
-                                    If there is no easy way to reach you, clients hesitate, search online, and delay decisions.
-                                </p>
-                                <div className="pt-8">
-                                    <p className="mb-4">Close Concierge gives them one simple place to go when they are ready:</p>
-                                    <p className="text-3xl md:text-4xl font-display font-bold text-[#c2a36be6]">
-                                        their fridge → one tap → your concierge.
-                                    </p>
-                                </div>
                             </div>
-                        </div>
-                    </section>
-                </SectionTransition>
 
-                {/* What Close Concierge Is */}
-                <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
-                    <section className="py-24 px-4 bg-[#F7F7F4]">
-                        <div className="max-w-7xl mx-auto">
-                            <div className="grid md:grid-cols-2 gap-16 items-center">
-                                <div className="space-y-8">
-                                    <AnimatedTitle className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                                        What Close Concierge Is
-                                    </AnimatedTitle>
-
-                                    <p className="text-xl text-gray-600 leading-relaxed">
-                                        Close Concierge is an <strong className="text-gray-900">at‑home assistant</strong> that stays at the most visible place in the home: the fridge door.
+                            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                                {/* Panel 1: The Magnet */}
+                                <div className="flex flex-col items-center text-center rounded-2xl border border-ds-border bg-white pt-6 md:pt-8 lg:pt-10 px-6 md:px-8 lg:px-10 pb-0 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+                                    <span className="text-[11px] md:text-xs font-medium tracking-[0.2em] uppercase text-ds-text-secondary mb-3">
+                                        Part1
+                                    </span>
+                                    <h3 className="text-2xl md:text-3xl font-bold text-ds-text mb-4">
+                                        The Magnet
+                                    </h3>
+                                    <p className="text-sm md:text-base text-ds-body leading-[1.6] max-w-md mb-8">
+                                        A premium, giftable object that earns permanent placement in the home.
                                     </p>
-
-                                    <div className="space-y-6">
-                                        <p className="text-lg font-medium text-gray-900">When a client taps it with their phone, they get:</p>
-                                        <ul className="space-y-4">
-                                            {[
-                                                "Clear answers to real‑estate questions, any time.",
-                                                "Short guidance that reduces hesitation instead of feeding it.",
-                                                "One obvious next step: text you, book a call, request a second showing, send documents."
-                                            ].map((item, i) => (
-                                                <li key={i} className="flex items-start gap-3">
-                                                    <div className="mt-1.5 min-w-5 min-h-5 rounded-full bg-[#c2a36be6]/10 flex items-center justify-center">
-                                                        <Check className="w-3.5 h-3.5 text-[#c2a36be6]" />
-                                                    </div>
-                                                    <span className="text-lg text-gray-600">{item}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                    <div className="w-full overflow-hidden bg-black/5 flex justify-center">
+                                        <div className="w-2/3">
+                                            <Image
+                                                src="/magnet916.jpeg"
+                                                alt="The Magnet on fridge"
+                                                width={960}
+                                                height={720}
+                                                className="w-full h-auto object-contain object-center"
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                            />
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <p className="text-xl font-medium text-[#c2a36be6] pt-4">
-                                        No app to install. No login to remember. Just tap and get help.
+                                {/* Panel 2: Leo */}
+                                <div className="flex flex-col items-center text-center rounded-2xl border border-ds-border bg-white pt-6 md:pt-8 lg:pt-10 px-6 md:px-8 lg:px-10 pb-0 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+                                    <span className="text-[11px] md:text-xs font-medium tracking-[0.2em] uppercase text-ds-text-secondary mb-3">
+                                        Part2
+                                    </span>
+                                    <h3 className="text-2xl md:text-3xl font-bold text-ds-text mb-4">
+                                        Assistant Leo
+                                    </h3>
+                                    <p className="text-sm md:text-base text-ds-body leading-[1.6] max-w-md mb-8">
+                                        What clients experience: calm clarity, trusted guidance, and only one obvious next step.
+                                    </p>
+                                    <div className="w-full overflow-hidden bg-black/5 flex justify-center">
+                                        <div className="w-2/3">
+                                            <Image
+                                                src="/leo2.jpg"
+                                                alt="Leo App"
+                                                width={960}
+                                                height={720}
+                                                className="w-full h-auto object-contain object-center"
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </SectionTransition>
+
+                {/* How it fits your workflow */}
+                <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
+                    <section className="py-24 md:py-28 lg:py-32 bg-[#F8F8F8] overflow-hidden">
+                        <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
+                            {/* Header Section */}
+                            <div className="text-center mb-16 md:mb-20 max-w-[800px] mx-auto space-y-4">
+                                <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[#333333] leading-[1.2] tracking-tight max-w-[800px] mx-auto">
+                                    How it fits your workflow
+                                </h2>
+                                <p className="text-[20px] md:text-[24px] text-[#888888] leading-[1.5] font-normal">
+                                    A seamless process that keeps you present when you can't be there personally.
+                                </p>
+                            </div>
+
+                            {/* Steps Section */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto relative">
+                                {/* Step 1 */}
+                                <div className="flex flex-col items-center text-center relative">
+                                    <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
+                                        <span className="text-[11px] font-bold text-[#333333]">1</span>
+                                    </div>
+                                    {/* Connecting line to next step - hidden on mobile, shown on md+ */}
+                                    <div className="hidden md:block absolute top-[14px] left-[calc(50%+14px)] h-[2px] bg-[#DDDDDD] z-0" style={{ width: 'calc(50% + 4rem - 14px)' }} />
+                                    <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
+                                        3 Distribution Moments
+                                    </h3>
+                                    <div className="space-y-4">
+                                        <div>
+                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1">
+                                                Before they commit
+                                            </h4>
+                                            <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                                                Keep momentum alive after the showing when decisions aren't final.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1">
+                                                During uncertainty
+                                            </h4>
+                                            <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                                                Answer questions when hesitation quietly builds at home.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1">
+                                                After closing
+                                            </h4>
+                                            <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                                                Stay present for referrals — without awkward follow-ups.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Step 2 */}
+                                <div className="flex flex-col items-center text-center relative">
+                                    <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
+                                        <span className="text-[11px] font-bold text-[#333333]">2</span>
+                                    </div>
+                                    {/* Connecting line to next step */}
+                                    <div className="hidden md:block absolute top-[14px] left-[calc(50%+14px)] h-[2px] bg-[#DDDDDD] z-0" style={{ width: 'calc(50% + 4rem - 14px)' }} />
+                                    <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
+                                        At home
+                                    </h3>
+                                    <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                                        They tap the assistant on the fridge, get answers, and see one obvious next step.
                                     </p>
                                 </div>
-                                <div className="relative aspect-[4/5] w-full max-w-md mx-auto md:ml-auto rounded-3xl overflow-hidden shadow-2xl">
-                                    {/* Using the Step 1 image as a placeholder for the Fridge Context */}
-                                    <Image
-                                        src="/step1-1.png"
-                                        alt="Close Concierge on a fridge"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+                                {/* Step 3 */}
+                                <div className="flex flex-col items-center text-center relative">
+                                    <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
+                                        <span className="text-[11px] font-bold text-[#333333]">3</span>
+                                    </div>
+                                    <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
+                                        When they're ready
+                                    </h3>
+                                    <div className="space-y-3">
+                                        <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                                            They choose to text you, book a call, or request a showing.
+                                        </p>
+                                        <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                                            You see activity and follow up with focus instead of guessing.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </SectionTransition>
 
-                {/* Benefits: Clients vs Team */}
                 <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
-                    <section className="py-24 px-4 bg-white">
-                        <div className="max-w-7xl mx-auto">
-                            <div className="grid lg:grid-cols-2 gap-6 h-full">
-                                <GradientCard
-                                    background="white"
-                                    variant="light"
-                                    title="For Your Clients"
-                                    description="A friction-free experience that respects their pace, giving them control without the chase."
-                                    items={[
-                                        { title: "Instant Recall", description: "Re‑enter the conversation instantly without digging through old texts or emails." },
-                                        { title: "Answers on Demand", description: "Clear, simple answers to common questions about pricing, process, and next steps." },
-                                        { title: "Private Exploration", description: "They can ask questions privately when they feel uncertain, without pressure." },
-                                        { title: "One-Tap Action", description: "A clear path forward: text you, request a showing, or book a call." },
-                                    ]}
-                                />
+                    <AllInOneSection />
+                </SectionTransition>
 
-                                <GradientCard
-                                    background="white"
-                                    featured
-                                    variant="dark"
-                                    title="For Your Team"
-                                    description="Automated nurture that feels like high-touch service, working quietly between your meetings."
-                                    items={[
-                                        { title: "Quiet Presence", description: "Turns daily presence into trust without adding calls to your calendar." },
-                                        { title: "Build Momentum", description: "Moves people from \"great meeting\" to \"what next?\" with less chasing." },
-                                        { title: "Real Signals", description: "Direct engagement data: taps, activity, and frequency of interest." },
-                                        { title: "Data-Driven Focus", description: "Follow up based on real engagement, not just guessing who is interested." },
-                                    ]}
-                                    quote="It doesn't replace your sales process. It makes the at‑home part of that process move faster."
-                                />
+                {/* Testimonials Section - 3D Marquee */}
+                <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
+                    <section className="py-24 md:py-28 lg:py-32 bg-white">
+                        <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
+                            <div className="text-center mb-16 md:mb-20 max-w-[800px] mx-auto">
+                                <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-ds-text leading-[1.2] tracking-tight max-w-[800px] mx-auto mb-4">
+                                    Trusted by top real estate teams
+                                </h2>
+                                <p className="text-base md:text-lg text-ds-body leading-[1.65]">
+                                    See what agents are saying about Close Concierge
+                                </p>
+                            </div>
+
+                            <div className="border border-border rounded-lg relative flex h-96 w-full max-w-[800px] mx-auto flex-row items-center justify-center overflow-hidden gap-1.5 [perspective:300px]">
+                                <div
+                                    className="flex flex-row items-center gap-4"
+                                    style={{
+                                        transform:
+                                            'translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)',
+                                    }}
+                                >
+                                    {/* Vertical Marquee (downwards) */}
+                                    <Marquee vertical pauseOnHover repeat={3} className="[--duration:40s]">
+                                        {testimonials.map((review) => (
+                                            <Card key={review.username} className="w-50">
+                                                <CardContent>
+                                                    <div className="flex items-center gap-2.5">
+                                                        <Avatar className="size-9">
+                                                            <AvatarImage src={review.img} alt={review.name} />
+                                                            <AvatarFallback>{review.name[0]}</AvatarFallback>
+                                                        </Avatar>
+                                                        <div className="flex flex-col">
+                                                            <figcaption className="text-sm font-medium text-foreground flex items-center gap-1">
+                                                                {review.name} <span className="text-xs">{review.country}</span>
+                                                            </figcaption>
+                                                            <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                                                        </div>
+                                                    </div>
+                                                    <blockquote className="mt-3 text-sm text-secondary-foreground">{review.body}</blockquote>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </Marquee>
+                                    {/* Vertical Marquee (upwards) */}
+                                    <Marquee vertical pauseOnHover reverse repeat={3} className="[--duration:40s]">
+                                        {testimonials.map((review) => (
+                                            <Card key={review.username} className="w-50">
+                                                <CardContent>
+                                                    <div className="flex items-center gap-2.5">
+                                                        <Avatar className="size-9">
+                                                            <AvatarImage src={review.img} alt={review.name} />
+                                                            <AvatarFallback>{review.name[0]}</AvatarFallback>
+                                                        </Avatar>
+                                                        <div className="flex flex-col">
+                                                            <figcaption className="text-sm font-medium text-foreground flex items-center gap-1">
+                                                                {review.name} <span className="text-xs">{review.country}</span>
+                                                            </figcaption>
+                                                            <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                                                        </div>
+                                                    </div>
+                                                    <blockquote className="mt-3 text-sm text-secondary-foreground">{review.body}</blockquote>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </Marquee>
+                                    {/* Vertical Marquee (downwards) */}
+                                    <Marquee vertical pauseOnHover repeat={3} className="[--duration:40s]">
+                                        {testimonials.map((review) => (
+                                            <Card key={review.username} className="w-50">
+                                                <CardContent>
+                                                    <div className="flex items-center gap-2.5">
+                                                        <Avatar className="size-9">
+                                                            <AvatarImage src={review.img} alt={review.name} />
+                                                            <AvatarFallback>{review.name[0]}</AvatarFallback>
+                                                        </Avatar>
+                                                        <div className="flex flex-col">
+                                                            <figcaption className="text-sm font-medium text-foreground flex items-center gap-1">
+                                                                {review.name} <span className="text-xs">{review.country}</span>
+                                                            </figcaption>
+                                                            <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                                                        </div>
+                                                    </div>
+                                                    <blockquote className="mt-3 text-sm text-secondary-foreground">{review.body}</blockquote>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </Marquee>
+                                    {/* Vertical Marquee (upwards) */}
+                                    <Marquee vertical pauseOnHover reverse repeat={3} className="[--duration:40s]">
+                                        {testimonials.map((review) => (
+                                            <Card key={review.username} className="w-50">
+                                                <CardContent>
+                                                    <div className="flex items-center gap-2.5">
+                                                        <Avatar className="size-9">
+                                                            <AvatarImage src={review.img} alt={review.name} />
+                                                            <AvatarFallback>{review.name[0]}</AvatarFallback>
+                                                        </Avatar>
+                                                        <div className="flex flex-col">
+                                                            <figcaption className="text-sm font-medium text-foreground flex items-center gap-1">
+                                                                {review.name} <span className="text-xs">{review.country}</span>
+                                                            </figcaption>
+                                                            <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                                                        </div>
+                                                    </div>
+                                                    <blockquote className="mt-3 text-sm text-secondary-foreground">{review.body}</blockquote>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </Marquee>
+                                    {/* Gradient overlays for vertical marquee */}
+                                    <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
+                                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+                                    <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+                                </div>
                             </div>
                         </div>
                     </section>
                 </SectionTransition>
 
-                {/* Workflow */}
-                <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
-                    <section className="py-24 px-4 bg-[#F7F7F4]">
-                        <div className="max-w-7xl mx-auto">
-                            <AnimatedTitle className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
-                                How It Fits Your Workflow
-                            </AnimatedTitle>
-                            <Timeline
-                                data={[
-                                    {
-                                        title: "1. Right after a serious meeting",
-                                        content: (
-                                            <div>
-                                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                                    You hand Close Concierge and say:
-                                                </p>
-                                                <blockquote className="border-l-4 border-[#c2a36be6] pl-4 my-4 italic text-xl text-gray-800">
-                                                    "Put this on your fridge. Any time you have a question or want to move forward, just tap."
-                                                </blockquote>
-                                            </div>
-                                        ),
-                                    },
-                                    {
-                                        title: "2. At home",
-                                        content: (
-                                            <div>
-                                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                                    They tap the assistant on the fridge, get answers, and see one obvious next step.
-                                                </p>
-                                            </div>
-                                        ),
-                                    },
-                                    {
-                                        title: "3. When they're ready",
-                                        content: (
-                                            <div>
-                                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                                                    They choose to <strong className="font-semibold text-gray-900">text you, book a call, or request a showing</strong>.
-                                                </p>
-                                                <p className="text-lg text-muted-foreground leading-relaxed">
-                                                    You see activity and follow up with focus instead of guessing.
-                                                </p>
-                                            </div>
-                                        ),
-                                    },
-                                ]}
-                            />
-                        </div>
-                    </section>
-                </SectionTransition>
-
-                {/* Final CTA Section */}
-                <section id="cta" className="w-full bg-[#c2a36be6] relative z-10 py-24">
-                    <div className="container mx-auto px-4 text-center">
-                        <div className="max-w-3xl mx-auto space-y-10">
-                            <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
-                                Bring one current deal. We’ll show you where the at‑home concierge fits between your meetings—and how it can help your team stay one step ahead of other top performers.
-                            </p>
-                            <div className="flex justify-center items-center gap-4 pt-8">
-                                <Link href="https://studio.fridgechannels.com">
-                                    <ShimmerButton
-                                        className="shadow-2xl transition-transform duration-300 hover:scale-110 w-auto px-8 py-3"
-                                        background="rgba(0, 0, 0, 1)"
-                                        shimmerColor="#ffffff"
-                                    >
-                                        <span className="whitespace-nowrap text-center text-base font-medium leading-none tracking-tight text-white lg:text-lg">
-                                            Outfit my team with Close Concierge
-                                        </span>
-                                    </ShimmerButton>
-                                </Link>
-                            </div>
-                        </div>
+                {/* Final CTA */}
+                <section className="py-20 md:py-24 lg:py-28 bg-[#c2a36be6] relative overflow-hidden">
+                    <div className="mx-auto max-w-3xl px-5 md:px-8 lg:px-16 text-center relative z-10">
+                        <p className="text-base md:text-lg text-ds-body mb-10 leading-[1.65] max-w-2xl mx-auto">
+                            Bring one current deal. We'll show you where the at‑home concierge fits between your meetings—and how it can help your team stay one step ahead of other top performers.
+                        </p>
+                        <Link href="https://studio.fridgechannels.com" className="inline-flex">
+                            <ShimmerButton
+                                className="shadow-2xl transition-transform duration-300 hover:scale-110 h-12 px-7"
+                                background="rgba(0, 0, 0, 1)"
+                                shimmerColor="#ffffff"
+                            >
+                                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
+                                    Outfit my team with Close Concierge
+                                </span>
+                            </ShimmerButton>
+                        </Link>
                     </div>
                 </section>
-
-            </main>
+            </main >
             <SiteFooter />
-        </div>
-    )
+        </div >
+    );
 }

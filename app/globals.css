@@ -4,6 +4,16 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* B2B SaaS Design System (real-estate / Close Concierge) */
+  --ds-primary: #2CC6B8;
+  --ds-primary-hover: #1FB3A6;
+  --ds-primary-active: #159A8E;
+  --ds-section: #F7F8FA;
+  --ds-border: #E5E7EB;
+  --ds-text: #0F172A;
+  --ds-text-secondary: #6B7280;
+  --ds-body: #475569;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -77,6 +87,14 @@
 @theme inline {
   --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --color-ds-primary: #2CC6B8;
+  --color-ds-primary-hover: #1FB3A6;
+  --color-ds-primary-active: #159A8E;
+  --color-ds-section: #F7F8FA;
+  --color-ds-border: #E5E7EB;
+  --color-ds-text: #0F172A;
+  --color-ds-text-secondary: #6B7280;
+  --color-ds-body: #475569;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -117,21 +135,26 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-shimmer-slide: shimmer-slide var(--speed, 3s) ease-in-out infinite alternate;
   --animate-spin-around: spin-around calc(var(--speed, 3s) * 2) infinite linear;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Microsoft AI style smooth scrolling */
   @media (prefers-reduced-motion: no-preference) {
+
     /* Apply scroll margin to sections and interactive elements, but exclude portals */
     section,
     [id],
@@ -139,12 +162,12 @@
       scroll-margin-top: 80px;
     }
   }
-  
+
   /* Smooth section transitions */
   section {
     scroll-snap-align: start;
   }
-  
+
   /* Next.js portal styling - ensure it doesn't interfere with scroll animations */
   nextjs-portal {
     position: fixed !important;
@@ -162,9 +185,11 @@
   0% {
     background-position: 0% 0%;
   }
+
   50% {
     background-position: 100% 100%;
   }
+
   100% {
     background-position: 0% 0%;
   }
@@ -174,6 +199,7 @@
   from {
     height: 0;
   }
+
   to {
     height: var(--radix-accordion-content-height);
   }
@@ -183,6 +209,7 @@
   from {
     height: var(--radix-accordion-content-height);
   }
+
   to {
     height: 0;
   }
@@ -198,12 +225,17 @@
   0% {
     transform: translateZ(0) rotate(0);
   }
-  15%, 35% {
+
+  15%,
+  35% {
     transform: translateZ(0) rotate(90deg);
   }
-  65%, 85% {
+
+  65%,
+  85% {
     transform: translateZ(0) rotate(270deg);
   }
+
   100% {
     transform: translateZ(0) rotate(360deg);
   }
@@ -213,6 +245,7 @@
   0% {
     transform: translateX(10%);
   }
+
   100% {
     transform: translateX(-10%);
   }
@@ -226,6 +259,7 @@
   0% {
     transform: translateX(-200px);
   }
+
   100% {
     transform: translateX(200px);
   }
@@ -239,6 +273,7 @@
   0% {
     background-position: top center;
   }
+
   100% {
     background-position: bottom center;
   }
@@ -246,4 +281,24 @@
 
 .animate-background-position-spin {
   animation: background-position-spin 3000ms infinite alternate;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
 }
