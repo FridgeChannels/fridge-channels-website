@@ -204,6 +204,13 @@ export default function HomePage() {
                     linkText: "Learn more →",
                     imageUrl: "/DTCBrand.png",
                   },
+                  {
+                    title: "Real Estate",
+                    description: "Keep momentum alive after showings. Answer questions at home. Stay present for referrals.",
+                    link: "/who-we-serve/real-estate",
+                    linkText: "Learn more →",
+                    imageUrl: "/home-realestate.png",
+                  },
                 ]}
               />
             </SectionReveal>
