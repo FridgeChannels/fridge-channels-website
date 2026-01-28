@@ -129,9 +129,9 @@ export default function RealEstatePage() {
                                 </Link>
                             </div>
                             <div className="w-full max-w-6xl mx-auto relative">
-                                <div className="relative z-10 p-2 rounded-2xl bg-white/10 backdrop-blur-sm shadow-[0_4px_6px_-2px_rgba(0,0,0,0.05),0_12px_24px_-4px_rgba(0,0,0,0.08)] overflow-hidden w-full aspect-[4/3] sm:aspect-[16/9]">
+                                <div className="relative z-10 p-2 rounded-2xl backdrop-blur-sm shadow-[0_4px_6px_-2px_rgba(0,0,0,0.05),0_12px_24px_-4px_rgba(0,0,0,0.08)] overflow-hidden w-full aspect-[4/3] sm:aspect-[16/9]">
                                     <Image
-                                        src="/FC_FAR.jpeg"
+                                        src="/hero pic.png"
                                         alt="Close Concierge Studio Interface"
                                         fill
                                         className="object-contain object-center rounded-xl"
@@ -169,7 +169,7 @@ export default function RealEstatePage() {
                                     <p className="text-sm md:text-base text-ds-body leading-[1.6] max-w-md mb-8">
                                         A premium, giftable object that earns permanent placement in the home.
                                     </p>
-                                    <div className="w-full overflow-hidden bg-black/5 flex justify-center">
+                                    <div className="w-full overflow-hidden flex justify-center">
                                         <div className="w-2/3">
                                             <Image
                                                 src="/magnet916.jpeg"
@@ -194,7 +194,7 @@ export default function RealEstatePage() {
                                     <p className="text-sm md:text-base text-ds-body leading-[1.6] max-w-md mb-8">
                                         What clients experience: calm clarity, trusted guidance, and only one obvious next step.
                                     </p>
-                                    <div className="w-full overflow-hidden bg-black/5 flex justify-center">
+                                    <div className="w-full overflow-hidden flex justify-center">
                                         <div className="w-2/3">
                                             <Image
                                                 src="/leo2.jpg"
@@ -228,36 +228,40 @@ export default function RealEstatePage() {
 
                             {/* Steps Section */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto relative">
+                                {/* Continuous connector line - spans from badge 1 center to badge 3 center */}
+                                <div className="hidden md:block absolute top-[14px] h-[2px] bg-[#DDDDDD] z-0" style={{ left: '16.666%', right: '16.666%' }} />
+
                                 {/* Step 1 */}
                                 <div className="flex flex-col items-center text-center relative">
                                     <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
                                         <span className="text-[11px] font-bold text-[#333333]">1</span>
                                     </div>
-                                    {/* Connecting line to next step - hidden on mobile, shown on md+ */}
-                                    <div className="hidden md:block absolute top-[14px] left-[calc(50%+14px)] h-[2px] bg-[#DDDDDD] z-0" style={{ width: 'calc(50% + 4rem - 14px)' }} />
                                     <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
                                         3 Distribution Moments
                                     </h3>
-                                    <div className="space-y-4">
+                                    <div className="space-y-4 text-left">
                                         <div>
-                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1">
-                                                Before they commit
+                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1 flex items-start">
+                                                <span className="mr-2">•</span>
+                                                <span>Before they commit</span>
                                             </h4>
                                             <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
                                                 Keep momentum alive after the showing when decisions aren't final.
                                             </p>
                                         </div>
                                         <div>
-                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1">
-                                                During uncertainty
+                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1 flex items-start">
+                                                <span className="mr-2">•</span>
+                                                <span>During uncertainty</span>
                                             </h4>
                                             <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
                                                 Answer questions when hesitation quietly builds at home.
                                             </p>
                                         </div>
                                         <div>
-                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1">
-                                                After closing
+                                            <h4 className="text-[16px] md:text-[17px] font-semibold text-[#333333] mb-1 flex items-start">
+                                                <span className="mr-2">•</span>
+                                                <span>After closing</span>
                                             </h4>
                                             <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
                                                 Stay present for referrals — without awkward follow-ups.
@@ -271,8 +275,6 @@ export default function RealEstatePage() {
                                     <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
                                         <span className="text-[11px] font-bold text-[#333333]">2</span>
                                     </div>
-                                    {/* Connecting line to next step */}
-                                    <div className="hidden md:block absolute top-[14px] left-[calc(50%+14px)] h-[2px] bg-[#DDDDDD] z-0" style={{ width: 'calc(50% + 4rem - 14px)' }} />
                                     <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
                                         At home
                                     </h3>
@@ -320,7 +322,7 @@ export default function RealEstatePage() {
                                 </p>
                             </div>
 
-                            <div className="border border-border rounded-lg relative flex h-96 w-full max-w-[800px] mx-auto flex-row items-center justify-center overflow-hidden gap-1.5 [perspective:300px]">
+                            <div className="rounded-lg relative flex h-96 w-full max-w-[800px] mx-auto flex-row items-center justify-center overflow-hidden gap-1.5 [perspective:300px]">
                                 <div
                                     className="flex flex-row items-center gap-4"
                                     style={{
