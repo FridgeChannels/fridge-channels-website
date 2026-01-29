@@ -150,7 +150,7 @@ export default function RealEstatePage() {
                         <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
                             <div className="text-center max-w-[800px] mx-auto mb-16 md:mb-20 space-y-3">
                                 <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-ds-text leading-[1.2] tracking-tight max-w-[800px] mx-auto">
-                                    Close Concierge is an at-home engagement system designed for high-intent moments
+                                    Close Concierge is an at‑home assistant that stays at the most visible place in the home: the fridge door.
                                 </h2>
                                 <p className="text-base md:text-lg text-ds-body leading-[1.65]">
                                     What you really buy is a simple two-part system:

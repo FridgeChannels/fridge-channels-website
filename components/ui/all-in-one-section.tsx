@@ -43,15 +43,7 @@ const features: FeatureTab[] = [
         imageSrc: "/cta_button_ui.png",
         iconColor: "#8B5CF6",
     },
-    {
-        id: "signals",
-        title: "Engagement Signals",
-        subtitle: "Follow up with precision, not guesses",
-        description:
-            "Stop relying on \"checking in\" and gut feeling. See real intent signals — taps over time, repeat taps, and which CTA they chose — so you know when and why to follow up.",
-        imageSrc: "/analytics_dashboard.png",
-        iconColor: "#F59E0B",
-    },
+
 ];
 
 export function AllInOneSection() {
