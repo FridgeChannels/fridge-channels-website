@@ -22,7 +22,7 @@ const features: FeatureTab[] = [
         subtitle: "Daily presence inside the home",
         description:
             "The real hesitation doesn't happen in front of you — it happens later at home. When questions come up in the kitchen, your presence usually disappears. What if your team was still right there — one tap away?",
-        imageSrc: "/painpoint11.jpeg",
+        imageSrc: "/daily-presence.png",
         iconColor: "#3B82F6",
     },
     {

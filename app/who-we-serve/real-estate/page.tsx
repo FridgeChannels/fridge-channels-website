@@ -113,7 +113,7 @@ export default function RealEstatePage() {
                                 </h1>
                             </div>
                             <p className="text-base md:text-lg text-center text-white/80 max-w-[680px] mx-auto leading-[1.65] mb-10">
-                                Your assistant on the fridge—the most visible place in the home—keeps serious buyers moving to the next step after they leave the showing.
+                                Your assistant on the fridge—the most visible place in the home—keeps serious buyers moving to the next step after they leave the showing, and quietly gives your team an edge over other top performers.
                             </p>
                             <div className="flex items-center justify-center gap-4 mb-16 md:mb-24">
                                 <Link href="https://studio.fridgechannels.com">
@@ -131,7 +131,7 @@ export default function RealEstatePage() {
                             <div className="w-full max-w-6xl mx-auto relative">
                                 <div className="relative z-10 p-2 rounded-2xl backdrop-blur-sm shadow-[0_4px_6px_-2px_rgba(0,0,0,0.05),0_12px_24px_-4px_rgba(0,0,0,0.08)] overflow-hidden w-full aspect-[4/3] sm:aspect-[16/9]">
                                     <Image
-                                        src="/hero pic.png"
+                                        src="/heropic2.jpeg"
                                         alt="Close Concierge Studio Interface"
                                         fill
                                         className="object-contain object-center rounded-xl"
@@ -169,17 +169,14 @@ export default function RealEstatePage() {
                                     <p className="text-sm md:text-base text-ds-body leading-[1.6] max-w-md mb-8">
                                         A premium, giftable object that earns permanent placement in the home.
                                     </p>
-                                    <div className="w-full overflow-hidden flex justify-center">
-                                        <div className="w-2/3">
-                                            <Image
-                                                src="/magnet916.jpeg"
-                                                alt="The Magnet on fridge"
-                                                width={960}
-                                                height={720}
-                                                className="w-full h-auto object-contain object-center"
-                                                sizes="(max-width: 768px) 100vw, 50vw"
-                                            />
-                                        </div>
+                                    <div className="w-full flex-1 relative min-h-[300px] mt-4">
+                                        <Image
+                                            src="/refrigemagnet.jpeg"
+                                            alt="The Magnet on fridge"
+                                            fill
+                                            className="object-cover object-left rounded-t-lg"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                        />
                                     </div>
                                 </div>
 
