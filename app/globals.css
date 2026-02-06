@@ -4,15 +4,15 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* B2B SaaS Design System (real-estate / Close Concierge) */
-  --ds-primary: #2CC6B8;
-  --ds-primary-hover: #1FB3A6;
-  --ds-primary-active: #159A8E;
-  --ds-section: #F7F8FA;
-  --ds-border: #E5E7EB;
-  --ds-text: #0F172A;
-  --ds-text-secondary: #6B7280;
-  --ds-body: #475569;
+  /* B2B SaaS Design System (ui-ux-pro-max: Fridge Channel) */
+  --ds-primary: #0F172A;
+  --ds-cta: #0369A1;
+  --ds-cta-hover: #0284C7;
+  --ds-section: #F8FAFC;
+  --ds-border: #E2E8F0;
+  --ds-text: #020617;
+  --ds-text-secondary: #475569;
+  --ds-body: #334155;
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -85,16 +85,16 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-  --color-ds-primary: #2CC6B8;
-  --color-ds-primary-hover: #1FB3A6;
-  --color-ds-primary-active: #159A8E;
-  --color-ds-section: #F7F8FA;
-  --color-ds-border: #E5E7EB;
-  --color-ds-text: #0F172A;
-  --color-ds-text-secondary: #6B7280;
-  --color-ds-body: #475569;
+  --color-ds-primary: #0F172A;
+  --color-ds-cta: #0369A1;
+  --color-ds-cta-hover: #0284C7;
+  --color-ds-section: #F8FAFC;
+  --color-ds-border: #E2E8F0;
+  --color-ds-text: #020617;
+  --color-ds-text-secondary: #475569;
+  --color-ds-body: #334155;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

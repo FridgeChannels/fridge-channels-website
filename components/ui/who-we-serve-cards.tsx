@@ -76,42 +76,34 @@ export const WhoWeServeCards: React.FC<WhoWeServeCardsProps> = ({ cards }) => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="block h-full w-full">
-                <article className={`aspect-[430/256] h-full min-h-[290px] w-full overflow-hidden text-black rounded-[2rem] duration-300 ease-in-out transition-all group ${isHovered
+                <article className={`aspect-[430/340] h-full min-h-[320px] w-full overflow-hidden text-black rounded-[2rem] duration-300 ease-in-out transition-all group flex flex-col ${isHovered
                     ? 'bg-white/90 backdrop-blur-xl shadow-2xl'
                     : 'bg-[#F7F3ED] shadow-sm hover:bg-white/80 hover:backdrop-blur-md'
                   }`}>
-                  <div className="h-full p-2">
-                    <div className="relative flex h-full w-full overflow-hidden rounded-3xl">
-                      {/* Text content - left side */}
-                      <div className={`relative z-10 flex h-full w-1/2 flex-col items-start justify-between rounded-3xl p-4 after:absolute after:inset-0 after:z-5 after:translate-x-[10px] after:rounded-2xl after:content-[''] after:pointer-events-none after:duration-300 after:ease-in-out after:transition-all ${isHovered
-                          ? 'after:bg-white/90 after:backdrop-blur-xl'
-                          : 'after:bg-[#F7F3ED] group-hover:after:bg-white/80 group-hover:after:backdrop-blur-md'
-                        }`}>
-                        <div className="relative z-20 flex h-full w-full flex-col gap-2">
-                          <h3 className="font-display w-full text-left leading-none font-medium text-balance text-xl md:text-2xl">
-                            {card.title}
-                          </h3>
-                          {card.subtitle && (
-                            <p className="text-xs text-left font-mono leading-none text-muted-foreground">
-                              {card.subtitle}
-                            </p>
-                          )}
-                          <p className="text-left w-full text-black/70 text-pretty text-sm md:text-base leading-relaxed">
-                            {card.description}
+                  <div className="h-full p-2 flex flex-col flex-1 min-h-0">
+                    <div className="relative flex flex-col h-full w-full overflow-hidden rounded-3xl">
+                      {/* Text content - top */}
+                      <div className="relative z-10 flex flex-col items-start justify-start rounded-t-3xl p-4 flex-shrink-0">
+                        <h3 className="font-display w-full text-left leading-none font-medium text-balance text-xl md:text-2xl">
+                          {card.title}
+                        </h3>
+                        {card.subtitle && (
+                          <p className="text-xs text-left font-mono leading-none text-muted-foreground mt-1">
+                            {card.subtitle}
                           </p>
-                          <div className="text-xs flex items-center text-left leading-none absolute bottom-0 left-0 gap-2 text-muted-foreground">
-                            <span className="hidden">{card.linkText}</span>
-                          </div>
-                        </div>
+                        )}
+                        <p className="text-left w-full text-black/70 text-pretty text-sm md:text-base leading-relaxed mt-2">
+                          {card.description}
+                        </p>
                       </div>
 
-                      {/* Image - right side (larger) */}
-                      <div className="relative h-full w-1/2 overflow-hidden">
+                      {/* Image - bottom */}
+                      <div className="relative flex-1 min-h-[140px] overflow-hidden rounded-b-3xl">
                         <Image
                           src={imageUrl}
                           alt={card.title}
-                          width={394}
-                          height={480}
+                          width={430}
+                          height={200}
                           className={`h-full w-full object-cover transition-transform duration-300 ${isHovered ? 'scale-110' : 'scale-100'
                             }`}
                           loading="lazy"

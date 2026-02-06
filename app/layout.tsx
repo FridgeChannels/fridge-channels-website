@@ -1,10 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+// ui-ux-pro-max: B2B SaaS - friendly, modern, professional, approachable
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-plus-jakarta",
+})
 
 export const metadata: Metadata = {
   title: "Fridge Channel - Turn your content into a channel on your fan's fridge",
@@ -36,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${plusJakarta.className} antialiased`}>
         {children}
         <Analytics />
       </body>
