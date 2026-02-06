@@ -16,7 +16,7 @@ import {
 import { motion } from "motion/react";
 import { useRef, useState } from "react";
 
-interface PlanData {
+export interface PlanData {
   id: string;
   title: string;
   bestFor: string;
@@ -32,7 +32,7 @@ interface PlanData {
   onButtonClick: () => void;
 }
 
-const chainsFranchisesPlans: PlanData[] = [
+export const chainsFranchisesPlans: PlanData[] = [
   {
     id: "post-purchase-repeat",
     title: "Post-Purchase Repeat Plan",
@@ -159,7 +159,7 @@ interface PlanCardContentProps {
     index: number;
 }
 
-function PlanCardContent({ plan, index }: PlanCardContentProps) {
+export function PlanCardContent({ plan, index }: PlanCardContentProps) {
     const { activeSlide } = useHoverSliderContext();
     const isActive = activeSlide === index;
     const cardRef = useRef<HTMLDivElement>(null);

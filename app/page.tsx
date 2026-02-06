@@ -12,6 +12,7 @@ import { Timeline } from "@/components/ui/timeline"
 import { ImageMask } from "@/components/ui/image-mask"
 import { FcVsCurrentToolsTable } from "@/components/fc-vs-current-tools-table"
 import { SiteFooter } from "@/components/site-footer"
+import { SectionTransition } from "@/components/ui/section-transition"
 
 export default function HomePage() {
   const ctaBgUrl = encodeURI("/截屏2026-01-08 19.34.38.png");
@@ -103,47 +104,74 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* How It Works Section */}
-      <section id="how-it-works">
-        <div className="w-full bg-muted/30 dark:bg-neutral-950">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 pt-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-center text-balance mb-12">HOW IT WORKS</h2>
+      <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
+        <section id="how-it-works" className="py-24 md:py-28 lg:py-32 bg-[#F7F3ED] overflow-hidden">
+          <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
+            {/* Header Section */}
+            <div className="text-center mb-16 md:mb-20 max-w-[800px] mx-auto space-y-4">
+              <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[#333333] leading-[1.2] tracking-tight max-w-[800px] mx-auto">
+                HOW IT WORKS
+              </h2>
+              <p className="text-[20px] md:text-[24px] text-[#888888] leading-[1.5] font-normal">
+                A simple, repeatable loop from touchpoint to measurable actions.
+              </p>
+            </div>
+
+            {/* Steps Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto relative">
+              {/* Continuous connector line */}
+              <div
+                className="hidden md:block absolute top-[14px] h-[2px] bg-[#DDDDDD] z-0"
+                style={{ left: "16.666%", right: "16.666%" }}
+              />
+
+              {/* Step 1 */}
+              <div className="flex flex-col items-center text-center relative">
+                <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
+                  <span className="text-[11px] font-bold text-[#333333]">1</span>
+                </div>
+                <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
+                  Send or distribute touchpoints
+                </h3>
+                <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                  Mail magnets to your audience, or include them in packages, events, memberships.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col items-center text-center relative">
+                <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
+                  <span className="text-[11px] font-bold text-[#333333]">2</span>
+                </div>
+                <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
+                  Update touchpoints anytime
+                </h3>
+                <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                  Update previews, news, offers, or next steps from your dashboard — no reprinting.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col items-center text-center relative">
+                <div className="w-7 h-7 rounded-full bg-[#F0F0F0] border border-[#DDDDDD] flex items-center justify-center mb-4 relative z-10">
+                  <span className="text-[11px] font-bold text-[#333333]">3</span>
+                </div>
+                <h3 className="text-[20px] md:text-[22px] font-bold text-[#333333] mb-4 leading-[1.3]">
+                  Track actions & improve
+                </h3>
+                <div className="space-y-3">
+                  <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                    See taps, clicks, and completions across your magnets and touchpoints.
+                  </p>
+                  <p className="text-[14px] md:text-[15px] text-[#666666] leading-[1.6]">
+                    Adjust content and optimize the loop based on real behavior.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <Timeline
-            data={[
-              {
-                title: "1. Send or Distribute Touchpoints",
-                content: (
-                  <div>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                      Mail magnets to your audience. Or include them in packages, events, memberships.
-                    </p>
-                  </div>
-                ),
-              },
-              {
-                title: "2. Update Touchpoints Anytime",
-                content: (
-                  <div>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                      Update previews, news, offers, or next steps from your dashboard—no reprinting.
-                    </p>
-                  </div>
-                ),
-              },
-              {
-                title: "3. Track Actions & Improve",
-                content: (
-                  <div>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                      See taps, clicks, completions. Adjust content. Optimize the loop.
-                    </p>
-                  </div>
-                ),
-              },
-            ]}
-          />
-        </div>
-      </section>
+        </section>
+      </SectionTransition>
 
       {/* FC vs. Your Current Tools Section */}
       <section id="fc-vs-current-tools" className="w-full py-20" style={{ backgroundColor: "#F7F4F0" }}>

@@ -11,11 +11,11 @@ import { cn } from "@/lib/utils";
 
 const HERO_COPY = {
   badge: "AI Revenue Channel",
-  headline: "The #1 Fridge-Door Revenue Channel.",
+  headline: "The #1 Fridge-Door Revenue Channel",
   subheadline:
     "An AI revenue touchpoint that moves the next step to the fridge door—seen 10–20+ times at home every day.",
   supportingLine: "Owned in the home. One-tap next steps. Measurable actions.",
-  cta: "Book a Demo →",
+  cta: "Book a Demo",
   ctaHref: "https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting",
 };
 
@@ -89,21 +89,6 @@ export function RuixenUiHero() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Left - Text and CTA */}
           <div className="w-full lg:w-1/2 space-y-8 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className={cn(
-                "inline-flex items-center gap-2 px-3 py-1.5 rounded-full",
-                "bg-[#F7F3ED]/80 border border-black/10"
-              )}
-            >
-              <span className="flex h-2 w-2 rounded-full bg-black" />
-              <span className="text-sm font-medium text-black">
-                {HERO_COPY.badge}
-              </span>
-            </motion.div>
-
             <div className="space-y-6">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
