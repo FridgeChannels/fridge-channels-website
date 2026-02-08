@@ -105,7 +105,7 @@ export default function HomePage() {
 
       {/* How It Works Section */}
       <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
-        <section id="how-it-works" className="py-24 md:py-28 lg:py-32 bg-[#F7F3ED] overflow-hidden">
+        <section id="how-it-works" className="py-12 md:py-14 lg:py-16 bg-[#F7F3ED] overflow-hidden">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
             {/* Header Section */}
             <div className="text-center mb-16 md:mb-20 max-w-[800px] mx-auto space-y-4">

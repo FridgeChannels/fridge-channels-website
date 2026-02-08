@@ -51,7 +51,7 @@ export function AllInOneSection() {
     const active = features.find((f) => f.id === activeId)!;
 
     return (
-        <section className="relative py-24 md:py-28 lg:py-32 bg-white overflow-hidden">
+        <section className="relative py-5 md:py-5 lg:py-5 bg-white overflow-hidden">
             <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
                 <div className="text-center mb-16 md:mb-20">
                     <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-ds-text tracking-[-0.02em] leading-[1.2] max-w-[800px] mx-auto">
