@@ -215,7 +215,7 @@ export default function RealEstatePage() {
                             type: "centered",
                             headline: (
                                 <>
-                                    An AI-powered magnet in your supporter&apos;s home — so your organization stays visible every day after the event, not buried in an inbox next to spam, and supporters build giving habits worth 3-5x lifetime value.
+                                    An AI-powered magnet in your supporter&apos;s home — so your organization stays <span className="text-[#c2a36b] font-semibold">visible every day</span> after the event, not buried in an inbox next to spam, and supporters build giving habits worth <span className="text-[#c2a36b] font-semibold">3-5x lifetime value</span>.
                                 </>
                             ),
 

@@ -215,7 +215,7 @@ export default function OfficialMerchPage() {
                             type: "centered",
                             headline: (
                                 <>
-                                    An AI-powered magnet that lives on your fan's fridge — so your art stays <span className="text-[#c2a36b] font-semibold">visible every day</span> after the event, not buried in social feeds where algorithms decide who sees it, and fans build collecting habits worth 2.5-3x lifetime value.
+                                    An AI-powered magnet that <span className="text-[#c2a36b] font-semibold">lives on your fan's fridge</span> — so your art stays <span className="text-[#c2a36b] font-semibold">visible every day</span> after the event, <span className="text-[#c2a36b] font-semibold">not buried in social feeds</span> where algorithms decide who sees it, and fans build <span className="text-[#c2a36b] font-semibold">collecting habits worth 2.5-3x lifetime value</span>.
                                 </>
                             ),
 
@@ -231,7 +231,7 @@ export default function OfficialMerchPage() {
                                     Official merch item sold directly. Lives on the fridge door — so fans have a <span className="font-semibold text-ds-text">daily reminder and ongoing connection</span> between releases, not a one-time purchase that fades after the excitement.
                                 </>
                             ),
-                            imageSrc: "/realestate-pics/what it is.png",
+                            imageSrc: "/fancommerce/whatitis.png",
                             imageAlt: "FanLoop Magnet",
                             seamless: true,
                             useOriginalAspectRatio: true,
@@ -243,7 +243,7 @@ export default function OfficialMerchPage() {
                             type: "split",
                             subtitle: "What it drives",
                             description: "Actions defined by artist: Browse drops. Pre-order exclusives. Join community. Share. Exclusive drops, behind-the-scenes, artist updates, early access — every tap builds a habit between releases so fans never forget to check back.",
-                            imageSrc: "/realestate-pics/CTA.png",
+                            imageSrc: "/fancommerce/1Concert-CTA.png",
                             imageAlt: "FanLoop Automated Engagement",
                             seamless: true,
                             useOriginalAspectRatio: true,

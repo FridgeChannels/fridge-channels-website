@@ -184,22 +184,22 @@ export default function CreatorsAuthorsPage() {
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">50-300+</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TIMES SEEN/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per reader</span>
+
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">10-15</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TAPS/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per reader</span>
+
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">4-6 min</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">AVG. ENGAGEMENT</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per session</span>
+
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">40-60%</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">CHURN REDUCTION</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">in 8 weeks</span>
+
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ export default function CreatorsAuthorsPage() {
                             type: "centered",
                             headline: (
                                 <>
-                                    An AI-powered magnet that lives on your reader's fridge — <span className="text-[#c2a36b] font-semibold">so your work stays visible every day</span>, not buried in inbox or feeds where it goes out of sight and out of mind, and readers stay active with 3-5x lower churn + 2x upgrade rate.
+                                    An AI-powered magnet that <span className="text-[#c2a36b] font-semibold">lives on your reader&apos;s fridge</span> — <span className="text-[#c2a36b] font-semibold">so your work stays visible every day</span>, not buried in inbox or feeds where it goes out of sight and out of mind, and readers stay active with <span className="text-[#c2a36b] font-semibold">3-5x lower churn + 2x upgrade rate</span>.
                                 </>
                             ),
 
@@ -230,7 +230,7 @@ export default function CreatorsAuthorsPage() {
                                     Branded magnet sent to paid subscribers, sold at book tours, or handed out at speaking events. Lives on the fridge door — <span className="font-semibold text-ds-text">so readers have a daily reminder of your work</span>, not a subscription they forget to read and cancel, or a book they finished and forgot about.
                                 </>
                             ),
-                            imageSrc: "/realestate-pics/what it is.png",
+                            imageSrc: "/creator/whatitis.png",
                             imageAlt: "Close Concierge Magnet",
                             seamless: true,
                             useOriginalAspectRatio: true,
@@ -242,7 +242,7 @@ export default function CreatorsAuthorsPage() {
                             type: "split",
                             subtitle: "What it drives",
                             description: "One action per tap. Read latest posts. Listen to previews. Buy books. Browse backlist. Upgrade subscription. Access exclusive content and early releases — every tap builds a habit that turns one-time readers into repeat buyers and long-term subscribers.",
-                            imageSrc: "/realestate-pics/CTA.png",
+                            imageSrc: "/creator/CTA-creator.png",
                             imageAlt: "Close Concierge Automated Engagement",
                             seamless: true,
                             useOriginalAspectRatio: true,

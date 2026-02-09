@@ -217,7 +217,7 @@ export default function DtcBrandsPage() {
               type: "centered",
               headline: (
                 <>
-                  An AI-powered magnet in your customer&apos;s home — so your brand stays <span className="text-[#c2a36b] font-semibold">visible every day</span>, not buried in a closet after unboxing, and customers build repeat purchase habits worth 2-3x LTV.
+                  An AI-powered magnet in your customer&apos;s home — so your brand stays <span className="text-[#c2a36b] font-semibold">visible every day</span>, not buried in a closet after unboxing, and customers build repeat purchase habits worth <span className="text-[#c2a36b] font-semibold">2-3x LTV</span>.
                 </>
               ),
 

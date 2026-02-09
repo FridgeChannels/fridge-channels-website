@@ -189,22 +189,22 @@ export default function RealEstatePage() {
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">50-300+</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TIMES SEEN/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per household</span>
+
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">8-15</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TAPS/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per household</span>
+
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">3 min</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">AVG. ENGAGEMENT</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per session</span>
+
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">2.1x</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">FASTER DECISION</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">vs. baseline</span>
+
                             </div>
                         </div>
                     </div>
