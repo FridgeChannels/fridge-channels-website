@@ -9,9 +9,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { SectionTransition } from "@/components/ui/section-transition";
 import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { PilotSection } from "@/components/real-estate/pilot-section";
-import { FaqSection } from "@/components/real-estate/faq-section";
-import { FadingHeadlineSection } from "@/components/real-estate/fading-headline-section";
+import { PilotSection } from "@/components/official-merch/pilot-section";
+import { FaqSection } from "@/components/official-merch/faq-section";
+import { FadingHeadlineSection } from "@/components/official-merch/fading-headline-section";
 import { HorizontalScrollSection } from "@/components/ui/horizontal-scroll-section";
 
 function HowItWorksSection() {
@@ -53,7 +53,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">01</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Deploy</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            Integrate Close Concierge into your showing workflow—clients get it before final decisions, during uncertainty, or after closing for referrals.
+                            FanLoop magnets added to merch shop. Fans buy as official item. Simple "tap to connect" instructions.
                         </p>
                     </motion.div>
 
@@ -69,7 +69,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">02</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Configure</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            We turn your FAQ content and next-step CTAs into short, scannable guidance tied to one clear action per tap.
+                            Artist content becomes bite-sized updates. Exclusive drops, BTS, early access. Each ends with one CTA.
                         </p>
                     </motion.div>
 
@@ -85,7 +85,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">03</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Iterate</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            Every week, review taps and actions. Adjust content and CTAs based on what drives follow-through.
+                            Bi-weekly reviews: adjust content, drop timing, CTA based on fan engagement data.
                         </p>
                     </motion.div>
                 </motion.div>
@@ -94,7 +94,7 @@ function HowItWorksSection() {
     );
 }
 
-export default function RealEstatePage() {
+export default function OfficialMerchPage() {
     return (
         <div className="min-h-screen flex flex-col font-sans selection:bg-ds-primary selection:text-white">
             <Navigation />
@@ -104,8 +104,8 @@ export default function RealEstatePage() {
                 <section className="relative w-full h-screen">
                     {/* Background Image */}
                     <Image
-                        src="/realestate-pics/隐藏底部文字.png"
-                        alt="Close Concierge Hero"
+                        src="/fancommerce/Image (9).png"
+                        alt="FanLoop Hero"
                         fill
                         className="object-cover"
                         style={{ objectPosition: "center center" }}
@@ -141,7 +141,7 @@ export default function RealEstatePage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                Close Concierge
+                                FanLoop
                             </motion.h1>
                             <motion.p
                                 className="text-base md:text-xl lg:text-2xl text-white/90 leading-[1.65] mb-8 drop-shadow-md max-w-2xl"
@@ -150,7 +150,7 @@ export default function RealEstatePage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                An AI-powered magnet on your client&apos;s fridge that turns at-home hesitation into next steps—while your team stays focused on deals that matters.
+                                An AI-powered magnet sold as official merch. Fans put it on their fridge. Turns one-time buyers into collectors.
                             </motion.p>
                             <motion.div
                                 className="flex items-center justify-start gap-4"
@@ -166,7 +166,7 @@ export default function RealEstatePage() {
                                         shimmerColor="#ffffff"
                                     >
                                         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
-                                            Book a 30-Day Pilot
+                                            Book a Demo
                                         </span>
                                     </ShimmerButton>
                                 </Link>
@@ -189,22 +189,18 @@ export default function RealEstatePage() {
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">50-300+</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TIMES SEEN/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per household</span>
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">8-15</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">8-12</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TAPS/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per household</span>
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">3 min</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">3-5 min</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">AVG. ENGAGEMENT</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per session</span>
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">2.1x</span>
-                                <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">FASTER DECISION</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">vs. baseline</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">2.5x</span>
+                                <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">REPEAT PURCHASE</span>
                             </div>
                         </div>
                     </div>
@@ -219,25 +215,24 @@ export default function RealEstatePage() {
                             type: "centered",
                             headline: (
                                 <>
-                                    Your team's <span className="text-[#c2a36b] font-semibold">at-home channel</span>
-                                    {" "}— turning the kitchen moments where decisions actually happen into measurable next steps.
+                                    An AI-powered magnet that lives on your fan's fridge — so your art stays <span className="text-[#c2a36b] font-semibold">visible every day</span> after the event, not buried in social feeds where algorithms decide who sees it, and fans build collecting habits worth 2.5-3x lifetime value.
                                 </>
                             ),
 
                         },
-                        // 2. What it is (Close Concierge)
+                        // 2. What it is (FanLoop)
                         {
                             id: "what-it-is",
                             type: "split",
                             subtitle: "What it is",
-                            title: "Close Concierge",
+                            title: "FanLoop",
                             description: (
                                 <>
-                                    A magnet on the fridge door that clients tap with their phone — <span className="font-semibold text-ds-text">no app, no login</span> — so they reach you the moment doubt surfaces, not days later.
+                                    Official merch item sold directly. Lives on the fridge door — so fans have a <span className="font-semibold text-ds-text">daily reminder and ongoing connection</span> between releases, not a one-time purchase that fades after the excitement.
                                 </>
                             ),
                             imageSrc: "/realestate-pics/what it is.png",
-                            imageAlt: "Close Concierge Magnet",
+                            imageAlt: "FanLoop Magnet",
                             seamless: true,
                             useOriginalAspectRatio: true,
                             roundedCorners: true,
@@ -247,9 +242,9 @@ export default function RealEstatePage() {
                             id: "what-it-drives",
                             type: "split",
                             subtitle: "What it drives",
-                            description: "Re-engagement. Question resolution. Call booking. Second showing requests. Document submissions — every tap moves clients from hesitation to a clear next step, in days instead of weeks.",
+                            description: "Actions defined by artist: Browse drops. Pre-order exclusives. Join community. Share. Exclusive drops, behind-the-scenes, artist updates, early access — every tap builds a habit between releases so fans never forget to check back.",
                             imageSrc: "/realestate-pics/CTA.png",
-                            imageAlt: "Close Concierge Automated Engagement",
+                            imageAlt: "FanLoop Automated Engagement",
                             seamless: true,
                             useOriginalAspectRatio: true,
                             roundedCorners: true,
@@ -259,10 +254,10 @@ export default function RealEstatePage() {
                         {
                             id: "how-you-measure",
                             type: "split",
-                            subtitle: "How you measure:",
-                            description: "Taps per week. Time spent. Actions taken. Follow-up conversion rate — so you see exactly which at-home moments convert, instead of guessing.",
+                            subtitle: "How you measure",
+                            description: "Every tap, view, action tracked. See what content drives purchases — so you know exactly which drops and moments convert fans into repeat collectors.",
                             imageSrc: "/realestate-pics/How you measure.png",
-                            imageAlt: "Close Concierge Analytics Dashboard",
+                            imageAlt: "FanLoop Analytics Dashboard",
                             useOriginalAspectRatio: true,
                             seamless: true,
                         },
@@ -270,23 +265,23 @@ export default function RealEstatePage() {
                             id: "how-people-use-it",
                             type: "three-cards",
                             subtitle: "How people use it",
-                            description: "Kitchen moments your clients already have — now working for your deal.",
+                            description: "Pass the fridge. Tap when curious. Kitchen moments your fans already have — now working for your art.",
                             cards: [
                                 {
-                                    title: "Coffee brewing",
-                                    description: "Browse answers, tap to text agent, book a call — hesitation becomes a conversation before the cup is full.",
+                                    title: "Coffee brewing (30 sec)",
+                                    description: "Browse, tap, buy (tracks: engagement, conversion) — morning curiosity becomes a purchase before the cup is full.",
                                     imageSrc: "/realestate-pics/1cafe8.jpeg",
                                     imageAlt: "Coffee brewing moment",
                                 },
                                 {
                                     title: "Getting water",
-                                    description: "Quick question check, one clear CTA — doubt gets resolved in the time it takes to fill a glass.",
+                                    description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a pre-order in the time it takes to fill a glass.",
                                     imageSrc: "/realestate-pics/1water.jpeg",
                                     imageAlt: "Getting water moment",
                                 },
                                 {
                                     title: "Microwave timer",
-                                    description: "Explore pricing info, request a second showing — idle waiting becomes active deal momentum.",
+                                    description: "Explore, act (tracks: taps, purchases) — idle waiting becomes an exclusive drop discovery.",
                                     imageSrc: "/realestate-pics/1evening.jpeg",
                                     imageAlt: "Microwave timer moment",
                                 }
@@ -305,9 +300,9 @@ export default function RealEstatePage() {
                 >
                     <div className="mx-auto max-w-[1320px] px-8 md:px-12 lg:px-20">
                         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] font-medium text-ds-text leading-[1.1] tracking-tight">
-                            Not a CRM. <br />
-                            Not an app. <br />
-                            <span className="text-[#c2a36b]">Not more follow-up emails.</span>
+                            Not a poster. <br />
+                            Not a sticker. <br />
+                            <span className="text-[#c2a36b]">Not a wearable.</span>
                         </h2>
                     </div>
                 </section>
@@ -330,7 +325,7 @@ export default function RealEstatePage() {
                     <div className="mx-auto max-w-4xl px-5 md:px-8 lg:px-16 text-center relative z-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-ds-text mb-6">Start Your Pilot</h2>
                         <p className="text-base md:text-xl text-ds-text-secondary mb-10 leading-[1.65] max-w-2xl mx-auto">
-                            If you want to move serious buyers from hesitation to next steps without more chasing, Close Concierge gives you a measurable at-home channel to test in 30 days.
+                            Move fans from one-time buyers to repeat collectors. Validate in 6 weeks.
                         </p>
                         <Link href="https://studio.fridgechannels.com" className="inline-flex">
                             <ShimmerButton
@@ -339,7 +334,7 @@ export default function RealEstatePage() {
                                 shimmerColor="#ffffff"
                             >
                                 <span className="whitespace-pre-wrap text-center text-base font-semibold leading-none tracking-tight text-white">
-                                    Book a 30-Day Pilot
+                                    Book a Demo
                                 </span>
                             </ShimmerButton>
                         </Link>

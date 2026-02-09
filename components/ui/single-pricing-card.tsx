@@ -219,7 +219,7 @@ function SinglePricingCardContent({
         </motion.div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,260px)_1fr_1fr]">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,300px)_1fr_1fr]">
         {/* Column 1: Identity & Price */}
         <div className="p-6 md:p-8 flex flex-col">
           {badge && (
@@ -234,7 +234,14 @@ function SinglePricingCardContent({
           <h3 className="text-2xl font-bold mb-6">{title}</h3>
 
           <div className="flex items-baseline mb-6">
-            <span className="text-4xl font-bold">{price.current}</span>
+            {price.current.includes('/') ? (
+              <>
+                <span className="text-4xl font-bold">{price.current.split('/')[0].trim()}</span>
+                <span className="text-xl font-bold text-muted-foreground ml-1">/ {price.current.split('/')[1].trim()}</span>
+              </>
+            ) : (
+              <span className="text-4xl font-bold">{price.current}</span>
+            )}
             {price.original && (
               <span className="text-muted-foreground ml-2 line-through">{price.original}</span>
             )}

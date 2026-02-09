@@ -8,7 +8,7 @@ export function PilotSection() {
   return (
     <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
       <section
-        className="py-20 md:py-24 lg:py-32 relative bg-[linear-gradient(to_bottom,#EFE6DB_0%,white_10%,white_90%,#EFE6DB_100%)]"
+        className="pt-20 pb-0 md:pt-24 md:pb-0 lg:pt-32 lg:pb-0 relative bg-[linear-gradient(to_bottom,#EFE6DB_0%,white_10%,white_90%,#EFE6DB_100%)]"
         id="pilot"
       >
         <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
@@ -26,7 +26,7 @@ export function PilotSection() {
             title="Pilot Plan"
             subtitle="Validate whether at-home engagement moves clients from showing to decision faster than follow-up alone."
             price={{
-              current: "$2,400",
+              current: "$2,400 / month",
             }}
             benefits={[
               {

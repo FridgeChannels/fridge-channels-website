@@ -9,8 +9,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SectionTransition } from "@/components/ui/section-transition";
 import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { PilotSection } from "@/components/real-estate/pilot-section";
-import { FaqSection } from "@/components/real-estate/faq-section";
+import { PilotSection } from "@/components/creators-authors/pilot-section";
+import { FaqSection } from "@/components/creators-authors/faq-section";
 import { FadingHeadlineSection } from "@/components/real-estate/fading-headline-section";
 import { HorizontalScrollSection } from "@/components/ui/horizontal-scroll-section";
 
@@ -53,7 +53,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">01</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Deploy</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            Integrate Close Concierge into your showing workflow—clients get it before final decisions, during uncertainty, or after closing for referrals.
+                            ReaderLoop magnets sent to paid subscribers, sold at book tours, or at speaking events. Simple "tap to connect" instructions included.
                         </p>
                     </motion.div>
 
@@ -69,7 +69,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">02</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Configure</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            We turn your FAQ content and next-step CTAs into short, scannable guidance tied to one clear action per tap.
+                            Your content becomes bite-sized updates. Latest posts, exclusives, behind-the-scenes, book previews. Each ends with one CTA — read the full issue, buy a book, upgrade subscription, or pre-order the next release.
                         </p>
                     </motion.div>
 
@@ -85,7 +85,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">03</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Iterate</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            Every week, review taps and actions. Adjust content and CTAs based on what drives follow-through.
+                            Bi-weekly reviews: adjust content mix, release timing, CTAs based on engagement and retention data.
                         </p>
                     </motion.div>
                 </motion.div>
@@ -94,7 +94,7 @@ function HowItWorksSection() {
     );
 }
 
-export default function RealEstatePage() {
+export default function CreatorsAuthorsPage() {
     return (
         <div className="min-h-screen flex flex-col font-sans selection:bg-ds-primary selection:text-white">
             <Navigation />
@@ -104,7 +104,7 @@ export default function RealEstatePage() {
                 <section className="relative w-full h-screen">
                     {/* Background Image */}
                     <Image
-                        src="/realestate-pics/隐藏底部文字.png"
+                        src="/creator/bgp-creator-2.png"
                         alt="Close Concierge Hero"
                         fill
                         className="object-cover"
@@ -116,7 +116,7 @@ export default function RealEstatePage() {
                     {/* Overlay for text readability */}
                     <div className="absolute inset-0 bg-black/30" />
                     {/* Content positioned over the image */}
-                    <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 pl-10 md:pl-24 lg:pl-40">
+                    <div className="absolute inset-0 z-10 flex flex-col justify-center items-start text-left pt-16 px-4 md:px-20 lg:px-[424px]">
                         <motion.div
                             className="max-w-[800px]"
                             initial="hidden"
@@ -141,7 +141,7 @@ export default function RealEstatePage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                Close Concierge
+                                ReaderLoop
                             </motion.h1>
                             <motion.p
                                 className="text-base md:text-xl lg:text-2xl text-white/90 leading-[1.65] mb-8 drop-shadow-md max-w-2xl"
@@ -150,7 +150,7 @@ export default function RealEstatePage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                An AI-powered magnet on your client&apos;s fridge that turns at-home hesitation into next steps—while your team stays focused on deals that matters.
+                                AI-powered magnet for your fridge. Turns readers into active subscribers who buy more and stay longer.
                             </motion.p>
                             <motion.div
                                 className="flex items-center justify-start gap-4"
@@ -166,7 +166,7 @@ export default function RealEstatePage() {
                                         shimmerColor="#ffffff"
                                     >
                                         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
-                                            Book a 30-Day Pilot
+                                            Book a Demo
                                         </span>
                                     </ShimmerButton>
                                 </Link>
@@ -174,12 +174,7 @@ export default function RealEstatePage() {
                         </motion.div>
                     </div>
                     {/* Bottom fade to white */}
-                    <div
-                        className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 md:h-40"
-                        style={{
-                            background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0) 100%)'
-                        }}
-                    />
+                    <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 md:h-64 bg-gradient-to-t from-white via-white/80 to-transparent" />
                 </section>
 
                 {/* Hero Metrics Strip */}
@@ -189,22 +184,22 @@ export default function RealEstatePage() {
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">50-300+</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TIMES SEEN/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per household</span>
+                                <span className="text-sm text-ds-text-secondary/70 mt-1">per reader</span>
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">8-15</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">10-15</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TAPS/MONTH</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">per household</span>
+                                <span className="text-sm text-ds-text-secondary/70 mt-1">per reader</span>
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">3 min</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">4-6 min</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">AVG. ENGAGEMENT</span>
                                 <span className="text-sm text-ds-text-secondary/70 mt-1">per session</span>
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">2.1x</span>
-                                <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">FASTER DECISION</span>
-                                <span className="text-sm text-ds-text-secondary/70 mt-1">vs. baseline</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">40-60%</span>
+                                <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">CHURN REDUCTION</span>
+                                <span className="text-sm text-ds-text-secondary/70 mt-1">in 8 weeks</span>
                             </div>
                         </div>
                     </div>
@@ -219,8 +214,7 @@ export default function RealEstatePage() {
                             type: "centered",
                             headline: (
                                 <>
-                                    Your team's <span className="text-[#c2a36b] font-semibold">at-home channel</span>
-                                    {" "}— turning the kitchen moments where decisions actually happen into measurable next steps.
+                                    An AI-powered magnet that lives on your reader's fridge — <span className="text-[#c2a36b] font-semibold">so your work stays visible every day</span>, not buried in inbox or feeds where it goes out of sight and out of mind, and readers stay active with 3-5x lower churn + 2x upgrade rate.
                                 </>
                             ),
 
@@ -230,10 +224,10 @@ export default function RealEstatePage() {
                             id: "what-it-is",
                             type: "split",
                             subtitle: "What it is",
-                            title: "Close Concierge",
+                            title: "ReaderLoop",
                             description: (
                                 <>
-                                    A magnet on the fridge door that clients tap with their phone — <span className="font-semibold text-ds-text">no app, no login</span> — so they reach you the moment doubt surfaces, not days later.
+                                    Branded magnet sent to paid subscribers, sold at book tours, or handed out at speaking events. Lives on the fridge door — <span className="font-semibold text-ds-text">so readers have a daily reminder of your work</span>, not a subscription they forget to read and cancel, or a book they finished and forgot about.
                                 </>
                             ),
                             imageSrc: "/realestate-pics/what it is.png",
@@ -247,7 +241,7 @@ export default function RealEstatePage() {
                             id: "what-it-drives",
                             type: "split",
                             subtitle: "What it drives",
-                            description: "Re-engagement. Question resolution. Call booking. Second showing requests. Document submissions — every tap moves clients from hesitation to a clear next step, in days instead of weeks.",
+                            description: "One action per tap. Read latest posts. Listen to previews. Buy books. Browse backlist. Upgrade subscription. Access exclusive content and early releases — every tap builds a habit that turns one-time readers into repeat buyers and long-term subscribers.",
                             imageSrc: "/realestate-pics/CTA.png",
                             imageAlt: "Close Concierge Automated Engagement",
                             seamless: true,
@@ -260,7 +254,7 @@ export default function RealEstatePage() {
                             id: "how-you-measure",
                             type: "split",
                             subtitle: "How you measure:",
-                            description: "Taps per week. Time spent. Actions taken. Follow-up conversion rate — so you see exactly which at-home moments convert, instead of guessing.",
+                            description: "Every tap, read, purchase, and engagement tracked. See what keeps readers active and what drives book sales and upgrades — so you know exactly which content and moments convert readers into repeat buyers.",
                             imageSrc: "/realestate-pics/How you measure.png",
                             imageAlt: "Close Concierge Analytics Dashboard",
                             useOriginalAspectRatio: true,
@@ -270,23 +264,23 @@ export default function RealEstatePage() {
                             id: "how-people-use-it",
                             type: "three-cards",
                             subtitle: "How people use it",
-                            description: "Kitchen moments your clients already have — now working for your deal.",
+                            description: "Pass the fridge. Tap when curious. Kitchen moments your readers already have — now working for your content and catalog.",
                             cards: [
                                 {
-                                    title: "Coffee brewing",
-                                    description: "Browse answers, tap to text agent, book a call — hesitation becomes a conversation before the cup is full.",
+                                    title: "Coffee brewing  ",
+                                    description: "Browse latest post, tap to buy a new book, discover backlist (tracks: engagement, conversion) — morning curiosity becomes a purchase before the cup is full.",
                                     imageSrc: "/realestate-pics/1cafe8.jpeg",
                                     imageAlt: "Coffee brewing moment",
                                 },
                                 {
                                     title: "Getting water",
-                                    description: "Quick question check, one clear CTA — doubt gets resolved in the time it takes to fill a glass.",
+                                    description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a book order or subscription upgrade in the time it takes to fill a glass.",
                                     imageSrc: "/realestate-pics/1water.jpeg",
                                     imageAlt: "Getting water moment",
                                 },
                                 {
                                     title: "Microwave timer",
-                                    description: "Explore pricing info, request a second showing — idle waiting becomes active deal momentum.",
+                                    description: "Explore exclusive content, pre-order next release (tracks: taps, purchases) — idle waiting becomes a new sale.",
                                     imageSrc: "/realestate-pics/1evening.jpeg",
                                     imageAlt: "Microwave timer moment",
                                 }
@@ -305,9 +299,9 @@ export default function RealEstatePage() {
                 >
                     <div className="mx-auto max-w-[1320px] px-8 md:px-12 lg:px-20">
                         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] font-medium text-ds-text leading-[1.1] tracking-tight">
-                            Not a CRM. <br />
-                            Not an app. <br />
-                            <span className="text-[#c2a36b]">Not more follow-up emails.</span>
+                            Not an email. <br />
+                            Not a notification. <br />
+                            <span className="text-[#c2a36b]">Not an app.</span>
                         </h2>
                     </div>
                 </section>
@@ -330,7 +324,7 @@ export default function RealEstatePage() {
                     <div className="mx-auto max-w-4xl px-5 md:px-8 lg:px-16 text-center relative z-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-ds-text mb-6">Start Your Pilot</h2>
                         <p className="text-base md:text-xl text-ds-text-secondary mb-10 leading-[1.65] max-w-2xl mx-auto">
-                            If you want to move serious buyers from hesitation to next steps without more chasing, Close Concierge gives you a measurable at-home channel to test in 30 days.
+                            Move readers from inactive to active buyers and subscribers. Reduce churn. Drive book sales. Validate in 8 weeks.
                         </p>
                         <Link href="https://studio.fridgechannels.com" className="inline-flex">
                             <ShimmerButton
@@ -339,12 +333,12 @@ export default function RealEstatePage() {
                                 shimmerColor="#ffffff"
                             >
                                 <span className="whitespace-pre-wrap text-center text-base font-semibold leading-none tracking-tight text-white">
-                                    Book a 30-Day Pilot
+                                    Book a Demo
                                 </span>
                             </ShimmerButton>
                         </Link>
                         <p className="text-ds-text-secondary/70 text-sm mt-8">
-
+                            We provide the mechanism: daily reminder → content engagement → retention + sales. You own the content.
                         </p>
                     </div>
                 </section>
