@@ -206,7 +206,7 @@ function SinglePricingCardContent({
 
   return (
     <Card
-      className={`overflow-hidden border border-border relative group rounded-xl ${cardClassName || ""}`}
+      className={`overflow-hidden border-none shadow-none bg-white relative group rounded-xl ${cardClassName || ""}`}
     >
       {animationEnabled && (
         <motion.div
@@ -219,7 +219,7 @@ function SinglePricingCardContent({
         </motion.div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,260px)_1fr_1fr] divide-y md:divide-y-0 md:divide-x divide-border">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,260px)_1fr_1fr]">
         {/* Column 1: Identity & Price */}
         <div className="p-6 md:p-8 flex flex-col">
           {badge && (
@@ -307,7 +307,7 @@ function SinglePricingCardContent({
 
 
         {/* Column 2: Goal, Benefits, Success Metric */}
-        <div className="p-6 md:p-8 flex flex-col bg-gray-50/50">
+        <div className="p-6 md:p-8 flex flex-col bg-white">
           <motion.div
             className="mb-8"
             initial={animationEnabled ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}

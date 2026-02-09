@@ -14,7 +14,7 @@
   --ds-text-secondary: #475569;
   --ds-body: #334155;
 
-  --background: oklch(1 0 0);
+  --background: #EFE6DB;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -301,4 +301,14 @@
   to {
     transform: translateY(calc(-100% - var(--gap)));
   }
+}
+
+/* Next.js dev portal: prevent layout/click interference */
+nextjs-portal {
+  position: fixed !important;
+  pointer-events: none !important;
+  inset: 0;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }

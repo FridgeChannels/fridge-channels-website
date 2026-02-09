@@ -42,7 +42,7 @@ const faqItems = [
 
 export function FaqSection() {
     return (
-        <section className="py-5 md:py-5 lg:py-5 bg-white border-t border-ds-border">
+        <section className="py-5 md:py-5 lg:py-5 border-t border-ds-border">
             <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
                 <div className="grid md:grid-cols-12 gap-12">
                     <div className="md:col-span-4">

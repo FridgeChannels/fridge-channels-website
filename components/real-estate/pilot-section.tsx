@@ -7,7 +7,10 @@ import { SectionTransition } from "@/components/ui/section-transition";
 export function PilotSection() {
   return (
     <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
-      <section className="py-5 md:py-5 lg:py-5 bg-white" id="pilot">
+      <section
+        className="py-20 md:py-24 lg:py-32 relative bg-[linear-gradient(to_bottom,#EFE6DB_0%,white_10%,white_90%,#EFE6DB_100%)]"
+        id="pilot"
+      >
         <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
           <div className="mb-8">
             <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-medium text-ds-text leading-[1.2] tracking-tight">
