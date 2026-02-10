@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fridgechannel-homepage
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    # margins for hot reload if you want to use it for dev, but this is a prod setup
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
