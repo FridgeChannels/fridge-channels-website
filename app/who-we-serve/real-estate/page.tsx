@@ -108,7 +108,7 @@ export default function RealEstatePage() {
                         alt="Close Concierge Hero"
                         fill
                         className="object-cover"
-                        style={{ objectPosition: "center center" }}
+                        style={{ objectPosition: "center center", top: "-40px" }}
                         quality={100}
                         sizes="100vw"
                         priority
@@ -116,7 +116,7 @@ export default function RealEstatePage() {
                     {/* Overlay for text readability */}
                     <div className="absolute inset-0 bg-black/30" />
                     {/* Content positioned over the image */}
-                    <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 pl-10 md:pl-24 lg:pl-40">
+                    <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 px-6 md:pl-24 lg:pl-40 pr-6">
                         <motion.div
                             className="max-w-[800px]"
                             initial="hidden"

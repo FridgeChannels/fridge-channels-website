@@ -116,7 +116,7 @@ export default function RealEstatePage() {
                     {/* Overlay for text readability */}
                     <div className="absolute inset-0 bg-black/30" />
                     {/* Content positioned over the image */}
-                    <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 pl-10 md:pl-24 lg:pl-[400px]">
+                    <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 px-6 md:pl-24 lg:pl-96 pr-6">
                         <motion.div
                             className="max-w-[800px]"
                             initial="hidden"

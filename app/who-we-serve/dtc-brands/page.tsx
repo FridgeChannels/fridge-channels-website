@@ -116,64 +116,62 @@ export default function DtcBrandsPage() {
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30" />
           {/* Content positioned over the image */}
-          <div className="absolute inset-0 z-10 flex flex-col justify-center px-4">
-            <div className="w-full max-w-7xl mx-auto px-6">
-              <motion.div
-                className="max-w-[800px]"
-                initial="hidden"
-                animate="visible"
+          <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 px-6 md:pl-24 lg:pl-96 pr-6">
+            <motion.div
+              className="max-w-[800px]"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    ease: "easeOut",
+                    staggerChildren: 0.2
+                  }
+                }
+              }}
+            >
+              <motion.h1
+                className="text-[32px] md:text-[52px] lg:text-[64px] xl:text-[72px] font-bold text-white leading-[1.08] tracking-[-0.02em] mb-6 drop-shadow-lg"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.8,
-                      ease: "easeOut",
-                      staggerChildren: 0.2
-                    }
-                  }
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                 }}
               >
-                <motion.h1
-                  className="text-[32px] md:text-[52px] lg:text-[64px] xl:text-[72px] font-bold text-white leading-[1.08] tracking-[-0.02em] mb-6 drop-shadow-lg"
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-                  }}
-                >
-                  HomeLoop
-                </motion.h1>
-                <motion.p
-                  className="text-base md:text-xl lg:text-2xl text-white/90 leading-[1.65] mb-8 drop-shadow-md max-w-2xl"
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-                  }}
-                >
-                  An AI-powered magnet on your customer&apos;s fridge. Turns one-time buyers into repeat customers.
-                </motion.p>
-                <motion.div
-                  className="flex items-center justify-start gap-4"
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-                  }}
-                >
-                  <Link href="https://studio.fridgechannels.com">
-                    <ShimmerButton
-                      className="shadow-2xl transition-transform duration-300 hover:scale-110 h-10 md:h-12 px-5 md:px-7"
-                      background="rgba(0, 0, 0, 1)"
-                      shimmerColor="#ffffff"
-                    >
-                      <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
-                        Book a Demo
-                      </span>
-                    </ShimmerButton>
-                  </Link>
-                </motion.div>
+                HomeLoop
+              </motion.h1>
+              <motion.p
+                className="text-base md:text-xl lg:text-2xl text-white/90 leading-[1.65] mb-8 drop-shadow-md max-w-2xl"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+              >
+                An AI-powered magnet on your customer&apos;s fridge. Turns one-time buyers into repeat customers.
+              </motion.p>
+              <motion.div
+                className="flex items-center justify-start gap-4"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+              >
+                <Link href="https://studio.fridgechannels.com">
+                  <ShimmerButton
+                    className="shadow-2xl transition-transform duration-300 hover:scale-110 h-10 md:h-12 px-5 md:px-7"
+                    background="rgba(0, 0, 0, 1)"
+                    shimmerColor="#ffffff"
+                  >
+                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
+                      Book a Demo
+                    </span>
+                  </ShimmerButton>
+                </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
           {/* Bottom fade to white */}
           <div

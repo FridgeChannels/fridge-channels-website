@@ -77,14 +77,14 @@ export default function HomePage() {
                     {
                       title: "Creators & Publishers",
                       description: "Turn casual readers into subscribers. Drive repeat opens and paid upgrades.",
-                      link: "/creator-shortlist",
+                      link: "/who-we-serve/creators-authors",
                       linkText: "Learn more →",
                       imageUrl: "/homepage/ChatGPT Image Feb 10, 2026, 03_11_58 PM.png",
                     },
                     {
                       title: "Sports & Entertainment",
                       description: "Keep fans engaged between events. Drive merch sales and ticket renewals.",
-                      link: "/contact",
+                      link: "/who-we-serve/official-merch",
                       linkText: "Learn more →",
                       imageUrl: "/entertainment.jpeg",
                     },
