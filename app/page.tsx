@@ -14,7 +14,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { SectionTransition } from "@/components/ui/section-transition"
 
 export default function HomePage() {
-  const ctaBgUrl = encodeURI("/截屏2026-01-08 19.34.38.png");
+  const ctaBgUrl = encodeURI("/homepage/homepage底部cta.png");
 
   return (
     <div className="min-h-screen bg-[#F7F3ED] relative overflow-x-hidden flex flex-col">
@@ -195,10 +195,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
           <div className="relative z-10 max-w-4xl mx-auto px-4 py-12">
             <div className="flex flex-col items-center text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance text-white drop-shadow-sm">
+              <h2 className="text-3xl md:text-4xl font-bold text-balance text-black drop-shadow-sm">
                 Start with a Pilot
               </h2>
-              <p className="text-lg md:text-xl text-white/90 drop-shadow-sm">
+              <p className="text-lg md:text-xl text-black/90 drop-shadow-sm">
                 See repeat actions. Track conversions. Decide next.
               </p>
               <Link href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank">
