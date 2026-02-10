@@ -270,19 +270,19 @@ export default function OfficialMerchPage() {
                                 {
                                     title: "Coffee brewing (30 sec)",
                                     description: "Browse, tap, buy (tracks: engagement, conversion) — morning curiosity becomes a purchase before the cup is full.",
-                                    imageSrc: "/realestate-pics/1cafe8.jpeg",
+                                    imageSrc: "/fancommerce/娱乐4-咖啡.jpeg",
                                     imageAlt: "Coffee brewing moment",
                                 },
                                 {
                                     title: "Getting water",
                                     description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a pre-order in the time it takes to fill a glass.",
-                                    imageSrc: "/realestate-pics/1water.jpeg",
+                                    imageSrc: "/fancommerce/娱乐3-water.jpeg",
                                     imageAlt: "Getting water moment",
                                 },
                                 {
                                     title: "Microwave timer",
                                     description: "Explore, act (tracks: taps, purchases) — idle waiting becomes an exclusive drop discovery.",
-                                    imageSrc: "/realestate-pics/1evening.jpeg",
+                                    imageSrc: "/fancommerce/娱乐5-微波炉.jpeg",
                                     imageAlt: "Microwave timer moment",
                                 }
                             ]

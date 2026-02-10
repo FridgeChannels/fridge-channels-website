@@ -31,7 +31,7 @@ export function Navigation() {
     if (pathname?.includes('/who-we-serve/creators-authors')) return 'Creators & Authors';
     if (pathname?.includes('/who-we-serve/universities')) return 'Universities';
     if (pathname?.includes('/who-we-serve/retailers')) return 'Retailers';
-    if (pathname?.includes('/who-we-serve/nonprofits')) return 'Nonprofits';
+    if (pathname?.includes('/who-we-serve/nonprofits')) return 'NonProfits';
     if (pathname?.includes('/who-we-serve/chains-franchises')) return 'Franchises & Chains';
     if (pathname?.includes('/who-we-serve/dtc-brands')) return 'DTC Brands';
     if (pathname?.includes('/who-we-serve/official-merch')) return 'Official Merch & Fan Commerce';
@@ -122,22 +122,22 @@ export function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center pt-4 px-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center">
         {/* Navigation bar - styled like untillabs */}
         <div
           className={cn(
-            "w-full max-w-7xl mx-auto rounded-full px-6 py-3",
+            "w-full px-8 py-4",
             "flex items-center justify-between gap-4",
             "transition-all duration-300",
             // Light background mode (米色背景) - white to gray gradient left to right
             isLightMode
               ? cn(
                 "bg-white/70 backdrop-blur-md shadow-sm",
-                "border border-gray-200/50"
+                "border-b border-gray-200/50"
               )
               : cn(
                 // Glass mode (hero section or red background)
-                "bg-white/10 backdrop-blur-md border border-white/20",
+                "bg-white/10 backdrop-blur-md border-b border-white/20",
                 isScrolled && "bg-white/15 backdrop-blur-lg"
               )
           )}
@@ -189,7 +189,7 @@ export function Navigation() {
                   <Link href="/who-we-serve/creators-authors" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Creators & Authors' && "bg-black/5 font-semibold")}>Creators & Authors</Link>
                   <Link href="/who-we-serve/real-estate" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Real Estate' && "bg-black/5 font-semibold")}>Real Estate</Link>
                   {/* <Link href="/who-we-serve/universities" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Universities' && "bg-black/5 font-semibold")}>Universities</Link> */}
-                  <Link href="/who-we-serve/nonprofits" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Nonprofits' && "bg-black/5 font-semibold")}>Nonprofits</Link>
+                  <Link href="/who-we-serve/nonprofits" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'NonProfits' && "bg-black/5 font-semibold")}>NonProfits</Link>
                   {/* <Link href="/who-we-serve/retailers" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Retailers' && "bg-black/5 font-semibold")}>Retailers</Link>
                   <Link href="/who-we-serve/chains-franchises" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Franchises & Chains' && "bg-black/5 font-semibold")}>Franchises & Chains</Link> */}
                   <Link href="/who-we-serve/dtc-brands" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'DTC Brands' && "bg-black/5 font-semibold")}>DTC Brands</Link>
@@ -350,7 +350,7 @@ export function Navigation() {
                     <Link href="/who-we-serve/creators-authors" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Creators & Authors</Link>
                     <Link href="/who-we-serve/real-estate" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Real Estate</Link>
                     {/* <Link href="/who-we-serve/universities" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Universities</Link> */}
-                    <Link href="/who-we-serve/nonprofits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Nonprofits</Link>
+                    <Link href="/who-we-serve/nonprofits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">NonProfits</Link>
                     {/* <Link href="/who-we-serve/retailers" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Retailers</Link>
                     <Link href="/who-we-serve/chains-franchises" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Franchises & Chains</Link> */}
                     <Link href="/who-we-serve/dtc-brands" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">DTC Brands</Link>

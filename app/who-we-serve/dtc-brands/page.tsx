@@ -233,7 +233,7 @@ export default function DtcBrandsPage() {
                   Branded magnet sent with each order. Lives on the fridge — so your product stays top-of-mind between purchases, not competing with email/SMS fatigue.
                 </>
               ),
-              imageSrc: "/realestate-pics/what it is.png",
+              imageSrc: "/dtc/whatitis.jpeg",
               imageAlt: "HomeLoop Magnet",
               seamless: true,
               useOriginalAspectRatio: true,
@@ -245,7 +245,7 @@ export default function DtcBrandsPage() {
               type: "split",
               subtitle: "What it drives",
               description: "One action per tap. Listen. Ask AI. Browse picks. Redeem offer. Styling tips, product care, new arrivals, or chat with AI — every tap builds a daily touchpoint and a relationship between purchases.",
-              imageSrc: "/realestate-pics/CTA.png",
+              imageSrc: "/dtc/CTA-dtc.png",
               imageAlt: "HomeLoop Automated Engagement",
               seamless: true,
               useOriginalAspectRatio: true,
@@ -272,19 +272,19 @@ export default function DtcBrandsPage() {
                 {
                   title: "Coffee brewing",
                   description: "Browse, tap, buy (tracks: engagement, conversion) — morning attention becomes a purchase before the cup is full.",
-                  imageSrc: "/realestate-pics/1cafe8.jpeg",
+                  imageSrc: "/dtc/3dtcbrandcafe- magnet1.jpeg",
                   imageAlt: "Coffee brewing moment",
                 },
                 {
                   title: "Getting water",
                   description: "Quick check, one CTA (tracks: views, clicks) — curiosity becomes a reorder in the time it takes to fill a glass.",
-                  imageSrc: "/realestate-pics/1water.jpeg",
+                  imageSrc: "/dtc/4water-dtcbrand.jpeg",
                   imageAlt: "Getting water moment",
                 },
                 {
                   title: "Microwave timer",
                   description: "Explore, act (tracks: taps, purchases) — idle waiting becomes a purchase moment.",
-                  imageSrc: "/realestate-pics/1evening.jpeg",
+                  imageSrc: "/dtc/5dtcbrand-微波炉.jpeg",
                   imageAlt: "Microwave timer moment",
                 }
               ]

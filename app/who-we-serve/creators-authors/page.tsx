@@ -269,19 +269,19 @@ export default function CreatorsAuthorsPage() {
                                 {
                                     title: "Coffee brewing  ",
                                     description: "Browse latest post, tap to buy a new book, discover backlist (tracks: engagement, conversion) — morning curiosity becomes a purchase before the cup is full.",
-                                    imageSrc: "/realestate-pics/1cafe8.jpeg",
+                                    imageSrc: "/creator/3cafe-创作者.jpeg",
                                     imageAlt: "Coffee brewing moment",
                                 },
                                 {
                                     title: "Getting water",
                                     description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a book order or subscription upgrade in the time it takes to fill a glass.",
-                                    imageSrc: "/realestate-pics/1water.jpeg",
+                                    imageSrc: "/creator/4water-创作者.jpeg",
                                     imageAlt: "Getting water moment",
                                 },
                                 {
                                     title: "Microwave timer",
                                     description: "Explore exclusive content, pre-order next release (tracks: taps, purchases) — idle waiting becomes a new sale.",
-                                    imageSrc: "/realestate-pics/1evening.jpeg",
+                                    imageSrc: "/creator/5微波炉-creator.jpeg",
                                     imageAlt: "Microwave timer moment",
                                 }
                             ]

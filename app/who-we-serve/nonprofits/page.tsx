@@ -231,7 +231,7 @@ export default function RealEstatePage() {
                                     Magnet handed out at events. Lives on the fridge — so your mission stays top-of-mind between campaigns, not lost in the gap where donors forget why they cared.
                                 </>
                             ),
-                            imageSrc: "/realestate-pics/what it is.png",
+                            imageSrc: "/nonprofit/whatitis.jpeg",
                             imageAlt: "CommunityLoop Magnet",
                             seamless: true,
                             useOriginalAspectRatio: true,
@@ -243,7 +243,7 @@ export default function RealEstatePage() {
                             type: "split",
                             subtitle: "What it drives",
                             description: "One action per tap. Donate. Volunteer. RSVP. Share. Stories, impact updates, volunteer opportunities — every tap builds a connection that keeps supporters engaged between events.",
-                            imageSrc: "/realestate-pics/CTA.png",
+                            imageSrc: "/nonprofit/1NONProfitCTA.png",
                             imageAlt: "CommunityLoop Engagement",
                             seamless: true,
                             useOriginalAspectRatio: true,
@@ -270,19 +270,19 @@ export default function RealEstatePage() {
                                 {
                                     title: "Coffee brewing (30 sec)",
                                     description: "Browse, tap, donate (tracks: engagement, conversion) — morning curiosity becomes a donation before the cup is full.",
-                                    imageSrc: "/realestate-pics/1cafe8.jpeg",
+                                    imageSrc: "/nonprofit/咖啡3-nonprofits.jpeg",
                                     imageAlt: "Coffee brewing moment",
                                 },
                                 {
                                     title: "Getting water",
                                     description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes an RSVP in the time it takes to fill a glass.",
-                                    imageSrc: "/realestate-pics/1water.jpeg",
+                                    imageSrc: "/nonprofit/4-water-nonprofit.jpeg",
                                     imageAlt: "Getting water moment",
                                 },
                                 {
                                     title: "Microwave timer",
                                     description: "Explore, act (tracks: taps, actions) — idle waiting becomes a volunteer sign-up.",
-                                    imageSrc: "/realestate-pics/1evening.jpeg",
+                                    imageSrc: "/nonprofit/微波炉-5-nonprofits.jpeg",
                                     imageAlt: "Microwave timer moment",
                                 }
                             ]
