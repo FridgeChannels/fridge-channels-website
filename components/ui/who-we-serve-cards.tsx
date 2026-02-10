@@ -64,9 +64,10 @@ export const WhoWeServeCards: React.FC<WhoWeServeCardsProps> = ({ cards }) => {
           const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
 
           return (
-            <div
+            <Link
               key={`${card.title}-${index}`}
-              className="flex h-full w-[400px] min-w-[450px] flex-shrink-0 2xl:w-[450px] mx-6 transition-all duration-300"
+              href={card.link}
+              className="flex h-full w-[400px] min-w-[450px] flex-shrink-0 2xl:w-[450px] mx-6 transition-all duration-300 block"
               style={{
                 transform: isHovered ? 'scale(1.05)' : isOtherHovered ? 'scale(0.95)' : 'scale(1)',
                 opacity: isOtherHovered ? 0.6 : 1,
@@ -77,14 +78,14 @@ export const WhoWeServeCards: React.FC<WhoWeServeCardsProps> = ({ cards }) => {
             >
               <div className="block h-full w-full">
                 <article className={`aspect-[430/340] h-full min-h-[320px] w-full overflow-hidden text-black rounded-[2rem] duration-300 ease-in-out transition-all group flex flex-col ${isHovered
-                    ? 'bg-white/90 backdrop-blur-xl shadow-2xl'
-                    : 'bg-[#F7F3ED] shadow-sm hover:bg-white/80 hover:backdrop-blur-md'
+                  ? 'bg-white/90 backdrop-blur-xl shadow-2xl'
+                  : 'bg-[#F7F3ED] shadow-sm hover:bg-white/80 hover:backdrop-blur-md'
                   }`}>
                   <div className="h-full p-2 flex flex-col flex-1 min-h-0">
                     <div className="relative flex flex-col h-full w-full overflow-hidden rounded-3xl">
                       {/* Text content - top */}
                       <div className="relative z-10 flex flex-col items-start justify-start rounded-t-3xl p-4 flex-shrink-0">
-                        <h3 className="font-display w-full text-left leading-none font-medium text-balance text-xl md:text-2xl">
+                        <h3 className="font-display w-full text-left leading-none font-medium text-xl md:text-2xl">
                           {card.title}
                         </h3>
                         {card.subtitle && (
@@ -113,7 +114,7 @@ export const WhoWeServeCards: React.FC<WhoWeServeCardsProps> = ({ cards }) => {
                   </div>
                 </article>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

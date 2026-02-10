@@ -126,7 +126,7 @@ export function Navigation() {
         {/* Navigation bar - styled like untillabs */}
         <div
           className={cn(
-            "w-full px-8 py-4",
+            "w-full px-8 md:px-24 lg:px-48 py-4",
             "flex items-center justify-between gap-4",
             "transition-all duration-300",
             // Light background mode (米色背景) - white to gray gradient left to right
