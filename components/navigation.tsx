@@ -117,7 +117,9 @@ export function Navigation() {
   }, []);
 
   // Determine styles: 
-  const isGlassMode = isOnHeroSection || isOnRedBackground;
+  const isIndustryPage = !!currentWhoWeServe;
+  // If on industry page, we want text to be white (like glass mode) but background transparent
+  const isGlassMode = isOnHeroSection || isOnRedBackground || isIndustryPage;
   const isLightMode = !isGlassMode;
 
   return (
@@ -129,17 +131,8 @@ export function Navigation() {
             "w-full px-8 md:px-24 lg:px-48 py-4",
             "flex items-center justify-between gap-4",
             "transition-all duration-300",
-            // Light background mode (米色背景) - white to gray gradient left to right
-            isLightMode
-              ? cn(
-                "bg-white/70 backdrop-blur-md shadow-sm",
-                "border-b border-gray-200/50"
-              )
-              : cn(
-                // Glass mode (hero section or red background)
-                "bg-white/10 backdrop-blur-md border-b border-white/20",
-                isScrolled && "bg-white/15 backdrop-blur-lg"
-              )
+            // Always transparent background as requested
+            "bg-transparent shadow-none border-none"
           )}
         >
           {/* Logo - Left side */}
