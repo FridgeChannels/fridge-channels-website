@@ -104,7 +104,7 @@ export default function DtcBrandsPage() {
         <section className="relative w-full h-screen">
           {/* Background Image */}
           <Image
-            src="/dtc/ChatGPT Image Feb 9, 2026, 01_54_55 PM.png"
+            src="/dtc/BGPictureDTC.png"
             alt="HomeLoop Hero"
             fill
             className="object-cover"
