@@ -23,6 +23,8 @@ interface ScrollItem {
         description: string;
         imageSrc: string;
         imageAlt: string;
+        imageStyle?: React.CSSProperties;
+        imageClassName?: string;
     }>;
 }
 
@@ -142,7 +144,8 @@ export function HorizontalScrollSection({ items, className }: HorizontalScrollSe
                                                             src={card.imageSrc}
                                                             alt={card.imageAlt}
                                                             fill
-                                                            className="object-cover object-center"
+                                                            className={cn("object-cover object-center", card.imageClassName)}
+                                                            style={card.imageStyle}
                                                             sizes="(max-width: 768px) 100vw, 33vw"
                                                         />
                                                     </div>

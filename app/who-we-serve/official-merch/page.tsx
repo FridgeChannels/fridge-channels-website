@@ -278,6 +278,7 @@ export default function OfficialMerchPage() {
                                     description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a pre-order in the time it takes to fill a glass.",
                                     imageSrc: "/fancommerce/娱乐3-water.jpeg",
                                     imageAlt: "Getting water moment",
+                                    imageStyle: { transform: "scale(1.05)" }, // Zoom slightly to hide borders
                                 },
                                 {
                                     title: "Microwave timer",

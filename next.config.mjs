@@ -16,9 +16,8 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
-    ],
   },
-output: "standalone",
+  output: "standalone",
 }
 
 export default nextConfig

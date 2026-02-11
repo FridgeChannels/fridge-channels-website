@@ -233,7 +233,7 @@ export default function DtcBrandsPage() {
               ),
               imageSrc: "/dtc/whatitis.jpeg",
               imageAlt: "HomeLoop Magnet",
-              seamless: true,
+              seamless: false,
               useOriginalAspectRatio: true,
               roundedCorners: true,
             },
@@ -245,7 +245,7 @@ export default function DtcBrandsPage() {
               description: "One action per tap. Listen. Ask AI. Browse picks. Redeem offer. Styling tips, product care, new arrivals, or chat with AI — every tap builds a daily touchpoint and a relationship between purchases.",
               imageSrc: "/dtc/CTA-dtc.png",
               imageAlt: "HomeLoop Automated Engagement",
-              seamless: true,
+              seamless: false,
               useOriginalAspectRatio: true,
               roundedCorners: true,
 
@@ -272,6 +272,7 @@ export default function DtcBrandsPage() {
                   description: "Browse, tap, buy (tracks: engagement, conversion) — morning attention becomes a purchase before the cup is full.",
                   imageSrc: "/dtc/3dtcbrandcafe- magnet1.jpeg",
                   imageAlt: "Coffee brewing moment",
+                  imageStyle: { objectPosition: "center bottom", transform: "scale(1.05)" }, // Zoom slightly and align bottom to hide top border
                 },
                 {
                   title: "Getting water",
