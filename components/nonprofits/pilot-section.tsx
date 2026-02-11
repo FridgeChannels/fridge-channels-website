@@ -20,58 +20,55 @@ export function PilotSection() {
 
                     <SinglePricingCard
                         badge={{
-                            text: "30-Day Pilot",
+                            text: "Pilot Plan",
                             className: "px-3 py-1 bg-amber-100 border-amber-300/60 text-amber-900 hover:bg-amber-200/80 rounded-full",
                         }}
-                        title="Pilot Plan"
+                        title="Pilot Setup"
                         subtitle="Validate donation frequency lift in 30 days."
                         price={{
-                            current: "$4,800 / 30 days",
+                            current: "$4,800  ",
                         }}
+                        pricingDescription={
+                            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-950 font-medium">
+                                Includes magnets + setup + tracking dashboard, <span className="block mt-1 text-lg font-bold text-amber-700">plus 30 days of Pilot Ops (included).</span>
+                            </div>
+                        }
+                        benefitsTitle="What’s included"
                         benefits={[
                             {
-                                text: "50-200 branded magnets",
+                                text: <strong>50–200 branded magnets (Yours to keep)</strong>,
                                 icon: Check,
                             },
                             {
-                                text: "Content setup (4-6 pieces)",
+                                text: <strong>Pilot Ops for 30 days: bi-weekly reviews + recommendations</strong>,
                                 icon: Check,
                             },
                             {
-                                text: "Real-time dashboard",
+                                text: "Content setup (4–6 pieces)    ",
                                 icon: Check,
                             },
                             {
-                                text: "Bi-weekly reviews + recommendations",
+                                text: "Real-time dashboard    ",
                                 icon: Check,
                             },
                         ]}
-                        successMetric="1.5-2x donation frequency in 30 days + 60-day follow-up."
                         features={[
                             {
-                                text: "Nonprofits with regular events",
+                                text: "Keep using the magnet experience",
                             },
                             {
-                                text: "Struggling to maintain donor engagement",
-                            },
-                            {
-                                text: "Ready to test and iterate",
+                                text: "AI features are billed by usage (pay-as-you-go)",
                             },
                         ]}
                         boundary={{
-                            title: "Boundary",
-                            content: "We provide the mechanism: event → fridge → visibility → action → measurement. You own the mission, programs, stories.",
+                            title: "",
+                            content: "Pilot Ops refers to optimization + iteration support during the 30-day sprint. AI usage is measured and billed after the pilot.",
                         }}
                         featuresIcon={Check}
-                        featuresTitle="For"
+                        featuresTitle="After day 30"
                         primaryButton={{
                             text: "Book a 30-Day Pilot",
                             href: "https://studio.fridgechannels.com",
-                        }}
-                        secondaryButton={{
-                            text: "Data: See Trust Center",
-                            icon: ExternalLink,
-                            href: "/trust",
                         }}
                         testimonials={[]}
                         animationEnabled={true}

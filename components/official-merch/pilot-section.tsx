@@ -20,58 +20,56 @@ export function PilotSection() {
 
                     <SinglePricingCard
                         badge={{
-                            text: "6-Week Pilot",
+                            text: "Pilot Plan",
                             className: "px-3 py-1 bg-amber-100 border-amber-300/60 text-amber-900 hover:bg-amber-200/80 rounded-full",
                         }}
-                        title="Pilot Plan"
+                        title="Pilot Setup"
                         subtitle="Validate repeat purchase lift in 6 weeks."
                         price={{
-                            current: "$4,800 / 6 weeks",
+                            current: "$4,800  ",
                         }}
+                        pricingDescription={
+                            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-950 font-medium">
+                                Includes 200 branded FanLoop magnets, <span className="block mt-1 text-lg font-bold text-amber-700">plus 6 weeks of Pilot Ops.</span>
+                            </div>
+                        }
+                        benefitsTitle="What’s included"
                         benefits={[
                             {
-                                text: "200 branded FanLoop magnets",
+                                text: <strong>200 branded FanLoop magnets (yours to keep)</strong>,
                                 icon: Check,
                             },
                             {
-                                text: "Content setup (10-15 pieces)",
+                                text: <strong>Pilot Ops for 6 weeks: 3 reviews + recommendations, plus a final report</strong>,
                                 icon: Check,
                             },
                             {
-                                text: "Real-time dashboard",
+                                text: "Content setup (10–15 pieces)    ",
                                 icon: Check,
                             },
                             {
-                                text: "3 reviews + final report",
+                                text: "Real-time dashboard      ",
                                 icon: Check,
                             },
+
                         ]}
-                        successMetric="1.5-2.5x repeat purchase rate improvement in 6 weeks"
                         features={[
                             {
-                                text: "Artists/creators with existing merch sales",
+                                text: "Keep using the magnet experience",
                             },
                             {
-                                text: "Struggling to drive repeat purchases between events",
-                            },
-                            {
-                                text: "Ready to test daily fan engagement",
+                                text: "AI features are billed by usage (pay-as-you-go)",
                             },
                         ]}
                         boundary={{
-                            title: "Boundary",
-                            content: "We provide the mechanism: fridge → daily visibility → action → measurement. You own the art, content, merch quality, pricing.",
+                            title: "",
+                            content: "Pilot Ops refers to optimization + iteration support during the 6-week sprint. AI usage is measured and billed after the pilot.",
                         }}
                         featuresIcon={Check}
-                        featuresTitle="For"
+                        featuresTitle="After week 6"
                         primaryButton={{
                             text: "Book a Demo",
                             href: "https://studio.fridgechannels.com",
-                        }}
-                        secondaryButton={{
-                            text: "Data: See Trust Center",
-                            icon: ExternalLink,
-                            href: "/trust",
                         }}
                         testimonials={[]}
                         animationEnabled={true}

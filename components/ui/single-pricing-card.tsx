@@ -21,11 +21,11 @@ export interface Testimonial {
 }
 
 export interface Feature {
-  text: string;
+  text: React.ReactNode;
 }
 
 export interface Benefit {
-  text: string;
+  text: React.ReactNode;
   icon: LucideIcon;
 }
 
@@ -36,18 +36,20 @@ export interface SinglePricingCardProps {
     className?: string;
   };
   title: string;
-  subtitle: string;
+  subtitle?: React.ReactNode;
   price: {
     current: string;
     original?: string;
     discount?: string;
     discountBadgeClassName?: string;
   };
+  pricingDescription?: React.ReactNode;
   successMetric?: string;
   benefits: Benefit[];
+  benefitsTitle?: string;
   features: Feature[];
   featuresIcon: LucideIcon;
-  featuresTitle?: string;
+  featuresTitle?: React.ReactNode;
   featuresBadge?: {
     icon: LucideIcon;
     text: string;
@@ -67,7 +69,7 @@ export interface SinglePricingCardProps {
   };
   boundary?: {
     title: string;
-    content: string;
+    content: React.ReactNode;
   };
   testimonials: Testimonial[];
   testimonialRotationSpeed?: number;
@@ -82,11 +84,13 @@ export function SinglePricingCard({
   title,
   subtitle,
   price,
+  pricingDescription,
   successMetric,
   benefits,
+  benefitsTitle = "You Get:",
   features,
   featuresIcon,
-  featuresTitle = "Included Features",
+  featuresTitle = "Included Features:",
   featuresBadge,
   primaryButton,
   secondaryButton,
@@ -124,8 +128,10 @@ export function SinglePricingCard({
               title={title}
               subtitle={subtitle}
               price={price}
+              pricingDescription={pricingDescription}
               successMetric={successMetric}
               benefits={benefits}
+              benefitsTitle={benefitsTitle}
               features={features}
               featuresIcon={featuresIcon}
               featuresTitle={featuresTitle}
@@ -147,8 +153,10 @@ export function SinglePricingCard({
             title={title}
             subtitle={subtitle}
             price={price}
+            pricingDescription={pricingDescription}
             successMetric={successMetric}
             benefits={benefits}
+            benefitsTitle={benefitsTitle}
             features={features}
             featuresIcon={featuresIcon}
             featuresTitle={featuresTitle}
@@ -182,8 +190,10 @@ function SinglePricingCardContent({
   title,
   subtitle,
   price,
+  pricingDescription,
   successMetric,
   benefits,
+  benefitsTitle,
   features,
   featuresIcon,
   featuresTitle,
@@ -219,7 +229,7 @@ function SinglePricingCardContent({
         </motion.div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,300px)_1fr_1fr]">
+      <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_0.8fr]">
         {/* Column 1: Identity & Price */}
         <div className="p-6 md:p-8 flex flex-col">
           {badge && (
@@ -255,6 +265,9 @@ function SinglePricingCardContent({
             )}
           </div>
 
+          {pricingDescription && (
+            <div className="text-sm text-ds-text-secondary mb-6">{pricingDescription}</div>
+          )}
 
           <div className="mt-auto space-y-3">
             <Button
@@ -315,15 +328,17 @@ function SinglePricingCardContent({
 
         {/* Column 2: Goal, Benefits, Success Metric */}
         <div className="p-6 md:p-8 flex flex-col bg-white">
-          <motion.div
-            className="mb-8"
-            initial={animationEnabled ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}
-            animate={animationEnabled && isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h4 className="font-semibold mb-3 text-ds-text">Goal:</h4>
-            <p className="text-sm text-ds-text-secondary leading-relaxed">{subtitle}</p>
-          </motion.div>
+          {subtitle && (
+            <motion.div
+              className="mb-8"
+              initial={animationEnabled ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}
+              animate={animationEnabled && isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h4 className="font-semibold mb-3 text-ds-text">Goal:</h4>
+              <p className="text-sm text-ds-text-secondary leading-relaxed">{subtitle}</p>
+            </motion.div>
+          )}
 
           <motion.div
             className="mb-8"
@@ -331,7 +346,7 @@ function SinglePricingCardContent({
             animate={animationEnabled && isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h4 className="font-semibold mb-4 text-ds-text">You Get:</h4>
+            <h4 className="font-semibold mb-4 text-ds-text">{benefitsTitle}</h4>
             <div className="space-y-3">
               {benefits.map((benefit, index) => {
                 const BenefitIcon = benefit.icon;
@@ -366,7 +381,7 @@ function SinglePricingCardContent({
             transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center mb-4">
-              <h4 className="font-semibold">{featuresTitle}:</h4>
+              <h4 className="font-semibold">{featuresTitle}</h4>
             </div>
             <div className="space-y-3">
               {features.map((feature, i) => (
@@ -393,7 +408,7 @@ function SinglePricingCardContent({
               animate={animationEnabled && isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.55, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h4 className="font-semibold mb-3 text-ds-text">{boundary.title}:</h4>
+              {boundary.title && <h4 className="font-semibold mb-3 text-ds-text">{boundary.title}</h4>}
               <p className="text-sm text-ds-text-secondary leading-relaxed">{boundary.content}</p>
             </motion.div>
           )}

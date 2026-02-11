@@ -20,58 +20,56 @@ export function PilotSection() {
 
                     <SinglePricingCard
                         badge={{
-                            text: "8-Week Pilot",
+                            text: "Pilot Plan",
                             className: "px-3 py-1 bg-amber-100 border-amber-300/60 text-amber-900 hover:bg-amber-200/80 rounded-full",
                         }}
-                        title="Pilot Plan"
-                        subtitle="Validate churn reduction, upgrade lift, and book/product sales in 8 weeks."
+                        title="Pilot Setup"
+                        subtitle="Validate churn reduction, upgrade lift, and book/product sales lift in 8 weeks."
                         price={{
-                            current: "$4,800 / 8 weeks",
+                            current: "$4,800  ",
                         }}
+                        pricingDescription={
+                            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-950 font-medium">
+                                Includes 200–300 branded ReaderLoop magnets, <span className="block mt-1 text-lg font-bold text-amber-700">plus 8 weeks of Pilot Ops.</span>
+                            </div>
+                        }
+                        benefitsTitle="What’s included"
                         benefits={[
                             {
-                                text: "200-300 branded ReaderLoop magnets",
+                                text: <strong>200–300 branded ReaderLoop magnets (yours to keep)</strong>,
                                 icon: Check,
                             },
                             {
-                                text: "Content setup (12-20 pieces)",
+                                text: <strong>Pilot Ops for 8 weeks: 4 reviews + recommendations, plus a final report</strong>,
                                 icon: Check,
                             },
                             {
-                                text: "Real-time dashboard",
+                                text: "Content setup (12–20 pieces)    ",
                                 icon: Check,
                             },
                             {
-                                text: "4 reviews + final report",
+                                text: "Real-time dashboard      ",
                                 icon: Check,
                             },
+
                         ]}
-                        successMetric="40-60% churn reduction + 1.5-2x upgrade rate + measurable book/product sales lift in 8 weeks"
                         features={[
                             {
-                                text: "Creators/publishers with paid subscriptions",
+                                text: "Keep using the magnet experience",
                             },
                             {
-                                text: "High churn despite quality content",
-                            },
-                            {
-                                text: "Ready to test daily engagement touchpoint",
+                                text: "AI features are billed by usage (pay-as-you-go)",
                             },
                         ]}
                         boundary={{
-                            title: "Boundary",
-                            content: "We provide the mechanism: fridge → daily visibility → engagement → measurement. You own the content quality, pricing, community.",
+                            title: "",
+                            content: "Pilot Ops refers to optimization + iteration support during the 8-week sprint. AI usage is measured and billed after the pilot.",
                         }}
                         featuresIcon={Check}
-                        featuresTitle="For"
+                        featuresTitle="After week 8"
                         primaryButton={{
                             text: "Book a Demo",
                             href: "https://studio.fridgechannels.com",
-                        }}
-                        secondaryButton={{
-                            text: "Data: See Trust Center",
-                            icon: ExternalLink,
-                            href: "/trust",
                         }}
                         testimonials={[]}
                         animationEnabled={true}

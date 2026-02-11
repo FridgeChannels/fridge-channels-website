@@ -20,58 +20,56 @@ export function PilotSection() {
 
           <SinglePricingCard
             badge={{
-              text: "30-Day Pilot",
+              text: "Pilot Plan",
               className: "px-3 py-1 bg-amber-100 border-amber-300/60 text-amber-900 hover:bg-amber-200/80 rounded-full",
             }}
-            title="Pilot Plan"
-            subtitle="Validate whether at-home engagement moves clients from showing to decision faster than follow-up alone."
+            title="Pilot Setup"
+            subtitle="Validate whether at-home engagement moves clients from showing → decision faster than follow-up alone."
             price={{
-              current: "$2,400 / month",
+              current: "$2,400  ",
             }}
+            pricingDescription={
+              <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-950 font-medium">
+                Includes deployment package for 100 Close Concierge, <span className="block mt-1 text-lg font-bold text-amber-700">plus 30 days of Pilot Ops.</span>
+              </div>
+            }
+            benefitsTitle="What’s included"
             benefits={[
               {
-                text: "Deployment package for 100 Close Concierge",
+                text: <strong>Deployment package for 100 Close Concierge (yours to keep)</strong>,
                 icon: Check,
               },
               {
-                text: "Content configuration (FAQ + CTAs)",
+                text: <strong>Pilot Ops for 30 days: weekly reviews + recommendations</strong>,
+                icon: Check,
+              },
+              {
+                text: "Content configuration (FAQ + CTAs)      ",
                 icon: Check,
               },
               {
                 text: "Activity dashboard (taps, engagement, actions)",
                 icon: Check,
               },
-              {
-                text: "Weekly review recommendations",
-                icon: Check,
-              },
+
             ]}
-            successMetric="Baseline response time → 40% faster next-step action in 30 days"
             features={[
               {
-                text: "Top-performing teams with serious buyers who need momentum",
+                text: "Keep using the Close Concierge experience",
               },
               {
-                text: "Agents who want data on client engagement, not guesses",
-              },
-              {
-                text: "Teams willing to test one new channel for 30 days",
+                text: "AI features are billed by usage (pay-as-you-go)",
               },
             ]}
             boundary={{
-              title: "Boundary",
-              content: "We provide the mechanism—touchpoint, content structure, and measurement. You own the deals, pricing strategy, and client relationships. We don't replace your sales process; we make the at-home part measurable.",
+              title: "",
+              content: "Pilot Ops refers to optimization + iteration support during the 30-day sprint. AI usage is measured and billed after the pilot.",
             }}
             featuresIcon={Check}
-            featuresTitle="For"
+            featuresTitle="After day 30"
             primaryButton={{
               text: "Book a 30-Day Pilot",
               href: "https://studio.fridgechannels.com",
-            }}
-            secondaryButton={{
-              text: "Data: See Trust Center",
-              icon: ExternalLink,
-              href: "/trust",
             }}
             testimonials={[]}
             animationEnabled={true}
