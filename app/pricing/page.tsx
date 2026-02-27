@@ -88,7 +88,7 @@ export default function PricingPage() {
               {/* Glassy pricing card style (match Most Popular Plans grid) */}
               <div className="h-full backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex flex-col transition-all duration-300 from-black/5 to-black/0 border border-black/10 dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91] hover:shadow-2xl hover:-translate-y-0.5 px-7 py-8">
                 <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground">Delivery (One-time)</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">Delivery  </h3>
                   <h4 className="text-lg md:text-xl font-semibold text-foreground">$3 / touchpoint</h4>
                 </div>
 

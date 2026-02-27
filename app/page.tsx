@@ -67,10 +67,17 @@ export default function HomePage() {
                       linkText: "Learn more →",
                       imageUrl: "/dtcbrand.jpeg",
                     },
-                    {
+                    /* {
                       title: "Nonprofits",
                       description: "Event attendees → one-time donors → recurring supporters → major donors.",
                       link: "/who-we-serve/nonprofits",
+                      linkText: "Learn more →",
+                      imageUrl: "/Shrink_the_refrigerator_2k_202602061609.jpeg",
+                    }, */
+                    {
+                      title: "Museums",
+                      description: "Event attendees → one-time donors → recurring supporters → major donors.",
+                      link: "/who-we-serve/museums",
                       linkText: "Learn more →",
                       imageUrl: "/Shrink_the_refrigerator_2k_202602061609.jpeg",
                     },
@@ -79,7 +86,7 @@ export default function HomePage() {
                       description: "Turn casual readers into subscribers. Drive repeat opens and paid upgrades.",
                       link: "/who-we-serve/creators-authors",
                       linkText: "Learn more →",
-                      imageUrl: "/homepage/ChatGPT Image Feb 10, 2026, 03_11_58 PM.png",
+                      imageUrl: "/homepage/creator-card.png",
                     },
                     {
                       title: "Sports & Entertainment",

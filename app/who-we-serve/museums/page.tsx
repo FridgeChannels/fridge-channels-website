@@ -9,8 +9,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SectionTransition } from "@/components/ui/section-transition";
 import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { PilotSection } from "@/components/creators-authors/pilot-section";
-import { FaqSection } from "@/components/creators-authors/faq-section";
+import { PilotSection } from "@/components/museums/pilot-section";
+import { FaqSection } from "@/components/museums/faq-section";
 import { FadingHeadlineSection } from "@/components/real-estate/fading-headline-section";
 import { HorizontalScrollSection } from "@/components/ui/horizontal-scroll-section";
 
@@ -51,9 +51,9 @@ function HowItWorksSection() {
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">01</span>
-                        <h3 className="text-xl font-medium text-ds-text mb-4">Deploy</h3>
+                        <h3 className="text-xl font-medium text-ds-text mb-4">Stock</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            ReaderLoop magnets sent to paid subscribers, sold at book tours, or at speaking events. Simple "tap to connect" instructions included.
+                            Magnets ship to your museum shop. Sell alongside postcards, prints, and branded merch.
                         </p>
                     </motion.div>
 
@@ -69,7 +69,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">02</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Configure</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            Your content becomes bite-sized updates. Latest posts, exclusives, behind-the-scenes, book previews. Each ends with one CTA — read the full issue, buy a book, upgrade subscription, or pre-order the next release.
+                            Your exhibits, stories, and campaigns become bite-sized content. Each ends with one CTA — donate, renew, RSVP, share.
                         </p>
                     </motion.div>
 
@@ -85,7 +85,7 @@ function HowItWorksSection() {
                         <span className="block text-sm font-medium text-ds-text-secondary mb-6">03</span>
                         <h3 className="text-xl font-medium text-ds-text mb-4">Iterate</h3>
                         <p className="text-ds-body leading-relaxed text-ds-text-secondary">
-                            Bi-weekly reviews: adjust content mix, release timing, CTAs based on engagement and retention data.
+                            Bi-weekly reviews: adjust content based on what drives engagement and conversions.
                         </p>
                     </motion.div>
                 </motion.div>
@@ -94,7 +94,7 @@ function HowItWorksSection() {
     );
 }
 
-export default function CreatorsAuthorsPage() {
+export default function MuseumsPage() {
     return (
         <div className="min-h-screen flex flex-col font-sans selection:bg-ds-primary selection:text-white">
             <Navigation />
@@ -104,8 +104,8 @@ export default function CreatorsAuthorsPage() {
                 <section className="relative w-full h-screen">
                     {/* Background Image */}
                     <Image
-                        src="/creator/bgp-creator-2.png"
-                        alt="Close Concierge Hero"
+                        src="/nonprofit/Make_the_main_2k_202602091613.jpeg"
+                        alt="Museum Edition Hero"
                         fill
                         className="object-cover"
                         style={{ objectPosition: "center center" }}
@@ -141,7 +141,7 @@ export default function CreatorsAuthorsPage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                ReaderLoop
+                                CommunityLoop — Museum Edition
                             </motion.h1>
                             <motion.p
                                 className="text-base md:text-xl lg:text-2xl text-white/90 leading-[1.65] mb-8 drop-shadow-md max-w-2xl"
@@ -150,7 +150,7 @@ export default function CreatorsAuthorsPage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                AI-powered magnet for your fridge. Turns readers into active subscribers who buy more and stay longer.
+                                An AI-powered magnet sold in your museum shop. Visitors take it home, stick it on the fridge. A new product on your shelf — and a living portal to your museum on every visitor&apos;s fridge.
                             </motion.p>
                             <motion.div
                                 className="flex items-center justify-start gap-4"
@@ -166,7 +166,7 @@ export default function CreatorsAuthorsPage() {
                                         shimmerColor="#ffffff"
                                     >
                                         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
-                                            Book a Demo
+                                            Book a 30-Day Pilot
                                         </span>
                                     </ShimmerButton>
                                 </Link>
@@ -174,7 +174,12 @@ export default function CreatorsAuthorsPage() {
                         </motion.div>
                     </div>
                     {/* Bottom fade to white */}
-                    <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 md:h-64 bg-gradient-to-t from-white via-white/80 to-transparent" />
+                    <div
+                        className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 md:h-40"
+                        style={{
+                            background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0) 100%)'
+                        }}
+                    />
                 </section>
 
                 {/* Hero Metrics Strip */}
@@ -184,22 +189,18 @@ export default function CreatorsAuthorsPage() {
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">50-300+</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TIMES SEEN/MONTH</span>
-
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">10-15</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">6-8</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TAPS/MONTH</span>
-
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">4-6 min</span>
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">3.8 min</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">AVG. ENGAGEMENT</span>
-
                             </div>
                             <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-                                <span className="text-3xl md:text-4xl font-bold text-ds-text">40-60%</span>
-                                <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">CHURN REDUCTION</span>
-
+                                <span className="text-3xl md:text-4xl font-bold text-ds-text">2.1x</span>
+                                <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">MEMBERSHIP RENEWAL RATE</span>
                             </div>
                         </div>
                     </div>
@@ -214,24 +215,24 @@ export default function CreatorsAuthorsPage() {
                             type: "centered",
                             headline: (
                                 <>
-                                    An AI-powered magnet that <span className="text-[#c2a36b] font-semibold">lives on your reader&apos;s fridge</span> — <span className="text-[#c2a36b] font-semibold">so your work stays visible every day</span>, not buried in inbox or feeds where it goes out of sight and out of mind, and readers stay active with <span className="text-[#c2a36b] font-semibold">3-5x lower churn + 2x upgrade rate</span>.
+                                    An AI-powered magnet on your visitor&apos;s fridge — so your museum stays <span className="text-[#c2a36b] font-semibold">part of their daily life</span> after the visit, not forgotten in a drawer next to old tickets, and visitors build giving and return habits worth <span className="text-[#c2a36b] font-semibold">3-5x lifetime value</span>.
                                 </>
                             ),
 
                         },
-                        // 2. What it is (Close Concierge)
+                        // 2. What it is
                         {
                             id: "what-it-is",
                             type: "split",
                             subtitle: "What it is",
-                            title: "ReaderLoop",
+                            title: "CommunityLoop — Museum Edition",
                             description: (
                                 <>
-                                    Branded magnet sent to paid subscribers, sold at book tours, or handed out at speaking events. Lives on the fridge door — <span className="font-semibold text-ds-text">so readers have a daily reminder of your work</span>, not a subscription they forget to read and cancel, or a book they finished and forgot about.
+                                    A branded magnet sold in your museum shop. Lives on the fridge — so your museum stays top-of-mind between visits, not lost in the gap where visitors forget why they loved it.
                                 </>
                             ),
-                            imageSrc: "/creator/whatitis.png",
-                            imageAlt: "Close Concierge Magnet",
+                            imageSrc: "/nonprofit/whatitis.jpeg",
+                            imageAlt: "CommunityLoop Museum Magnet",
                             seamless: true,
                             useOriginalAspectRatio: true,
                             roundedCorners: true,
@@ -241,9 +242,9 @@ export default function CreatorsAuthorsPage() {
                             id: "what-it-drives",
                             type: "split",
                             subtitle: "What it drives",
-                            description: "One action per tap. Read latest posts. Listen to previews. Buy books. Browse backlist. Upgrade subscription. Access exclusive content and early releases — every tap builds a habit that turns one-time readers into repeat buyers and long-term subscribers.",
-                            imageSrc: "/creator/CTA-creator.png",
-                            imageAlt: "Close Concierge Automated Engagement",
+                            description: "Two revenue streams from one product. Merch revenue at the register. Then ongoing engagement from the fridge — donate, renew membership, RSVP to events, explore new exhibits. Every tap deepens the visitor's connection long after they leave the building.",
+                            imageSrc: "/nonprofit/1NONProfitCTA.png",
+                            imageAlt: "CommunityLoop Museum Engagement",
                             seamless: true,
                             useOriginalAspectRatio: true,
                             roundedCorners: true,
@@ -254,9 +255,9 @@ export default function CreatorsAuthorsPage() {
                             id: "how-you-measure",
                             type: "split",
                             subtitle: "How you measure:",
-                            description: "Every tap, read, purchase, and engagement tracked. See what keeps readers active and what drives book sales and upgrades — so you know exactly which content and moments convert readers into repeat buyers.",
+                            description: "Every tap, view, action tracked. See what resonates and converts — so you know exactly which exhibits, stories, and moments drive repeat visits and giving.",
                             imageSrc: "/realestate-pics/How you measure.png",
-                            imageAlt: "Close Concierge Analytics Dashboard",
+                            imageAlt: "CommunityLoop Museum Analytics",
                             useOriginalAspectRatio: true,
                             seamless: true,
                         },
@@ -264,24 +265,24 @@ export default function CreatorsAuthorsPage() {
                             id: "how-people-use-it",
                             type: "three-cards",
                             subtitle: "How people use it",
-                            description: "Pass the fridge. Tap when curious. Kitchen moments your readers already have — now working for your content and catalog.",
+                            description: "Pass the fridge. Tap when curious. Kitchen moments your visitors already have — now working for your museum.",
                             cards: [
                                 {
-                                    title: "Coffee brewing  ",
-                                    description: "Browse latest post, tap to buy a new book, discover backlist (tracks: engagement, conversion) — morning curiosity becomes a purchase before the cup is full.",
-                                    imageSrc: "/creator/3cafe-创作者.jpeg",
+                                    title: "Coffee brewing (30 sec)",
+                                    description: "Browse new exhibits, tap, donate (tracks: engagement, conversion) — morning curiosity becomes a donation before the cup is full.",
+                                    imageSrc: "/nonprofit/咖啡3-nonprofits.jpeg",
                                     imageAlt: "Coffee brewing moment",
                                 },
                                 {
                                     title: "Getting water",
-                                    description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a book order or subscription upgrade in the time it takes to fill a glass.",
-                                    imageSrc: "/creator/4water-创作者.jpeg",
+                                    description: "Quick check, one CTA (tracks: views, clicks) — a glance becomes a membership renewal in the time it takes to fill a glass.",
+                                    imageSrc: "/nonprofit/4-water-nonprofit.jpeg",
                                     imageAlt: "Getting water moment",
                                 },
                                 {
                                     title: "Microwave timer",
-                                    description: "Explore exclusive content, pre-order next release (tracks: taps, purchases) — idle waiting becomes a new sale.",
-                                    imageSrc: "/creator/5微波炉-creator.jpeg",
+                                    description: "Explore, act (tracks: taps, actions) — idle waiting becomes an RSVP for a weekend event.",
+                                    imageSrc: "/nonprofit/微波炉-5-nonprofits.jpeg",
                                     imageAlt: "Microwave timer moment",
                                 }
                             ]
@@ -299,14 +300,14 @@ export default function CreatorsAuthorsPage() {
                 >
                     <div className="mx-auto max-w-[1320px] px-8 md:px-12 lg:px-20">
                         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] font-medium text-ds-text leading-[1.1] tracking-tight">
-                            Not an email. <br />
-                            Not a notification. <br />
-                            <span className="text-[#c2a36b]">Not an app.</span>
+                            Not an email list. <br />
+                            Not social media. <br />
+                            <span className="text-[#c2a36b]">Not a gift shop trinket that ends up in a junk drawer.</span>
                         </h2>
                     </div>
                 </section>
 
-                {/* How It Works - 不用 SectionTransition，避免父级 opacity 冲突；用 useInView 控制步骤动画 */}
+                {/* How It Works */}
                 <HowItWorksSection />
 
                 {/* Pilot Section */}
@@ -324,7 +325,7 @@ export default function CreatorsAuthorsPage() {
                     <div className="mx-auto max-w-4xl px-5 md:px-8 lg:px-16 text-center relative z-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-ds-text mb-6">Start Your Pilot</h2>
                         <p className="text-base md:text-xl text-ds-text-secondary mb-10 leading-[1.65] max-w-2xl mx-auto">
-                            Move readers from inactive to active buyers and subscribers. Reduce churn. Drive book sales. Validate in 8 weeks.
+                            Turn your museum shop into a <strong>recurring engagement channel</strong>. Validate in 30 days.
                         </p>
                         <Link href="https://studio.fridgechannels.com" className="inline-flex">
                             <ShimmerButton
@@ -333,12 +334,12 @@ export default function CreatorsAuthorsPage() {
                                 shimmerColor="#ffffff"
                             >
                                 <span className="whitespace-pre-wrap text-center text-base font-semibold leading-none tracking-tight text-white">
-                                    Book a Demo
+                                    Book a 30-Day Pilot
                                 </span>
                             </ShimmerButton>
                         </Link>
                         <p className="text-ds-text-secondary/70 text-sm mt-8">
-                            We provide the mechanism: daily reminder → content engagement → retention + sales. You own the content.
+                            We provide the mechanism: shop → fridge → action → measurement. You own the mission.
                         </p>
                     </div>
                 </section>

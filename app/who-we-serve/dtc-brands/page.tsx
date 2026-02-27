@@ -104,7 +104,7 @@ export default function DtcBrandsPage() {
         <section className="relative w-full h-screen">
           {/* Background Image */}
           <Image
-            src="/dtc/ChatGPT Image Feb 9, 2026, 01_54_55 PM.png"
+            src="/dtc/BGPictureDTC.png"
             alt="HomeLoop Hero"
             fill
             className="object-cover"
@@ -116,7 +116,7 @@ export default function DtcBrandsPage() {
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30" />
           {/* Content positioned over the image */}
-          <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 px-6 md:pl-24 lg:pl-96 pr-6">
+          <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 px-6 md:pl-24 lg:pl-65 pr-6">
             <motion.div
               className="max-w-[800px]"
               initial="hidden"
@@ -233,7 +233,7 @@ export default function DtcBrandsPage() {
               ),
               imageSrc: "/dtc/whatitis.jpeg",
               imageAlt: "HomeLoop Magnet",
-              seamless: true,
+              seamless: false,
               useOriginalAspectRatio: true,
               roundedCorners: true,
             },
@@ -245,7 +245,7 @@ export default function DtcBrandsPage() {
               description: "One action per tap. Listen. Ask AI. Browse picks. Redeem offer. Styling tips, product care, new arrivals, or chat with AI — every tap builds a daily touchpoint and a relationship between purchases.",
               imageSrc: "/dtc/CTA-dtc.png",
               imageAlt: "HomeLoop Automated Engagement",
-              seamless: true,
+              seamless: false,
               useOriginalAspectRatio: true,
               roundedCorners: true,
 
@@ -272,6 +272,7 @@ export default function DtcBrandsPage() {
                   description: "Browse, tap, buy (tracks: engagement, conversion) — morning attention becomes a purchase before the cup is full.",
                   imageSrc: "/dtc/3dtcbrandcafe- magnet1.jpeg",
                   imageAlt: "Coffee brewing moment",
+                  imageStyle: { objectPosition: "center bottom", transform: "scale(1.05)" }, // Zoom slightly and align bottom to hide top border
                 },
                 {
                   title: "Getting water",
