@@ -55,22 +55,6 @@ export function PilotSection() {
               price={pricing.price}
               unitStep={pricing.unitStep}
               defaultMultiplier={pricing.defaultMultiplier}
-              goal="Validate churn and repeat purchase lift in 6 weeks."
-              hardwareItems={[
-                "200 branded magnets (yours to keep)",
-                "Custom magnet design",
-              ]}
-              softwareItems={[
-                "Content setup (10–15 pieces)",
-                "AI assistant setup + training",
-                "Real-time dashboard (views, taps, actions)",
-                "Pilot Ops for 6 weeks: 3 reviews + recommendations, plus a final report",
-              ]}
-              afterDay30Items={[
-                "Keep using the magnet experience",
-                "AI features are billed by usage (pay-as-you-go)",
-              ]}
-              pilotOpsNote="Pilot Ops refers to optimization + iteration support during the 6-week sprint. AI usage is measured and billed after the pilot."
               buttonText="Book a Demo"
               onCheckout={(units) => {
                 window.open(buildCheckoutUrl(SOLUTION_SLUG, units), "_blank");

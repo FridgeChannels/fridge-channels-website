@@ -39,14 +39,16 @@ const DEFAULT_HARDWARE_ITEMS = [
   "NFC Enabled",
 ];
 
-const DEFAULT_SOFTWARE_ITEMS = ["Unlimited AI Credits"];
-
-const DEFAULT_AFTER_DAY_30 = [
+const DEFAULT_SOFTWARE_ITEMS = [
+  "Unlimited AI Credits",
+  "30-Day Pilot",
   "Premium AI Features: Billed by usage",
   "Real-time Dashboard (views, taps, actions)",
   "Content Setup (4-6 pieces) & Custom CTA URL",
   "Pilot Ops: Bi-weekly reviews & recommendations",
 ];
+
+const DEFAULT_AFTER_DAY_30: string[] = [];
 
 const DEFAULT_PILOT_OPS_NOTE =
   "Pilot Ops refers to optimization and iteration support during the 30-day sprint. After Day 30, standard magnet functionality remains active at no extra cost, while AI features transition to a flexible pay-as-you-go model. All plans include standard shipping.";

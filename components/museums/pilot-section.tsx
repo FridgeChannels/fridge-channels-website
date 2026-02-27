@@ -1,12 +1,39 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { SectionTransition } from "@/components/ui/section-transition";
 import { PilotOfferCard } from "@/components/ui/pilot-offer-card";
 import { buildCheckoutUrl } from "@/lib/studio";
+import type { PilotPricingConfig } from "@/lib/pilot-pricing";
 
 const SOLUTION_SLUG = "museums";
 
 export function PilotSection() {
+  const [pricing, setPricing] = useState<PilotPricingConfig | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPricing = async () => {
+      try {
+        const res = await fetch(`/api/pilot-pricing/${SOLUTION_SLUG}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!cancelled && data?.config) {
+          setPricing(data.config as PilotPricingConfig);
+        }
+      } catch {
+        // 静默失败，不展示价格
+      }
+    };
+
+    void loadPricing();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
       <section
@@ -20,39 +47,29 @@ export function PilotSection() {
             </h2>
           </div>
 
-          <PilotOfferCard
-            title="Pilot Setup"
-            subtitle="Validate membership renewal and donation frequency lift in 30 days."
-            showBack={false}
-            price={4800}
-            unitStep={50}
-            defaultMultiplier={2}
-            goal="Validate membership renewal and donation frequency lift in 30 days."
-            hardwareItems={[
-              "100 branded magnets (yours to sell and keep)",
-              "Custom magnet design",
-            ]}
-            softwareItems={[
-              "Content setup (4–6 pieces) — one CTA per tap",
-              "Real-time dashboard (views, taps, actions)",
-              "Pilot Ops for 30 days: bi-weekly reviews + recommendations",
-            ]}
-            afterDay30Items={[
-              "Keep using the magnet experience",
-              "AI features are billed by usage (pay-as-you-go)",
-            ]}
-            pilotOpsNote="Pilot Ops refers to optimization + iteration support during the 30-day sprint. AI usage is measured and billed after the pilot."
-            buttonText="Book a 30-Day Pilot"
-            onCheckout={(units) => {
-              window.open(buildCheckoutUrl(SOLUTION_SLUG, units), "_blank");
-              // eslint-disable-next-line no-console
-              console.log("Museums pilot units selected:", units);
-            }}
-          />
+          {pricing ? (
+            <PilotOfferCard
+              title="Pilot Setup"
+              subtitle="Validate membership renewal and donation frequency lift in 30 days."
+              showBack={false}
+              price={pricing.price}
+              unitStep={pricing.unitStep}
+              defaultMultiplier={pricing.defaultMultiplier}
+              buttonText="Book a 30-Day Pilot"
+              onCheckout={(units) => {
+                window.open(buildCheckoutUrl(SOLUTION_SLUG, units), "_blank");
+                // eslint-disable-next-line no-console
+                console.log("Museums pilot units selected:", units);
+              }}
+            />
+          ) : (
+            <p className="text-ds-text-secondary">
+              Pricing will be configured soon. Please contact us for details.
+            </p>
+          )}
         </div>
       </section>
     </SectionTransition>
   );
 }
-
 
