@@ -43,7 +43,7 @@ function HowItWorksSection() {
                 >
                     {/* Step 1 */}
                     <motion.div
-                        className="transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] cursor-default px-6 py-6 md:px-8 md:py-8 rounded-lg"
+                        className="transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] cursor-default px-6 md:px-8 md:py-8 rounded-lg"
                         variants={{
                             visible: { opacity: 1, y: 0 },
                             hidden: { opacity: 0, y: 24 },
@@ -59,7 +59,7 @@ function HowItWorksSection() {
 
                     {/* Step 2 */}
                     <motion.div
-                        className="transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] cursor-default px-6 py-6 md:px-8 md:py-8 rounded-lg"
+                        className="transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] cursor-default px-6 md:px-8 md:py-8 rounded-lg"
                         variants={{
                             visible: { opacity: 1, y: 0 },
                             hidden: { opacity: 0, y: 24 },
@@ -75,7 +75,7 @@ function HowItWorksSection() {
 
                     {/* Step 3 */}
                     <motion.div
-                        className="transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] cursor-default px-6 py-6 md:px-8 md:py-8 rounded-lg"
+                        className="transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.08)] cursor-default px-6 md:px-8 md:py-8 rounded-lg"
                         variants={{
                             visible: { opacity: 1, y: 0 },
                             hidden: { opacity: 0, y: 24 },
@@ -186,22 +186,22 @@ export default function RealEstatePage() {
                 <section className="bg-gradient-to-b from-white via-white to-[#EFE6DB] py-12 md:py-14 lg:py-16">
                     <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-16">
                         <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-ds-text/20">
-                            <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
+                            <div className="md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">50-300+</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TIMES SEEN/MONTH</span>
 
                             </div>
-                            <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
+                            <div className="md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">8-15</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">TAPS/MONTH</span>
 
                             </div>
-                            <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
+                            <div className="md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">3 min</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">AVG. ENGAGEMENT</span>
 
                             </div>
-                            <div className="py-6 md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
+                            <div className="md:py-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
                                 <span className="text-3xl md:text-4xl font-bold text-ds-text">2.1x</span>
                                 <span className="text-xs font-medium tracking-widest text-ds-text-secondary mt-2">FASTER DECISION</span>
 

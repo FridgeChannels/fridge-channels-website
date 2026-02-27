@@ -1,10 +1,39 @@
 "use client";
 
-import { Check, ExternalLink } from "lucide-react";
-import { SinglePricingCard } from "@/components/ui/single-pricing-card";
+import { useEffect, useState } from "react";
 import { SectionTransition } from "@/components/ui/section-transition";
+import { PilotOfferCard } from "@/components/ui/pilot-offer-card";
+import { buildCheckoutUrl } from "@/lib/studio";
+import type { PilotPricingConfig } from "@/lib/pilot-pricing";
+
+const SOLUTION_SLUG = "real-estate";
 
 export function PilotSection() {
+  const [pricing, setPricing] = useState<PilotPricingConfig | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPricing = async () => {
+      try {
+        const res = await fetch(`/api/pilot-pricing/${SOLUTION_SLUG}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!cancelled && data?.config) {
+          setPricing(data.config as PilotPricingConfig);
+        }
+      } catch {
+        // 静默失败，不展示价格
+      }
+    };
+
+    void loadPricing();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <SectionTransition intensity="medium" enableFade={true} enableMovement={true}>
       <section
@@ -18,66 +47,30 @@ export function PilotSection() {
             </h2>
           </div>
 
-          <SinglePricingCard
-            badge={{
-              text: "Pilot Plan",
-              className: "px-3 py-1 bg-amber-100 border-amber-300/60 text-amber-900 hover:bg-amber-200/80 rounded-full",
-            }}
-            title="Pilot Setup"
-            subtitle="Validate whether at-home engagement moves clients from showing → decision faster than follow-up alone."
-            price={{
-              current: "$2,400  ",
-            }}
-            pricingDescription={
-              <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-950 font-medium">
-                Includes deployment package for 100 Close Concierge, <span className="block mt-1 text-lg font-bold text-amber-700">plus 30 days of Pilot Ops.</span>
-              </div>
-            }
-            benefitsTitle="What’s included"
-            benefits={[
-              {
-                text: <strong>Deployment package for 100 Close Concierge (yours to keep)</strong>,
-                icon: Check,
-              },
-              {
-                text: <strong>Pilot Ops for 30 days: weekly reviews + recommendations</strong>,
-                icon: Check,
-              },
-              {
-                text: "Content configuration (FAQ + CTAs)      ",
-                icon: Check,
-              },
-              {
-                text: "Activity dashboard (taps, engagement, actions)",
-                icon: Check,
-              },
-
-            ]}
-            features={[
-              {
-                text: "Keep using the Close Concierge experience",
-              },
-              {
-                text: "AI features are billed by usage (pay-as-you-go)",
-              },
-            ]}
-            boundary={{
-              title: "",
-              content: "Pilot Ops refers to optimization + iteration support during the 30-day sprint. AI usage is measured and billed after the pilot.",
-            }}
-            featuresIcon={Check}
-            featuresTitle="After day 30"
-            primaryButton={{
-              text: "Book a 30-Day Pilot",
-              href: "https://studio.fridgechannels.com",
-            }}
-            testimonials={[]}
-            animationEnabled={true}
-            maxWidth="max-w-6xl"
-            cardClassName="border-ds-border"
-          />
+          {pricing ? (
+            <PilotOfferCard
+              title="Pilot Setup"
+              subtitle="Validate whether at-home engagement moves clients from showing → decision faster than follow-up alone."
+              showBack={false}
+              price={pricing.price}
+              unitStep={pricing.unitStep}
+              defaultMultiplier={pricing.defaultMultiplier}
+              buttonText="Book a 30-Day Pilot"
+              onCheckout={(units) => {
+                window.open(buildCheckoutUrl(SOLUTION_SLUG, units), "_blank");
+                // eslint-disable-next-line no-console
+                console.log("Real estate pilot units selected:", units);
+              }}
+            />
+          ) : (
+            <p className="text-ds-text-secondary">
+              Pricing will be configured soon. Please contact us for details.
+            </p>
+          )}
         </div>
       </section>
     </SectionTransition>
   );
 }
+
+
