@@ -159,7 +159,7 @@ export default function RealEstatePage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                <Link href="https://studio.fridgechannels.com">
+                                <Link href="#pilot">
                                     <ShimmerButton
                                         className="shadow-2xl transition-transform duration-300 hover:scale-110 h-10 md:h-12 px-5 md:px-7"
                                         background="rgba(0, 0, 0, 1)"
@@ -332,7 +332,7 @@ export default function RealEstatePage() {
                         <p className="text-base md:text-xl text-ds-text-secondary mb-10 leading-[1.65] max-w-2xl mx-auto">
                             If you want to move serious buyers from hesitation to next steps without more chasing, Close Concierge gives you a measurable at-home channel to test in 30 days.
                         </p>
-                        <Link href="https://studio.fridgechannels.com" className="inline-flex">
+                        <Link href="#pilot" className="inline-flex">
                             <ShimmerButton
                                 className="shadow-2xl transition-transform duration-300 hover:scale-110 h-11 px-8"
                                 background="rgba(0, 0, 0, 1)"
