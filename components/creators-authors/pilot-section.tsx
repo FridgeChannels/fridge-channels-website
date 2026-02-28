@@ -71,7 +71,7 @@ export function PilotSection() {
                 "AI features are billed by usage (pay-as-you-go)",
               ]}
               pilotOpsNote="Pilot Ops refers to optimization + iteration support during the 8-week sprint. AI usage is measured and billed after the pilot."
-              buttonText="Book a Demo"
+              buttonText="Book a 30-Day Pilot"
               onCheckout={(units) => {
                 window.open(buildCheckoutUrl(SOLUTION_SLUG, units), "_blank");
                 // eslint-disable-next-line no-console
@@ -88,5 +88,4 @@ export function PilotSection() {
     </SectionTransition>
   );
 }
-
 

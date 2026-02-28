@@ -166,7 +166,7 @@ export default function DtcBrandsPage() {
                     shimmerColor="#ffffff"
                   >
                     <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-base">
-                      Book a Demo
+                      Book a 30-Day Pilot
                     </span>
                   </ShimmerButton>
                 </Link>
@@ -335,7 +335,7 @@ export default function DtcBrandsPage() {
                 shimmerColor="#ffffff"
               >
                 <span className="whitespace-pre-wrap text-center text-base font-semibold leading-none tracking-tight text-white">
-                  Book a Demo
+                  Book a 30-Day Pilot
                 </span>
               </ShimmerButton>
             </Link>

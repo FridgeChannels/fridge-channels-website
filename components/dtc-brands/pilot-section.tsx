@@ -55,7 +55,7 @@ export function PilotSection() {
               price={pricing.price}
               unitStep={pricing.unitStep}
               defaultMultiplier={pricing.defaultMultiplier}
-              buttonText="Book a Demo"
+              buttonText="Book a 30-Day Pilot"
               onCheckout={(units) => {
                 window.open(buildCheckoutUrl(SOLUTION_SLUG, units), "_blank");
                 // eslint-disable-next-line no-console
@@ -72,5 +72,4 @@ export function PilotSection() {
     </SectionTransition>
   );
 }
-
 
