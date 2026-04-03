@@ -82,6 +82,13 @@ export default function HomePage() {
                       imageUrl: "/Shrink_the_refrigerator_2k_202602061609.jpeg",
                     },
                     {
+                      title: "Exhibitions",
+                      description: "Attendee engagement beyond the show floor. Drive post-event action and re-registration.",
+                      link: "/who-we-serve/exhibition",
+                      linkText: "Learn more →",
+                      imageUrl: "/doc/exhibition/whoweserve_exhi.png",
+                    },
+                    {
                       title: "Creators & Publishers",
                       description: "Turn casual readers into subscribers. Drive repeat opens and paid upgrades.",
                       link: "/who-we-serve/creators-authors",
