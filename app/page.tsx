@@ -208,7 +208,7 @@ export default function HomePage() {
               <p className="text-lg md:text-xl text-black/90 drop-shadow-sm">
                 See repeat actions. Track conversions. Decide next.
               </p>
-              <Link href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank">
+              <a href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer">
                 <ShimmerButton
                   className="shadow-2xl transition-transform duration-300 hover:scale-110 w-[240px]"
                   background="rgba(0, 0, 0, 1)"
@@ -218,7 +218,7 @@ export default function HomePage() {
                     Book a 30-Day Pilot
                   </span>
                 </ShimmerButton>
-              </Link>
+              </a>
             </div>
           </div>
         </section>

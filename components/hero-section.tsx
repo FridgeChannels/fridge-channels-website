@@ -299,7 +299,7 @@ export const HeroSection = ({
           {showHeroOverlayCta && (
             <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-12">
               <div className="pointer-events-auto">
-                <Link href="#join-pilot">
+                <a href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer">
                   <ShimmerButton
                     className="shadow-2xl transition-transform duration-300 hover:scale-110"
                     background="linear-gradient(120deg, #9f1026, #f25f6c)"
@@ -309,7 +309,7 @@ export const HeroSection = ({
                       Founder Chat → Launch Channel
                     </span>
                   </ShimmerButton>
-                </Link>
+                </a>
               </div>
             </div>
           )}

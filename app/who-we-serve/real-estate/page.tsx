@@ -159,7 +159,7 @@ export default function RealEstatePage() {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                                 }}
                             >
-                                <Link href="#pilot">
+                                <a href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer">
                                     <ShimmerButton
                                         className="shadow-2xl transition-transform duration-300 hover:scale-110 h-10 md:h-12 px-5 md:px-7"
                                         background="rgba(0, 0, 0, 1)"
@@ -169,7 +169,7 @@ export default function RealEstatePage() {
                                             Book a 30-Day Pilot
                                         </span>
                                     </ShimmerButton>
-                                </Link>
+                                </a>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -332,7 +332,7 @@ export default function RealEstatePage() {
                         <p className="text-base md:text-xl text-ds-text-secondary mb-10 leading-[1.65] max-w-2xl mx-auto">
                             If you want to move serious buyers from hesitation to next steps without more chasing, Close Concierge gives you a measurable at-home channel to test in 30 days.
                         </p>
-                        <Link href="#pilot" className="inline-flex">
+                        <a href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer">
                             <ShimmerButton
                                 className="shadow-2xl transition-transform duration-300 hover:scale-110 h-11 px-8"
                                 background="rgba(0, 0, 0, 1)"
@@ -342,7 +342,7 @@ export default function RealEstatePage() {
                                     Book a 30-Day Pilot
                                 </span>
                             </ShimmerButton>
-                        </Link>
+                        </a>
                         <p className="text-ds-text-secondary/70 text-sm mt-8">
 
                         </p>
