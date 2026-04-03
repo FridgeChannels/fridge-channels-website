@@ -48,7 +48,7 @@ function HowItWorksSection() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="block text-sm font-medium text-ds-text-secondary mb-6">01</span>
-            <h3 className="text-xl font-medium text-ds-text mb-4">Deploy</h3>
+            <h3 className="text-xl font-medium text-ds-text mb-4">Distribute</h3>
             <p className="text-ds-body leading-relaxed text-ds-text-secondary">
               Distribute FridgeChannel tiles via VIP gift packs, speaker gifts, organizer/buyer gift packs, membership mailings, or post-event follow-up packages. Include simple &quot;tap-to-connect&quot; instructions.
             </p>
@@ -80,7 +80,7 @@ function HowItWorksSection() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="block text-sm font-medium text-ds-text-secondary mb-6">03</span>
-            <h3 className="text-xl font-medium text-ds-text mb-4">Iterate</h3>
+            <h3 className="text-xl font-medium text-ds-text mb-4">Measure</h3>
             <p className="text-ds-body leading-relaxed text-ds-text-secondary">
               Conduct an evaluation every two weeks: Adjust your content mix, posting schedule, and calls to action based on engagement and feedback data.
             </p>
@@ -101,7 +101,7 @@ export default function ExhibitionPage() {
         <section className="relative w-full h-screen">
           {/* Background Image - Using a generic exhibition/audience picture if available, fallback to beautiful abstract */}
           <Image
-            src="/doc/exhibition/hero3.png"
+            src="/doc/exhibition/situationhero5.png"
             alt="Exhibition Hero"
             fill
             className="object-cover"
@@ -114,9 +114,12 @@ export default function ExhibitionPage() {
               e.currentTarget.src = "/realestate-pics/bg-hero.jpg";
             }}
           />
+          
+          {/* Dark Overlay for Text Readability - Reduced to 20% */}
+          <div className="absolute inset-0 bg-black/20 z-[1]" />
 
           {/* Content positioned over the image */}
-          <div className="absolute inset-0 z-10 flex flex-col justify-center text-left pt-16 px-6 md:pl-24 lg:pl-65 pr-6">
+          <div className="absolute inset-0 z-10 flex flex-col justify-center items-end text-right pt-32 md:pt-48 lg:pt-56 pl-6 pr-6 md:pr-10 lg:pr-16 xl:pr-24">
             <motion.div
               className="max-w-[800px]"
               initial="hidden"
@@ -150,10 +153,10 @@ export default function ExhibitionPage() {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                 }}
               >
-                An AI-powered post-event engagement tool designed specifically for trade show and conference organizers.
+                An AI-powered post-event engagement tool designed specifically for trade show and conference organizers. It keeps that attention alive after people go home.
               </motion.h2>
               <motion.div
-                className="flex items-center justify-start gap-4"
+                className="flex items-center justify-end gap-4"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -230,7 +233,7 @@ export default function ExhibitionPage() {
                   Distributed via <strong className="text-ds-text font-semibold">VIP gift bags, speaker gifts, organizer buyer kits, or post-event mailings</strong>. It sticks to the refrigerator door—ensuring attendees see <strong className="text-ds-text font-semibold">daily reminders of the event</strong>, rather than follow-up emails they&apos;ll never open or giveaways that get thrown away.
                 </>
               ),
-              imageSrc: "/doc/exhibition/whatitis.png",
+              imageSrc: "/doc/exhibition/Gemini_Generated_Image_spapwnspapwnspap.png",
               imageAlt: "Exhibition Magnet",
               seamless: true,
             },
@@ -304,7 +307,7 @@ export default function ExhibitionPage() {
         >
           <div className="mx-auto max-w-full px-4 md:px-8 lg:px-16 text-center">
             <h2 className="text-[15px] min-[400px]:text-[17px] sm:text-[22px] md:text-[32px] lg:text-[42px] xl:text-[54px] whitespace-nowrap font-medium text-ds-text leading-[1.8] md:leading-[1.5] tracking-tight flex flex-col justify-center items-center w-full">
-              <span className="block mb-3 md:mb-5">A <span className="text-[#c2a36b]">presence asset</span></span>
+              <span className="block mb-3 md:mb-5">A presence asset</span>
               <span className="block mb-3 md:mb-5">A touchpoint into daily life</span>
               <span className="block">A platform for updated content and follow-up actions</span>
             </h2>
