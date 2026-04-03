@@ -248,8 +248,8 @@ export default function ExhibitionPage() {
                   <strong className="text-ds-text font-semibold">Extend the event&apos;s momentum.</strong> Watch session highlights. Promote the next event. Access member content. Explore sponsor offers. Browse industry resources—each tap <strong className="text-ds-text font-semibold">cultivates a habit</strong>, transforming one-time attendees into <strong className="text-ds-text font-semibold">repeat visitors and active members</strong>.
                 </>
               ),
-              imageSrc: "/doc/exhibition/howitdrives.png",
-              imageAlt: "Engagement Flow",
+              imageSrc: "/doc/exhibition/未来科技触手可及.png",
+              imageAlt: "Exhibition Action",
               seamless: true,
             },
             // 3. How you measure
