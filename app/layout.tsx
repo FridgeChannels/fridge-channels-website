@@ -12,8 +12,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Fridge Channel - Turn your content into a channel on your fan's fridge",
-  description: "NFC-powered fridge magnets that let creators run a daily channel on their audience's fridge",
+  title: "Fridge Channel - Deploy a Presence Asset on your customer's fridge",
+  description: "Keeps your brand influence alive after people go home",
   generator: "v0.app",
   icons: {
     icon: [
