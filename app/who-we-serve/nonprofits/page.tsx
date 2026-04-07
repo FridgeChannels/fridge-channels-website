@@ -327,17 +327,22 @@ export default function RealEstatePage() {
                         <p className="text-base md:text-xl text-ds-text-secondary mb-10 leading-[1.65] max-w-2xl mx-auto">
                             Move attendees from <strong>one-time to repeat donors</strong>. Validate in 30 days.
                         </p>
-                        <Link href="https://studio.fridgechannels.com" className="inline-flex">
-                            <ShimmerButton
-                                className="shadow-2xl transition-transform duration-300 hover:scale-110 h-11 px-8"
-                                background="rgba(0, 0, 0, 1)"
-                                shimmerColor="#ffffff"
+                        <div className="flex w-full justify-center">
+                            <Link
+                                href="https://studio.fridgechannels.com"
+                                className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c2a36b] focus-visible:ring-offset-2 rounded-md"
                             >
-                                <span className="whitespace-pre-wrap text-center text-base font-semibold leading-none tracking-tight text-white">
-                                    Book a 30-Day Pilot
-                                </span>
-                            </ShimmerButton>
-                        </Link>
+                                <ShimmerButton
+                                    className="shadow-2xl transition-transform duration-300 hover:scale-110 h-11 px-8"
+                                    background="rgba(0, 0, 0, 1)"
+                                    shimmerColor="#ffffff"
+                                >
+                                    <span className="whitespace-pre-wrap text-center text-base font-semibold leading-none tracking-tight text-white">
+                                        Book a 30-Day Pilot
+                                    </span>
+                                </ShimmerButton>
+                            </Link>
+                        </div>
                         <p className="text-ds-text-secondary/70 text-sm mt-8">
                             We provide the mechanism: event → fridge → action → measurement. You own the mission.
                         </p>
