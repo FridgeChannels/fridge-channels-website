@@ -322,7 +322,7 @@ export default function DtcBrandsPage() {
           }}
         >
           <div className="mx-auto max-w-[1320px] px-8 md:px-12 lg:px-20">
-            <h2 className="text-[32px] md:text-[48px] lg:text-[64px] font-medium text-ds-text leading-[1.1] tracking-tight">
+            <h2 className="text-[26px] md:text-[38px] lg:text-[50px] font-medium text-ds-text leading-[1.1] tracking-tight">
               It is <span className="font-semibold text-[#c2a36b]">post-purchase infrastructure</span>
               <br />
               It is the <span className="font-semibold text-[#c2a36b]">Presence Asset Moat</span> — a retention moat built on physical presence
