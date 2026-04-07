@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -138,8 +138,8 @@ export function Navigation() {
           )}
         >
           {/* Logo - Left side */}
-          <Link
-            href={isHomePage ? "#home" : "/"}
+          <a
+            href="https://fridgechannels.com/"
             className="flex items-center gap-2 shrink-0"
           >
             {/* Logo icon */}
@@ -158,7 +158,7 @@ export function Navigation() {
               "font-semibold text-lg",
               isGlassMode ? "text-white" : "text-black"
             )}>Fridge Channel</span>
-          </Link>
+          </a>
 
           {/* Navigation Links - Center (Desktop) */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
