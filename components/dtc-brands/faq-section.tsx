@@ -1,42 +1,58 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const faqItems = [
+const faqItems: { id: string; question: string; answer: ReactNode }[] = [
     {
         id: "faq-1",
-        question: "Will customers tap daily?",
-        answer: "2-3 taps/week beats email open rates. Heavy users (8+ taps in 2 weeks) develop habits.",
+        question: "Is this replacing email, SMS, or loyalty?",
+        answer:
+            "No. It makes them stronger by adding a persistent real-world point of return.",
     },
     {
         id: "faq-2",
+        question: "Is this only for replenishment brands?",
+        answer:
+            "No. It also works for education, discovery, care, offers, and repeat engagement when the next step is clear.",
+    },
+    {
+        id: "faq-3",
+        question: "How should success be judged?",
+        answer: (
+            <>
+                <p className="mb-3">Not by novelty.</p>
+                <p>
+                    By whether the Presence Asset creates more owned re-entry points and more measurable downstream behavior.
+                </p>
+            </>
+        ),
+    },
+    {
+        id: "faq-4",
+        question: "Will customers tap daily?",
+        answer:
+            "2-3 taps/week beats email open rates. Heavy users (8+ taps in 2 weeks) develop habits.",
+    },
+    {
+        id: "faq-5",
         question: "AI handles customer service?",
         answer: "Common questions yes. Complex issues escalate to your team.",
     },
     {
-        id: "faq-3",
+        id: "faq-6",
         question: "Best performing content?",
         answer: "30-60 sec audio tips. AI personalized picks. Test during pilot.",
     },
     {
-        id: "faq-4",
+        id: "faq-7",
         question: "Does it feel like spam?",
         answer: "No push notifications. Customers tap when they want.",
     },
     {
-        id: "faq-5",
+        id: "faq-8",
         question: "Can we A/B test?",
         answer: "Yes. Test content, timing, offers.",
-    },
-    {
-        id: "faq-6",
-        question: "After pilot?",
-        answer: "Report with recommendations. No long-term commitment.",
-    },
-    {
-        id: "faq-7",
-        question: "Technical integration?",
-        answer: "Minimal. UTM tracking or Shopify/WooCommerce integration.",
     },
 ];
 
@@ -47,7 +63,7 @@ export function FaqSection() {
                 <div className="grid md:grid-cols-12 gap-12">
                     <div className="md:col-span-4">
                         <h2 className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-ds-text leading-[1.2] tracking-tight sticky top-32">
-                            FAQ
+                            Frequently asked questions
                         </h2>
                     </div>
 
