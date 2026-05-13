@@ -66,6 +66,13 @@ const CSS = `
   .fc-cmo .what-item:nth-child(2){animation-delay:.16s}
   .fc-cmo .what-item:nth-child(3){animation-delay:.24s}
   @keyframes fc-cmo-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .ticker,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-grid,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .steps{animation:none}
+  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .ticker,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:0;transform:translateY(34px);filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .fc-cmo .reveal-section.is-visible .hero-grid,.fc-cmo .reveal-section.is-visible .ticker,.fc-cmo .reveal-section.is-visible .sec-head,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .addon-panel,.fc-cmo .reveal-section.is-visible .what-item,.fc-cmo .reveal-section.is-visible .step{opacity:1;transform:translateY(0);filter:blur(0)}
+  .fc-cmo .reveal-section.is-visible .ticker,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .what-item:nth-child(1),.fc-cmo .reveal-section.is-visible .step:nth-child(1),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(1){transition-delay:.08s}
+  .fc-cmo .reveal-section.is-visible .what-item:nth-child(2),.fc-cmo .reveal-section.is-visible .step:nth-child(2),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(2){transition-delay:.36s}
+  .fc-cmo .reveal-section.is-visible .what-item:nth-child(3),.fc-cmo .reveal-section.is-visible .step:nth-child(3),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(3){transition-delay:.62s}
+  .fc-cmo .reveal-section.is-visible .step:nth-child(4){transition-delay:.82s}
 
   .fc-cmo .hero{padding:0;min-height:720px;background:linear-gradient(90deg,rgba(26,23,20,.72),rgba(26,23,20,.42),rgba(26,23,20,.08)),url('/dtc-cmo-pics/DTC-CMO-HERO.png');background-size:cover;background-position:center;display:flex;align-items:flex-end}
   .fc-cmo .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.4);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
@@ -269,6 +276,7 @@ const CSS = `
 
   @media (prefers-reduced-motion:reduce){
     .fc-cmo .hero-grid,.fc-cmo .ticker,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:none}
+    .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .ticker,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:1;transform:none;filter:none}
     .fc-cmo *{transition:none!important}
   }
 
@@ -369,6 +377,31 @@ export default function DtcBrandsCmoPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(".fc-cmo .reveal-section"));
+    if (!sections.length) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      sections.forEach((section) => section.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -12% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -377,7 +410,7 @@ export default function DtcBrandsCmoPage() {
       <main className="fc-cmo flex-1">
 
       {/* HERO */}
-      <section className="hero">
+      <section className="hero reveal-section">
         <div className="wrap">
           <div className="hero-grid">
             <div>
@@ -407,7 +440,7 @@ export default function DtcBrandsCmoPage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="addon">
+      <section className="addon reveal-section">
         <div className="wrap">
           <div className="sec-head">
             <div>
@@ -440,12 +473,12 @@ export default function DtcBrandsCmoPage() {
       </section>
 
       {/* MECHANISM */}
-      <section className="mechanism" id="mechanism">
+      <section className="mechanism reveal-section" id="mechanism">
         <div className="wrap">
           <div className="sec-head">
             <div>
               <div className="num">The Shift</div>
-              <h2>Retention is moving from <em>digital messaging</em> to ambient physical presence.</h2>
+              <h2>Retention is moving from digital messaging to <em>ambient physical presence</em>.</h2>
             </div>
           </div>
 
@@ -500,7 +533,7 @@ export default function DtcBrandsCmoPage() {
       </section>
 
       {/* WHAT CAN WE DO */}
-      <section className="what-can">
+      <section className="what-can reveal-section">
         <div className="wrap">
           <div className="sec-head">
             <div>
@@ -592,7 +625,7 @@ export default function DtcBrandsCmoPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="how" id="how">
+      <section className="how reveal-section" id="how">
         <div className="wrap">
           <div className="sec-head">
             <div>
