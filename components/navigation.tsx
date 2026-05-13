@@ -189,7 +189,7 @@ export function Navigation() {
                   {/* <Link href="/who-we-serve/retailers" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Retailers' && "bg-black/5 font-semibold")}>Retailers</Link>
                   <Link href="/who-we-serve/chains-franchises" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Franchises & Chains' && "bg-black/5 font-semibold")}>Franchises & Chains</Link> */}
                   <Link href="/who-we-serve/exhibition" onClick={() => setIsMobileMenuOpen(false)} className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Exhibition' && "bg-black/5 font-semibold")}>Exhibition</Link>
-                  <Link href="/who-we-serve/dtc-brands" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'DTC Brands' && "bg-black/5 font-semibold")}>DTC Brands</Link>
+                  <Link href="/who-we-serve/dtc-brands-cmo" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'DTC Brands' && "bg-black/5 font-semibold")}>DTC Brands</Link>
                   <Link href="/who-we-serve/official-merch" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Official Merch & Fan Commerce' && "bg-black/5 font-semibold")}>Official Merch & Fan Commerce</Link>
                 </div>
               </div>
@@ -352,7 +352,7 @@ export function Navigation() {
                     {/* <Link href="/who-we-serve/retailers" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Retailers</Link>
                     <Link href="/who-we-serve/chains-franchises" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Franchises & Chains</Link> */}
                     <Link href="/who-we-serve/exhibition" onClick={() => setIsMobileMenuOpen(false)} className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Exhibition' && "bg-black/5 font-semibold")}>Exhibition</Link>
-                    <Link href="/who-we-serve/dtc-brands" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">DTC Brands</Link>
+                    <Link href="/who-we-serve/dtc-brands-cmo" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">DTC Brands</Link>
                     <Link href="/who-we-serve/official-merch" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Official Merch & Fan Commerce</Link>
                   </div>
                 )}
