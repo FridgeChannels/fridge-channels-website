@@ -11,9 +11,9 @@ import { SiteFooter } from "@/components/site-footer";
  * Self-contained editorial design: cream + forest + terracotta, Instrument Serif + Plus Jakarta Sans.
  *
  * Install:
- *   1. Drop this file at: app/who-we-serve/dtc-brands-cmo/page.tsx
+ *   1. Drop this file at: app/who-we-serve/dtcbrands/page.tsx
  *   2. Copy public/dtc-cmo/ folder into your project's /public/ directory
- *   3. Visit /who-we-serve/dtc-brands-cmo
+ *   3. Visit /who-we-serve/dtcbrands
  */
 
 const CALENDLY = "https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting";

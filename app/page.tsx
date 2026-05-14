@@ -63,7 +63,7 @@ export default function HomePage() {
                     {
                       title: "DTC Brands",
                       description: "Move one-time buyers to repeat customers. Turn daily attention into next purchases.",
-                      link: "/who-we-serve/dtc-brands-cmo",
+                      link: "/who-we-serve/dtcbrands",
                       linkText: "Learn more →",
                       imageUrl: "/dtcbrand.jpeg",
                     },
