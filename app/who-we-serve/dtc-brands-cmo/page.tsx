@@ -134,15 +134,15 @@ const CSS = `
 
   .fc-cmo .addon{padding:84px 0 32px}
   .fc-cmo .addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-  .fc-cmo .addon-panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;min-height:260px;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
-  .fc-cmo .addon-panel:hover{transform:translateY(-6px);border-color:rgba(26,23,20,.22);box-shadow:0 28px 70px -54px rgba(26,23,20,.65)}
-  .fc-cmo .addon-panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:42px;line-height:1.02;letter-spacing:-.01em;margin:0;color:var(--ink)}
-  .fc-cmo .addon-panel p{font-size:20px;line-height:1.45;color:var(--ink-2);margin:16px 0 0}
+  .fc-cmo .addon-panel{background:var(--accent);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:26px;min-height:260px;display:flex;flex-direction:column;color:#fff;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+  .fc-cmo .addon-panel:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.32);box-shadow:0 28px 70px -54px rgba(0,75,64,.85)}
+  .fc-cmo .addon-panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:42px;line-height:1.02;letter-spacing:-.01em;margin:0;color:#fff}
+  .fc-cmo .addon-panel p{font-size:20px;line-height:1.45;color:rgba(255,255,255,.78);margin:16px 0 0}
   .fc-cmo .addon-panel .metrics{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line);display:grid;gap:12px}
   .fc-cmo .addon-panel .metric-card{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.42);padding:15px 16px;min-height:116px}
   .fc-cmo .addon-panel .metric-card b{display:block;color:var(--ink);font-size:15px;line-height:1.2;font-weight:700}
   .fc-cmo .addon-panel .metric-card span{display:block;margin-top:8px;font-size:12.8px;line-height:1.5;color:var(--ink-2)}
-  .fc-cmo .addon-panel.dark{background:#181311;color:#fff;border-color:#2c2521}
+  .fc-cmo .addon-panel.dark{background:var(--accent);color:#fff;border-color:rgba(255,255,255,.18)}
   .fc-cmo .addon-panel.dark h3{color:#fff}
   .fc-cmo .addon-panel.dark p{color:rgba(255,255,255,.72)}
   .fc-cmo .addon-panel.dark .metrics{border-top-color:rgba(255,255,255,.14)}
@@ -451,21 +451,21 @@ export default function DtcBrandsCmoPage() {
 
           <div className="addon-grid">
             <div className="addon-panel">
-              <h3>0 Algorithm &amp; Ad-Blockers</h3>
+              <h3>Drive the Post-Purchase Action Loop</h3>
               <p>
-                Place your brand inside the customer&apos;s daily ambient environment, not rented from a platform. No algorithm. No ad blockers.
+                Every Presence Asset can route customers into the next post-purchase action: reorder, subscription, loyalty, referral, education, discovery, or a campaign page.
               </p>
             </div>
-            <div className="addon-panel dark">
+            <div className="addon-panel">
               <h3>25+ Daily Family Impressions</h3>
               <p>
                 The fridge is one of the highest-frequency surfaces in the home. With 20-40 daily fridge opens, FC creates thousands of annual household brand moments without adding another message, notification, or media buy.
               </p>
             </div>
             <div className="addon-panel">
-              <h3>Post-Purchase Action Loop</h3>
+              <h3>0 Algorithm &amp; Ad-Blockers</h3>
               <p>
-                Every Presence Asset can route customers into the next post-purchase action: reorder, subscription, loyalty, referral, education, discovery, or a campaign page.
+                Place your brand inside the customer&apos;s daily ambient environment, not rented from a platform. No algorithm. No ad blockers.
               </p>
             </div>
           </div>
@@ -506,16 +506,6 @@ export default function DtcBrandsCmoPage() {
               <div>~3–5% CTR</div>
               <div className="trend-down">opt-out fatigue ↑</div>
             </div>
-            <div className="row">
-              <div className="label">Paid retargeting</div>
-              <div>Variable</div>
-              <div className="calc">
-                <span>budget × frequency cap × platform</span>
-                <span className="source">no defensible per-customer constant</span>
-              </div>
-              <div>Fragmented attribution</div>
-              <div className="trend-down">CPMs ↑, cookies ↓</div>
-            </div>
             <div className="row fc-row">
               <div className="label">FridgeChannel</div>
               <div><span className="big">~7,000</span></div>
@@ -545,7 +535,7 @@ export default function DtcBrandsCmoPage() {
           <div className="what-list">
             <article className="what-item flip balanced presence-card">
               <div className="what-copy">
-                <h3>Always-On Household Brand Presence</h3>
+                <h3>Brand Presence Woven Into Daily Life</h3>
                 <p>
                   Your brand becomes a repeated household presence on one of the highest-frequency surfaces in daily life — visible at fridge moments no inbox, feed, or paid ad can reliably own.
                 </p>
@@ -555,7 +545,7 @@ export default function DtcBrandsCmoPage() {
                     <b>Exposure Volume ↑</b>
                   </div>
                   <div className="what-stat">
-                    <strong>7,300x/yr</strong>
+                    <strong>7,300/yr</strong>
                     <b>Brand Recall ↑</b>
                   </div>
                   <div className="what-stat">
@@ -571,7 +561,7 @@ export default function DtcBrandsCmoPage() {
 
             <article className="what-item compact balanced">
               <div className="what-copy">
-                <h3>Brand Affinity-Building Content Moments</h3>
+                <h3>FC-Crafted Affinity-Building Content</h3>
                 <p>
                   Every listen is designed to work in favor of the brand: useful tips, founder stories, product education, recipes, routines, offers, or loyalty prompts that make the customer feel closer to the brand.
                 </p>
@@ -672,7 +662,7 @@ export default function DtcBrandsCmoPage() {
           <div className="final">
             <div className="bg"><img src="/dtc-cmo/refrigemagnet.jpeg" alt="" /></div>
             <div className="body">
-              <h2>Own the physical lifecycle channel <em>before your category does</em></h2>
+              <h2>Own the physical lifecycle channel <em>before your competitors do</em></h2>
               <div className="cta-row">
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
               </div>
