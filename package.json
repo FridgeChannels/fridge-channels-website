@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "postbuild": "node scripts/copy-standalone-assets.mjs",
+    "start:standalone": "node scripts/run-standalone.mjs",
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start"
