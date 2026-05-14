@@ -1,3 +1,7 @@
+# Standalone 运行时需同时具备：server.js、.next/static、public（与 Next 文档一致）。
+# 若线上出现 HTML 引用的 /_next/static/chunks/*.css 404，多为：
+# 1) 未把本镜像内 .next/static 与 public 一并部署到当前运行实例；
+# 2) 反代/CDN 把 /_next/static 指到错误根目录或旧版本产物（HTML 与静态资源版本不一致）。
 FROM node:22-alpine AS base
 
 # Install dependencies only when needed
@@ -44,16 +48,10 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
-
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
+# standalone 目录经 postbuild 已含 public 与 .next/static（与 server.js 同层，含嵌套子目录情形）
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/scripts/standalone-app-dir.mjs ./standalone-app-dir.mjs
+COPY --from=builder --chown=nextjs:nodejs /app/scripts/standalone-docker-entry.mjs ./docker-entry.mjs
 
 USER nextjs
 
@@ -62,4 +60,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-CMD ["node", "server.js"]
+CMD ["node", "docker-entry.mjs"]

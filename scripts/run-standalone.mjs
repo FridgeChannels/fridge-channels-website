@@ -6,10 +6,12 @@ import { spawn } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { resolveStandaloneAppDir } from './standalone-app-dir.mjs'
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
-const standaloneDir = path.join(root, '.next', 'standalone')
-const serverJs = path.join(standaloneDir, 'server.js')
+const standaloneRoot = path.join(root, '.next', 'standalone')
+const appDir = resolveStandaloneAppDir(standaloneRoot)
+const serverJs = path.join(appDir, 'server.js')
 
 if (!fs.existsSync(serverJs)) {
   console.error(
@@ -24,7 +26,7 @@ if (!fs.existsSync(serverJs)) {
 }
 
 const child = spawn(process.execPath, ['server.js'], {
-  cwd: standaloneDir,
+  cwd: appDir,
   stdio: 'inherit',
   env: process.env,
 })

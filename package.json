@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "postbuild": "node scripts/copy-standalone-assets.mjs",
+    "postbuild": "node scripts/copy-standalone-assets.mjs && node scripts/verify-standalone-artifacts.mjs",
     "start:standalone": "node scripts/run-standalone.mjs",
     "dev": "next dev",
     "lint": "eslint .",
