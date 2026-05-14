@@ -99,7 +99,7 @@ const CSS = `
   .fc-cmo .hero-card .pill .dot{width:6px;height:6px;border-radius:50%;background:#69d39a;box-shadow:0 0 0 3px rgba(105,211,154,.25)}
 
   .fc-cmo .ticker{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:0;padding:64px 0 74px;overflow:hidden;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,#fff 24%,#fff 68%,var(--bg) 100%)}
-  .fc-cmo .ticker .inner{display:flex;gap:64px;animation:fc-cmo-slide 50s linear infinite;width:max-content}
+  .fc-cmo .ticker .inner{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 44px;width:auto}
   .fc-cmo .ticker .inner > div{display:flex;align-items:baseline;gap:12px;font-size:14px;color:var(--ink-2);white-space:nowrap}
   .fc-cmo .ticker .inner b{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;color:var(--ink);letter-spacing:-.01em}
   @keyframes fc-cmo-slide{to{transform:translateX(-50%)}}
@@ -347,32 +347,40 @@ export default function DtcBrandsCmoPage() {
       const copyHeight = copy.getBoundingClientRect().height;
       const ratio = img.naturalWidth / img.naturalHeight;
       const mediaWidth = Math.round(copyHeight * ratio);
+      const nextWidth = `${mediaWidth}px`;
 
-      card.style.setProperty("--what-media-width", `${mediaWidth}px`);
+      if (card.style.getPropertyValue("--what-media-width") !== nextWidth) {
+        card.style.setProperty("--what-media-width", nextWidth);
+      }
     };
 
-    const observers = cards.map((card) => {
-      const copy = card.querySelector<HTMLElement>(".what-copy");
+    const updateAllCards = () => {
+      window.requestAnimationFrame(() => cards.forEach(updateCard));
+    };
+
+    const cleanupImageListeners = cards.map((card) => {
       const media = card.querySelector<HTMLElement>(".what-media");
       const img = media?.querySelector<HTMLImageElement>("img");
 
-      const observer = new ResizeObserver(() => updateCard(card));
-      if (copy) observer.observe(copy);
+      if (!img) return () => {};
 
-      if (img) {
-        if (img.complete) updateCard(card);
-        img.addEventListener("load", () => updateCard(card));
+      const onLoad = () => updateCard(card);
+      if (img.complete) {
+        onLoad();
       }
+      img.addEventListener("load", onLoad);
 
-      return observer;
+      return () => img.removeEventListener("load", onLoad);
     });
 
-    const onResize = () => cards.forEach(updateCard);
+    document.fonts?.ready.then(updateAllCards).catch(() => {});
+
+    const onResize = () => updateAllCards();
     window.addEventListener("resize", onResize);
-    onResize();
+    updateAllCards();
 
     return () => {
-      observers.forEach((observer) => observer.disconnect());
+      cleanupImageListeners.forEach((cleanup) => cleanup());
       window.removeEventListener("resize", onResize);
     };
   }, []);
@@ -425,7 +433,7 @@ export default function DtcBrandsCmoPage() {
 
           <div className="ticker">
             <div className="inner">
-              {[0, 1].map((loop) => (
+              {[0].map((loop) => (
                 <div key={loop} style={{ display: "contents" }}>
                   <div><b>~7,000</b><span>home-side exposures / customer / year</span></div>
                   <div><b>20+</b><span>fridge opens per household per day</span></div>
