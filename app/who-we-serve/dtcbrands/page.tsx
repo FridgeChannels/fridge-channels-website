@@ -247,17 +247,22 @@ const CSS = `
   .fc-cmo .integration-strip span{font-size:12px;line-height:1.4;color:var(--muted);max-width:28ch}
 
   .fc-cmo .how{padding:0 0 96px}
-  .fc-cmo .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
-  .fc-cmo .step{position:relative;border-top:1px solid var(--ink);padding-top:22px;display:flex;flex-direction:column}
-  .fc-cmo .step{transition:transform .28s ease}
-  .fc-cmo .step:hover{transform:translateY(-5px)}
-  .fc-cmo .step-copy{min-height:178px}
+  .fc-cmo .steps{display:grid;grid-template-columns:minmax(0,.86fr) minmax(420px,1fr);gap:56px;align-items:start;margin-top:24px}
+  .fc-cmo .steps-copy{display:grid;gap:0}
+  .fc-cmo .step{position:relative;border-top:1px solid rgba(26,23,20,.22);padding:34px 0 42px;min-height:42vh;display:flex;flex-direction:column;justify-content:center;transition:opacity .32s ease,border-color .32s ease,transform .32s ease}
+  .fc-cmo .step:not(.is-active){opacity:.46}
+  .fc-cmo .step.is-active{border-top-color:var(--accent);opacity:1;transform:translateX(8px)}
+  .fc-cmo .step-copy{min-height:0;max-width:620px}
   .fc-cmo .step .n{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--muted);letter-spacing:.06em}
-  .fc-cmo .step h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;letter-spacing:-.01em;line-height:1.05;margin:8px 0 0}
-  .fc-cmo .step p{font-size:14px;color:var(--ink-2);margin:10px 0 0;line-height:1.55}
-  .fc-cmo .step .ico{margin-top:16px;width:100%;aspect-ratio:4/3;border-radius:10px;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:12px;overflow:hidden}
+  .fc-cmo .step h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.4vw,56px);letter-spacing:-.018em;line-height:1.02;margin:0}
+  .fc-cmo .step p{font-size:17px;color:var(--ink-2);margin:18px 0 0;line-height:1.65;max-width:48ch}
+  .fc-cmo .step .ico{display:none;margin-top:16px;width:100%;aspect-ratio:4/3;border-radius:10px;background:var(--paper);border:1px solid var(--line);place-items:center;color:var(--muted);font-size:12px;overflow:hidden}
   .fc-cmo .step .ico img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
   .fc-cmo .step:hover .ico img{transform:scale(1.05)}
+  .fc-cmo .steps-media{position:sticky;top:112px;height:min(64vh,640px);min-height:460px;border-radius:18px;background:var(--paper);border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 92px -72px rgba(26,23,20,.78)}
+  .fc-cmo .step-media-panel{position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .42s ease,transform .64s cubic-bezier(.22,1,.36,1);pointer-events:none}
+  .fc-cmo .step-media-panel.is-active{opacity:1;transform:scale(1)}
+  .fc-cmo .step-media-panel img{width:100%;height:100%;object-fit:cover}
 
   .fc-cmo .final{position:relative;border-radius:24px;overflow:hidden;margin:0 0 64px;background:#fff;border:1px solid var(--line)}
   .fc-cmo .final .bg{display:none}
@@ -304,8 +309,12 @@ const CSS = `
     .fc-cmo .what-copy{min-height:0}
     .fc-cmo .what-media{min-height:320px}
     .fc-cmo .crm-row{grid-template-columns:repeat(2,1fr)}
-    .fc-cmo .steps{grid-template-columns:repeat(2,1fr)}
-    .fc-cmo .step-copy{min-height:156px}
+    .fc-cmo .steps{grid-template-columns:1fr;gap:28px}
+    .fc-cmo .steps-copy{gap:28px}
+    .fc-cmo .steps-media{display:none}
+    .fc-cmo .step{min-height:0;opacity:1!important;transform:none!important;padding:22px 0 0}
+    .fc-cmo .step-copy{min-height:0}
+    .fc-cmo .step .ico{display:grid}
     .fc-cmo .final .body{padding:56px 28px}
   }
   @media (max-width:560px){
@@ -382,6 +391,83 @@ export default function DtcBrandsCmoPage() {
     return () => {
       cleanupImageListeners.forEach((cleanup) => cleanup());
       window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const containers = Array.from(document.querySelectorAll<HTMLElement>(".fc-cmo .steps"));
+    if (!containers.length) return;
+
+    let frame = 0;
+    const cleanups: Array<() => void> = [];
+
+    const updateAllActiveSteps = () => {
+      containers.forEach((container) => {
+        const steps = Array.from(container.querySelectorAll<HTMLElement>(".step[data-step]"));
+        const panels = Array.from(container.querySelectorAll<HTMLElement>(".step-media-panel[data-step]"));
+        const media = container.querySelector<HTMLElement>(".steps-media");
+        if (!steps.length || !panels.length || !media || getComputedStyle(media).display === "none") return;
+
+        const mediaRect = media.getBoundingClientRect();
+        const switchLine = mediaRect.top + mediaRect.height * 0.5;
+        const activeStep =
+          steps.reduce((closest, step) => {
+            const closestRect = closest.getBoundingClientRect();
+            const stepRect = step.getBoundingClientRect();
+            const closestDistance = Math.abs(closestRect.top + closestRect.height * 0.5 - switchLine);
+            const stepDistance = Math.abs(stepRect.top + stepRect.height * 0.5 - switchLine);
+            return stepDistance < closestDistance ? step : closest;
+          }, steps[0])?.dataset.step || "1";
+
+        steps.forEach((step) => step.classList.toggle("is-active", step.dataset.step === activeStep));
+        panels.forEach((panel) => panel.classList.toggle("is-active", panel.dataset.step === activeStep));
+      });
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        updateAllActiveSteps();
+      });
+    };
+
+    const observer = new IntersectionObserver(scheduleUpdate, {
+      threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
+      rootMargin: "-20% 0px -20% 0px",
+    });
+
+    containers.forEach((container) => {
+      const steps = Array.from(container.querySelectorAll<HTMLElement>(".step[data-step]"));
+      steps.forEach((step) => observer.observe(step));
+    });
+
+    const resizeObserver =
+      "ResizeObserver" in window
+        ? new ResizeObserver(scheduleUpdate)
+        : null;
+    if (resizeObserver) {
+      containers.forEach((container) => {
+        resizeObserver.observe(container);
+        const media = container.querySelector<HTMLElement>(".steps-media");
+        if (media) resizeObserver.observe(media);
+      });
+      cleanups.push(() => resizeObserver.disconnect());
+    }
+
+    document.fonts?.ready.then(scheduleUpdate).catch(() => {});
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("pageshow", scheduleUpdate);
+    cleanups.push(() => observer.disconnect());
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      window.removeEventListener("pageshow", scheduleUpdate);
+      cleanups.forEach((cleanup) => cleanup());
     };
   }, []);
 
@@ -471,9 +557,9 @@ export default function DtcBrandsCmoPage() {
               </p>
             </div>
             <div className="addon-panel">
-              <h3>0 Algorithm &amp; Ad-Blockers</h3>
+              <h3>Lifecycle Trigger</h3>
               <p>
-                Place your brand inside the customer&apos;s daily ambient environment, not rented from a platform. No algorithm. No ad blockers.
+                Every TAP creates a high-intent signal that can support reactivation, upsell, subscribe &amp; save, referral, and review flows.
               </p>
             </div>
           </div>
@@ -549,16 +635,16 @@ export default function DtcBrandsCmoPage() {
                 </p>
                 <div className="what-stats">
                   <div className="what-stat">
-                    <strong> 20-40/d</strong>
-                    <b>Exposure Volume ↑</b>
+                    <strong>+5–15%</strong>
+                    <b>Purchase Frequency</b>
+                  </div>
+                  <div className="what-stat">
+                    <strong>+20–50%</strong>
+                    <b>Referral Rate</b>
                   </div>
                   <div className="what-stat">
                     <strong>7,300/yr</strong>
-                    <b>Brand Recall ↑</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>5-10x</strong>
-                    <b>Referral Rate ↑</b>
+                    <b>Home-Side Impressions</b>
                   </div>
                 </div>
               </div>
@@ -575,16 +661,16 @@ export default function DtcBrandsCmoPage() {
                 </p>
                 <div className="what-stats">
                   <div className="what-stat">
-                    <strong>+3-7pt</strong>
-                    <b>NPS ↑</b>
+                    <strong>+3–7pt</strong>
+                    <b>NPS Lift</b>
                   </div>
                   <div className="what-stat">
-                    <strong>100% owned</strong>
-                    <b>Brand Awareness ↑</b>
+                    <strong>+5–10%</strong>
+                    <b>Reactivation Rate</b>
                   </div>
                   <div className="what-stat">
-                    <strong>Always-on</strong>
-                    <b>Loyalty Visibility ↑</b>
+                    <strong>+20–50%</strong>
+                    <b>Referral Rate</b>
                   </div>
                 </div>
               </div>
@@ -601,16 +687,16 @@ export default function DtcBrandsCmoPage() {
                 </p>
                 <div className="what-stats">
                   <div className="what-stat">
-                    <strong>+4-6pp</strong>
-                    <b>Retention ↑</b>
+                    <strong>+4–6pp</strong>
+                    <b>Retention Lift</b>
                   </div>
                   <div className="what-stat">
-                    <strong>Built-in</strong>
-                    <b>Incremental Lift / Holdout ↑</b>
+                    <strong>+10–30%</strong>
+                    <b>Reorder CVR</b>
                   </div>
                   <div className="what-stat">
-                    <strong>CVR x TAPs</strong>
-                    <b>Purchase Frequency ↑</b>
+                    <strong>+5–15%</strong>
+                    <b>Lifecycle Revenue</b>
                   </div>
                 </div>
               </div>
@@ -627,38 +713,54 @@ export default function DtcBrandsCmoPage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <div className="num">How It Works</div>
+              <h2>How FC turns delivered orders into repeat action</h2>
             </div>
           </div>
 
           <div className="steps">
-            <div className="step">
-              <div className="step-copy">
-                <h4>01 · Select</h4>
-                <p>Choose one customer segment, one campaign, and one measurable lift goal.</p>
+            <div className="steps-copy">
+              <div className="step is-active" data-step="1">
+                <div className="step-copy">
+                  <h4>01 · Segment</h4>
+                  <p>Choose the customer cohort you want to influence — first-time buyers, dormant customers, high-LTV customers, subscribers, or replenishment-ready customers. <strong>Works with your lifecycle stack: FC can support Klaviyo, Braze, Attentive, or CDP workflows through campaign links, UTM tracking, customer cohorts, and TAP event data.</strong></p>
+                </div>
+                <div className="ico"><img src="/dtc-cmo-pics/dtc-segment.png" alt="" /></div>
               </div>
-              <div className="ico"><img src="/dtc-cmo-pics/dtc-select.png" alt="" /></div>
+              <div className="step" data-step="2">
+                <div className="step-copy">
+                  <h4>02 · Insert</h4>
+                  <p>Insert FC into selected DTC orders through your existing fulfillment or 3PL process — without changing the customer&apos;s purchase journey.</p>
+                </div>
+                <div className="ico"><img src="/dtc-cmo-pics/dtc-ship.png" alt="" /></div>
+              </div>
+              <div className="step" data-step="3">
+                <div className="step-copy">
+                  <h4>03 · Activate</h4>
+                  <p>Customers place FC on their fridge and tap to open segment-based content — reorder, subscribe &amp; save, referral, review, loyalty, quiz, or campaign pages.</p>
+                </div>
+                <div className="ico"><img src="/dtc-cmo-pics/dtc-convert2.png" alt="" /></div>
+              </div>
+              <div className="step" data-step="4">
+                <div className="step-copy">
+                  <h4>04 · Measure</h4>
+                  <p>Compare FC cohorts against holdout groups to measure incremental lift in repeat purchase, subscription, referral, review, retention, and CLV.</p>
+                </div>
+                <div className="ico"><img src="/dtc-cmo-pics/dtc-dashboard.png" alt="" /></div>
+              </div>
             </div>
-            <div className="step">
-              <div className="step-copy">
-                <h4>02 · Ship</h4>
-                <p>Inserted FridgeChannel units selected orders through your existing fulfillment process.</p>
+            <div className="steps-media" aria-hidden="true">
+              <div className="step-media-panel is-active" data-step="1">
+                <img src="/dtc-cmo-pics/dtc-segment.png" alt="" />
               </div>
-              <div className="ico"><img src="/dtc-cmo-pics/dtc-ship.png" alt="" /></div>
-            </div>
-            <div className="step">
-              <div className="step-copy">
-                <h4>03 · Convert</h4>
-                <p>Customers place the magnet on their fridge. Daily branded related content plays — each ending with a CTA that drives back to your site: reorder, subscription, bundle, loyalty, quiz, or campaign page.</p>
+              <div className="step-media-panel" data-step="2">
+                <img src="/dtc-cmo-pics/dtc-ship.png" alt="" />
               </div>
-              <div className="ico"><img src="/dtc-cmo-pics/dtc-convert2.png" alt="" /></div>
-            </div>
-            <div className="step">
-              <div className="step-copy">
-                <h4>04 · Measure</h4>
-                <p>Track results through campaign links, customer cohorts, and holdout comparison.</p>
+              <div className="step-media-panel" data-step="3">
+                <img src="/dtc-cmo-pics/dtc-convert2.png" alt="" />
               </div>
-              <div className="ico"><img src="/realestate-pics/How you measure.png" alt="" /></div>
+              <div className="step-media-panel" data-step="4">
+                <img src="/dtc-cmo-pics/dtc-dashboard.png" alt="" />
+              </div>
             </div>
           </div>
         </div>
