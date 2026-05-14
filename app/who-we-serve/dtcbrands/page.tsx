@@ -104,7 +104,7 @@ const CSS = `
   .fc-cmo .ticker .inner b{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;color:var(--ink);letter-spacing:-.01em}
   @keyframes fc-cmo-slide{to{transform:translateX(-50%)}}
 
-  .fc-cmo .sec-head{display:grid;grid-template-columns:2fr .4fr;gap:48px;padding:96px 0 40px;border-top:1px solid var(--line-soft)}
+  .fc-cmo .sec-head{display:grid;grid-template-columns:2fr .4fr;gap:48px;padding:96px 0 40px;border-top:0}
   .fc-cmo .sec-head .num{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:var(--muted);letter-spacing:.08em}
   .fc-cmo .sec-head h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.6vw,64px);line-height:1.02;letter-spacing:-.02em;margin:10px 0 0}
   .fc-cmo .sec-head h2 em{font-style:italic;color:var(--accent)}
