@@ -3,12 +3,10 @@ import { supabaseServerClient } from '@/lib/supabase-client'
 
 const ITEMS_PER_PAGE = 10
 
-type CreatorRow = {
-  creator_id: string
-  creator_name: string
-  newsletter_name: string | null
-  website_url: string | null
-  creator_signature_image_url: string | null
+type ShopCreatorRow = {
+  id: string
+  name: string
+  avatar_url: string | null
 }
 
 export async function GET(request: NextRequest) {
@@ -31,7 +29,7 @@ export async function GET(request: NextRequest) {
 
   // Get total count
   const { count, error: countError } = await supabase
-    .from('creator')
+    .from('shop_creator')
     .select('*', { count: 'exact', head: true })
 
   if (countError) {
@@ -43,8 +41,8 @@ export async function GET(request: NextRequest) {
 
   // Get paginated data
   const { data, error } = await supabase
-    .from('creator')
-    .select('creator_id, creator_name, newsletter_name, website_url, creator_signature_image_url')
+    .from('shop_creator')
+    .select('id, name, avatar_url')
     .order('created_at', { ascending: true })
     .range(from, to)
 
@@ -59,21 +57,21 @@ export async function GET(request: NextRequest) {
   }
 
   // Map to task format
-  const mapCreatorToTask = (creator: CreatorRow) => {
-    const logoSource = creator.newsletter_name || creator.creator_name
+  const mapCreatorToTask = (row: ShopCreatorRow) => {
+    const logoSource = row.name
     const logoInitial = logoSource.charAt(0).toUpperCase() || '?'
 
     return {
-      id: creator.creator_id,
+      id: row.id,
       logo: logoInitial,
-      logoImageUrl: creator.creator_signature_image_url || null,
-      creatorName: creator.creator_name,
-      newsletterName: creator.newsletter_name || '—',
-      websiteUrl: creator.website_url || '#',
+      logoImageUrl: row.avatar_url || null,
+      creatorName: row.name,
+      newsletterName: '—',
+      websiteUrl: '#',
     }
   }
 
-  const tasks = (data as CreatorRow[]).map(mapCreatorToTask)
+  const tasks = (data as ShopCreatorRow[]).map(mapCreatorToTask)
 
   return NextResponse.json({
     tasks,

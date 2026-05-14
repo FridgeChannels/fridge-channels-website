@@ -29,9 +29,9 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
   }
 
   const { data: creator, error: creatorError } = await supabase
-    .from('creator')
-    .select('creator_id')
-    .eq('handle', creatorName)
+    .from('shop_creator')
+    .select('id')
+    .eq('slug', creatorName)
     .maybeSingle()
 
   if (creatorError) {
@@ -46,7 +46,7 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
   const { data: images, error: imagesError } = await supabase
     .from('magnet_image')
     .select('image_id, front_image_url, type')
-    .eq('creator_id', creator.creator_id)
+    .eq('creator_id', creator.id)
     .order('created_at', { ascending: false })
 
   if (imagesError) {
@@ -57,7 +57,7 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
   const { data: video, error: videoError } = await supabase
     .from('magnet_video')
     .select('video_id, demo_video_url')
-    .eq('creator_id', creator.creator_id)
+    .eq('creator_id', creator.id)
     .maybeSingle()
 
   if (videoError) {
@@ -70,7 +70,7 @@ export async function getCreatorMedia(creatorName: string): Promise<CreatorMedia
     images?.filter((image) => image.type === 'normal').slice(0, 3) ?? []
 
   return {
-    creatorId: creator.creator_id,
+    creatorId: creator.id,
     coverImage,
     normalImages,
     video: video ?? null,
