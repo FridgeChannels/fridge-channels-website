@@ -59,17 +59,16 @@ const CSS = `
   .fc-cmo .nav-cta .arrow{transition:transform .2s}
   .fc-cmo .nav-cta:hover .arrow{transform:translate(2px,-2px)}
 
-  .fc-cmo .hero-grid,.fc-cmo .ticker,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:fc-cmo-rise .72s cubic-bezier(.22,1,.36,1) both}
-  .fc-cmo .ticker{animation-delay:.1s}
+  .fc-cmo .hero-grid,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:fc-cmo-rise .72s cubic-bezier(.22,1,.36,1) both}
   .fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .steps{animation-delay:.16s}
   .fc-cmo .what-item:nth-child(1){animation-delay:.08s}
   .fc-cmo .what-item:nth-child(2){animation-delay:.16s}
   .fc-cmo .what-item:nth-child(3){animation-delay:.24s}
   @keyframes fc-cmo-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .ticker,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-grid,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .steps{animation:none}
-  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .ticker,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:0;transform:translateY(34px);filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
-  .fc-cmo .reveal-section.is-visible .hero-grid,.fc-cmo .reveal-section.is-visible .ticker,.fc-cmo .reveal-section.is-visible .sec-head,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .addon-panel,.fc-cmo .reveal-section.is-visible .what-item,.fc-cmo .reveal-section.is-visible .step{opacity:1;transform:translateY(0);filter:blur(0)}
-  .fc-cmo .reveal-section.is-visible .ticker,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .what-item:nth-child(1),.fc-cmo .reveal-section.is-visible .step:nth-child(1),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(1){transition-delay:.08s}
+  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-grid,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .steps{animation:none}
+  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:0;transform:translateY(34px);filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .fc-cmo .reveal-section.is-visible .hero-grid,.fc-cmo .reveal-section.is-visible .sec-head,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .addon-panel,.fc-cmo .reveal-section.is-visible .what-item,.fc-cmo .reveal-section.is-visible .step{opacity:1;transform:translateY(0);filter:blur(0)}
+  .fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .what-item:nth-child(1),.fc-cmo .reveal-section.is-visible .step:nth-child(1),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(1){transition-delay:.08s}
   .fc-cmo .reveal-section.is-visible .what-item:nth-child(2),.fc-cmo .reveal-section.is-visible .step:nth-child(2),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(2){transition-delay:.36s}
   .fc-cmo .reveal-section.is-visible .what-item:nth-child(3),.fc-cmo .reveal-section.is-visible .step:nth-child(3),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(3){transition-delay:.62s}
   .fc-cmo .reveal-section.is-visible .step:nth-child(4){transition-delay:.82s}
@@ -98,10 +97,6 @@ const CSS = `
   .fc-cmo .hero-card .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:12px}
   .fc-cmo .hero-card .pill .dot{width:6px;height:6px;border-radius:50%;background:#69d39a;box-shadow:0 0 0 3px rgba(105,211,154,.25)}
 
-  .fc-cmo .ticker{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:0;padding:64px 0 74px;overflow:hidden;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,#fff 24%,#fff 68%,var(--bg) 100%)}
-  .fc-cmo .ticker .inner{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 44px;width:auto}
-  .fc-cmo .ticker .inner > div{display:flex;align-items:baseline;gap:12px;font-size:14px;color:var(--ink-2);white-space:nowrap}
-  .fc-cmo .ticker .inner b{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;color:var(--ink);letter-spacing:-.01em}
   @keyframes fc-cmo-slide{to{transform:translateX(-50%)}}
 
   .fc-cmo .sec-head{display:grid;grid-template-columns:2fr .4fr;gap:48px;padding:96px 0 40px;border-top:0}
@@ -136,8 +131,11 @@ const CSS = `
   .fc-cmo .addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
   .fc-cmo .addon-panel{background:var(--accent);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:26px;min-height:260px;display:flex;flex-direction:column;color:#fff;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
   .fc-cmo .addon-panel:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.32);box-shadow:0 28px 70px -54px rgba(0,75,64,.85)}
-  .fc-cmo .addon-panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:42px;line-height:1.02;letter-spacing:-.01em;margin:0;color:#fff}
-  .fc-cmo .addon-panel p{font-size:20px;line-height:1.45;color:rgba(255,255,255,.78);margin:16px 0 0}
+  .fc-cmo .addon-panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(31px,3vw,42px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#fff}
+  .fc-cmo .addon-panel h4{display:flex;align-items:flex-end;gap:10px;font-size:18px;line-height:1.15;letter-spacing:-.01em;margin:22px 0 0;color:#F2C99A;font-weight:800}
+  .fc-cmo .addon-panel h4 .metric-number{font-family:'Instrument Serif',serif;font-size:clamp(52px,5vw,76px);line-height:.82;font-weight:400;letter-spacing:-.02em}
+  .fc-cmo .addon-panel h4 .metric-label{display:block;padding-bottom:4px}
+  .fc-cmo .addon-panel p{font-size:17px;line-height:1.48;color:rgba(255,255,255,.78);margin:12px 0 0}
   .fc-cmo .addon-panel .metrics{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line);display:grid;gap:12px}
   .fc-cmo .addon-panel .metric-card{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.42);padding:15px 16px;min-height:116px}
   .fc-cmo .addon-panel .metric-card b{display:block;color:var(--ink);font-size:15px;line-height:1.2;font-weight:700}
@@ -151,18 +149,22 @@ const CSS = `
   .fc-cmo .addon-panel.dark .metric-card span{color:rgba(255,255,255,.72)}
 
   .fc-cmo .what-can{padding:84px 0 56px}
-  .fc-cmo .what-list{display:grid;gap:22px;margin-top:28px}
+  .fc-cmo .what-list{display:grid;gap:144px;margin-top:28px}
   .fc-cmo .what-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.84fr);gap:34px;align-items:stretch;border:1px solid var(--line);border-radius:20px;background:var(--paper);overflow:hidden;transition:transform .32s ease,box-shadow .32s ease,border-color .32s ease}
   .fc-cmo .what-item:hover{transform:translateY(-7px);border-color:rgba(26,23,20,.24);box-shadow:0 30px 86px -62px rgba(26,23,20,.7)}
   .fc-cmo .what-copy{padding:34px 34px 32px;display:flex;flex-direction:column;min-height:430px}
   .fc-cmo .what-copy h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-.018em;margin:0;color:var(--ink);max-width:24ch}
   .fc-cmo .what-copy p{font-size:16px;line-height:1.65;color:var(--ink-2);margin:18px 0 0;max-width:58ch}
   .fc-cmo .what-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px;padding-top:0}
+  .fc-cmo .what-stats.one-up{grid-template-columns:minmax(0,1fr)}
+  .fc-cmo .what-stats.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}
   .fc-cmo .what-stat{border-right:1px solid var(--line);padding-right:18px;min-width:0}
   .fc-cmo .what-stat:last-child{border-right:0;padding-right:0}
   .fc-cmo .what-stat strong{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,4.8vw,76px);line-height:.9;letter-spacing:-.02em;color:var(--accent)}
   .fc-cmo .what-stat b{display:block;margin-top:14px;font-size:clamp(19px,1.55vw,26px);line-height:1.08;letter-spacing:-.015em;color:var(--accent);font-weight:800}
   .fc-cmo .what-stat span{display:block;margin-top:10px;font-size:13.5px;line-height:1.45;color:var(--ink);font-weight:500}
+  .fc-cmo .what-stats.metric-stats .what-stat b{margin-top:0}
+  .fc-cmo .what-stats.metric-stats .what-stat.numeric-stat b{margin-top:14px}
   .fc-cmo .what-media{position:relative;min-height:430px;background:var(--bg-2);overflow:hidden}
   .fc-cmo .what-media img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.22,1,.36,1)}
   .fc-cmo .what-item:hover .what-media img{transform:scale(1.045)}
@@ -173,9 +175,29 @@ const CSS = `
   .fc-cmo .what-item.balanced .what-media img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;object-position:center}
   .fc-cmo .what-item.presence-card .what-media img{object-fit:cover;object-position:center;transform:scale(1.08)}
   .fc-cmo .what-item.presence-card:hover .what-media img{transform:scale(1.12)}
+  .fc-cmo .what-list .custom-design-fusion-card{position:relative;display:grid;grid-template-columns:minmax(0,.56fr) minmax(0,.44fr);min-height:560px;overflow:hidden;isolation:isolate;background:var(--bg);margin-right:0}
+  .fc-cmo .what-list .custom-design-fusion-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bg) 0%,rgba(241,232,219,.97) 36%,rgba(241,232,219,.7) 57%,rgba(241,232,219,0) 78%);pointer-events:none}
+  .fc-cmo .what-list .custom-design-fusion-card .what-copy{position:relative;z-index:2;order:1;grid-column:1/2;min-height:560px;justify-content:center;padding:64px 0;max-width:760px}
+  .fc-cmo .what-list .custom-design-fusion-card .what-copy h3{font-size:clamp(52px,6vw,92px);line-height:.98;max-width:24ch}
+  .fc-cmo .what-list .custom-design-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:48ch;margin-top:26px;color:#211a16}
+  .fc-cmo .what-list .custom-design-fusion-card .what-media{position:relative;order:2;height:100%!important;aspect-ratio:auto!important;background:transparent!important;align-self:stretch;border-radius:0;overflow:hidden}
+  .fc-cmo .what-list .custom-design-fusion-card .what-media img{object-fit:contain!important;object-position:center right}
+  .fc-cmo .what-item.dashboard-card{grid-template-columns:minmax(0,1fr) minmax(420px,44%)}
+  .fc-cmo .what-item.dashboard-card.flip{grid-template-columns:minmax(420px,44%) minmax(0,1fr)}
+  .fc-cmo .what-item.dashboard-card .what-media{min-height:320px}
+  .fc-cmo .what-item.dashboard-card .what-copy{min-height:320px;justify-content:center}
   .fc-cmo .what-item.compact .what-copy{min-height:0}
   .fc-cmo .what-item.compact .what-media{min-height:0;height:auto}
-  .fc-cmo .what-item:nth-child(even){background:#181311;color:#fff;border-color:#2c2521}
+  .fc-cmo .what-item.compact.dashboard-card .what-copy{min-height:320px}
+  .fc-cmo .what-item.compact.dashboard-card .what-media{min-height:320px}
+  .fc-cmo .what-list .what-media{border:0!important;outline:0!important;box-shadow:none!important}
+  .fc-cmo .what-list .what-media img{display:block;border:0!important;outline:0!important;box-shadow:none!important;transform:none}
+  .fc-cmo .what-list .what-item:hover .what-media img{transform:none}
+  .fc-cmo .what-list .what-item{border-color:transparent}
+  .fc-cmo .what-list .what-item:hover{border-color:transparent}
+  .fc-cmo .what-item.custom-design-card .what-media img,.fc-cmo .what-item.custom-design-card:hover .what-media img{transform:none}
+  .fc-cmo .what-item:nth-child(even){background:#181311;color:#fff;border-color:transparent}
+  .fc-cmo .what-item:nth-child(even):hover{border-color:transparent}
   .fc-cmo .what-item:nth-child(even) .what-copy h3{color:#fff}
   .fc-cmo .what-item:nth-child(even) .what-copy p{color:rgba(255,255,255,.72)}
   .fc-cmo .what-item:nth-child(even) .what-stat{border-right-color:rgba(255,255,255,.18)}
@@ -183,9 +205,63 @@ const CSS = `
   .fc-cmo .what-item:nth-child(even) .what-stat strong{color:#F2C99A}
   .fc-cmo .what-item:nth-child(even) .what-stat span{color:rgba(255,255,255,.88)}
   .fc-cmo .what-item:nth-child(even) .what-media{background:#2c2521}
+  .fc-cmo .what-list .what-item{background:var(--bg);border:0;border-radius:0;box-shadow:none;color:var(--ink)}
+  .fc-cmo .what-list .what-item + .what-item{border-top:0}
+  .fc-cmo .what-list .what-item:hover{transform:none;border-color:transparent;box-shadow:none}
+  .fc-cmo .what-list .what-item:nth-child(even){background:var(--bg);color:var(--ink)}
+  .fc-cmo .what-list .what-item:nth-child(even) .what-copy h3{color:var(--ink)}
+  .fc-cmo .what-list .what-item:nth-child(even) .what-copy p{color:var(--ink-2)}
+  .fc-cmo .what-list .what-item:nth-child(even) .what-stat b,.fc-cmo .what-list .what-item:nth-child(even) .what-stat strong{color:var(--accent)}
+  .fc-cmo .what-list .what-item:nth-child(even) .what-stat span{color:var(--ink)}
+  .fc-cmo .what-list .what-copy h3{color:var(--ink)}
+  .fc-cmo .what-list .what-copy p{color:var(--ink-2)}
+  .fc-cmo .what-list .what-stat{border-right-color:var(--line)}
+  .fc-cmo .what-list .what-stat b,.fc-cmo .what-list .what-stat strong{color:var(--accent)}
+  .fc-cmo .what-list .what-stat span{color:var(--ink)}
+  .fc-cmo .what-list .what-media{background:var(--bg)!important}
+  .fc-cmo .what-list .half-split-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .fc-cmo .what-list .what-item.balanced.half-split-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .fc-cmo .what-list .half-split-card .what-copy{padding:34px 56px 34px 0}
+  .fc-cmo .what-list .half-split-card.flip .what-copy{padding:34px 0 34px 56px}
+  .fc-cmo .what-list .what-media{aspect-ratio:4/3;min-height:0!important;height:auto!important;align-self:center}
+  .fc-cmo .what-list .what-media img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:contain!important;object-position:center}
+  .fc-cmo .what-item.custom-design-card .what-media{aspect-ratio:4/3}
+  .fc-cmo .what-item.custom-design-card .what-media img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:contain!important}
+  .fc-cmo .what-list .tap-fusion-card{position:relative;display:grid;grid-template-columns:minmax(0,.68fr) minmax(0,.32fr);min-height:620px;overflow:hidden;isolation:isolate;background:var(--bg);margin-right:-68px}
+  .fc-cmo .what-list .tap-fusion-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bg) 0%,rgba(241,232,219,.97) 36%,rgba(241,232,219,.7) 57%,rgba(241,232,219,0) 78%);pointer-events:none}
+  .fc-cmo .what-list .content-fusion-card{position:relative;display:grid;grid-template-columns:minmax(0,.44fr) minmax(0,.56fr);min-height:560px;overflow:hidden;isolation:isolate;background:var(--bg);margin-left:0}
+  .fc-cmo .what-list .content-fusion-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,var(--bg) 0%,rgba(241,232,219,.97) 36%,rgba(241,232,219,.7) 57%,rgba(241,232,219,0) 78%);pointer-events:none}
+  .fc-cmo .what-list .content-fusion-card .what-copy{position:relative;z-index:2;order:2;grid-column:2/3;min-height:560px;justify-content:center;padding:64px 0;max-width:760px}
+  .fc-cmo .what-list .content-fusion-card .what-copy h3{font-size:clamp(40px,4.8vw,72px);line-height:.98;max-width:18ch}
+  .fc-cmo .what-list .content-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:45ch;margin-top:26px;color:#211a16}
+  .fc-cmo .what-list .content-fusion-card .what-stats.one-up{grid-template-columns:1fr;width:max-content;gap:12px;margin-top:34px;max-width:480px}
+  .fc-cmo .what-list .content-fusion-card .what-stat{border:1px solid rgba(74,40,24,.16);border-radius:8px;background:rgba(255,255,255,.42);padding:24px 22px 26px;backdrop-filter:blur(4px);box-shadow:0 18px 52px -46px rgba(74,40,24,.72)}
+  .fc-cmo .what-list .content-fusion-card .what-stat strong{font-size:clamp(44px,4.5vw,72px)}
+  .fc-cmo .what-list .content-fusion-card .what-stat b{font-size:clamp(17px,1.4vw,22px);line-height:1.08}
+  .fc-cmo .what-list .content-fusion-card .what-media{position:relative;order:1;height:100%!important;aspect-ratio:auto!important;background:transparent!important;align-self:stretch;border-radius:0;overflow:hidden}
+  .fc-cmo .what-list .content-fusion-card .what-media img{object-fit:cover!important;object-position:center left}
+  .fc-cmo .what-list .tap-fusion-card .what-copy{position:relative;z-index:2;order:1;grid-column:1/2;min-height:620px;justify-content:center;padding:64px 0;max-width:760px}
+  .fc-cmo .what-list .tap-fusion-card .tap-eyebrow{display:block;width:max-content;margin:0 0 26px;font-size:14px;line-height:1;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4a2818}
+  .fc-cmo .what-list .tap-fusion-card .tap-eyebrow::after{content:"";display:block;width:34px;height:1px;background:#4a2818;margin-top:18px}
+  .fc-cmo .what-list .tap-fusion-card .what-copy h3{font-size:clamp(52px,6vw,92px);line-height:.98;max-width:11ch}
+  .fc-cmo .what-list .tap-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:45ch;margin-top:26px;color:#211a16}
+  .fc-cmo .what-list .tap-fusion-card .what-stats.metric-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px;max-width:760px}
+  .fc-cmo .what-list .tap-fusion-card .what-stat{border:1px solid rgba(74,40,24,.16);border-radius:8px;background:rgba(255,255,255,.42);padding:24px 22px 26px;backdrop-filter:blur(4px);box-shadow:0 18px 52px -46px rgba(74,40,24,.72)}
+  .fc-cmo .what-list .tap-fusion-card .what-stat strong{font-size:clamp(54px,5.2vw,84px)}
+  .fc-cmo .what-list .tap-fusion-card .what-stat b{font-size:clamp(18px,1.45vw,24px);line-height:1.08}
+  .fc-cmo .what-list .tap-fusion-card .what-media{position:absolute!important;inset:0 0 0 auto;z-index:0;order:2;width:62%;height:100%!important;aspect-ratio:auto!important;background:transparent!important;align-self:stretch}
+  .fc-cmo .what-list .tap-fusion-card .what-media img{object-fit:cover!important;object-position:center right}
+  .fc-cmo .what-item.custom-design-card .what-copy h3{font-size:clamp(52px,6vw,92px);line-height:.98}
+  .fc-cmo .what-item.custom-design-card .what-copy p{font-size:18px;line-height:1.7;margin-top:26px;color:#211a16}
+  .fc-cmo .what-list .dashboard-fusion-card{position:relative;display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);min-height:560px;overflow:hidden;isolation:isolate;background:var(--bg);margin-left:-68px}
+  .fc-cmo .what-list .dashboard-fusion-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,var(--bg) 0%,rgba(241,232,219,.97) 36%,rgba(241,232,219,.7) 57%,rgba(241,232,219,0) 78%);pointer-events:none}
+  .fc-cmo .what-list .dashboard-fusion-card .what-copy{position:relative;z-index:2;order:2;grid-column:2/3;min-height:560px;justify-content:center;padding:64px 0 64px 60px;max-width:760px}
+  .fc-cmo .what-list .dashboard-fusion-card .what-copy h3{font-size:clamp(52px,6vw,92px);line-height:.98;max-width:18ch}
+  .fc-cmo .what-list .dashboard-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:45ch;margin-top:26px;color:#211a16}
+  .fc-cmo .what-list .dashboard-fusion-card .what-media{position:absolute!important;inset:0 auto 0 0;z-index:0;order:1;width:62%;height:100%!important;aspect-ratio:auto!important;background:transparent!important;align-self:stretch}
+  .fc-cmo .what-list .dashboard-fusion-card .what-media img{object-fit:cover!important;object-position:center left}
   .fc-cmo .what-item.flip .what-media{order:1}
   .fc-cmo .what-item.flip .what-copy{order:2}
-
   .fc-cmo .cmo{padding:24px 0 32px;position:relative}
   .fc-cmo .cmo-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:24px 0 40px}
   .fc-cmo .cmo-intro .quote{font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,42px);line-height:1.15;letter-spacing:-.015em;color:var(--ink)}
@@ -264,9 +340,11 @@ const CSS = `
   .fc-cmo .step-media-panel.is-active{opacity:1;transform:scale(1)}
   .fc-cmo .step-media-panel img{width:100%;height:100%;object-fit:cover}
 
-  .fc-cmo .final{position:relative;border-radius:24px;overflow:hidden;margin:0 0 64px;background:#fff;border:1px solid var(--line)}
+  .fc-cmo #pilot{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+  .fc-cmo #pilot .wrap{padding:0;max-width:none}
+  .fc-cmo .final{position:relative;border-radius:0;overflow:hidden;margin:0;background:#fff;border:0;width:100%}
   .fc-cmo .final .bg{display:none}
-  .fc-cmo .final .body{position:relative;padding:88px 56px;color:var(--ink);max-width:880px;margin:0 auto;text-align:center}
+  .fc-cmo .final .body{position:relative;padding:88px 56px;color:var(--ink);max-width:1080px;margin:0 auto;text-align:center}
   .fc-cmo .final .eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.85)}
   .fc-cmo .final h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5.2vw,76px);line-height:1.02;letter-spacing:-.02em;margin:20px auto 0}
   .fc-cmo .final h2 em{font-style:italic;color:var(--accent)}
@@ -280,14 +358,16 @@ const CSS = `
   .fc-cmo footer.foot .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--muted)}
 
   @media (prefers-reduced-motion:reduce){
-    .fc-cmo .hero-grid,.fc-cmo .ticker,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:none}
-    .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .ticker,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:1;transform:none;filter:none}
+    .fc-cmo .hero-grid,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:none}
+    .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:1;transform:none;filter:none}
     .fc-cmo *{transition:none!important}
   }
 
   @media (min-width:1440px){
     .fc-cmo .wrap{padding:0 128px}
     .fc-cmo .what-item{grid-template-columns:minmax(0,1.08fr) minmax(460px,.92fr);gap:42px}
+    .fc-cmo .what-list .tap-fusion-card{margin-right:-128px}
+    .fc-cmo .what-list .dashboard-fusion-card{margin-left:-128px}
   }
 
   @media (max-width:960px){
@@ -302,10 +382,23 @@ const CSS = `
     .fc-cmo .table .row > div{padding:14px 18px;font-size:13.5px}
     .fc-cmo .addon-grid{grid-template-columns:1fr}
     .fc-cmo .what-item{grid-template-columns:1fr}
+    .fc-cmo .what-item.custom-design-card{grid-template-columns:1fr}
+    .fc-cmo .what-item.custom-design-card .what-copy{padding:28px 0 0}
+    .fc-cmo .what-list .half-split-card{grid-template-columns:1fr}
+    .fc-cmo .what-list .half-split-card .what-copy{padding:28px 0}
     .fc-cmo .what-item.balanced{grid-template-columns:1fr;max-width:none}
     .fc-cmo .what-item.balanced .what-media{min-height:260px}
     .fc-cmo .what-item.balanced .what-media img{width:100%;height:100%;max-width:none;object-fit:cover}
     .fc-cmo .what-item.flip .what-media,.fc-cmo .what-item.flip .what-copy{order:initial}
+    .fc-cmo .what-list .tap-fusion-card, .fc-cmo .what-list .custom-design-fusion-card, .fc-cmo .what-list .dashboard-fusion-card{grid-template-columns:1fr;min-height:0;margin:0 -68px}
+    .fc-cmo .what-list .tap-fusion-card::before, .fc-cmo .what-list .custom-design-fusion-card::before, .fc-cmo .what-list .dashboard-fusion-card::before{background:linear-gradient(180deg,rgba(241,232,219,0) 0%,var(--bg) 62%)}
+    .fc-cmo .what-list .tap-fusion-card .what-media, .fc-cmo .what-list .custom-design-fusion-card .what-media, .fc-cmo .what-list .dashboard-fusion-card .what-media{position:relative!important;inset:auto;width:100%;height:auto!important;aspect-ratio:4/3!important;grid-row:1}
+    .fc-cmo .what-list .tap-fusion-card .what-copy, .fc-cmo .what-list .custom-design-fusion-card .what-copy, .fc-cmo .what-list .dashboard-fusion-card .what-copy{grid-row:2;grid-column:auto;min-height:0;padding:32px 68px}
+    .fc-cmo .what-list .tap-fusion-card .what-copy h3, .fc-cmo .what-list .custom-design-fusion-card .what-copy h3, .fc-cmo .what-list .dashboard-fusion-card .what-copy h3{font-size:clamp(42px,9vw,64px)}
+    .fc-cmo .what-list .content-fusion-card{grid-template-columns:1fr;min-height:0;margin:0}
+    .fc-cmo .what-list .content-fusion-card::before{background:linear-gradient(180deg,rgba(241,232,219,0) 0%,var(--bg) 62%)}
+    .fc-cmo .what-list .content-fusion-card .what-media{position:relative!important;inset:auto;width:100%;height:auto!important;aspect-ratio:4/3!important;grid-row:1;grid-column:1/2;border-radius:0}
+    .fc-cmo .what-list .content-fusion-card .what-copy{grid-row:2;grid-column:1/2;min-height:0;padding:32px 68px}
     .fc-cmo .what-copy{min-height:0}
     .fc-cmo .what-media{min-height:320px}
     .fc-cmo .crm-row{grid-template-columns:repeat(2,1fr)}
@@ -354,7 +447,7 @@ export default function DtcBrandsCmoPage() {
       if (!copy || !media || !img || !img.naturalHeight) return;
 
       const copyHeight = copy.getBoundingClientRect().height;
-      const ratio = img.naturalWidth / img.naturalHeight;
+      const ratio = 4 / 3;
       const mediaWidth = Math.round(copyHeight * ratio);
       const nextWidth = `${mediaWidth}px`;
 
@@ -371,7 +464,7 @@ export default function DtcBrandsCmoPage() {
       const media = card.querySelector<HTMLElement>(".what-media");
       const img = media?.querySelector<HTMLImageElement>("img");
 
-      if (!img) return () => {};
+      if (!img) return () => { };
 
       const onLoad = () => updateCard(card);
       if (img.complete) {
@@ -382,7 +475,7 @@ export default function DtcBrandsCmoPage() {
       return () => img.removeEventListener("load", onLoad);
     });
 
-    document.fonts?.ready.then(updateAllCards).catch(() => {});
+    document.fonts?.ready.then(updateAllCards).catch(() => { });
 
     const onResize = () => updateAllCards();
     window.addEventListener("resize", onResize);
@@ -455,7 +548,7 @@ export default function DtcBrandsCmoPage() {
       cleanups.push(() => resizeObserver.disconnect());
     }
 
-    document.fonts?.ready.then(scheduleUpdate).catch(() => {});
+    document.fonts?.ready.then(scheduleUpdate).catch(() => { });
     scheduleUpdate();
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
@@ -503,283 +596,205 @@ export default function DtcBrandsCmoPage() {
 
       <main className="fc-cmo flex-1">
 
-      {/* HERO */}
-      <section className="hero reveal-section">
-        <div className="wrap">
-          <div className="hero-grid">
-            <div>
-              <h1>The Physical Layer for Post-Purchase Customer Continuity</h1>
-              <p className="lede">FridgeChannel Turn every delivered order into a daily retention touchpoint. Move repeat purchase, LTV, and loyalty on a surface email, SMS, and paid ads can't reach anymore.</p>
+        {/* HERO */}
+        <section className="hero reveal-section">
+          <div className="wrap">
+            <div className="hero-grid">
+              <div>
+                <h1>The Physical Layer for Post-Purchase Customer Continuity</h1>
+                <p className="lede">FridgeChannel Turn every delivered order into a daily retention touchpoint. Move repeat purchase, LTV, and loyalty on a surface email, SMS, and paid ads can't reach anymore.</p>
 
-              <div className="cta-row">
-                <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
-              </div>
-            </div>
-          </div>
-
-          <div className="ticker">
-            <div className="inner">
-              {[0].map((loop) => (
-                <div key={loop} style={{ display: "contents" }}>
-                  <div><b>~7,000</b><span>home-side exposures / customer / year</span></div>
-                  <div><b>20+</b><span>fridge opens per household per day</span></div>
-                  <div><b>500×</b><span>exposure vs. email + SMS in the day 30–90 window</span></div>
-                  <div><b>0%</b><span>opt-out, ad-block, or algorithmic suppression</span></div>
-                  <div><b>+$25</b><span>CLV per customer at conservative +0.5 reorders</span></div>
+                <div className="cta-row">
+                  <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="addon reveal-section">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <div className="num">Why Choose Us</div>
-              <h2>Built on a moat digital channels can&apos;t copy.</h2>
-            </div>
-          </div>
-
-          <div className="addon-grid">
-            <div className="addon-panel">
-              <h3>Drive the Post-Purchase Action Loop</h3>
-              <p>
-                Every Presence Asset can route customers into the next post-purchase action: reorder, subscription, loyalty, referral, education, discovery, or a campaign page.
-              </p>
-            </div>
-            <div className="addon-panel">
-              <h3>25+ Daily Family Impressions</h3>
-              <p>
-                The fridge is one of the highest-frequency surfaces in the home. With 20-40 daily fridge opens, FC creates thousands of annual household brand moments without adding another message, notification, or media buy.
-              </p>
-            </div>
-            <div className="addon-panel">
-              <h3>Lifecycle Trigger</h3>
-              <p>
-                Every TAP creates a high-intent signal that can support reactivation, upsell, subscribe &amp; save, referral, and review flows.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MECHANISM */}
-      <section className="mechanism reveal-section" id="mechanism">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <div className="num">The Shift</div>
-              <h2>Retention is moving from digital messaging to <em>ambient physical presence</em>.</h2>
-            </div>
-          </div>
-
-          <div className="table">
-            <div className="row head">
-              <div>Channel</div><div>Exposure / customer / year</div><div>How it&apos;s calculated</div><div>Engagement</div><div>Trend</div>
-            </div>
-            <div className="row">
-              <div className="label">Email</div>
-              <div>~150 sends</div>
-              <div className="calc">
-                <span>3 sends/wk × 52 wks</span>
-                <span className="source">Klaviyo / Omnisend DTC lifecycle benchmarks</span>
               </div>
-              <div>~20% open · ~2% CTR</div>
-              <div className="trend-down">↓ ~30% open in 5 yrs</div>
             </div>
-            <div className="row">
-              <div className="label">SMS</div>
-              <div>~30 sends</div>
-              <div className="calc">
-                <span>2–3 sends/mo × 12 mos</span>
-                <span className="source">Postscript / Attentive DTC benchmarks</span>
-              </div>
-              <div>~3–5% CTR</div>
-              <div className="trend-down">opt-out fatigue ↑</div>
-            </div>
-            <div className="row fc-row">
-              <div className="label">FridgeChannel</div>
-              <div><span className="big">~7,000</span></div>
-              <div className="calc">
-                <span>20 fridge opens/day × 365 days</span>
-                <span className="source">NielsenIQ — household fridge-open frequency</span>
-                <span className="source">Conservative floor: 2 intentional glances/day × 365 ≈ 730</span>
-              </div>
-              <div>Unblockable, unmuted</div>
-              <div className="trend-up">↑ open category</div>
-            </div>
-          </div>
-          <p className="mech-footnote">Source: NielsenIQ household behavior data; Klaviyo benchmark reports. ~20 fridge opens per household per day. No opt-in. No algorithm. No competing tabs.</p>
-        </div>
-      </section>
 
-      {/* WHAT CAN WE DO */}
-      <section className="what-can reveal-section">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <div className="num">What Can We Do?</div>
-              <h2>Turn household presence into brand affinity and measurable next steps.</h2>
-            </div>
           </div>
+        </section>
 
-          <div className="what-list">
-            <article className="what-item flip balanced presence-card">
-              <div className="what-copy">
-                <h3>Brand Presence Woven Into Daily Life</h3>
+        {/* WHY CHOOSE US */}
+        <section className="addon reveal-section">
+          <div className="wrap">
+            <div className="sec-head">
+              <div>
+                <div className="num">Why Choose Us</div>
+                <h2>Built on a moat digital channels can&apos;t copy.</h2>
+              </div>
+            </div>
+
+            <div className="addon-grid">
+              <div className="addon-panel">
+                <h3>Persistent Presence Builds Mental Availability</h3>
+                <h4><span className="metric-number">0</span><span className="metric-label">Algorithm &amp; Ad-Blockers</span></h4>
                 <p>
-                  Your brand becomes a repeated household presence on one of the highest-frequency surfaces in daily life — visible at fridge moments no inbox, feed, or paid ad can reliably own.
+                  FridgeChannel gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
                 </p>
-                <div className="what-stats">
-                  <div className="what-stat">
-                    <strong>+5–15%</strong>
-                    <b>Purchase Frequency</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>+20–50%</strong>
-                    <b>Referral Rate</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>7,300/yr</strong>
-                    <b>Home-Side Impressions</b>
-                  </div>
-                </div>
               </div>
-              <div className="what-media">
-                <img src="/dtc-cmo-pics/Gemini_Generated_Image_uqh50guqh50guqh5.png" alt="Always-on household brand presence" style={{ objectPosition: "left center" }} />
-              </div>
-            </article>
-
-            <article className="what-item compact balanced">
-              <div className="what-copy">
-                <h3>FC-Crafted Affinity-Building Content</h3>
+              <div className="addon-panel">
+                <h3>Daily Environment Extends Retention Beyond Campaign Windows</h3>
+                <h4><span className="metric-number">10+</span><span className="metric-label">Daily Family Impressions</span></h4>
                 <p>
-                  Every listen is designed to work in favor of the brand: useful tips, founder stories, product education, recipes, routines, offers, or loyalty prompts that make the customer feel closer to the brand.
+                  FridgeChannel turns repeated home routines into an always-on brand surface, keeping visibility alive long after the purchase, campaign, or email send is over.
                 </p>
-                <div className="what-stats">
-                  <div className="what-stat">
-                    <strong>+3–7pt</strong>
-                    <b>NPS Lift</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>+5–10%</strong>
-                    <b>Reactivation Rate</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>+20–50%</strong>
-                    <b>Referral Rate</b>
-                  </div>
-                </div>
               </div>
-              <div className="what-media">
-                <img src="/dtc-cmo-pics/dtc-mockup-black.png" alt="Brand affinity content mockup" />
-              </div>
-            </article>
-
-            <article className="what-item flip balanced">
-              <div className="what-copy">
-                <h3>Real-World Next-Step Activation</h3>
+              <div className="addon-panel">
+                <h3>Habit Proximity Creates Higher-Intent Retention Signals</h3>
+                <h4><span className="metric-number">8+</span><span className="metric-label">Post-Purchase Actions From One Tap</span></h4>
                 <p>
-                  Every Presence Asset can guide the customer to the expected next step — reorder, subscription, loyalty, referral, education, discovery, review, or a campaign page — with one tap.
+                  Because each tap happens inside a daily household routine, the signal is closer to real purchase intent than a standard digital click.
                 </p>
-                <div className="what-stats">
-                  <div className="what-stat">
-                    <strong>+4–6pp</strong>
-                    <b>Retention Lift</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>+10–30%</strong>
-                    <b>Reorder CVR</b>
-                  </div>
-                  <div className="what-stat">
-                    <strong>+5–15%</strong>
-                    <b>Lifecycle Revenue</b>
-                  </div>
-                </div>
               </div>
-              <div className="what-media">
-                <img src="/dtc-cmo-pics/dtc-pillar-nextstep.png" alt="Real-world next-step activation" />
-              </div>
-            </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* HOW IT WORKS */}
-      <section className="how reveal-section" id="how">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <h2>How FC turns delivered orders into repeat action</h2>
+        {/* MECHANISM */}
+        <section className="mechanism reveal-section" id="mechanism">
+          <div className="wrap">
+            <div className="sec-head">
+              <div>
+                <div className="num">The Shift</div>
+                <h2>Retention is moving from digital messaging to <em>ambient physical presence</em>.</h2>
+              </div>
             </div>
-          </div>
 
-          <div className="steps">
-            <div className="steps-copy">
-              <div className="step is-active" data-step="1">
-                <div className="step-copy">
-                  <h4>01 · Segment</h4>
-                  <p>Choose the customer cohort you want to influence — first-time buyers, dormant customers, high-LTV customers, subscribers, or replenishment-ready customers. <strong>Works with your lifecycle stack: FC can support Klaviyo, Braze, Attentive, or CDP workflows through campaign links, UTM tracking, customer cohorts, and TAP event data.</strong></p>
-                </div>
-                <div className="ico"><img src="/dtc-cmo-pics/dtc-segment.png" alt="" /></div>
+            <div className="table">
+              <div className="row head">
+                <div>Channel</div><div>Exposure / customer / year</div><div>How it&apos;s calculated</div><div>Engagement</div><div>Trend</div>
               </div>
-              <div className="step" data-step="2">
-                <div className="step-copy">
-                  <h4>02 · Insert</h4>
-                  <p>Insert FC into selected DTC orders through your existing fulfillment or 3PL process — without changing the customer&apos;s purchase journey.</p>
+              <div className="row">
+                <div className="label">Email</div>
+                <div>~150 sends</div>
+                <div className="calc">
+                  <span>3 sends/wk × 52 wks</span>
+                  <span className="source">Klaviyo / Omnisend DTC lifecycle benchmarks</span>
                 </div>
-                <div className="ico"><img src="/dtc-cmo-pics/dtc-ship.png" alt="" /></div>
+                <div>~20% open · ~2% CTR</div>
+                <div className="trend-down">↓ ~30% open in 5 yrs</div>
               </div>
-              <div className="step" data-step="3">
-                <div className="step-copy">
-                  <h4>03 · Activate</h4>
-                  <p>Customers place FC on their fridge and tap to open segment-based content — reorder, subscribe &amp; save, referral, review, loyalty, quiz, or campaign pages.</p>
+              <div className="row">
+                <div className="label">SMS</div>
+                <div>~30 sends</div>
+                <div className="calc">
+                  <span>2–3 sends/mo × 12 mos</span>
+                  <span className="source">Postscript / Attentive DTC benchmarks</span>
                 </div>
-                <div className="ico"><img src="/dtc-cmo-pics/dtc-convert2.png" alt="" /></div>
+                <div>~3–5% CTR</div>
+                <div className="trend-down">opt-out fatigue ↑</div>
               </div>
-              <div className="step" data-step="4">
-                <div className="step-copy">
-                  <h4>04 · Measure</h4>
-                  <p>Compare FC cohorts against holdout groups to measure incremental lift in repeat purchase, subscription, referral, review, retention, and CLV.</p>
+              <div className="row fc-row">
+                <div className="label">FridgeChannel</div>
+                <div><span className="big">~3,600</span></div>
+                <div className="calc">
+                  <span>10 fridge opens/day × 365 days</span>
+                  <span className="source">NielsenIQ — household fridge-open frequency</span>
+                  <span className="source">Conservative floor: 2 intentional glances/day × 365 ≈ 730</span>
                 </div>
-                <div className="ico"><img src="/dtc-cmo-pics/dtc-dashboard.png" alt="" /></div>
+                <div>Unblockable, unmuted</div>
+                <div className="trend-up">↑ open category</div>
               </div>
             </div>
-            <div className="steps-media" aria-hidden="true">
-              <div className="step-media-panel is-active" data-step="1">
-                <img src="/dtc-cmo-pics/dtc-segment.png" alt="" />
-              </div>
-              <div className="step-media-panel" data-step="2">
-                <img src="/dtc-cmo-pics/dtc-ship.png" alt="" />
-              </div>
-              <div className="step-media-panel" data-step="3">
-                <img src="/dtc-cmo-pics/dtc-convert2.png" alt="" />
-              </div>
-              <div className="step-media-panel" data-step="4">
-                <img src="/dtc-cmo-pics/dtc-dashboard.png" alt="" />
-              </div>
-            </div>
+            <p className="mech-footnote">Source: NielsenIQ household behavior data; Klaviyo benchmark reports. ~10 fridge opens per household per day. No opt-in. No algorithm. No competing tabs.</p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FINAL CTA */}
-      <section id="pilot">
-        <div className="wrap">
-          <div className="final">
-            <div className="bg"><img src="/dtc-cmo/refrigemagnet.jpeg" alt="" /></div>
-            <div className="body">
-              <h2>Own the physical lifecycle channel <em>before your competitors do</em></h2>
-              <div className="cta-row">
-                <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
+        {/* WHAT CAN WE DO */}
+        <section className="what-can reveal-section">
+          <div className="wrap">
+            <div className="sec-head">
+              <div>
+                <div className="num">What Can We Do?</div>
+                <h2>You insert into your fulfillment. FC Run the Rest.</h2>
+              </div>
+            </div>
+
+            <div className="what-list">
+              <article className="what-item custom-design-fusion-card">
+                <div className="what-copy">
+                  <h3>FC Design and manufacture</h3>
+                  <p>
+                    FC custom-designs the unit&apos;s visual exterior in your brand language and manufactures every piece in our factory — delivered to your warehouse, ready to drop into your customer&apos;s order.
+                  </p>
+                </div>
+                <div className="what-media">
+                  <img src="/dtc-cmo-pics/dtc-custom-design.png" alt="Custom-designed branded FridgeChannel unit" />
+                </div>
+              </article>
+
+              <article className="what-item content-fusion-card">
+                <div className="what-media">
+                  <img src="/dtc-cmo-pics/dtctap.png" alt="Brand content activation preview" />
+                </div>
+                <div className="what-copy">
+                  <h3>FC-Crafted Affinity-Building Content</h3>
+                  <p>
+                    Every listen is designed to work in favor of the brand: useful tips, founder stories, product education, recipes, routines, offers, or loyalty prompts that make the customer feel closer to the brand.
+                  </p>
+                  <div className="what-stats one-up">
+                    <div className="what-stat">
+                      <strong>+20–50%</strong>
+                      <b>Referral Rate ↑</b>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article className="what-item flip balanced tap-fusion-card">
+                <div className="what-copy">
+                  <h3>One Tap Drives One Next Step.</h3>
+                  <p>
+                    Every tap can guide the customer to the expected next step — reorder, subscription, loyalty, referral, education, discovery, review, or a campaign page — with one tap.
+                  </p>
+                  <div className="what-stats metric-stats">
+                    <div className="what-stat numeric-stat">
+                      <strong>1.3x</strong>
+                      <b>Purchase Frequency ↑</b>
+                    </div>
+                    <div className="what-stat numeric-stat">
+                      <strong>+10pp</strong>
+                      <b>Repeat Purchase Rate ↑</b>
+                    </div>
+                    <div className="what-stat numeric-stat">
+                      <strong>1.8x</strong>
+                      <b>Retention Revenue ↑</b>
+                    </div>
+                  </div>
+                </div>
+                <div className="what-media">
+                  <img src="/dtc-cmo-pics/activate-bgp.png" alt="Real-world next-step activation" />
+                </div>
+              </article>
+
+              <article className="what-item dashboard-fusion-card">
+                <div className="what-copy">
+                  <h3>Your Metrics Live in One Dashboard.</h3>
+                  <p>
+                    Every metric your care already tracks — surfaced in one dashboard, sliced by cohort, with a built-in holdout for every campaign.
+                  </p>
+                </div>
+                <div className="what-media">
+                  <img src="/dtc-cmo-pics/dtc-dashboard3.png" alt="FridgeChannel campaign metrics dashboard" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section id="pilot">
+          <div className="wrap">
+            <div className="final">
+              <div className="bg"><img src="/dtc-cmo/refrigemagnet.jpeg" alt="" /></div>
+              <div className="body">
+                <h2>Own the physical lifecycle channel <em>before your competitors do</em></h2>
+                <div className="cta-row">
+                  <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       </main>
       <SiteFooter />
