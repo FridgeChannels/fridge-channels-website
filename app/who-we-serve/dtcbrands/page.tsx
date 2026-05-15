@@ -412,15 +412,20 @@ const CSS = `
   }
   @media (max-width:560px){
     .fc-cmo .nav-links{display:none}
-    .fc-cmo .wrap{padding:0 68px}
+    .fc-cmo .wrap{padding:0 24px}
     .fc-cmo .cmo-grid{grid-template-columns:1fr}
     .fc-cmo .card.span-3,.fc-cmo .card.span-2,.fc-cmo .card.span-6{grid-column:span 1}
     .fc-cmo .crm-row{grid-template-columns:1fr}
     .fc-cmo .steps{grid-template-columns:1fr}
     .fc-cmo .step-copy{min-height:0}
-    .fc-cmo .what-copy{padding:28px 22px}
+    .fc-cmo .what-copy{padding:28px 24px}
     .fc-cmo .what-stats{grid-template-columns:1fr;gap:16px;padding-top:28px}
     .fc-cmo .what-media{min-height:260px}
+    .fc-cmo .what-list .tap-fusion-card, .fc-cmo .what-list .custom-design-fusion-card, .fc-cmo .what-list .dashboard-fusion-card{margin:0 -24px}
+    .fc-cmo .what-list .tap-fusion-card .what-copy, .fc-cmo .what-list .custom-design-fusion-card .what-copy, .fc-cmo .what-list .dashboard-fusion-card .what-copy{padding:32px 24px}
+    .fc-cmo .what-list .content-fusion-card .what-copy{padding:32px 24px}
+    .fc-cmo .sec-head h2{font-size:clamp(32px, 8vw, 42px)}
+    .fc-cmo .final .body{padding:48px 24px}
   }
 `;
 
@@ -601,8 +606,8 @@ export default function DtcBrandsCmoPage() {
           <div className="wrap">
             <div className="hero-grid">
               <div>
-                <h1>The Physical Layer for Post-Purchase Customer Continuity</h1>
-                <p className="lede">FridgeChannel Turn every delivered order into a daily retention touchpoint. Move repeat purchase, LTV, and loyalty on a surface email, SMS, and paid ads can't reach anymore.</p>
+                <h1>Turn Every Delivered Order Into a Post-Purchase Growth Surface</h1>
+                <p className="lede">Places your brand on the customer’s life after purchase — turning reorder, subscription, loyalty, referral, and education moments into one-tap actions.</p>
 
                 <div className="cta-row">
                   <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
