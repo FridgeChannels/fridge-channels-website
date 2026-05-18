@@ -138,6 +138,8 @@ const CSS = `
   .fc-cmo .addon-panel{background:var(--accent);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:26px;min-height:260px;display:flex;flex-direction:column;color:#fff;transform-origin:center;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,filter .28s ease}
   .fc-cmo .addon-panel:hover{transform:translateY(-10px) scale(1.025);border-color:rgba(255,255,255,.38);box-shadow:0 34px 90px -48px rgba(0,75,64,.9);filter:saturate(1.08) brightness(1.04)}
   .fc-cmo .addon-panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(31px,3vw,42px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#fff}
+  .fc-cmo .addon-panel h3 .title-leading{display:inline}
+  .fc-cmo .addon-panel h3 .title-trailing{display:inline;font-size:.82em;opacity:.94}
   .fc-cmo .addon-panel h4{display:flex;align-items:flex-end;gap:10px;font-size:18px;line-height:1.15;letter-spacing:-.01em;margin:22px 0 0;color:#F2C99A;font-weight:800}
   .fc-cmo .addon-panel h4 .metric-number{font-family:'Instrument Serif',serif;font-size:clamp(52px,5vw,76px);line-height:.82;font-weight:400;letter-spacing:-.02em}
   .fc-cmo .addon-panel h4 .metric-label{display:block;padding-bottom:4px}
@@ -651,21 +653,30 @@ export default function DtcBrandsCmoPage() {
 
             <div className="addon-grid">
               <div className="addon-panel">
-                <h3>Ambient Presence &gt; Campaigns</h3>
+                <h3>
+                  <span className="title-leading">Ambient Presence</span>
+                  <span className="title-trailing"> &gt; Campaigns</span>
+                </h3>
                 <h4><span className="metric-number">10+</span><span className="metric-label">Daily Family Impressions</span></h4>
                 <p>
                   FridgeChannel turns repeated home routines into an always-on brand surface, keeping visibility alive long after the purchase, campaign, or email send is over.
                 </p>
               </div>
               <div className="addon-panel">
-                <h3>Direct Connection &gt; Algorithmic Distribution</h3>
+                <h3>
+                  <span className="title-leading">Direct Connection</span>
+                  <span className="title-trailing"> &gt; Algorithmic Distribution</span>
+                </h3>
                 <h4><span className="metric-number">0</span><span className="metric-label">Algorithm &amp; Ad-Blockers</span></h4>
                 <p>
                   FridgeChannel gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
                 </p>
               </div>
               <div className="addon-panel">
-                <h3>Habit Activation &gt; Passive Exposure</h3>
+                <h3>
+                  <span className="title-leading">Habit Activation</span>
+                  <span className="title-trailing"> &gt; Passive Exposure</span>
+                </h3>
                 <h4><span className="metric-number">8+</span><span className="metric-label">Post-Purchase Actions From One Tap</span></h4>
                 <p>
                   Because each tap happens inside a daily household routine, the signal is closer to real purchase intent than a standard digital click.
