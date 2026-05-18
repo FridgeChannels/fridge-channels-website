@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 
 /**
  * FC for DTC Brands — CMO / Brand Leader landing page
@@ -59,15 +60,15 @@ const CSS = `
   .fc-cmo .nav-cta .arrow{transition:transform .2s}
   .fc-cmo .nav-cta:hover .arrow{transform:translate(2px,-2px)}
 
-  .fc-cmo .hero-grid,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:fc-cmo-rise .72s cubic-bezier(.22,1,.36,1) both}
+  .fc-cmo .hero-grid,.fc-cmo .retention-statement,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:fc-cmo-rise .72s cubic-bezier(.22,1,.36,1) both}
   .fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .steps{animation-delay:.16s}
   .fc-cmo .what-item:nth-child(1){animation-delay:.08s}
   .fc-cmo .what-item:nth-child(2){animation-delay:.16s}
   .fc-cmo .what-item:nth-child(3){animation-delay:.24s}
   @keyframes fc-cmo-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-grid,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .steps{animation:none}
-  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:0;transform:translateY(34px);filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
-  .fc-cmo .reveal-section.is-visible .hero-grid,.fc-cmo .reveal-section.is-visible .sec-head,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .addon-panel,.fc-cmo .reveal-section.is-visible .what-item,.fc-cmo .reveal-section.is-visible .step{opacity:1;transform:translateY(0);filter:blur(0)}
+  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .retention-statement,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-grid,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .steps{animation:none}
+  .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .retention-statement,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:0;transform:translateY(34px);filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .fc-cmo .reveal-section.is-visible .hero-grid,.fc-cmo .reveal-section.is-visible .retention-statement,.fc-cmo .reveal-section.is-visible .sec-head,.fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .addon-panel,.fc-cmo .reveal-section.is-visible .what-item,.fc-cmo .reveal-section.is-visible .step{opacity:1;transform:translateY(0);filter:blur(0)}
   .fc-cmo .reveal-section.is-visible .table,.fc-cmo .reveal-section.is-visible .what-item:nth-child(1),.fc-cmo .reveal-section.is-visible .step:nth-child(1),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(1){transition-delay:.08s}
   .fc-cmo .reveal-section.is-visible .what-item:nth-child(2),.fc-cmo .reveal-section.is-visible .step:nth-child(2),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(2){transition-delay:.36s}
   .fc-cmo .reveal-section.is-visible .what-item:nth-child(3),.fc-cmo .reveal-section.is-visible .step:nth-child(3),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(3){transition-delay:.62s}
@@ -96,6 +97,11 @@ const CSS = `
   .fc-cmo .hero-card .overlay{position:absolute;inset:auto 0 0 0;padding:18px 20px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);color:#fff;font-size:13px;display:flex;justify-content:space-between;align-items:center;letter-spacing:.02em}
   .fc-cmo .hero-card .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:12px}
   .fc-cmo .hero-card .pill .dot{width:6px;height:6px;border-radius:50%;background:#69d39a;box-shadow:0 0 0 3px rgba(105,211,154,.25)}
+
+  .fc-cmo .retention-layer{padding:92px 0;background:var(--bg)}
+  .fc-cmo .retention-statement{width:100%;max-width:120ch;color:var(--accent)}
+  .fc-cmo .retention-statement h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:104px;line-height:.95;letter-spacing:0;margin:0;color:inherit}
+  .fc-cmo .retention-statement svg{color:inherit}
 
   @keyframes fc-cmo-slide{to{transform:translateX(-50%)}}
 
@@ -127,10 +133,10 @@ const CSS = `
   .fc-cmo .table .trend-up{color:#7BA081;font-weight:500}
   .fc-cmo .mech-footnote{margin-top:18px;font-size:13px;color:var(--muted);max-width:none;white-space:nowrap;text-align:center}
 
-  .fc-cmo .addon{padding:84px 0 32px}
+  .fc-cmo .addon{padding:42px 0 32px}
   .fc-cmo .addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-  .fc-cmo .addon-panel{background:var(--accent);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:26px;min-height:260px;display:flex;flex-direction:column;color:#fff;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
-  .fc-cmo .addon-panel:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.32);box-shadow:0 28px 70px -54px rgba(0,75,64,.85)}
+  .fc-cmo .addon-panel{background:var(--accent);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:26px;min-height:260px;display:flex;flex-direction:column;color:#fff;transform-origin:center;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,filter .28s ease}
+  .fc-cmo .addon-panel:hover{transform:translateY(-10px) scale(1.025);border-color:rgba(255,255,255,.38);box-shadow:0 34px 90px -48px rgba(0,75,64,.9);filter:saturate(1.08) brightness(1.04)}
   .fc-cmo .addon-panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(31px,3vw,42px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#fff}
   .fc-cmo .addon-panel h4{display:flex;align-items:flex-end;gap:10px;font-size:18px;line-height:1.15;letter-spacing:-.01em;margin:22px 0 0;color:#F2C99A;font-weight:800}
   .fc-cmo .addon-panel h4 .metric-number{font-family:'Instrument Serif',serif;font-size:clamp(52px,5vw,76px);line-height:.82;font-weight:400;letter-spacing:-.02em}
@@ -149,7 +155,7 @@ const CSS = `
   .fc-cmo .addon-panel.dark .metric-card span{color:rgba(255,255,255,.72)}
 
   .fc-cmo .what-can{padding:84px 0 56px}
-  .fc-cmo .what-list{display:grid;gap:144px;margin-top:28px}
+  .fc-cmo .what-list{display:grid;gap:144px;margin-top:0}
   .fc-cmo .what-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.84fr);gap:34px;align-items:stretch;border:1px solid var(--line);border-radius:20px;background:var(--paper);overflow:hidden;transition:transform .32s ease,box-shadow .32s ease,border-color .32s ease}
   .fc-cmo .what-item:hover{transform:translateY(-7px);border-color:rgba(26,23,20,.24);box-shadow:0 30px 86px -62px rgba(26,23,20,.7)}
   .fc-cmo .what-copy{padding:34px 34px 32px;display:flex;flex-direction:column;min-height:430px}
@@ -358,8 +364,8 @@ const CSS = `
   .fc-cmo footer.foot .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--muted)}
 
   @media (prefers-reduced-motion:reduce){
-    .fc-cmo .hero-grid,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:none}
-    .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:1;transform:none;filter:none}
+    .fc-cmo .hero-grid,.fc-cmo .retention-statement,.fc-cmo .sec-head,.fc-cmo .table,.fc-cmo .addon-grid,.fc-cmo .what-item,.fc-cmo .steps,.fc-cmo .final{animation:none}
+    .fc-cmo .reveal-section .hero-grid,.fc-cmo .reveal-section .retention-statement,.fc-cmo .reveal-section .sec-head,.fc-cmo .reveal-section .table,.fc-cmo .reveal-section .addon-panel,.fc-cmo .reveal-section .what-item,.fc-cmo .reveal-section .step{opacity:1;transform:none;filter:none}
     .fc-cmo *{transition:none!important}
   }
 
@@ -381,6 +387,8 @@ const CSS = `
     .fc-cmo .table .row.head{display:none}
     .fc-cmo .table .row > div{padding:14px 18px;font-size:13.5px}
     .fc-cmo .addon-grid{grid-template-columns:1fr}
+    .fc-cmo .retention-layer{padding:72px 0}
+    .fc-cmo .retention-statement{font-size:72px;max-width:12ch}
     .fc-cmo .what-item{grid-template-columns:1fr}
     .fc-cmo .what-item.custom-design-card{grid-template-columns:1fr}
     .fc-cmo .what-item.custom-design-card .what-copy{padding:28px 0 0}
@@ -425,6 +433,8 @@ const CSS = `
     .fc-cmo .what-list .tap-fusion-card .what-copy, .fc-cmo .what-list .custom-design-fusion-card .what-copy, .fc-cmo .what-list .dashboard-fusion-card .what-copy{padding:32px 24px}
     .fc-cmo .what-list .content-fusion-card .what-copy{padding:32px 24px}
     .fc-cmo .sec-head h2{font-size:clamp(32px, 8vw, 42px)}
+    .fc-cmo .retention-layer{padding:56px 0}
+    .fc-cmo .retention-statement{font-size:48px;line-height:1;max-width:11ch}
     .fc-cmo .final .body{padding:48px 24px}
   }
 `;
@@ -618,33 +628,44 @@ export default function DtcBrandsCmoPage() {
           </div>
         </section>
 
+        {/* RETENTION LAYER */}
+        <section className="retention-layer reveal-section">
+          <div className="wrap">
+            <AnimatedText
+              text="FC powers the Physical Layer of Retention Infrastructure"
+              className="retention-statement items-start"
+              textClassName="text-left !font-normal"
+              underlineClassName="w-full"
+            />
+          </div>
+        </section>
+
         {/* WHY CHOOSE US */}
         <section className="addon reveal-section">
           <div className="wrap">
             <div className="sec-head">
               <div>
-                <div className="num">Why Choose Us</div>
                 <h2>Built on a moat digital channels can&apos;t copy.</h2>
               </div>
             </div>
 
             <div className="addon-grid">
               <div className="addon-panel">
-                <h3>Persistent Presence Builds Mental Availability</h3>
-                <h4><span className="metric-number">0</span><span className="metric-label">Algorithm &amp; Ad-Blockers</span></h4>
-                <p>
-                  FridgeChannel gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
-                </p>
-              </div>
-              <div className="addon-panel">
-                <h3>Daily Environment Extends Retention Beyond Campaign Windows</h3>
+                <h3>Ambient Presence &gt; Campaigns</h3>
                 <h4><span className="metric-number">10+</span><span className="metric-label">Daily Family Impressions</span></h4>
                 <p>
                   FridgeChannel turns repeated home routines into an always-on brand surface, keeping visibility alive long after the purchase, campaign, or email send is over.
                 </p>
               </div>
               <div className="addon-panel">
-                <h3>Habit Proximity Creates Higher-Intent Retention Signals</h3>
+                <h3>Direct Connection &gt; Algorithmic Distribution</h3>
+                <h4><span className="metric-number">0</span><span className="metric-label">Algorithm &amp; Ad-Blockers</span></h4>
+                <p>
+                  FridgeChannel gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
+                </p>
+              </div>
+              <div className="addon-panel">
+                <h3>Habit Activation &gt; Passive Exposure</h3>
                 <h4><span className="metric-number">8+</span><span className="metric-label">Post-Purchase Actions From One Tap</span></h4>
                 <p>
                   Because each tap happens inside a daily household routine, the signal is closer to real purchase intent than a standard digital click.
@@ -709,7 +730,6 @@ export default function DtcBrandsCmoPage() {
           <div className="wrap">
             <div className="sec-head">
               <div>
-                <div className="num">What Can We Do?</div>
                 <h2>You insert into your fulfillment. FC Run the Rest.</h2>
               </div>
             </div>
@@ -732,9 +752,9 @@ export default function DtcBrandsCmoPage() {
                   <img src="/dtc-cmo-pics/dtctap.png" alt="Brand content activation preview" />
                 </div>
                 <div className="what-copy">
-                  <h3>FC-Crafted Affinity-Building Content</h3>
+                  <h3>FC-Crafted Habit-Proximity Content</h3>
                   <p>
-                    Every listen is designed to work in favor of the brand: useful tips, founder stories, product education, recipes, routines, offers, or loyalty prompts that make the customer feel closer to the brand.
+                    Every listen is engineered to deepen habit proximity: useful tips, founder stories, product education, recipes, routines, offers, and loyalty prompts — each one a higher-intent retention signal that pulls the customer closer to the brand.
                   </p>
                   <div className="what-stats one-up">
                     <div className="what-stat">
