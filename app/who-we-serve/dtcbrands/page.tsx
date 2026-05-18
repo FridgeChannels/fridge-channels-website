@@ -98,7 +98,7 @@ const CSS = `
   .fc-cmo .hero-card .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:12px}
   .fc-cmo .hero-card .pill .dot{width:6px;height:6px;border-radius:50%;background:#69d39a;box-shadow:0 0 0 3px rgba(105,211,154,.25)}
 
-  .fc-cmo .retention-layer{padding:92px 0;background:var(--bg)}
+  .fc-cmo .retention-layer{padding:92px 0;background:#FBF7F0}
   .fc-cmo .retention-statement{width:100%;max-width:120ch;color:var(--accent)}
   .fc-cmo .retention-statement h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:104px;line-height:.95;letter-spacing:0;margin:0;color:inherit}
   .fc-cmo .retention-statement svg{color:inherit}
@@ -680,7 +680,6 @@ export default function DtcBrandsCmoPage() {
           <div className="wrap">
             <div className="sec-head">
               <div>
-                <div className="num">The Shift</div>
                 <h2>Retention is moving from digital messaging to <em>ambient physical presence</em>.</h2>
               </div>
             </div>
