@@ -98,6 +98,19 @@ const CSS = `
   .fc-cmo .hero-card .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:12px}
   .fc-cmo .hero-card .pill .dot{width:6px;height:6px;border-radius:50%;background:#69d39a;box-shadow:0 0 0 3px rgba(105,211,154,.25)}
 
+  .fc-cmo .mission-steps{display:flex;align-items:flex-start;gap:30px;margin-top:26px;width:100%;max-width:800px;min-width:0}
+  .fc-cmo .mission-step{position:relative;flex:1 1 0;min-width:0;border:1px solid rgba(74,40,24,.16);border-radius:8px;background:rgba(255,255,255,.44);overflow:visible;min-height:238px;display:flex;flex-direction:column;box-shadow:0 22px 62px -46px rgba(74,40,24,.72);backdrop-filter:blur(4px);transition:flex-grow .45s cubic-bezier(.22,1,.36,1)}
+  .fc-cmo .mission-step:first-child{flex-grow:2.7}
+  .fc-cmo .mission-steps:hover .mission-step{flex-grow:1}
+  .fc-cmo .mission-steps:hover .mission-step:hover{flex-grow:2.7}
+  .fc-cmo .mission-step:not(:last-child)::after{content:"→";position:absolute;top:50%;right:-24px;z-index:3;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;transform:translateY(-50%);background:#F2C99A;color:#4a2818;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:800;line-height:1;box-shadow:0 10px 22px -16px rgba(74,40,24,.8)}
+  .fc-cmo .mission-step-visual{position:relative;aspect-ratio:1.08;background:rgba(255,255,255,.36);overflow:hidden;border-radius:8px 8px 0 0}
+  .fc-cmo .mission-step-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.92);transition:transform .55s cubic-bezier(.22,1,.36,1)}
+  .fc-cmo .mission-step:hover .mission-step-visual img{transform:scale(1.045)}
+  .fc-cmo .mission-step-copy{padding:15px 13px 16px;display:flex;flex-direction:column;flex:1}
+  .fc-cmo .mission-step b{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;color:#4a2818}
+  .fc-cmo .mission-step span{display:block;margin-top:10px;font-size:13.5px;line-height:1.28;color:#211a16;font-weight:800}
+
   .fc-cmo .retention-layer{padding:92px 0;background:#FBF7F0}
   .fc-cmo .retention-statement{width:100%;max-width:120ch;color:var(--accent)}
   .fc-cmo .retention-statement h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:104px;line-height:.95;letter-spacing:0;margin:0;color:inherit}
@@ -237,17 +250,16 @@ const CSS = `
   .fc-cmo .what-item.custom-design-card .what-media img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:contain!important}
   .fc-cmo .what-list .tap-fusion-card{position:relative;display:grid;grid-template-columns:minmax(0,.68fr) minmax(0,.32fr);min-height:620px;overflow:hidden;isolation:isolate;background:var(--bg);margin-right:-68px}
   .fc-cmo .what-list .tap-fusion-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bg) 0%,rgba(241,232,219,.97) 36%,rgba(241,232,219,.7) 57%,rgba(241,232,219,0) 78%);pointer-events:none}
-  .fc-cmo .what-list .content-fusion-card{position:relative;display:grid;grid-template-columns:minmax(0,.44fr) minmax(0,.56fr);min-height:560px;overflow:hidden;isolation:isolate;background:var(--bg);margin-left:0}
-  .fc-cmo .what-list .content-fusion-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,var(--bg) 0%,rgba(241,232,219,.97) 36%,rgba(241,232,219,.7) 57%,rgba(241,232,219,0) 78%);pointer-events:none}
-  .fc-cmo .what-list .content-fusion-card .what-copy{position:relative;z-index:2;order:2;grid-column:2/3;min-height:560px;justify-content:center;padding:64px 0;max-width:760px}
-  .fc-cmo .what-list .content-fusion-card .what-copy h3{font-size:clamp(40px,4.8vw,72px);line-height:.98;max-width:18ch}
-  .fc-cmo .what-list .content-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:45ch;margin-top:26px;color:#211a16}
+  .fc-cmo .what-list .content-fusion-card{position:relative;display:grid;grid-template-columns:1fr;min-height:0;overflow:visible;isolation:isolate;background:var(--bg);margin-left:0}
+  .fc-cmo .what-list .content-fusion-card::before{display:none}
+  .fc-cmo .what-list .content-fusion-card .what-copy{position:relative;z-index:2;order:1;grid-column:1/-1;min-height:0;justify-content:flex-start;align-items:center;text-align:center;padding:0;max-width:none;width:100%;margin:0 auto}
+  .fc-cmo .what-list .content-fusion-card .what-copy h3{font-size:clamp(52px,6vw,92px);line-height:.98;max-width:none;white-space:nowrap}
+  .fc-cmo .what-list .content-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:58ch;margin:26px auto 0;color:#211a16}
   .fc-cmo .what-list .content-fusion-card .what-stats.one-up{grid-template-columns:1fr;width:max-content;gap:12px;margin-top:34px;max-width:480px}
   .fc-cmo .what-list .content-fusion-card .what-stat{border:1px solid rgba(74,40,24,.16);border-radius:8px;background:rgba(255,255,255,.42);padding:24px 22px 26px;backdrop-filter:blur(4px);box-shadow:0 18px 52px -46px rgba(74,40,24,.72)}
   .fc-cmo .what-list .content-fusion-card .what-stat strong{font-size:clamp(44px,4.5vw,72px)}
   .fc-cmo .what-list .content-fusion-card .what-stat b{font-size:clamp(17px,1.4vw,22px);line-height:1.08}
-  .fc-cmo .what-list .content-fusion-card .what-media{position:relative;order:1;height:100%!important;aspect-ratio:auto!important;background:transparent!important;align-self:stretch;border-radius:0;overflow:hidden}
-  .fc-cmo .what-list .content-fusion-card .what-media img{object-fit:cover!important;object-position:center left}
+  .fc-cmo .what-list .content-fusion-card .mission-steps{position:relative;z-index:2;grid-column:1/-1;order:2;max-width:none;margin-top:38px;padding:0}
   .fc-cmo .what-list .tap-fusion-card .what-copy{position:relative;z-index:2;order:1;grid-column:1/2;min-height:620px;justify-content:center;padding:64px 0;max-width:760px}
   .fc-cmo .what-list .tap-fusion-card .tap-eyebrow{display:block;width:max-content;margin:0 0 26px;font-size:14px;line-height:1;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4a2818}
   .fc-cmo .what-list .tap-fusion-card .tap-eyebrow::after{content:"";display:block;width:34px;height:1px;background:#4a2818;margin-top:18px}
@@ -326,9 +338,12 @@ const CSS = `
   .fc-cmo .mini .v{font-family:'Instrument Serif',serif;font-size:34px;line-height:1.05;margin-top:6px}
   .fc-cmo .mini .d{font-size:12.5px;color:var(--ink-2);margin-top:8px;line-height:1.5}
   .fc-cmo .mini .v small{font-size:14px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;display:inline-block;margin-left:4px;font-weight:400}
-  .fc-cmo .integration-strip{margin-top:18px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.42);display:flex;align-items:center;justify-content:space-between;gap:18px}
-  .fc-cmo .integration-strip img{width:132px;height:auto;flex:0 0 auto}
-  .fc-cmo .integration-strip span{font-size:12px;line-height:1.4;color:var(--muted);max-width:28ch}
+  .fc-cmo .integration-card{margin-top:24px;border:1px solid rgba(74,40,24,.16);border-radius:8px;background:rgba(255,255,255,.44);padding:16px;max-width:620px;box-shadow:0 18px 52px -46px rgba(74,40,24,.72);backdrop-filter:blur(4px)}
+  .fc-cmo .integration-card-label{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#4a2818;margin-bottom:12px}
+  .fc-cmo .integration-logos{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .fc-cmo .integration-logo-chip{height:64px;min-width:144px;border:1px solid rgba(74,40,24,.12);border-radius:8px;background:rgba(255,255,255,.52);display:flex;align-items:center;justify-content:center;padding:10px 18px}
+  .fc-cmo .integration-logo-chip img{max-width:126px;max-height:42px;width:auto;height:auto;object-fit:contain}
+  .fc-cmo .integration-logo-chip.shopify img{max-height:48px}
 
   .fc-cmo .how{padding:0 0 96px}
   .fc-cmo .steps{display:grid;grid-template-columns:minmax(0,.86fr) minmax(420px,1fr);gap:56px;align-items:start;margin-top:24px}
@@ -389,8 +404,12 @@ const CSS = `
     .fc-cmo .table .row.head{display:none}
     .fc-cmo .table .row > div{padding:14px 18px;font-size:13.5px}
     .fc-cmo .addon-grid{grid-template-columns:1fr}
+    .fc-cmo .mech-footnote{white-space:normal;text-align:left}
+    .fc-cmo .mission-steps{gap:26px;overflow-x:visible;padding-bottom:0}
+    .fc-cmo .mission-step,.fc-cmo .mission-step:first-child{flex:1 1 0;flex-grow:1;scroll-snap-align:start}
     .fc-cmo .retention-layer{padding:72px 0}
     .fc-cmo .retention-statement{font-size:72px;max-width:12ch}
+    .fc-cmo .retention-statement h1{font-size:72px;max-width:12ch}
     .fc-cmo .what-item{grid-template-columns:1fr}
     .fc-cmo .what-item.custom-design-card{grid-template-columns:1fr}
     .fc-cmo .what-item.custom-design-card .what-copy{padding:28px 0 0}
@@ -405,10 +424,11 @@ const CSS = `
     .fc-cmo .what-list .tap-fusion-card .what-media, .fc-cmo .what-list .custom-design-fusion-card .what-media, .fc-cmo .what-list .dashboard-fusion-card .what-media{position:relative!important;inset:auto;width:100%;height:auto!important;aspect-ratio:4/3!important;grid-row:1}
     .fc-cmo .what-list .tap-fusion-card .what-copy, .fc-cmo .what-list .custom-design-fusion-card .what-copy, .fc-cmo .what-list .dashboard-fusion-card .what-copy{grid-row:2;grid-column:auto;min-height:0;padding:32px 68px}
     .fc-cmo .what-list .tap-fusion-card .what-copy h3, .fc-cmo .what-list .custom-design-fusion-card .what-copy h3, .fc-cmo .what-list .dashboard-fusion-card .what-copy h3{font-size:clamp(42px,9vw,64px)}
+    .fc-cmo .what-list .content-fusion-card .what-copy h3{white-space:normal}
     .fc-cmo .what-list .content-fusion-card{grid-template-columns:1fr;min-height:0;margin:0}
     .fc-cmo .what-list .content-fusion-card::before{background:linear-gradient(180deg,rgba(241,232,219,0) 0%,var(--bg) 62%)}
-    .fc-cmo .what-list .content-fusion-card .what-media{position:relative!important;inset:auto;width:100%;height:auto!important;aspect-ratio:4/3!important;grid-row:1;grid-column:1/2;border-radius:0}
-    .fc-cmo .what-list .content-fusion-card .what-copy{grid-row:2;grid-column:1/2;min-height:0;padding:32px 68px}
+    .fc-cmo .what-list .content-fusion-card .what-media{position:relative!important;inset:auto;width:100%!important;max-width:100%;height:auto!important;aspect-ratio:4/3!important;grid-row:1;grid-column:1/2;border-radius:0}
+    .fc-cmo .what-list .content-fusion-card .what-copy{grid-row:1;grid-column:1/2;min-height:0;padding:0;width:100%;max-width:860px;margin:0 auto;text-align:center;align-items:center}
     .fc-cmo .what-copy{min-height:0}
     .fc-cmo .what-media{min-height:320px}
     .fc-cmo .crm-row{grid-template-columns:repeat(2,1fr)}
@@ -430,13 +450,19 @@ const CSS = `
     .fc-cmo .step-copy{min-height:0}
     .fc-cmo .what-copy{padding:28px 24px}
     .fc-cmo .what-stats{grid-template-columns:1fr;gap:16px;padding-top:28px}
+    .fc-cmo .integration-logo-chip{flex:1 1 132px;min-width:132px}
+    .fc-cmo .what-list .content-fusion-card .what-copy{min-width:0;overflow:hidden}
+    .fc-cmo .mission-steps{display:flex;gap:28px;max-width:100%;overflow-x:auto;padding:0 18px 8px 0;scroll-snap-type:x proximity}
+    .fc-cmo .mission-step{flex:0 0 178px}
+    .fc-cmo .mission-step:not(:last-child)::after{right:-23px}
     .fc-cmo .what-media{min-height:260px}
     .fc-cmo .what-list .tap-fusion-card, .fc-cmo .what-list .custom-design-fusion-card, .fc-cmo .what-list .dashboard-fusion-card{margin:0 -24px}
     .fc-cmo .what-list .tap-fusion-card .what-copy, .fc-cmo .what-list .custom-design-fusion-card .what-copy, .fc-cmo .what-list .dashboard-fusion-card .what-copy{padding:32px 24px}
-    .fc-cmo .what-list .content-fusion-card .what-copy{padding:32px 24px}
+    .fc-cmo .what-list .content-fusion-card .what-copy{padding:0}
     .fc-cmo .sec-head h2{font-size:clamp(32px, 8vw, 42px)}
     .fc-cmo .retention-layer{padding:56px 0}
     .fc-cmo .retention-statement{font-size:48px;line-height:1;max-width:11ch}
+    .fc-cmo .retention-statement h1{font-size:48px;line-height:1;max-width:11ch}
     .fc-cmo .final .body{padding:48px 24px}
   }
 `;
@@ -599,7 +625,7 @@ export default function DtcBrandsCmoPage() {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -12% 0px" }
+      { threshold: 0.01, rootMargin: "0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -619,7 +645,7 @@ export default function DtcBrandsCmoPage() {
             <div className="hero-grid">
               <div>
                 <h1>Turn Every Delivered Order Into a Post-Purchase Growth Surface</h1>
-                <p className="lede">Places your brand on the customer’s life after purchase — turning reorder, subscription, loyalty, referral, and education moments into one-tap actions.</p>
+                <p className="lede">Incentives customers earn — discounts you can control. Segmented starting offers + mission-based rewards unlock the next discount package.</p>
 
                 <div className="cta-row">
                   <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
@@ -648,6 +674,7 @@ export default function DtcBrandsCmoPage() {
             <div className="sec-head">
               <div>
                 <h2>Built on a moat digital channels can&apos;t copy.</h2>
+                <p className="lede">Not another message channel — a rewarded value exchange customers choose to engage with.</p>
               </div>
             </div>
 
@@ -659,7 +686,7 @@ export default function DtcBrandsCmoPage() {
                 </h3>
                 <h4><span className="metric-number">10+</span><span className="metric-label">Daily Family Impressions</span></h4>
                 <p>
-                  FridgeChannel turns repeated home routines into an always-on brand surface, keeping visibility alive long after the purchase, campaign, or email send is over.
+                  FC turns repeated home routines into an always-on brand surface, keeping visibility alive long after the purchase, campaign, or email send is over.
                 </p>
               </div>
               <div className="addon-panel">
@@ -669,7 +696,7 @@ export default function DtcBrandsCmoPage() {
                 </h3>
                 <h4><span className="metric-number">0</span><span className="metric-label">Algorithm &amp; Ad-Blockers</span></h4>
                 <p>
-                  FridgeChannel gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
+                  FC gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
                 </p>
               </div>
               <div className="addon-panel">
@@ -677,9 +704,9 @@ export default function DtcBrandsCmoPage() {
                   <span className="title-leading">Habit Activation</span>
                   <span className="title-trailing"> &gt; Passive Exposure</span>
                 </h3>
-                <h4><span className="metric-number">8+</span><span className="metric-label">Post-Purchase Actions From One Tap</span></h4>
+                <h4><span className="metric-number">1</span><span className="metric-label">Tap -&gt; 1 Mission -&gt; Immediate Progress</span></h4>
                 <p>
-                  Because each tap happens inside a daily household routine, the signal is closer to real purchase intent than a standard digital click.
+                  Each tap moves the customer toward the next reward or discount package, making every household routine part of a clear threshold-based loop.
                 </p>
               </div>
             </div>
@@ -720,7 +747,7 @@ export default function DtcBrandsCmoPage() {
                 <div className="trend-down">opt-out fatigue ↑</div>
               </div>
               <div className="row fc-row">
-                <div className="label">FridgeChannel</div>
+                <div className="label">FC</div>
                 <div><span className="big">~3,600</span></div>
                 <div className="calc">
                   <span>10 fridge opens/day × 365 days</span>
@@ -753,23 +780,61 @@ export default function DtcBrandsCmoPage() {
                   </p>
                 </div>
                 <div className="what-media">
-                  <img src="/dtc-cmo-pics/dtc-custom-design.png" alt="Custom-designed branded FridgeChannel unit" />
+                  <img src="/dtc-cmo-pics/dtc-custom-design.png" alt="Custom-designed branded FC unit" />
                 </div>
               </article>
 
               <article className="what-item content-fusion-card">
-                <div className="what-media">
-                  <img src="/dtc-cmo-pics/dtctap.png" alt="Brand content activation preview" />
-                </div>
                 <div className="what-copy">
-                  <h3>FC-Crafted Habit-Proximity Content</h3>
+                  <h3>FC-Crafted Habit-Proximity Missions</h3>
                   <p>
-                    Every listen is engineered to deepen habit proximity: useful tips, founder stories, product education, recipes, routines, offers, and loyalty prompts — each one a higher-intent retention signal that pulls the customer closer to the brand.
+                    Every play session is engineered to deepen habit proximity: education missions, story missions, recipe missions, routine missions, offer missions, and loyalty missions — each one a higher-intent retention signal that pulls the customer closer to the brand.
                   </p>
-                  <div className="what-stats one-up">
-                    <div className="what-stat">
-                      <strong>+20–50%</strong>
-                      <b>Referral Rate ↑</b>
+                </div>
+                <div className="mission-steps" aria-label="How it works">
+                  <div className="mission-step">
+                    <div className="mission-step-visual">
+                      <img src="/dtc-cmo-pics/dtctap.png" alt="Customer taps the fridge magnet" />
+                    </div>
+                    <div className="mission-step-copy">
+                      <b>01</b>
+                      <span>Tap the magnet</span>
+                    </div>
+                  </div>
+                  <div className="mission-step">
+                    <div className="mission-step-visual">
+                      <img src="/dtc-cmo-pics/step02.png" alt="Segmented starting offer" />
+                    </div>
+                    <div className="mission-step-copy">
+                      <b>02</b>
+                      <span>Starting offer</span>
+                    </div>
+                  </div>
+                  <div className="mission-step">
+                    <div className="mission-step-visual">
+                      <img src="/dtc-cmo-pics/step03.png" alt="Short mission play session" />
+                    </div>
+                    <div className="mission-step-copy">
+                      <b>03</b>
+                      <span>Play a 10-30s mission</span>
+                    </div>
+                  </div>
+                  <div className="mission-step">
+                    <div className="mission-step-visual">
+                      <img src="/dtc-cmo-pics/step04.png" alt="Reward progress and package unlock" />
+                    </div>
+                    <div className="mission-step-copy">
+                      <b>04</b>
+                      <span>Earn coins / unlock reward package</span>
+                    </div>
+                  </div>
+                  <div className="mission-step">
+                    <div className="mission-step-visual">
+                      <img src="/dtc-cmo-pics/step05.png" alt="Redeem reward on the next purchase" />
+                    </div>
+                    <div className="mission-step-copy">
+                      <b>05</b>
+                      <span>Redeem on next purchase</span>
                     </div>
                   </div>
                 </div>
@@ -777,9 +842,12 @@ export default function DtcBrandsCmoPage() {
 
               <article className="what-item flip balanced tap-fusion-card">
                 <div className="what-copy">
-                  <h3>One Tap Drives One Next Step.</h3>
+                  <h3>One Tap Drives the Next Best Step.</h3>
                   <p>
-                    Every tap can guide the customer to the expected next step — reorder, subscription, loyalty, referral, education, discovery, review, or a campaign page — with one tap.
+                    Every tap can guide the customer to the expected next step based on lifecycle stage / segment — reorder, subscription, loyalty, referral, education, discovery, review, or a campaign page — with one tap.
+                  </p>
+                  <p>
+                    Different segments see different starting offers and reward rules (new, repeat, VIP, winback).
                   </p>
                   <div className="what-stats metric-stats">
                     <div className="what-stat numeric-stat">
@@ -797,19 +865,30 @@ export default function DtcBrandsCmoPage() {
                   </div>
                 </div>
                 <div className="what-media">
-                  <img src="/dtc-cmo-pics/activate-bgp.png" alt="Real-world next-step activation" />
+                  <img src="/dtc-cmo-pics/next-best-step.png" alt="Real-world next-step activation" />
                 </div>
               </article>
 
               <article className="what-item dashboard-fusion-card">
                 <div className="what-copy">
-                  <h3>Your Metrics Live in One Dashboard.</h3>
+                  <h3>Your Reward-Loop Metrics Live in One Dashboard.</h3>
                   <p>
-                    Every metric your care already tracks — surfaced in one dashboard, sliced by cohort, with a built-in holdout for every campaign.
+                    Track taps, mission completion, reward unlocks, and redemptions — sliced at the segment level, with a built-in holdout for every campaign.
                   </p>
+                  <div className="integration-card" aria-label="Pre-built integrations">
+                    <span className="integration-card-label">Pre-built integrations</span>
+                    <div className="integration-logos">
+                      <div className="integration-logo-chip shopify">
+                        <img src="/dtc-cmo-pics/integrations/shopify-logo.png" alt="Shopify" />
+                      </div>
+                      <div className="integration-logo-chip">
+                        <img src="/dtc-cmo-pics/integrations/klaviyo-logo.png" alt="Klaviyo" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="what-media">
-                  <img src="/dtc-cmo-pics/dtc-dashboard3.png" alt="FridgeChannel campaign metrics dashboard" />
+                  <img src="/dtc-cmo-pics/dtc-dashboard3.png" alt="FC reward-loop metrics dashboard" />
                 </div>
               </article>
             </div>

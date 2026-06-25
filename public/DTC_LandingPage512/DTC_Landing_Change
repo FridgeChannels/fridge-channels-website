@@ -1,0 +1,100 @@
+## 
+
+### 1) Hero: replace “post-purchase growth surface” explanation with the loop
+
+**Current:** “Turn Every Delivered Order Into a Post-Purchase Growth Surface … one-tap actions.”
+
+**Change (minimum):**
+
+- Keep the headline.
+- Replace the 1–2 lines under it with a single “mechanic sentence”:
+
+> “**Incentives customers earn — discounts you can control.”**
+> 
+> 
+> Segmented starting offers + mission-based rewards that unlock the next discount package.“
+> 
+
+### 2) Replace “listen/content” wording with “play/missions/progress”
+
+Find-and-replace (minimal wording shift, same meaning slots):
+
+- “listen” → “play session”
+- “content” → “missions”
+- “Habit-Proximity Content” → “Habit-Proximity Missions”
+- “useful tips, founder stories…” → keep as *mission types* (education missions, story missions, etc.), not passive content.
+
+### 3) Update the “8+ Post-Purchase Actions” block to be loop-specific
+
+**Current:** “8+ Post-Purchase Actions From One Tap”
+
+**Change (minimum):**
+
+- Rename to: **“1 Tap → 1 Mission → Immediate Progress”**
+- Subcopy: emphasize “progress toward next reward/discount package” (threshold-based), not “menu of actions”.
+
+### 4) Add ONE small “How it works” strip (5 steps) with pictures near the top
+
+Do not redesign; insert a simple 5-step row/section:
+
+1. Tap the magnet  
+2. Starting offer (based on segment)  
+3. Play a 10–30s mission  
+4. Earn coins / unlock reward package  
+5. Redeem on next purchase
+
+This is the smallest addition that makes the page self-explanatory.
+
+### 5) Keep the “Ambient Presence / no algorithm” moat, but add “rewarded value exchange”
+
+Do not remove your existing moat positioning. Just add one line under it:
+
+- “Not another message channel — a rewarded value exchange customers choose to engage with.”
+
+### 6) Add “Segmentation” as a clear capability (one line)
+
+Minimal insertion (no deep detail):
+
+- “Different segments see different starting offers and reward rules (new, repeat, VIP, winback).”
+
+Place it:
+
+- either under “Habit Activation” or near the “One Tap Drives One Next Step” section.
+
+### 7) Add a small “Integrates with your stack” micro-section (Shopify + Klaviyo)
+
+You don’t need a full integrations page; add a 2-line block:
+
+- “Shopify: identity + order history + discount/coupon execution”
+- “Klaviyo: segments + flows + measurement”
+
+This anchors the Tier-2 “segment & integrate” concept without changing page structure.
+
+### 8) Modify “One Tap Drives One Next Step” → “One Tap Drives the Next Best Step”
+
+**Current** implies generic routing.
+
+**Change (minimum):**
+
+- Title: “One Tap Drives the Next Best Step”
+- Subcopy: “based on lifecycle stage / segment” (1 phrase).
+
+### 9) Metrics/Dashboard section: retitle around reward-loop metrics (no new UI claims)
+
+Keep the dashboard claim, but rename what it measures:
+
+- from “campaign metrics” → “missions, unlocks, redemptions”
+- add “segment-level” as one adjective.
+
+Example line:
+
+- “Track taps, mission completion, reward unlocks, redemptions — sliced by segment.”
+
+### 10) Tone consistency: choose one name form (very minimal cleanup)
+
+Pick and apply consistently:
+
+- Use **FC** in body copy
+- Use **Fridge Channel** in logo/footer
+
+Avoid camelcase “FridgeChannel” inside paragraphs (reads like a product variable).
