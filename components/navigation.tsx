@@ -15,6 +15,10 @@ const navItems = [
   { label: "Creator Shortlist", href: "/creator-shortlist" },
 ];
 
+// Preserve the former multi-industry navigation for a future relaunch.
+// The DTC-focused site keeps these routes available but removes their public entrypoints.
+const SHOW_LEGACY_INDUSTRY_NAV = false;
+
 export function Navigation() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -27,6 +31,7 @@ export function Navigation() {
 
   // Determine current "Who We Serve" page for label display
   const getCurrentWhoWeServe = () => {
+    if (pathname === '/') return 'DTC Brands';
     if (pathname?.includes('/who-we-serve/real-estate')) return 'Real Estate';
     if (pathname?.includes('/who-we-serve/creators-authors')) return 'Creators & Authors';
     if (pathname?.includes('/who-we-serve/universities')) return 'Universities';
@@ -139,7 +144,7 @@ export function Navigation() {
         >
           {/* Logo - Left side */}
           <a
-            href="https://fridgechannels.com/"
+            href="/"
             className="flex items-center gap-2 shrink-0"
           >
             {/* Logo icon */}
@@ -164,7 +169,7 @@ export function Navigation() {
           <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
 
             {/* Who We Serve Dropdown */}
-            <div className="relative group">
+            {SHOW_LEGACY_INDUSTRY_NAV && <div className="relative group">
               <button
                 className={cn(
                   "text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-1 outline-none",
@@ -193,7 +198,7 @@ export function Navigation() {
                   <Link href="/who-we-serve/official-merch" className={cn("px-4 py-2 text-sm text-gray-700 hover:bg-black/5 rounded-md transition-colors", currentWhoWeServe === 'Official Merch & Fan Commerce' && "bg-black/5 font-semibold")}>Official Merch & Fan Commerce</Link>
                 </div>
               </div>
-            </div>
+            </div>}
 
             {/* Why FC */}
             {/*
@@ -327,7 +332,7 @@ export function Navigation() {
             </div>
             <div className="mt-8 flex flex-col space-y-6">
               {/* Mobile Who We Serve */}
-              <div>
+              {SHOW_LEGACY_INDUSTRY_NAV && <div>
                 <button
                   onClick={() => setIsWhoWeServeOpen(!isWhoWeServeOpen)}
                   className="flex items-center justify-between w-full text-base font-semibold text-gray-800"
@@ -356,7 +361,7 @@ export function Navigation() {
                     <Link href="/who-we-serve/official-merch" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 hover:text-black">Official Merch & Fan Commerce</Link>
                   </div>
                 )}
-              </div>
+              </div>}
 
               {/*
               <Link href="/why-us" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
@@ -378,7 +383,7 @@ export function Navigation() {
                 Trust Center
               </Link>
             </div>
-            <div className="mt-auto pt-6">
+            {SHOW_LEGACY_INDUSTRY_NAV && <div className="mt-auto pt-6">
               <Link
                 href={isHomePage ? "#how-it-works" : "/#how-it-works"}
                 className="block w-full text-center rounded-full bg-black text-white py-3 font-semibold hover:bg-gray-900 transition-colors"
@@ -386,7 +391,7 @@ export function Navigation() {
               >
                 How It Works
               </Link>
-            </div>
+            </div>}
           </div>
         </div>
       )}
