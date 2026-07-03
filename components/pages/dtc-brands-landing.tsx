@@ -13,6 +13,7 @@ import dailyHarvestLogo from "@/logos-qualified/daily-harvest-seeklogo.png";
 import onceUponAFarmLogo from "@/logos-qualified/idGk5OlkXX_logos.jpeg";
 import olipopLogo from "@/logos-qualified/idlMhGXCAn_1783061443843.png";
 import flyByJingLogo from "@/logos-qualified/–_FLY_BY_JING_idIa19uGTl_0.png";
+import farmersDogLogo from "@/logos-qualified/截屏2026-07-03 14.53.00.png";
 
 /**
  * FC for DTC Brands — CMO / Brand Leader landing page
@@ -35,6 +36,7 @@ const BRAND_LOGOS = [
   { src: onceUponAFarmLogo.src, alt: "Once Upon a Farm" },
   { src: olipopLogo.src, alt: "Olipop" },
   { src: flyByJingLogo.src, alt: "Fly By Jing" },
+  { src: farmersDogLogo.src, alt: "The Farmer's Dog" },
 ];
 
 const CSS = `
@@ -92,14 +94,15 @@ const CSS = `
   .fc-cmo .reveal-section.is-visible .what-item:nth-child(3),.fc-cmo .reveal-section.is-visible .step:nth-child(3),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(3){transition-delay:.62s}
   .fc-cmo .reveal-section.is-visible .step:nth-child(4){transition-delay:.82s}
 
-  .fc-cmo .hero{padding:0;min-height:720px;background:linear-gradient(90deg,rgba(26,23,20,.72),rgba(26,23,20,.42),rgba(26,23,20,.08)),url('/贴冰箱贴.png');background-size:cover;background-position:center;display:flex;align-items:flex-end}
+  .fc-cmo .hero{padding:0;min-height:720px;background:linear-gradient(90deg,rgba(26,23,20,.08),rgba(26,23,20,.42),rgba(26,23,20,.72)),url('/贴冰箱贴.png');background-size:cover;background-position:center;display:flex;align-items:flex-end}
   .fc-cmo .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.4);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
   .fc-cmo .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 4px rgba(200,85,61,.18)}
   .fc-cmo .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,7.2vw,108px);line-height:.95;letter-spacing:-.025em;margin:22px 0 0;max-width:14ch;color:#fff}
   .fc-cmo .hero h1 em{font-style:italic;color:var(--accent)}
   .fc-cmo .hero .lede{margin-top:28px;max-width:62ch;font-size:19px;line-height:1.55;color:rgba(255,255,255,.84)}
   .fc-cmo .hero .lede strong{color:var(--ink);font-weight:600}
-  .fc-cmo .hero-grid{display:block;padding:160px 0 96px}
+  .fc-cmo .hero-grid{display:flex;justify-content:flex-end;padding:160px 0 96px}
+  .fc-cmo .hero-grid > div{width:min(52%,720px)}
   .fc-cmo .micro-list{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:26px;font-size:13.5px;color:var(--ink-2)}
   .fc-cmo .micro-list span{display:inline-flex;align-items:center;gap:8px}
   .fc-cmo .micro-list span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:.55}
@@ -115,7 +118,7 @@ const CSS = `
   .fc-cmo .hero-card .overlay{position:absolute;inset:auto 0 0 0;padding:18px 20px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);color:#fff;font-size:13px;display:flex;justify-content:space-between;align-items:center;letter-spacing:.02em}
   .fc-cmo .hero-card .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:12px}
   .fc-cmo .hero-card .pill .dot{width:6px;height:6px;border-radius:50%;background:#69d39a;box-shadow:0 0 0 3px rgba(105,211,154,.25)}
-  .fc-cmo .brand-marquee{position:relative;padding:26px 0;background:var(--bg);overflow:hidden}
+  .fc-cmo .brand-marquee{position:relative;padding:52px 0;background:var(--bg);overflow:hidden}
   .fc-cmo .brand-marquee::before,.fc-cmo .brand-marquee::after{content:"";position:absolute;z-index:2;top:0;bottom:0;width:min(11vw,150px);pointer-events:none}
   .fc-cmo .brand-marquee::before{left:0;background:linear-gradient(90deg,var(--bg),rgba(239,230,219,0))}
   .fc-cmo .brand-marquee::after{right:0;background:linear-gradient(270deg,var(--bg),rgba(239,230,219,0))}
@@ -202,11 +205,9 @@ const CSS = `
   .fc-cmo .what-list{display:grid;gap:144px;margin-top:0}
   .fc-cmo .launch-dashboard-module{display:grid;grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);column-gap:clamp(56px,7vw,120px);row-gap:54px;align-items:center;padding:22px 0 0}
   .fc-cmo .launch-dashboard-copy{max-width:690px}
-  .fc-cmo .launch-dashboard-kicker{display:flex;align-items:center;gap:12px;margin:0 0 24px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-  .fc-cmo .launch-dashboard-kicker::before{content:"";width:28px;height:1px;background:currentColor}
   .fc-cmo .launch-dashboard-copy h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,5.7vw,84px);line-height:.96;letter-spacing:-.025em;margin:0;max-width:13ch;color:var(--ink)}
   .fc-cmo .launch-dashboard-copy p{font-size:18px;line-height:1.72;color:var(--ink-2);margin:28px 0 0;max-width:58ch}
-  .fc-cmo .launch-dashboard-preview{position:relative;aspect-ratio:16/9;border:1px solid rgba(26,23,20,.14);border-radius:18px;background:rgba(251,247,241,.46);box-shadow:0 36px 100px -78px rgba(26,23,20,.8);overflow:hidden}
+  .fc-cmo .launch-dashboard-preview{position:relative;width:106%;margin-left:-3%;aspect-ratio:16/9;border:0;border-radius:18px;background:rgba(251,247,241,.46);box-shadow:0 36px 100px -78px rgba(26,23,20,.8);overflow:hidden}
   .fc-cmo .launch-dashboard-preview img{width:100%;height:100%;object-fit:cover}
   .fc-cmo .launch-dashboard-tags{grid-column:1/-1;display:flex;flex-wrap:wrap;border-top:1px solid rgba(26,23,20,.22);border-bottom:1px solid rgba(26,23,20,.1)}
   .fc-cmo .launch-dashboard-tag{flex:1 1 25%;display:flex;align-items:center;gap:14px;min-height:92px;padding:18px 22px;border-right:1px solid rgba(26,23,20,.1);color:var(--ink)}
@@ -216,20 +217,17 @@ const CSS = `
   .fc-cmo .launch-dashboard-capability-icon.klaviyo{flex-basis:66px;width:66px}
   .fc-cmo .launch-dashboard-capability-icon svg{width:30px;height:30px}
   .fc-cmo .launch-dashboard-tag:last-child{border-right:0}
-  .fc-cmo .daily-moments{padding:104px 0 120px;background:#181613;color:#fff;overflow:hidden}
+  .fc-cmo .daily-moments{padding:104px 0 120px;background:var(--bg);color:var(--ink);overflow:hidden}
   .fc-cmo .daily-moments-head{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:56px;align-items:end;margin-bottom:54px}
-  .fc-cmo .daily-moments-kicker{display:flex;align-items:center;gap:12px;margin:0 0 20px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#F2C99A}
-  .fc-cmo .daily-moments-kicker::before{content:"";width:28px;height:1px;background:currentColor}
   .fc-cmo .daily-moments h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(50px,6.4vw,94px);line-height:.94;letter-spacing:-.025em;margin:0;max-width:13ch}
-  .fc-cmo .daily-moments h2 em{font-weight:400;color:#9CC9B5}
-  .fc-cmo .daily-moments-intro{font-size:17px;line-height:1.65;color:rgba(255,255,255,.64);max-width:42ch;margin:0}
+  .fc-cmo .daily-moments h2 em{font-weight:400;color:var(--accent)}
+  .fc-cmo .daily-moments-intro{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:42ch;margin:0}
   .fc-cmo .daily-moments-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(2,minmax(310px,34vw));gap:16px}
   .fc-cmo .daily-moment{position:relative;margin:0;overflow:hidden;background:#2b2824;isolation:isolate}
   .fc-cmo .daily-moment:nth-child(1){grid-column:span 7}
   .fc-cmo .daily-moment:nth-child(2){grid-column:span 5}
-  .fc-cmo .daily-moment:nth-child(3){grid-column:span 4}
-  .fc-cmo .daily-moment:nth-child(4){grid-column:span 4}
-  .fc-cmo .daily-moment:nth-child(5){grid-column:span 4}
+  .fc-cmo .daily-moment:nth-child(3){grid-column:span 6}
+  .fc-cmo .daily-moment:nth-child(4){grid-column:span 6}
   .fc-cmo .daily-moment img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(.97);transition:transform .9s cubic-bezier(.22,1,.36,1),filter .45s ease}
   .fc-cmo .daily-moment:hover img{transform:scale(1.045);filter:saturate(1) contrast(1)}
   .fc-cmo .daily-moment::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.02) 38%,rgba(0,0,0,.82) 100%);pointer-events:none}
@@ -455,6 +453,7 @@ const CSS = `
 
   @media (max-width:960px){
     .fc-cmo .hero-grid{grid-template-columns:1fr}
+    .fc-cmo .hero-grid > div{width:min(60%,600px)}
     .fc-cmo .hero-card{height:auto;aspect-ratio:4/5}
     .fc-cmo .sec-head{grid-template-columns:1fr;padding-top:64px}
     .fc-cmo .cmo-intro{grid-template-columns:1fr;gap:36px}
@@ -510,6 +509,7 @@ const CSS = `
     .fc-cmo .final .body{padding:56px 28px}
   }
   @media (max-width:560px){
+    .fc-cmo .hero-grid > div{width:100%}
     .fc-cmo .nav-links{display:none}
     .fc-cmo .wrap{padding:0 24px}
     .fc-cmo .cmo-grid{grid-template-columns:1fr}
@@ -543,7 +543,7 @@ const CSS = `
     .fc-cmo .retention-statement{font-size:48px;line-height:1;max-width:11ch}
     .fc-cmo .retention-statement h1{font-size:48px;line-height:1;max-width:11ch}
     .fc-cmo .final .body{padding:48px 24px}
-    .fc-cmo .brand-marquee{padding:18px 0}
+    .fc-cmo .brand-marquee{padding:36px 0}
     .fc-cmo .brand-marquee-group{gap:12px;padding-right:12px}
     .fc-cmo .brand-logo-tile{width:96px;padding:16px}
   }
@@ -722,7 +722,7 @@ export default function DtcBrandsLanding() {
       <main className="fc-cmo flex-1">
 
         {/* HERO */}
-        <section className="hero reveal-section">
+        <section className="hero">
           <div className="wrap">
             <div className="hero-grid">
               <div>
@@ -734,7 +734,6 @@ export default function DtcBrandsLanding() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -750,18 +749,6 @@ export default function DtcBrandsLanding() {
                 ))}
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* RETENTION LAYER */}
-        <section className="retention-layer reveal-section">
-          <div className="wrap">
-            <AnimatedText
-              text="FC powers the Physical Layer of Retention Infrastructure"
-              className="retention-statement items-start"
-              textClassName="text-left !font-normal"
-              underlineClassName="w-full"
-            />
           </div>
         </section>
 
@@ -968,10 +955,9 @@ export default function DtcBrandsLanding() {
 
               <article className="launch-dashboard-module">
                 <div className="launch-dashboard-copy">
-                  <span className="launch-dashboard-kicker">FC Dashboard</span>
-                  <h3>Everything needed to launch, all in one dashboard</h3>
+                  <h3>Connect once, sync instantly, launch in minutes.</h3>
                   <p>
-                    FC Dashboard brings together Shopify and Klaviyo integration, coupon syncing, segment-based offers, customer surveys, and journey testing — so brands can quickly launch personalized fridge-based retention experiences without complex setup.
+                    Brands can set up FC Dashboard in minutes by connecting Shopify and Klaviyo — syncing coupons, customer segments, personalized offers, and survey data without complex configuration.
                   </p>
                 </div>
                 <div className="launch-dashboard-preview">
@@ -1028,13 +1014,24 @@ export default function DtcBrandsLanding() {
           </div>
         </section>
 
+        {/* RETENTION LAYER */}
+        <section className="retention-layer reveal-section">
+          <div className="wrap">
+            <AnimatedText
+              text="FC powers the Physical Layer of Retention Infrastructure"
+              className="retention-statement items-start"
+              textClassName="text-left !font-normal"
+              underlineClassName="w-full"
+            />
+          </div>
+        </section>
+
         {/* DAILY KITCHEN MOMENTS */}
         <section className="daily-moments">
           <div className="wrap">
             <div className="daily-moments-head">
               <div>
-                <span className="daily-moments-kicker">Present in the routine</span>
-                <h2>Routine moment. <em>One lasting presence.</em></h2>
+                <h2>Routine moments. <em>One lasting presence.</em></h2>
               </div>
               <p className="daily-moments-intro">
                 Fridge Channel lives where daily decisions already happen — naturally visible from the first coffee through the final kitchen reset.
@@ -1046,35 +1043,28 @@ export default function DtcBrandsLanding() {
                 <img src="/UseScenes/01.png" alt="Morning coffee being prepared in a bright kitchen" />
                 <figcaption>
                   <span className="daily-moment-title">Morning coffee preparation</span>
-                  <span className="daily-moment-number">01 / 05</span>
+                  <span className="daily-moment-number">01 / 04</span>
                 </figcaption>
               </figure>
               <figure className="daily-moment">
                 <img src="/UseScenes/02.png" alt="A customer visiting the fridge during breakfast" />
                 <figcaption>
                   <span className="daily-moment-title">Breakfast fridge visits</span>
-                  <span className="daily-moment-number">02 / 05</span>
+                  <span className="daily-moment-number">02 / 04</span>
                 </figcaption>
               </figure>
               <figure className="daily-moment">
                 <img src="/UseScenes/03.png" alt="A customer using Fridge Channel while preparing a meal" />
                 <figcaption>
                   <span className="daily-moment-title">Cooking and meal prep</span>
-                  <span className="daily-moment-number">03 / 05</span>
-                </figcaption>
-              </figure>
-              <figure className="daily-moment">
-                <img src="/UseScenes/04.png" alt="A customer using Fridge Channel while waiting in the kitchen" />
-                <figcaption>
-                  <span className="daily-moment-title">Family kitchen time</span>
-                  <span className="daily-moment-number">04 / 05</span>
+                  <span className="daily-moment-number">03 / 04</span>
                 </figcaption>
               </figure>
               <figure className="daily-moment">
                 <img src="/UseScenes/05.png" alt="A tidy kitchen and fridge after the meal" />
                 <figcaption>
                   <span className="daily-moment-title">Post-meal cleanup and kitchen reset</span>
-                  <span className="daily-moment-number">05 / 05</span>
+                  <span className="daily-moment-number">04 / 04</span>
                 </figcaption>
               </figure>
             </div>

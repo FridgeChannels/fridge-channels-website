@@ -18,6 +18,7 @@ const navItems = [
 // Preserve the former multi-industry navigation for a future relaunch.
 // The DTC-focused site keeps these routes available but removes their public entrypoints.
 const SHOW_LEGACY_INDUSTRY_NAV = false;
+const SHOW_HEADER_LINKS = false;
 
 export function Navigation() {
   const pathname = usePathname();
@@ -166,7 +167,7 @@ export function Navigation() {
           </a>
 
           {/* Navigation Links - Center (Desktop) */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
+          {SHOW_HEADER_LINKS && <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
 
             {/* Who We Serve Dropdown */}
             {SHOW_LEGACY_INDUSTRY_NAV && <div className="relative group">
@@ -250,10 +251,10 @@ export function Navigation() {
               Trust Center
             </Link>
 
-          </div>
+          </div>}
 
           {/* Mobile menu button */}
-          <div className="lg:hidden ml-auto">
+          {SHOW_HEADER_LINKS && <div className="lg:hidden ml-auto">
             <button
               className={cn(
                 "hover:opacity-80 transition-opacity",
@@ -293,14 +294,14 @@ export function Navigation() {
                 </svg>
               )}
             </button>
-          </div>
+          </div>}
 
           {/* Desktop spacer for symmetry */}
           <div className="hidden lg:block w-6" aria-hidden="true" />
         </div>
       </nav>
 
-      {isMobileMenuOpen && (
+      {SHOW_HEADER_LINKS && isMobileMenuOpen && (
         <div className="fixed inset-0 z-[60]">
           <div
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
