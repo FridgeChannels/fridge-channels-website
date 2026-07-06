@@ -726,8 +726,8 @@ export default function DtcBrandsLanding() {
           <div className="wrap">
             <div className="hero-grid">
               <div>
-                <h1>Turn Every Delivered Order Into a Post-Purchase Growth Surface</h1>
-                <p className="lede">Incentives customers earn — discounts you can control. Segmented starting offers + mission-based rewards unlock the next discount package.</p>
+                <h1>Turn every delivered order into a physical retention channel.</h1>
+                <p className="lede">Email gets buried. SMS gets ignored. FC puts your brand on the fridge door — opened 10+ times a day — helping DTC brands drive repeat purchases, reviews, referrals, and loyalty actions.</p>
 
                 <div className="cta-row">
                   <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
@@ -757,8 +757,8 @@ export default function DtcBrandsLanding() {
           <div className="wrap">
             <div className="sec-head">
               <div>
-                <h2>Built on a moat digital channels can&apos;t copy.</h2>
-                <p className="lede">Not another message channel — a rewarded value exchange customers choose to engage with.</p>
+                <h2>Built on a retention moat no digital channel can copy.</h2>
+                <p className="lede">FC is not a message channel — it&apos;s a <em>rewarded physical presence</em> customers choose to engage with, every day. A magnet on the fridge door can&apos;t be blocked, muted, unsubscribed, or algorithmed away.</p>
               </div>
             </div>
 
@@ -780,7 +780,7 @@ export default function DtcBrandsLanding() {
                 </h3>
                 <h4><span className="metric-number">0</span><span className="metric-label">Algorithm &amp; Ad-Blockers</span></h4>
                 <p>
-                  FC gives brands a hardware-based retention surface they fully control inside the customer&apos;s home.
+                  No algorithm decides who sees your brand. No ad budget keeps the light on. FC is hardware-owned presence — inside the customer&apos;s home, under your full control.
                 </p>
               </div>
               <div className="addon-panel">
@@ -790,7 +790,7 @@ export default function DtcBrandsLanding() {
                 </h3>
                 <h4><span className="metric-number">1</span><span className="metric-label">Tap -&gt; 1 Mission -&gt; Immediate Progress</span></h4>
                 <p>
-                  Each tap moves the customer toward the next reward or discount package, making every household routine part of a clear threshold-based loop.
+                  Every tap earns progress. Every mission unlocks a reward. Daily kitchen routines become a compounding retention loop — with every step measurable.
                 </p>
               </div>
             </div>
@@ -842,7 +842,6 @@ export default function DtcBrandsLanding() {
                 <div className="trend-up">↑ open category</div>
               </div>
             </div>
-            <p className="mech-footnote">Source: NielsenIQ household behavior data; Klaviyo benchmark reports. ~10 fridge opens per household per day. No opt-in. No algorithm. No competing tabs.</p>
           </div>
         </section>
 
@@ -851,7 +850,8 @@ export default function DtcBrandsLanding() {
           <div className="wrap">
             <div className="sec-head">
               <div>
-                <h2>You insert into your fulfillment. FC Run the Rest.</h2>
+                <h2>You drop it in the box. We handle the rest.</h2>
+                <p className="lede">FC designs, manufactures, and ships branded units to your warehouse — ready to include in any order.</p>
               </div>
             </div>
 
@@ -870,9 +870,9 @@ export default function DtcBrandsLanding() {
 
               <article className="what-item content-fusion-card">
                 <div className="what-copy">
-                  <h3>FC-Crafted Habit-Proximity Missions</h3>
+                  <h3>Missions that pull customers back to the brand.</h3>
                   <p>
-                    Every play session is engineered to deepen habit proximity: education missions, story missions, recipe missions, routine missions, offer missions, and loyalty missions — each one a higher-intent retention signal that pulls the customer closer to the brand.
+                    Each 10–30 second play session is designed around your product&apos;s natural home routines — recipe missions, usage tips, brand stories, loyalty challenges, and reorder triggers. Every mission is a measurable retention signal that earns the customer a reward and keeps your brand in the daily loop.
                   </p>
                 </div>
                 <div className="mission-steps" aria-label="How it works">
