@@ -788,7 +788,7 @@ export default function DtcBrandsLanding() {
                   <span className="title-leading">Habit Activation</span>
                   <span className="title-trailing"> &gt; Passive Exposure</span>
                 </h3>
-                <h4><span className="metric-number">1</span><span className="metric-label">Tap -&gt; 1 Mission -&gt; Immediate Progress</span></h4>
+                <h4><span className="metric-number">1</span><span className="metric-label">Tap -&gt; 1 Mission -&gt; 1 Fresh Perk</span></h4>
                 <p>
                   Every tap earns progress. Every mission unlocks a reward. Daily kitchen routines become a compounding retention loop — with every step measurable.
                 </p>
