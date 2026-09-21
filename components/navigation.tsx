@@ -23,6 +23,7 @@ const SHOW_HEADER_LINKS = false;
 export function Navigation() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isChannelNavigation = isHomePage || pathname === "/asin-plus" || pathname === "/who-we-serve/dtcbrands" || pathname === "/who-we-serve/dtc-brands";
   // const isCreatorShortlistPage = pathname === "/creator-shortlist"; // Kept for reference if needed, but primary logic below matches existing
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOnRedBackground, setIsOnRedBackground] = useState(false);
@@ -32,7 +33,7 @@ export function Navigation() {
 
   // Determine current "Who We Serve" page for label display
   const getCurrentWhoWeServe = () => {
-    if (pathname === '/') return 'DTC Brands';
+    if (pathname === '/') return null;
     if (pathname?.includes('/who-we-serve/real-estate')) return 'Real Estate';
     if (pathname?.includes('/who-we-serve/creators-authors')) return 'Creators & Authors';
     if (pathname?.includes('/who-we-serve/universities')) return 'Universities';
@@ -40,6 +41,7 @@ export function Navigation() {
     if (pathname?.includes('/who-we-serve/nonprofits')) return 'NonProfits';
     if (pathname?.includes('/who-we-serve/museums')) return 'Museums';
     if (pathname?.includes('/who-we-serve/chains-franchises')) return 'Franchises & Chains';
+    if (pathname?.includes('/who-we-serve/dtc-brands')) return 'DTC Brands';
     if (pathname?.includes('/who-we-serve/dtcbrands')) return 'DTC Brands';
     if (pathname?.includes('/who-we-serve/exhibition')) return 'Exhibition';
     if (pathname?.includes('/who-we-serve/official-merch')) return 'Official Merch & Fan Commerce';
@@ -56,7 +58,7 @@ export function Navigation() {
       setIsScrolled(window.scrollY > 20);
 
       // Check if we're on the hero section
-      const heroSection = document.getElementById('home');
+      const heroSection = document.getElementById('home') || document.getElementById('top');
       if (heroSection) {
         const rect = heroSection.getBoundingClientRect();
         const navHeight = 80;
@@ -127,7 +129,7 @@ export function Navigation() {
   // Determine styles: 
   const isIndustryPage = !!currentWhoWeServe;
   // If on industry page, we want text to be white (like glass mode) but background transparent
-  const isGlassMode = isOnHeroSection || isOnRedBackground || isIndustryPage;
+  const isGlassMode = !isHomePage && (isOnHeroSection || isOnRedBackground || isIndustryPage);
   const isLightMode = !isGlassMode;
 
   return (
@@ -165,6 +167,15 @@ export function Navigation() {
               isGlassMode ? "text-white" : "text-black"
             )}>Fridge Channel</span>
           </a>
+
+          {isChannelNavigation && <div className={cn(
+            "hidden lg:flex items-center justify-center gap-5 xl:gap-7 flex-1",
+            isGlassMode ? "text-white/90" : "text-gray-700"
+          )}>
+            <Link href="/" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", isHomePage && "font-semibold")}>Home</Link>
+            <Link href="/who-we-serve/dtcbrands" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/who-we-serve/dtcbrands" || pathname === "/who-we-serve/dtc-brands" ? "font-semibold" : "")}>DTC Brands</Link>
+            <Link href="/asin-plus" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/asin-plus" && "font-semibold")}>FC ASIN+</Link>
+          </div>}
 
           {/* Navigation Links - Center (Desktop) */}
           {SHOW_HEADER_LINKS && <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
@@ -254,7 +265,7 @@ export function Navigation() {
           </div>}
 
           {/* Mobile menu button */}
-          {SHOW_HEADER_LINKS && <div className="lg:hidden ml-auto">
+          {(SHOW_HEADER_LINKS || isChannelNavigation) && <div className="lg:hidden ml-auto">
             <button
               className={cn(
                 "hover:opacity-80 transition-opacity",
@@ -301,7 +312,7 @@ export function Navigation() {
         </div>
       </nav>
 
-      {SHOW_HEADER_LINKS && isMobileMenuOpen && (
+      {(SHOW_HEADER_LINKS || isChannelNavigation) && isMobileMenuOpen && (
         <div className="fixed inset-0 z-[60]">
           <div
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
@@ -332,6 +343,11 @@ export function Navigation() {
               </button>
             </div>
             <div className="mt-8 flex flex-col space-y-6">
+              {isChannelNavigation && <>
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">Home</Link>
+                <Link href="/who-we-serve/dtcbrands" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">DTC Brands</Link>
+                <Link href="/asin-plus" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">FC ASIN+</Link>
+              </>}
               {/* Mobile Who We Serve */}
               {SHOW_LEGACY_INDUSTRY_NAV && <div>
                 <button
