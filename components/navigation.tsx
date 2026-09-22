@@ -134,7 +134,7 @@ export function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center">
+      <nav className={cn("fixed top-0 left-0 right-0 z-50 flex items-center justify-center", isChannelNavigation && "creative-channel-nav")}>
         {/* Navigation bar - styled like untillabs */}
         <div
           className={cn(

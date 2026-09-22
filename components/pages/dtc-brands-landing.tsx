@@ -47,6 +47,10 @@ const CSS = `
 
   .fc-cmo nav.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(120%) blur(10px);background:rgba(239,230,219,.85);border-bottom:1px solid var(--line-soft)}
   .fc-cmo nav.top .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .creative-channel-nav{height:72px;color:#1c1b17!important;transition:height .5s cubic-bezier(.22,1,.36,1)}
+  .creative-channel-nav>div{height:58px;width:min(720px,calc(100% - 32px));margin-top:8px;padding-top:8px!important;padding-bottom:8px!important;border-radius:999px;background:rgba(243,242,233,.94)!important;backdrop-filter:blur(14px) saturate(120%);box-shadow:0 8px 30px rgba(28,27,23,.08)}
+  .creative-channel-nav *{color:#1c1b17!important}
+  .creative-channel-nav img{filter:invert(1)!important;opacity:.82!important}
   .fc-cmo .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:18px}
   .fc-cmo .logo .mark{width:26px;height:26px;border-radius:7px;background:var(--ink);display:grid;place-items:center}
   .fc-cmo .logo .mark img{width:16px;height:16px;filter:invert(1)}
@@ -484,6 +488,8 @@ const CSS = `
     .fc-cmo .retention-statement{font-size:48px;line-height:1;max-width:11ch}
     .fc-cmo .retention-statement h1{font-size:48px;line-height:1;max-width:11ch}
     .fc-cmo .final .body{padding:48px 24px}
+    .creative-channel-nav{height:64px}
+    .creative-channel-nav>div{height:56px;width:calc(100% - 20px);padding-inline:20px!important}
   }
 `;
 
