@@ -174,7 +174,7 @@ export function Navigation() {
           )}>
             <Link href="/" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", isHomePage && "font-semibold")}>Home</Link>
             <Link href="/who-we-serve/dtcbrands" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/who-we-serve/dtcbrands" || pathname === "/who-we-serve/dtc-brands" ? "font-semibold" : "")}>DTC Brands</Link>
-            <Link href="/asin-plus" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/asin-plus" && "font-semibold")}>FC ASIN+</Link>
+            <Link href="/asin-plus" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/asin-plus" && "font-semibold")}>FC ASIN</Link>
           </div>}
 
           {/* Navigation Links - Center (Desktop) */}
@@ -346,7 +346,7 @@ export function Navigation() {
               {isChannelNavigation && <>
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">Home</Link>
                 <Link href="/who-we-serve/dtcbrands" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">DTC Brands</Link>
-                <Link href="/asin-plus" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">FC ASIN+</Link>
+                <Link href="/asin-plus" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">FC ASIN</Link>
               </>}
               {/* Mobile Who We Serve */}
               {SHOW_LEGACY_INDUSTRY_NAV && <div>

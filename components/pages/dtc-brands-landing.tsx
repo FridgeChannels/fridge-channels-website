@@ -71,7 +71,9 @@ const CSS = `
   .fc-cmo .reveal-section.is-visible .what-item:nth-child(3),.fc-cmo .reveal-section.is-visible .step:nth-child(3),.fc-cmo .reveal-section.is-visible .addon-panel:nth-child(3){transition-delay:.62s}
   .fc-cmo .reveal-section.is-visible .step:nth-child(4){transition-delay:.82s}
 
-  .fc-cmo .hero{padding:0;min-height:720px;background:linear-gradient(90deg,rgba(26,23,20,.08),rgba(26,23,20,.42),rgba(26,23,20,.72)),url('/贴冰箱贴.png');background-size:cover;background-position:center;display:flex;align-items:flex-end}
+  .fc-cmo .hero{position:relative;isolation:isolate;padding:0;min-height:720px;background:linear-gradient(90deg,rgba(26,23,20,.08),rgba(26,23,20,.42),rgba(26,23,20,.72)),url('/dtc-cmo-pics/dtc-hero-1.png');background-size:cover;background-position:center;display:flex;align-items:flex-end}
+  .fc-cmo .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,23,20,.08),rgba(26,23,20,.42),rgba(26,23,20,.72)),url('/dtc-cmo-pics/dtc-hero-2.png');background-size:cover;background-position:center;opacity:0;transition:opacity .45s ease;pointer-events:none}
+  .fc-cmo .hero:hover::before{opacity:1}
   .fc-cmo .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.4);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
   .fc-cmo .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 4px rgba(200,85,61,.18)}
   .fc-cmo .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,7.2vw,108px);line-height:.95;letter-spacing:-.025em;margin:22px 0 0;max-width:14ch;color:#fff}
@@ -199,6 +201,7 @@ const CSS = `
   .fc-cmo .what-stats.metric-stats .what-stat.numeric-stat b{margin-top:14px}
   .fc-cmo .what-media{position:relative;min-height:430px;background:var(--bg-2);overflow:hidden}
   .fc-cmo .what-media img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.22,1,.36,1)}
+  .fc-cmo .what-media video{display:block;width:100%;height:100%;object-fit:contain}
   .fc-cmo .what-item:hover .what-media img{transform:scale(1.045)}
   .fc-cmo .what-item.balanced{width:100%;max-width:none;margin-inline:0;grid-template-columns:var(--what-media-width,42%) minmax(0,1fr);gap:0;align-items:stretch}
   .fc-cmo .what-item.balanced:not(.flip){grid-template-columns:minmax(0,1fr) var(--what-media-width,42%)}
@@ -214,6 +217,7 @@ const CSS = `
   .fc-cmo .what-list .custom-design-fusion-card .what-copy p{font-size:18px;line-height:1.7;max-width:48ch;margin-top:26px;color:#211a16}
   .fc-cmo .what-list .custom-design-fusion-card .what-media{position:relative;order:2;height:100%!important;aspect-ratio:auto!important;background:transparent!important;align-self:stretch;border-radius:0;overflow:hidden}
   .fc-cmo .what-list .custom-design-fusion-card .what-media img{object-fit:contain!important;object-position:center right}
+  .fc-cmo .what-list .custom-design-fusion-card .what-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center right}
   .fc-cmo .what-item.dashboard-card{grid-template-columns:minmax(0,1fr) minmax(420px,44%)}
   .fc-cmo .what-item.dashboard-card.flip{grid-template-columns:minmax(420px,44%) minmax(0,1fr)}
   .fc-cmo .what-item.dashboard-card .what-media{min-height:320px}
@@ -664,7 +668,7 @@ export default function DtcBrandsLanding() {
                 <p className="lede">Email gets buried. SMS gets ignored. FC puts your brand on the fridge door — opened 10+ times a day — helping DTC brands drive repeat purchases, reviews, referrals, and loyalty actions.</p>
 
                 <div className="cta-row">
-                  <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
+                  <a href="https://form.typeform.com/to/unX2C0hR" target="_blank" rel="noopener noreferrer" className="btn-primary">Request a Sample <span>→</span></a>
                 </div>
               </div>
             </div>
@@ -783,7 +787,7 @@ export default function DtcBrandsLanding() {
                   </p>
                 </div>
                 <div className="what-media">
-                  <img src="/dtc-cmo-pics/dtc-custom-design.png" alt="Custom-designed branded FC unit" />
+                  <video src="/asin-story/drink-rotation.mp4" autoPlay muted loop playsInline aria-label="Drink product rotating" />
                 </div>
               </article>
 
@@ -797,7 +801,7 @@ export default function DtcBrandsLanding() {
                 <div className="mission-steps" aria-label="How it works">
                   <div className="mission-step">
                     <div className="mission-step-visual">
-                      <img src="/dtc-cmo-pics/dtctap.png" alt="Customer taps the fridge magnet" />
+                      <img src="/dtc-cmo-pics/dtctap-vivora.png" alt="Customer taps the branded fridge magnet with a phone" />
                     </div>
                     <div className="mission-step-copy">
                       <b>01</b>
@@ -953,7 +957,7 @@ export default function DtcBrandsLanding() {
               <div className="body">
                 <h2>Own the physical lifecycle channel <em>before your competitors do</em></h2>
                 <div className="cta-row">
-                  <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary">Request a pilot <span>→</span></a>
+                  <a href="https://form.typeform.com/to/unX2C0hR" target="_blank" rel="noopener noreferrer" className="btn-primary">Request a Sample <span>→</span></a>
                 </div>
               </div>
             </div>
