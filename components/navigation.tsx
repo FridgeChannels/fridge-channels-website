@@ -173,8 +173,8 @@ export function Navigation() {
             isGlassMode ? "text-white/90" : "text-gray-700"
           )}>
             <Link href="/" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", isHomePage && "font-semibold")}>Home</Link>
-            <Link href="/who-we-serve/dtcbrands" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/who-we-serve/dtcbrands" || pathname === "/who-we-serve/dtc-brands" ? "font-semibold" : "")}>DTC Brands</Link>
-            <Link href="/asin-plus" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/asin-plus" && "font-semibold")}>FC ASIN</Link>
+            <Link href="/who-we-serve/dtcbrands" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/who-we-serve/dtcbrands" || pathname === "/who-we-serve/dtc-brands" ? "font-semibold" : "")}>For DTC Brands</Link>
+            <Link href="/asin-plus" className={cn("text-sm font-medium whitespace-nowrap transition-colors hover:opacity-70", pathname === "/asin-plus" && "font-semibold")}>For Amazon Brands</Link>
           </div>}
 
           {/* Navigation Links - Center (Desktop) */}
@@ -345,8 +345,8 @@ export function Navigation() {
             <div className="mt-8 flex flex-col space-y-6">
               {isChannelNavigation && <>
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">Home</Link>
-                <Link href="/who-we-serve/dtcbrands" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">DTC Brands</Link>
-                <Link href="/asin-plus" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">FC ASIN</Link>
+                <Link href="/who-we-serve/dtcbrands" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">For DTC Brands</Link>
+                <Link href="/asin-plus" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">For Amazon Brands</Link>
               </>}
               {/* Mobile Who We Serve */}
               {SHOW_LEGACY_INDUSTRY_NAV && <div>
@@ -392,13 +392,6 @@ export function Navigation() {
               </Link>
               */}
 
-              <a href="https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
-                Start a Pilot
-              </a>
-
-              <Link href="/trust" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-semibold text-gray-800">
-                Trust Center
-              </Link>
             </div>
             {SHOW_LEGACY_INDUSTRY_NAV && <div className="mt-auto pt-6">
               <Link

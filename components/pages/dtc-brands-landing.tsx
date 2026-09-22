@@ -406,6 +406,22 @@ const CSS = `
     .fc-cmo .what-list .dashboard-fusion-card{margin-left:-128px}
   }
 
+  @media (max-width:767px){
+    .creative-channel-nav{height:64px}
+    .creative-channel-nav>div{height:56px;width:calc(100% - 20px);padding-inline:20px!important}
+    .fc-cmo .wrap{padding-inline:20px}
+    .fc-cmo .hero{min-height:calc(100svh - 8px);background-position:center center}
+    .fc-cmo .hero-grid{padding:112px 0 48px}
+    .fc-cmo .hero-grid>div{width:100%}
+    .fc-cmo .hero h1{font-size:clamp(46px,12.5vw,74px);line-height:.92;max-width:11ch}
+    .fc-cmo .hero .lede{font-size:16px;line-height:1.5}
+    .fc-cmo .sec-head h2{font-size:clamp(38px,9vw,58px)}
+    .fc-cmo .what-item{grid-template-columns:1fr;min-height:0}
+    .fc-cmo .what-copy{min-height:0;padding:32px 0}
+    .fc-cmo .what-copy h3{font-size:clamp(42px,10vw,64px)}
+    .fc-cmo .final .body{padding:56px 20px}
+  }
+
   @media (max-width:960px){
     .fc-cmo .hero-grid{grid-template-columns:1fr}
     .fc-cmo .hero-grid > div{width:min(60%,600px)}
