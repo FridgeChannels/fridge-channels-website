@@ -108,6 +108,9 @@ const CREATIVE_DIRECTION_CSS = `
   .creative-inc-theme .fc-steps li:hover{transform:translateY(-5px)!important}
   .creative-inc-theme .fc-steps li:before{inset:52px 12px 12px!important;border:0!important;border-radius:6px!important;background:#e5e5e0!important}
   .creative-inc-theme .fc-steps li:nth-child(3n+1):before,.creative-inc-theme .fc-steps li:nth-child(3n):before{background:#e5e5e0!important}
+  .creative-inc-theme .fc-steps li:nth-child(odd):before{background:#171717!important}
+  .creative-inc-theme .fc-steps li:nth-child(even):before{background:#f5f5f0!important}
+  .creative-inc-theme .fc-steps li:nth-child(odd) svg:first-child,.creative-inc-theme .fc-steps li:nth-child(odd)>span:first-of-type,.creative-inc-theme .fc-steps li:nth-child(odd)>span:nth-of-type(2){color:#fff!important}
   .creative-inc-theme .fc-steps li svg:first-child{width:20px!important;height:20px!important;margin:0 0 18px auto!important;color:var(--ci-ink)!important;stroke-width:1.3}
   .creative-inc-theme .fc-steps li>span:first-of-type{font-family:"CI Messina",sans-serif!important;font-size:12px!important;line-height:1!important;letter-spacing:.12em!important;margin:0 0 auto!important;color:var(--ci-muted)!important}
   .creative-inc-theme .fc-steps li>span:nth-of-type(2){font-family:"CI Messina",sans-serif!important;font-weight:400!important;font-size:22px!important;letter-spacing:-.035em;line-height:1.06}
