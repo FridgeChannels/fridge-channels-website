@@ -32,7 +32,7 @@ export default function Homepage() {
       <div className="fc-wrap">
         <section className="fc-hero" id="home">
           <div className="fc-hero-copy"><h1>Turn every delivered order into <em>next purchase.</em></h1><p>Fridge Channel puts your brand on the fridge door—visible throughout everyday household routines and ready to bring customers back with one tap.</p><a className="fc-main-cta" href="#solutions">Find the right FC solution <ArrowRight size={16} /></a></div>
-          <div className="fc-hero-media"><video src="/home-routine/hero-fridge-magnet.mp4" autoPlay muted loop playsInline aria-label="Fridge magnet rotating on a refrigerator" /></div>
+          <div className="fc-hero-media"><video src="https://amzn-s3-fc-bucket.s3.sa-east-1.amazonaws.com/images/videos/hero-fridge-magnet.mp4" autoPlay muted loop playsInline aria-label="Fridge magnet rotating on a refrigerator" /></div>
         </section>
       </div>
       <section className="fc-statement"><div className="fc-wrap fc-statement-inner"><div className="fc-overline">Stay present after delivery</div><div><h2>A brand presence that lives beyond the box.</h2><p>FC turns each equipped order into a persistent, brand-controlled household touchpoint. It keeps the brand visible after the original purchase and creates a direct path from the customer&apos;s home to the brand&apos;s next selected experience.</p></div></div></section>

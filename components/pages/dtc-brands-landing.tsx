@@ -809,7 +809,7 @@ export default function DtcBrandsLanding() {
                   </p>
                 </div>
                 <div className="what-media">
-                  <video src="/asin-story/drink-rotation.mp4" autoPlay muted loop playsInline aria-label="Drink product rotating" />
+                  <video src="https://amzn-s3-fc-bucket.s3.sa-east-1.amazonaws.com/images/videos/drink-rotation.mp4" autoPlay muted loop playsInline aria-label="Drink product rotating" />
                 </div>
               </article>
 

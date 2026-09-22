@@ -68,13 +68,13 @@ export default function AsinPlusLanding() {
               <h2>A physical touchpoint with a digital destination.</h2>
             </div>
             <div className="asin-story-card asin-story-package">
-              <video className="asin-story-media" src="/asin-story/dog-choice.mp4" autoPlay muted loop playsInline aria-label="Dog choosing a branded product" />
+              <video className="asin-story-media" src="https://amzn-s3-fc-bucket.s3.sa-east-1.amazonaws.com/images/videos/dog-choice.mp4" autoPlay muted loop playsInline aria-label="Dog choosing a branded product" />
             </div>
             <div className="asin-story-card asin-story-magnet">
-              <video className="asin-story-media" src="/asin-story/food-rotation.mp4" autoPlay muted loop playsInline aria-label="Food product rotating" />
+              <video className="asin-story-media" src="https://amzn-s3-fc-bucket.s3.sa-east-1.amazonaws.com/images/videos/food-rotation.mp4" autoPlay muted loop playsInline aria-label="Food product rotating" />
             </div>
             <div className="asin-story-card asin-story-phone">
-              <video className="asin-story-media" src="/asin-story/drink-rotation.mp4" autoPlay muted loop playsInline aria-label="Drink product rotating" />
+              <video className="asin-story-media" src="https://amzn-s3-fc-bucket.s3.sa-east-1.amazonaws.com/images/videos/drink-rotation.mp4" autoPlay muted loop playsInline aria-label="Drink product rotating" />
             </div>
             <ol className="asin-story-steps asin-shell">
               {journeySteps.map((step, index) => (
@@ -104,7 +104,7 @@ export default function AsinPlusLanding() {
               <span className="asin-visual-index">02</span>
               <div className="asin-phone">
                 <div className="asin-phone-speaker" />
-                <video className="asin-order-video" src="/asin/order.mov" autoPlay muted loop playsInline aria-label="Order experience on a mobile phone" />
+                <video className="asin-order-video" src="https://amzn-s3-fc-bucket.s3.sa-east-1.amazonaws.com/images/videos/order.mov" autoPlay muted loop playsInline aria-label="Order experience on a mobile phone" />
               </div>
               <div className="asin-tap-pulse"><span>tap</span></div>
             </div>
