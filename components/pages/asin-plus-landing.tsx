@@ -15,6 +15,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Navigation } from "@/components/navigation";
 import { CreativeDirection } from "@/components/creative-direction";
 import { AsinStoryMotion } from "@/components/asin-story-motion";
+import { AsinSampleRequestLink } from "@/components/asin-sample-request-link";
 
 const CALENDLY = "https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting";
 
@@ -169,9 +170,9 @@ export default function AsinPlusLanding() {
             <h2 className="asin-final-hero-title">Make the next purchase happen <em>without search.</em></h2>
             <p className="asin-lede">FC ASIN+ turns every equipped product sold through Amazon into a persistent, attributable, and remotely editable brand entry point in the customer&apos;s home.</p>
             <p className="asin-hero-detail">Ship an NFC-enabled magnet with your product. Customers can tap it anytime to reach a dedicated page within your Amazon Brand Store.</p>
-            <a className="asin-button" href="https://form.typeform.com/to/U1HOEV8k" target="_blank" rel="noreferrer">
+            <AsinSampleRequestLink className="asin-button">
               Request a sample <ArrowRight aria-hidden="true" />
-            </a>
+            </AsinSampleRequestLink>
           </div>
         </section>
 

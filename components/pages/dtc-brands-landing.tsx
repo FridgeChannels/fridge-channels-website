@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { AnimatedText } from "@/components/ui/animated-underline-text-one";
@@ -15,6 +15,29 @@ import { AnimatedText } from "@/components/ui/animated-underline-text-one";
  */
 
 const CALENDLY = "https://calendly.com/billy-fridgechannels/fridge-channel-pilot-meeting";
+const DTC_SAMPLE_REQUEST_PATH = "/who-we-serve/dtcbrands/request-sample";
+
+function DtcSampleRequestLink({ className }: { className: string }) {
+  const [href, setHref] = useState(DTC_SAMPLE_REQUEST_PATH);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const magnetSn = params.get("sn") || params.get("id");
+    if (magnetSn) {
+      setHref(`${DTC_SAMPLE_REQUEST_PATH}?sn=${encodeURIComponent(magnetSn)}`);
+    }
+  }, []);
+
+  return (
+    <a
+      href={href}
+      className={className}
+      onClick={() => window.location.assign(href)}
+    >
+      Request a Sample <span>→</span>
+    </a>
+  );
+}
 
 const CSS = `
   .fc-cmo{
@@ -89,8 +112,8 @@ const CSS = `
   .fc-cmo .micro-list{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:26px;font-size:13.5px;color:var(--ink-2)}
   .fc-cmo .micro-list span{display:inline-flex;align-items:center;gap:8px}
   .fc-cmo .micro-list span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:.55}
-  .fc-cmo .cta-row{display:flex;gap:14px;align-items:center;margin-top:34px;flex-wrap:wrap}
-  .fc-cmo .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;font-weight:500;font-size:15px;transition:transform .2s, background .2s}
+  .fc-cmo .cta-row{position:relative;z-index:2;display:flex;gap:14px;align-items:center;margin-top:34px;flex-wrap:wrap}
+  .fc-cmo .btn-primary{position:relative;z-index:2;pointer-events:auto;cursor:pointer;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;font-weight:500;font-size:15px;transition:transform .2s, background .2s}
   .fc-cmo .btn-primary:hover{background:#000;transform:translateY(-1px)}
   .fc-cmo .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:500;font-size:15px;padding:14px 6px;border-bottom:1px solid var(--ink)}
   .fc-cmo .btn-ghost:hover{color:var(--accent)}
@@ -690,7 +713,7 @@ export default function DtcBrandsLanding() {
                 <p className="lede">Email gets buried. SMS gets ignored. FC puts your brand on the fridge door — opened 10+ times a day — helping DTC brands drive repeat purchases, reviews, referrals, and loyalty actions.</p>
 
                 <div className="cta-row">
-                  <a href="https://form.typeform.com/to/unX2C0hR" target="_blank" rel="noopener noreferrer" className="btn-primary">Request a Sample <span>→</span></a>
+                  <DtcSampleRequestLink className="btn-primary" />
                 </div>
               </div>
             </div>
@@ -979,7 +1002,7 @@ export default function DtcBrandsLanding() {
               <div className="body">
                 <h2>Own the physical lifecycle channel <em>before your competitors do</em></h2>
                 <div className="cta-row">
-                  <a href="https://form.typeform.com/to/unX2C0hR" target="_blank" rel="noopener noreferrer" className="btn-primary">Request a Sample <span>→</span></a>
+                  <DtcSampleRequestLink className="btn-primary" />
                 </div>
               </div>
             </div>
